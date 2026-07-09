@@ -17,7 +17,13 @@ only, LAN only.
   multicast delivery.
 - **B. Patient page & visit compare** → [[2026-07-visit-compare-ui]] —
   timeline per patient, side-by-side progress comparison (the ortho
-  payoff). **← next loop priority.**
+  payoff). Now also carries Chris's 2026-07-09 UX feedback: clickable
+  photos → large view, grouped (not stacked) history, visible on-disk
+  location. **← next loop priority.**
+- **W. Wizard simplification** → [[2026-07-wizard-simplify]] — Chris's
+  feedback: one prompt at a time on the camera's-Wi-Fi path, no
+  troubleshooting wall, green checks collapse after success. UI/flow
+  only; plumbing untouched. After B.
 - **C. Clinic lockdown** → [[2026-07-clinic-lockdown]] — localhost bind,
   PIN + auto-lock, audit log, FileVault/backup docs, no-cloud CI check.
 - **D. USB tether transport (P4a)** — design in repo docs/PTP-PLAN.md;

@@ -40,6 +40,7 @@ per-patient folders in apps built on the SDK. First market: clinics
 - [[2026-07-camera-reconnect]] — power-cycle reconnect field defect (DONE;
   Chris's R6 III drills open)
 - [[2026-07-visit-compare-ui]] — Phase B: patient page & visit compare (CURRENT)
+- [[2026-07-wizard-simplify]] — one-prompt-at-a-time wizard UX (after B)
 - [[2026-07-clinic-lockdown]] — Phase C: localhost, PIN, audit, no-cloud CI
 - Constraint for all product work: [[hipaa-local-first]]
 

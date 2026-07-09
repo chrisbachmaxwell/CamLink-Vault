@@ -190,3 +190,28 @@ goals-README promoted; Phase B [[2026-07-visit-compare-ui]] is CURRENT.
 Caveat kept ON the goal page: the simulator cannot exercise real macOS
 Wi-Fi-hop multicast delivery — Chris's three R6 III drills are the
 hardware proof and stay open under Waiting on Chris.
+
+---
+
+# Addendum 4 (same day): Chris's UX feedback → goal items
+
+Chris's second round of hands-on feedback, translated per Job C:
+1. Wizard camera's-Wi-Fi path: wall of instructions + troubleshooting up
+   front; green doctor checks persist after success. Wants one prompt at
+   a time. → NEW goal [[2026-07-wizard-simplify]] (PLANNED, after Phase
+   B): step-flow module with tests, diagnostics collapse to a single
+   success row, troubleshooting only after failure, copy budget test,
+   plumbing untouched (guard item). Verified the complaint in code:
+   index.html shows both prep lists + "Having trouble?" on one screen;
+   ptp-doctor-steps rows persist.
+2. Photos not clickable + "where are photos stored?" + "sessions stacked
+   on each other" → three new Done-when items ON [[2026-07-visit-compare-ui]]
+   (click-anywhere large view honoring the CR3 rule; grouped collapsible
+   history using the groups /api/sessions already returns; visible
+   on-disk path with copy control), each tagged to his words.
+3. Storage plan itself is sound and unchanged (captures/patients/<id>/
+   visits + manifest + SHA-256, local-only, Phase C hardens) — the gap
+   was visibility, not architecture. Answered Chris directly.
+
+Sequence now: B (CURRENT, feedback folded in) → W wizard-simplify → C
+lockdown → D USB tether. Roadmap/INDEX/goals-README updated.
