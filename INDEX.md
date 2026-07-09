@@ -36,8 +36,8 @@ per-patient folders in apps built on the SDK. First market: clinics
 
 ## Goals (active work loops)
 - [[goals/README]] — loop protocol (Done when / Waiting on Chris / Stop)
-- [[2026-07-patient-records]] — Phase A: local patient index & visits (CURRENT)
-- [[2026-07-visit-compare-ui]] — Phase B: patient page & visit compare
+- [[2026-07-patient-records]] — Phase A: local patient index & visits (DONE)
+- [[2026-07-visit-compare-ui]] — Phase B: patient page & visit compare (CURRENT)
 - [[2026-07-clinic-lockdown]] — Phase C: localhost, PIN, audit, no-cloud CI
 - Constraint for all product work: [[hipaa-local-first]]
 
@@ -46,8 +46,11 @@ per-patient folders in apps built on the SDK. First market: clinics
   every dead end and what each one taught us
 - [[log/2026-07-09-vault-created]] — vault published and wired into SDK
 - [[log/2026-07-09-patient-records-loop]] — Phase A patient records & visits
-- [[log/2026-07-09-architect]] — Phase A review: NOT DONE, flaky gate +
-  SDK folder-traversal defect; required fixes on the goal page
+- [[log/2026-07-09-architect]] — Phase A review (NOT DONE: flaky gate +
+  traversal defect) then re-review (fixes verified → DONE; Phase B
+  pre-flighted)
+- [[log/2026-07-09-architect-fixes]] — worker's fix session for the three
+  architect-required items
 - [[log/2026-07-09-architect-fixes]] — worker landed the three required
   fixes; awaiting architect re-review
 

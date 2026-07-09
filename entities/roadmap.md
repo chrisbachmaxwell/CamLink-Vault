@@ -1,17 +1,16 @@
 # Roadmap — WHAT IS LEFT
 
-Last updated: 2026-07-09 (architect fixes landed; awaiting re-review).
+Last updated: 2026-07-09 (Phase A architect-DONE; Phase B is next).
 Ordered by what makes the app a usable orthodontist product fastest.
 Governing constraint: [[hipaa-local-first]] — local only, LAN only.
 
 ## The four phases (each has/gets a goal page in goals/)
-- 🔶 **A. Patient records & visits** → [[2026-07-patient-records]] —
-  architect-required fixes landed (`db01c8d`, `f4f8a1e`, `3b2b69a`);
-  10/10 `npm test` proof recorded. **← awaiting architect re-review to
-  flip DONE.** Also Waiting on Chris for real-office R6 III sanity.
+- ✅ **A. Patient records & visits** → [[2026-07-patient-records]] — DONE
+  2026-07-09 (architect re-review). Still open there: Chris's real-office
+  R6 III sanity pass (Waiting on Chris).
 - **B. Patient page & visit compare** → [[2026-07-visit-compare-ui]] —
   timeline per patient, side-by-side progress comparison (the ortho
-  payoff). Starts after Phase A is architect-DONE.
+  payoff). **← next loop priority; Phase A dependency satisfied.**
 - **C. Clinic lockdown** → [[2026-07-clinic-lockdown]] — localhost bind,
   PIN + auto-lock, audit log, FileVault/backup docs, no-cloud CI check.
 - **D. USB tether transport (P4a)** — design in repo docs/PTP-PLAN.md;
@@ -37,10 +36,10 @@ an older menu-gen-1 body; Nikon/Sony = new adapters.
 Open data point: which SetRemoteMode value the R6 III accepted.
 
 ## Known debt
-- ~~Flaky adapter-mock storage-order assertion~~ — fixed `db01c8d`
-  (order-independent; 10/10 proof)
-- ~~SDK `folder` path traversal~~ — rejected in CaptureSession constructor
-  `f4f8a1e` (`assertSafeSessionFolder`)
+- `assertSafeSessionFolder('.')` normalizes to `''` → session writes to
+  the storage root instead of throwing (architect probe 2026-07-09).
+  Cosmetic — no containment breach, unreachable from the clinic app; fold
+  into the next SDK-touching goal.
 - Same-Wi-Fi flow untested end-to-end (blocked on router fix)
 - Announcer port-contention detection is boot-time only
 - Keep the unhandled-event tracer forever ([[eos-event-records]])

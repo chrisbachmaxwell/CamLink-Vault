@@ -1,7 +1,7 @@
 # Project status — WHAT IS DONE
 
-Last updated: 2026-07-09 (architect-required fixes landed; awaiting
-re-review). Update this page in the same session as any meaningful repo work.
+Last updated: 2026-07-09 (architect re-review — Phase A DONE). Update this
+page in the same session as any meaningful repo work.
 
 ## Milestones (from the original spec)
 - ✅ M0 monorepo, CI, docs skeleton
@@ -12,11 +12,15 @@ re-review). Update this page in the same session as any meaningful repo work.
 - ✅ Knowledge vault: created, backfilled, published to
   `github.com/chrisbachmaxwell/CamLink-Vault`; SDK `CLAUDE.md` / `AGENTS.md`
   point agents at it
-- 🔶 **Phase A — Patient records & visits** ([[2026-07-patient-records]]):
-  implemented; architect-required fixes landed 2026-07-09 (`db01c8d`
-  flaky gate, `f4f8a1e` folder traversal, `3b2b69a` already-filed test).
-  Status still IN PROGRESS pending architect re-review — do not mark DONE
-  until that flips.
+- ✅ **Phase A — Patient records & visits** ([[2026-07-patient-records]],
+  DONE 2026-07-09, architect re-review): local `patients.json` index
+  (atomic writes, DOB collision keys), nested
+  `patients/<id>-<slug>/visits/<ts>/` via a validated CaptureSession
+  `folder` option (traversal rejected, `f4f8a1e`), create/match API +
+  front-desk UI, history grouped patient → visits (legacy manifests still
+  read), explicit-only unfiled migration, extended smoke. Fixes:
+  `db01c8d` `f4f8a1e` `3b2b69a`. Chris's real-office R6 III sanity pass
+  still open on the goal page.
 - ⏳ Phase B visit-compare UI · Phase C clinic lockdown · Phase D USB tether
   (see [[roadmap]])
 - ⏳ M2 native kits (iOS/Android) — scaffolds only
@@ -33,13 +37,14 @@ re-review). Update this page in the same session as any meaningful repo work.
   render in the session grid via embedded-JPEG `.thumb.jpg` sidecars, with
   a one-time in-app JPEG advisory. See [[canon-eos-r6-mark-iii]].
 
-## Quality gates (worker re-verified 2026-07-09 after architect fixes)
-- `npm run build` green; `node apps/clinic/test/smoke.mjs ptp-simulator` green
-- `npm test`: **10/10 consecutive green** after `db01c8d` (order-independent
-  adapter-mock assertion). SDK session tests now cover folder traversal
-  rejects (absolute / `..` / NUL) + nested accept.
-- Unit/integration tests across 7 workspaces; clinic 18 vitest cases; SDK
-  session suite 15 tests
+## Quality gates (architect independently re-verified 2026-07-09 late)
+- `npm run build` green; `node apps/clinic/test/smoke.mjs ptp-simulator`
+  green (incl. multi-visit + same-name-DOB patient-records checks)
+- `npm test`: **10/10 consecutive green**, run by the architect on top of
+  the worker's own 10/10 (fix `db01c8d`, order-independent adapter-mock
+  assertion). Traversal rejects (absolute / `..` / NUL) probed directly
+  against the built SDK.
+- 89 unit/integration tests across 7 workspaces (clinic 18, sdk 22)
 - Adapter certification suite passes for mock, CCAPI-sim, PTP-sim
 
 ## Where things live

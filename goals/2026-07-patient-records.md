@@ -1,7 +1,7 @@
 # Goal: Patient records & visits (Phase A — the product core)
 
-Status: IN PROGRESS (architect review 2026-07-09 found defects — see
-"Architect review" below) · Created: 2026-07-09 · Owner: work loop
+Status: DONE (architect re-review 2026-07-09 — see below) · Created:
+2026-07-09 · Owner: work loop
 Constraint: LOCAL ONLY — no cloud, no external services ([[hipaa-local-first]]).
 
 ## Why
@@ -78,6 +78,17 @@ When 1–2 land and gates are proven green, the worker re-checks the gates
 box and leaves Status: IN PROGRESS; the architect flips DONE and
 re-promotes [[project-status]] / [[roadmap]] after re-review. (Worker
 landed 1–3 on 2026-07-09 — see Iteration log.)
+
+### Re-review (2026-07-09 late — verdict: DONE)
+Verified the fixes diff `5071486..3b2b69a` and re-ran everything myself:
+build green; **10/10 consecutive full `npm test` runs green** (independent
+of the worker's tally); ptp-simulator smoke green. Traversal probes against
+the built SDK: `../../…`, `/tmp/…`, `C:\…`, `a/../../b`, NUL all rejected;
+nested visit paths accepted. All three fixes are exactly scoped; adapter
+packages untouched. One cosmetic edge, non-blocking, noted on [[roadmap]]:
+`assertSafeSessionFolder('.')` normalizes to `''` (session writes to the
+storage root) instead of throwing — no containment breach, unreachable
+from the clinic app. Status: DONE; summary promoted to [[project-status]].
 
 ## Waiting on Chris (not loopable)
 - [ ] Real-office sanity pass: create 3 patients, 2 visits each, with the

@@ -69,3 +69,39 @@ not design flaws.
 Worker: land required fixes 1–2 (and minor 3) from the goal page, then
 re-check the gates box. Architect: re-review, then DONE + draft nothing
 new — [[2026-07-visit-compare-ui]] already exists for Phase B.
+
+---
+
+# Re-review (same day, later): fixes verified — Phase A DONE
+
+Worker landed `db01c8d` (order-independent adapter-mock assertion),
+`f4f8a1e` (`assertSafeSessionFolder`: rejects absolute POSIX/Windows,
+`..`, NUL), `3b2b69a` (already-filed assertion). Verified independently:
+
+- Diff `5071486..3b2b69a` read in full — exactly the three fixes, nothing
+  else; adapter packages untouched.
+- **10/10 consecutive full `npm test` runs green on my machine** (not
+  taking the worker's tally on faith). Build + ptp-simulator smoke green.
+- Traversal probes against the built SDK: `../../…`, `/tmp/…`, `C:\…`,
+  `a/../../b`, NUL all rejected; legit nested visit path and dotted
+  names (`..foo/bar`) accepted.
+- One cosmetic edge found while probing: `assertSafeSessionFolder('.')`
+  normalizes to `''` (session would write to the storage root) instead
+  of throwing. No containment breach; unreachable from the clinic app.
+  Filed on [[roadmap]] known debt — NOT worth another cycle now.
+
+Decisions:
+- [[2026-07-patient-records]] → Status: DONE; re-review verdict recorded
+  on the page. Summary promoted to [[project-status]] (89 tests / 7
+  workspaces noted); [[roadmap]] Phase A ✅, Phase B promoted to next
+  loop priority, resolved debt lines removed, `'.'` edge added.
+- Phase B pre-flight done on [[2026-07-visit-compare-ui]] while I was in
+  the code: the front end is no-build plain JS with zero browser test
+  tooling, so the old "DOM test or scripted browser check" item was not
+  agent-verifiable as written. Rewrote Done-when: testable logic modules
+  (vitest, jsdom allowed; NO Playwright/Puppeteer), a new
+  visit-photos-by-id endpoint (the one missing data plumbing), smoke
+  extension over janeA's two visits, and a scope guard (no
+  editing/annotations/export/new automation deps).
+
+Phase B is ready for the worker.
