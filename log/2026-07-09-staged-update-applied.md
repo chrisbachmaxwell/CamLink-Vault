@@ -6,11 +6,14 @@
   `claude/staged-vault-update-exxodq` in both repos; vault PR #1, SDK PR #2.
   Confirms the roadmap's "grant Claude GitHub App access to CamLink-Vault
   and select both repos" — a cloud session reached both repos.
-- Mistake caught (in SDK, surfaced by CI on PR #2): `packages/sdk`
-  session test asserted `photoStored` order for two back-to-back captures,
-  but transfers run concurrently so emission order is timing-dependent.
-  Flaked on CI, passed locally 5/5. Fixed by sorting before comparison
-  (commit 8ce8666). Pattern confirmed: order-assert only what the code
-  guarantees; the dedup test already sorted for this reason.
+- Mistake caught (in SDK, surfaced by CI on PR #2): two tests asserted
+  photo order after concurrent transfers, but completion order is
+  timing-dependent — they flaked on CI while passing locally 5/5.
+  `packages/sdk` session test (fixed in 8ce8666), then the
+  `packages/adapter-mock` e2e test failed the same way on the next run
+  (fixed in 74f5e89). Swept every array-order assertion in the repo;
+  those two were the only ones asserting order of concurrent results.
+  Pattern confirmed: order-assert only what the code guarantees — sort
+  first, as the dedup test already did.
 - Commits: vault d83dcf7 (apply update), SDK 1aeef12 (remove staging),
-  SDK 8ce8666 (test fix).
+  SDK 8ce8666 + 74f5e89 (flaky-test fixes).
