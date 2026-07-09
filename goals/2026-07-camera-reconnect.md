@@ -75,12 +75,12 @@ Three mechanisms exist and the scenario falls between them:
 - [x] UI shows the plain-language waiting state while disconnected and
       clears it on reconnect (logic/jsdom test, no new browser-automation
       deps)
-- [ ] Hard-rule regression guard: diff over packages/adapter-canon* shows
+- [x] Hard-rule regression guard: diff over packages/adapter-canon* shows
       no changes to session-handoff, tracer, or GetObjectInfo behavior
       (announcer interface-refresh in adapter-canon-ptp is allowed and
       expected)
-- [ ] All three gates green; pushed
-- [ ] Vault updated: [[clinic-app]] reconnect behavior, [[roadmap]] debt
+- [x] All three gates green; pushed
+- [x] Vault updated: [[clinic-app]] reconnect behavior, [[roadmap]] debt
       line about boot-time-only announcer removed
 
 ## Waiting on Chris (not loopable)
@@ -124,3 +124,4 @@ GUID persistence; no same-Wi-Fi work; no new dependencies.
 - 2026-07-09 · cycle 3: different-address reconnect — watch prefers recent SSDP-search IP, persists new host on success; test moves sim to 127.0.0.2 + injected M-SEARCH. · 0707d63
 - 2026-07-09 · cycle 4: mid-session power cycle — post-reconnect photos land in the same visit folder with intact manifest (session.attach on reconnect). · 33962aa
 - 2026-07-09 · cycle 5: plain-language waiting banner (WAITING_FOR_CAMERA) replaces raw reconnect errors; vitest covers banner helpers. · f07dbb6
+- 2026-07-09 · cycle 6: hard-rule guard script green; vault clinic-app reconnect section + roadmap boot-time debt removed; project-status/INDEX/log updated. All agent-verifiable Done-when checked. Status stays IN PROGRESS. · 1732eac

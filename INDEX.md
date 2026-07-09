@@ -47,6 +47,8 @@ per-patient folders in apps built on the SDK. First market: clinics
   every dead end and what each one taught us
 - [[log/2026-07-09-vault-created]] — vault published and wired into SDK
 - [[log/2026-07-09-patient-records-loop]] — Phase A patient records & visits
+- [[log/2026-07-09-camera-reconnect-loop]] — power-cycle reconnect field
+  defect loop (cycles 1–6); Status IN PROGRESS pending architect + Chris
 - [[log/2026-07-09-architect]] — Phase A review (NOT DONE: flaky gate +
   traversal defect) then re-review (fixes verified → DONE; Phase B
   pre-flighted)

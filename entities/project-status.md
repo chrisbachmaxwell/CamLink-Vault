@@ -1,7 +1,8 @@
 # Project status — WHAT IS DONE
 
-Last updated: 2026-07-09 (architect re-review — Phase A DONE). Update this
-page in the same session as any meaningful repo work.
+Last updated: 2026-07-09 (camera reconnect loop — agent-verifiable items
+landed; Waiting on Chris for R6 III field pass; Status IN PROGRESS). Update
+this page in the same session as any meaningful repo work.
 
 ## Milestones (from the original spec)
 - ✅ M0 monorepo, CI, docs skeleton
@@ -21,6 +22,13 @@ page in the same session as any meaningful repo work.
   read), explicit-only unfiled migration, extended smoke. Fixes:
   `db01c8d` `f4f8a1e` `3b2b69a`. Chris's real-office R6 III sanity pass
   still open on the goal page.
+- ⏳ **R. Camera power-cycle reconnect** ([[2026-07-camera-reconnect]],
+  IN PROGRESS 2026-07-09): announcer interface re-join, server-side
+  reconnect watch (no browser tab), different-address persist, mid-session
+  visit survival, plain-language UI waiting state, hard-rule guard.
+  Agent-verifiable Done-when items checked; Waiting on Chris for R6 III
+  field pass; architect flips DONE after re-review. Branch
+  `cursor/camera-reconnect-de7f` (not yet merged to default).
 - ⏳ Phase B visit-compare UI · Phase C clinic lockdown · Phase D USB tether
   (see [[roadmap]])
 - ⏳ M2 native kits (iOS/Android) — scaffolds only

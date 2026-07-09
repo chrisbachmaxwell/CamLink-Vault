@@ -41,6 +41,25 @@ History groups by patient → visits. See [[2026-07-patient-records]].
 - Test step: blue remote-shutter button AND physical-shutter detection
   (photo pops up with "your shutter press reached the app").
 
+## Power-cycle reconnect (2026-07-09 — [[2026-07-camera-reconnect]])
+- **Server-side reconnect watch** (no browser tab required): when configured
+  for PTP and the camera drops, the server probes the saved host every 2 s
+  (and prefers a recent SSDP-search IP if the camera's DHCP address moved).
+  On success it re-runs connect with the persisted GUID, broadcasts the
+  reconnected state, and persists any new host.
+- **Announcer interface re-join**: multicast memberships re-enumerated every
+  15 s; on interface-set change (Mac hops onto the camera AP) re-joins in
+  place without restarting or changing the pairing GUID.
+- **UI waiting state**: while disconnected, banner reads
+  "Camera is off or not reachable — turn it on and choose CamLink Clinic
+  on the camera. Reconnecting automatically." Clears on reconnect; never
+  dumps raw "no cameras found" errors.
+- **Session survival**: an active visit stays open across the power cycle;
+  `connectCamera()` re-attaches via `session.attach(connection)` so photos
+  after reconnect land in the same visit folder.
+- `cameraFound` remains wizard-only by design — configured reconnect is
+  the server's job, not the browser's.
+
 ## Technical notes
 - Plain JS/HTML/CSS front end, no build step. SSE for live events
   (`camera`, `pairing`, `cameraSearch`, `cameraFound`, `session`,
