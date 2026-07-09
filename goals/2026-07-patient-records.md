@@ -22,7 +22,7 @@ patient's history. Typos and duplicate names must not scatter records.
 ## Done when (agent-verifiable)
 - [x] Patient index module in the clinic app with tests (create, search,
       rename, collision behavior)
-- [ ] Visit folders nest under the patient as designed; manifest carries
+- [x] Visit folders nest under the patient as designed; manifest carries
       patientId + visitId
 - [ ] Wizard-free flow: typing a new name offers "create patient"; typing
       an existing one matches it (test via API)
@@ -44,3 +44,4 @@ Status: BLOCKED and write the blocker in the log.
 ## Iteration log
 (loop appends: date · what changed · commit hash)
 - 2026-07-09 · PatientIndex module (`apps/clinic/src/patients.ts`) + 9 vitest cases (create/search/rename/DOB collision/folder helpers); clinic workspace now runs `vitest` · `af4abc8`
+- 2026-07-09 · CaptureSession `folder`/`patientId`/`visitId`; clinic `visits.ts` + server start-by-patientId → `patients/<id>-<slug>/visits/<ts>/`; manifest fields covered by tests · `dc6cdba`
