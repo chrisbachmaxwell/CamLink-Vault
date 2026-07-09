@@ -62,7 +62,7 @@ Three mechanisms exist and the scenario falls between them:
 - [x] Announcer re-joins multicast when the interface set changes; unit
       test drives the interface-change path (injectable interface lister)
       and asserts re-join without GUID change or announcer restart
-- [ ] Server auto-reconnects without any browser tab: integration test
+- [x] Server auto-reconnects without any browser tab: integration test
       starts the app against the ptp-simulator, kills the simulator
       (app broadcasts disconnected), restarts the simulator, asserts the
       app reconnects by itself within 30 s (SSE `camera` event + API
@@ -120,3 +120,4 @@ GUID persistence; no same-Wi-Fi work; no new dependencies.
   detection — added `listInterfaces` option, `refreshMemberships()` that
   re-joins on interface-set change without GUID change or restart, unit
   test drives the hop. Gates green. · abe0a12
+- 2026-07-09 · cycle 2: server reconnect watch (2 s probe of saved host + SSDP-search IPs; reconnects + persists without browser tab). Integration test drives external PtpIpSimulator stop/restart. · b6baf35
