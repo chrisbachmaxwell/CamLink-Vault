@@ -12,9 +12,12 @@ page in the same session as any meaningful repo work.
 - ✅ Knowledge vault: created, backfilled, published to
   `github.com/chrisbachmaxwell/CamLink-Vault`; SDK `CLAUDE.md` / `AGENTS.md`
   point agents at it
-- ✅ **Phase A — Patient records & visits** ([[2026-07-patient-records]]):
-  local `patients.json` index, nested visit folders, create/match API +
-  front-desk UI, grouped history, explicit unfiled migration, extended smoke
+- 🔶 **Phase A — Patient records & visits** ([[2026-07-patient-records]]):
+  implemented (local `patients.json` index, nested visit folders,
+  create/match API + front-desk UI, grouped history, explicit unfiled
+  migration, extended smoke) but NOT DONE — architect review 2026-07-09
+  found a flaky test gate + an SDK folder-traversal defect; fixes required
+  before DONE
 - ⏳ Phase B visit-compare UI · Phase C clinic lockdown · Phase D USB tether
   (see [[roadmap]])
 - ⏳ M2 native kits (iOS/Android) — scaffolds only
@@ -31,7 +34,11 @@ page in the same session as any meaningful repo work.
   render in the session grid via embedded-JPEG `.thumb.jpg` sidecars, with
   a one-time in-app JPEG advisory. See [[canon-eos-r6-mark-iii]].
 
-## Quality gates (all green as of 2026-07-09 patient-records loop)
+## Quality gates
+- Build + ptp-simulator smoke: verified green (architect, 2026-07-09 late).
+- `npm test` is NOT reliably green: order-dependent assertion in
+  adapter-mock races concurrent session downloads — failed 2 of 3 full
+  runs. Fix is required cycle 1 of [[2026-07-patient-records]].
 - Unit/integration tests across 7 workspaces (SDK + 5 adapter/ptp packages
   + clinic-app); clinic alone has 18 vitest cases
 - Clinic-app smoke (`ptp-simulator`): wizard → session, then two visits for
