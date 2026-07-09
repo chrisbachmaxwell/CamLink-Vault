@@ -96,3 +96,4 @@ Status: BLOCKED and write the blocker in the log.
 - 2026-07-09 · Smoke extended: 2 visits one patient + same-name/different DOB → distinct folders; history groups; legacy stays unfiled · `5071486`
 - 2026-07-09 · Vault [[clinic-app]] / [[project-status]] / [[roadmap]] updated; Phase A agent items DONE (Chris R6 III sanity still Waiting) · (this commit)
 - 2026-07-09 · Architect fix 1: adapter-mock storage assertion order-independent (sort before compare; concurrent downloads stay intentional). Proof: 10/10 consecutive `npm test` green · `db01c8d`
+- 2026-07-09 · Architect fix 2: CaptureSession rejects absolute/`..`/NUL `folder` via assertSafeSessionFolder; tests for each reject + nested accept · `f4f8a1e`
