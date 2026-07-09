@@ -70,7 +70,7 @@ Three mechanisms exist and the scenario falls between them:
 - [x] Reconnect works when the camera comes back on a different address:
       test moves the simulator to a new port/host between cycles, a
       search event carries the new address, app reconnects and persists it
-- [ ] Mid-session power cycle: photos captured after reconnect file into
+- [x] Mid-session power cycle: photos captured after reconnect file into
       the SAME active visit folder with manifest intact (test)
 - [ ] UI shows the plain-language waiting state while disconnected and
       clears it on reconnect (logic/jsdom test, no new browser-automation
@@ -122,3 +122,4 @@ GUID persistence; no same-Wi-Fi work; no new dependencies.
   test drives the hop. Gates green. · abe0a12
 - 2026-07-09 · cycle 2: server reconnect watch (2 s probe of saved host + SSDP-search IPs; reconnects + persists without browser tab). Integration test drives external PtpIpSimulator stop/restart. · b6baf35
 - 2026-07-09 · cycle 3: different-address reconnect — watch prefers recent SSDP-search IP, persists new host on success; test moves sim to 127.0.0.2 + injected M-SEARCH. · 0707d63
+- 2026-07-09 · cycle 4: mid-session power cycle — post-reconnect photos land in the same visit folder with intact manifest (session.attach on reconnect). · 33962aa
