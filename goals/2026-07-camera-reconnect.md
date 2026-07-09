@@ -1,6 +1,6 @@
 # Goal: Camera power-cycle reconnect (field defect — jumps the queue)
 
-Status: PLANNED · Created: 2026-07-09 (from Chris's hands-on R6 III test)
+Status: IN PROGRESS · Created: 2026-07-09 (from Chris's hands-on R6 III test)
 · Owner: work loop
 Constraint: LOCAL ONLY ([[hipaa-local-first]]). Hard rules apply, esp.
 session-handoff and announcer-from-boot ([[session-handoff]], AGENTS.md).
@@ -59,7 +59,7 @@ Three mechanisms exist and the scenario falls between them:
   testing (blocked on router), USB tether.
 
 ## Done when (agent-verifiable)
-- [ ] Announcer re-joins multicast when the interface set changes; unit
+- [x] Announcer re-joins multicast when the interface set changes; unit
       test drives the interface-change path (injectable interface lister)
       and asserts re-join without GUID change or announcer restart
 - [ ] Server auto-reconnects without any browser tab: integration test
@@ -114,3 +114,9 @@ GUID persistence; no same-Wi-Fi work; no new dependencies.
 
 ## Iteration log
 (loop appends: date · what changed · commit hash)
+- 2026-07-09 · cycle 1: verified RCA (UI reconnect polls `/api/connect`;
+  `cameraFound` wizard-only; no server reconnect watcher). Announcer already
+  refreshed membership every 15 s but had no injectable lister / change
+  detection — added `listInterfaces` option, `refreshMemberships()` that
+  re-joins on interface-set change without GUID change or restart, unit
+  test drives the hop. Gates green. · abe0a12

@@ -24,7 +24,10 @@ project's ptpip-canon-helpers + our field validation. (2026-07)
 - Binds UDP 1900 with reuseAddr + SO_REUSEPORT (Node ≥22.12) so port
   squatters like Spotify can't starve us ([[macos-networking-traps]]).
 - Exclusive-bind probe at start records `portContended` for diagnostics.
-- Multicast memberships refreshed every 15 s (networks come and go mid-setup).
+- Multicast memberships re-enumerated every 15 s; on interface-set change
+  (Mac hops onto the camera AP) re-joins in place without restarting or
+  changing the GUID — injectable `listInterfaces` for the unit test
+  (2026-07-09, [[2026-07-camera-reconnect]] cycle 1).
 - Proactive NOTIFY ssdp:alive every 5 s per interface (belt & suspenders;
   CHDK notes cameras may ignore NOTIFY — the M-SEARCH answer is the one
   that must work).
