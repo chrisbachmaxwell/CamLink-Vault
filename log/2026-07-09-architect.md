@@ -155,3 +155,38 @@ Actions:
   under Waiting on Chris with exact commands.
 - [[roadmap]] + [[goals/README]] + [[INDEX]]: reconnect goal is CURRENT,
   Phase B queued behind it. Boot-time-only announcer debt folded in.
+
+---
+
+# Addendum 3 (same day): reconnect loop re-review — DONE, merged
+
+Worker ran 6 cycles on branches `cursor/camera-reconnect-de7f` (SDK) /
+`cursor/camera-reconnect-vault-de7f` (vault). Reviewed the full diff
+(`3b2b69a..1732eac`, 765 insertions) and re-ran gates on the branch
+myself: build green, 3× full `npm test` green (the new reconnect
+integration tests run in-gate: simulator kill/restart, different-address
++ persist-to-disk, mid-session same-visit survival), smoke green,
+hard-rule guard script green.
+
+Adversarial verification highlights:
+- Announcer re-join test proves GUID/socket stability across two
+  simulated hops via an injectable interface lister; from-boot rule and
+  identity intact. The 15 s membership refresh existed before; the
+  worker's honest RCA refinement (change-detection + explicit re-join +
+  immediate NOTIFY on change was the missing piece) is logged.
+- Server watch verified tab-independent: integration test spawns the
+  server with stdio ignored and never opens SSE before asserting
+  reconnect. Watch lifecycle correct (stops on connect/setup change;
+  ignores `client-requested`).
+- Live-session handoff untouched — keepOpen diagnostics test still green;
+  reconnect goes through the normal connect path with the persisted GUID.
+- Hard-rule guard is a reusable script (allow-list + forbidden-token diff
+  scan), a nice pattern to keep for future adapter-adjacent loops.
+
+Actions: fast-forwarded SDK mainline `claude/camera-sdk-adapter-pattern-
+4pj5r8` to `1732eac` and pushed; merged the vault branch into main; goal
+page → Status: DONE with review verdict; project-status/roadmap/INDEX/
+goals-README promoted; Phase B [[2026-07-visit-compare-ui]] is CURRENT.
+Caveat kept ON the goal page: the simulator cannot exercise real macOS
+Wi-Fi-hop multicast delivery — Chris's three R6 III drills are the
+hardware proof and stay open under Waiting on Chris.

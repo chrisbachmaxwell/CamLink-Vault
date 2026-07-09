@@ -1,7 +1,8 @@
 # Goal: Camera power-cycle reconnect (field defect — jumps the queue)
 
-Status: IN PROGRESS · Created: 2026-07-09 (from Chris's hands-on R6 III test)
-· Owner: work loop
+Status: DONE (architect re-review 2026-07-09 late; field drills with the
+real R6 III still open under Waiting on Chris) · Created: 2026-07-09
+(from Chris's hands-on R6 III test) · Owner: work loop
 Constraint: LOCAL ONLY ([[hipaa-local-first]]). Hard rules apply, esp.
 session-handoff and announcer-from-boot ([[session-handoff]], AGENTS.md).
 
@@ -82,6 +83,32 @@ Three mechanisms exist and the scenario falls between them:
 - [x] All three gates green; pushed
 - [x] Vault updated: [[clinic-app]] reconnect behavior, [[roadmap]] debt
       line about boot-time-only announcer removed
+
+## Architect review (2026-07-09 late — verdict: DONE)
+Reviewed diff `3b2b69a..1732eac` in full and ran everything myself on the
+worker's branch: build green, 3× full `npm test` green (reconnect
+integration tests run inside the gate: simulator kill/restart → server
+reconnects in ~3 s; different-address + persist; mid-session photos into
+the same visit), ptp-simulator smoke green, hard-rule guard green.
+Adversarial checks that held:
+- Announcer: `refreshMemberships()` re-joins on interface-set change with
+  injectable lister; unit test proves GUID and sockets unchanged across
+  two hops. From-boot rule intact.
+- Server watch is genuinely tab-independent (integration test spawns the
+  server with `stdio: ignore`, no SSE consumer needed); watch stops on
+  connect/setup-change; `client-requested` disconnects don't trigger it.
+- Reconnect uses the persisted GUID via the normal connect path — no
+  disconnect-reconnect of a live session anywhere; keepOpen handoff test
+  still green.
+- New host persists to camlink-clinic.json only after a successful
+  connect; asserted against the file on disk.
+- Hard-rule guard is a real script (diff allow-list + forbidden-token
+  scan over adapter-canon*), runnable any time, not a one-off claim.
+Merged: SDK branch `cursor/camera-reconnect-de7f` fast-forwarded into
+`claude/camera-sdk-adapter-pattern-4pj5r8` (mainline), vault branch
+merged to main. Chris's three field drills below remain the hardware
+proof — the simulator cannot exercise macOS multicast delivery on a real
+Wi-Fi hop, which was the original field failure.
 
 ## Waiting on Chris (not loopable)
 - [ ] Real power-cycle pass with the R6 III on camera-hotspot mode.

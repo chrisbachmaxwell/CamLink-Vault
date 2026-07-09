@@ -1,7 +1,6 @@
 # Goal: Patient page & visit compare (Phase B — the payoff)
 
-Status: PLANNED (queued behind [[2026-07-camera-reconnect]], the field
-defect from Chris's 2026-07-09 test) · Created: 2026-07-09
+Status: PLANNED (dependencies DONE — ready to start) · Created: 2026-07-09
 Constraint: LOCAL ONLY ([[hipaa-local-first]]).
 
 ## Why

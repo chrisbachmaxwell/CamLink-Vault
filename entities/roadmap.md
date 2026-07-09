@@ -1,23 +1,23 @@
 # Roadmap — WHAT IS LEFT
 
-Last updated: 2026-07-09 (camera reconnect loop — agent-verifiable Done-when
-items landed; Waiting on Chris for R6 III field pass). Ordered by what
-makes the app a usable orthodontist product fastest. Governing constraint:
-[[hipaa-local-first]] — local only, LAN only.
+Last updated: 2026-07-09 (reconnect goal architect-DONE and merged;
+Phase B is next). Ordered by what makes the app a usable orthodontist
+product fastest. Governing constraint: [[hipaa-local-first]] — local
+only, LAN only.
 
 ## The phases (each has/gets a goal page in goals/)
 - ✅ **A. Patient records & visits** → [[2026-07-patient-records]] — DONE
   2026-07-09 (architect re-review). Still open there: Chris's real-office
   R6 III sanity pass (partial 2026-07-09: patient create w/o DOB +
   later session confirmed working; rest blocked on reconnect).
-- 🔥 **R. Camera power-cycle reconnect** → [[2026-07-camera-reconnect]] —
-  field defect from Chris's test. Agent-verifiable Done-when items landed
-  2026-07-09 (announcer re-join, server watch, address move, mid-session
-  visit survival, plain-language UI); Status IN PROGRESS pending architect
-  re-review + Chris's R6 III field pass. **← current loop. Phase B waits.**
+- ✅ **R. Camera power-cycle reconnect** → [[2026-07-camera-reconnect]] —
+  DONE 2026-07-09 (architect re-review; merged to mainline). Hardware
+  proof still open: Chris's three R6 III power-cycle drills (commands on
+  the goal page) — the simulator can't exercise real macOS Wi-Fi-hop
+  multicast delivery.
 - **B. Patient page & visit compare** → [[2026-07-visit-compare-ui]] —
   timeline per patient, side-by-side progress comparison (the ortho
-  payoff). Starts after R.
+  payoff). **← next loop priority.**
 - **C. Clinic lockdown** → [[2026-07-clinic-lockdown]] — localhost bind,
   PIN + auto-lock, audit log, FileVault/backup docs, no-cloud CI check.
 - **D. USB tether transport (P4a)** — design in repo docs/PTP-PLAN.md;
