@@ -1,6 +1,6 @@
 # Goal: Patient records & visits (Phase A — the product core)
 
-Status: IN PROGRESS · Created: 2026-07-09 · Owner: work loop
+Status: DONE · Created: 2026-07-09 · Owner: work loop
 Constraint: LOCAL ONLY — no cloud, no external services ([[hipaa-local-first]]).
 
 ## Why
@@ -28,10 +28,10 @@ patient's history. Typos and duplicate names must not scatter records.
       an existing one matches it (test via API)
 - [x] Session history view groups by patient → visits
 - [x] Migration/unfiled handling for pre-existing session folders, tested
-- [ ] Smoke test extended: two visits for one patient + one for a
+- [x] Smoke test extended: two visits for one patient + one for a
       same-named patient with different DOB file into distinct folders
-- [ ] All three gates green; pushed
-- [ ] Vault updated: [[clinic-app]] page reflects the new model
+- [x] All three gates green; pushed
+- [x] Vault updated: [[clinic-app]] page reflects the new model
 
 ## Waiting on Chris (not loopable)
 - [ ] Real-office sanity pass: create 3 patients, 2 visits each, with the
@@ -48,3 +48,5 @@ Status: BLOCKED and write the blocker in the log.
 - 2026-07-09 · `/api/patients` + `/api/patients/match`; front-desk find/create UI; patients-api HTTP tests · `70ef1ce`
 - 2026-07-09 · History groups by patient→visits (nested + legacy); `/api/sessions` returns `{patients,sessions}` · `6c8a3d2`
 - 2026-07-09 · Unfiled list + explicit `/api/unfiled/file` migration (never auto-move); UI picker · `781a505`
+- 2026-07-09 · Smoke extended: 2 visits one patient + same-name/different DOB → distinct folders; history groups; legacy stays unfiled · `5071486`
+- 2026-07-09 · Vault [[clinic-app]] / [[project-status]] / [[roadmap]] updated; Phase A agent items DONE (Chris R6 III sanity still Waiting) · (this commit)

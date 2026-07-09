@@ -45,6 +45,7 @@ per-patient folders in apps built on the SDK. First market: clinics
 - [[log/2026-07-09-backfill]] — the full field-debugging saga, ordered, with
   every dead end and what each one taught us
 - [[log/2026-07-09-vault-created]] — vault published and wired into SDK
+- [[log/2026-07-09-patient-records-loop]] — Phase A patient records & visits
 
 ## Operations
 - [[vault-maintenance]] — the loops that keep this vault alive

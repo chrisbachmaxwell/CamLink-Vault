@@ -4,12 +4,26 @@
 → http://localhost:3333 · v0.2.0 (version shows in header + boot log)
 
 Built ONLY on public `@camlink/*` APIs — it dogfoods exactly what third-party
-developers get.
+developers get. Governing constraint: [[hipaa-local-first]].
 
 ## Front-desk workflow (the product promise)
-Type patient name → Start session → every photo the photographer takes files
-itself into `captures/<patient>/<timestamp>/` → End session. History list
-per patient. Manifest.json + SHA-256 per session.
+Find or create a patient (search-as-you-type; optional DOB for name
+collisions) → Start visit → every photo files into
+`captures/patients/<id>-<slug>/visits/<ISO-timestamp>/` with
+`manifest.json` carrying `patientId` + `visitId` + SHA-256 → End session.
+History groups by patient → visits. See [[2026-07-patient-records]].
+
+## Patient records (Phase A — 2026-07-09)
+- Local index: `captures/patients.json` (`id`, `name`, optional `dob`/`note`,
+  `createdAt`). No cloud DB.
+- APIs: `GET/POST /api/patients`, `GET /api/patients/match`,
+  `POST /api/session` with `patientId` (preferred) or legacy `patientName`.
+- Collision rule: same name + same DOB rejected; same name + different DOB
+  = distinct records (distinct folders).
+- Legacy flat folders (`captures/<slug>/<timestamp>/`) appear under
+  **Unfiled sessions**; filing into a patient is an explicit
+  `POST /api/unfiled/file` — never auto-moved.
+- History: `GET /api/sessions` → `{ patients: [...visits], sessions: [...] }`.
 
 ## Connection wizard
 - Three tiles: Same Wi-Fi network / Camera's own Wi-Fi / Practice mode
@@ -40,3 +54,5 @@ per patient. Manifest.json + SHA-256 per session.
   `canon` (CCAPI real) | `mock`.
 - Process guards for uncaughtException/unhandledRejection (a camera reset
   once crashed the whole app — never again).
+- Clinic package now has vitest coverage (patient index, visits, history,
+  unfiled, HTTP create/match). Smoke extends to multi-visit + same-name DOB.
