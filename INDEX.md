@@ -34,9 +34,17 @@ per-patient folders in apps built on the SDK. First market: clinics
 - [[home-network-filter]] — Chris's router blocks device-to-device traffic
 - [[test-environment]] — Chris's MacBook: macOS 26.5.1, Node 24, Terminal
 
+## Goals (active work loops)
+- [[goals/README]] — loop protocol (Done when / Waiting on Chris / Stop)
+- [[2026-07-patient-records]] — Phase A: local patient index & visits (CURRENT)
+- [[2026-07-visit-compare-ui]] — Phase B: patient page & visit compare
+- [[2026-07-clinic-lockdown]] — Phase C: localhost, PIN, audit, no-cloud CI
+- Constraint for all product work: [[hipaa-local-first]]
+
 ## Chronicle
 - [[log/2026-07-09-backfill]] — the full field-debugging saga, ordered, with
   every dead end and what each one taught us
+- [[log/2026-07-09-vault-created]] — vault published and wired into SDK
 
 ## Operations
 - [[vault-maintenance]] — the loops that keep this vault alive
