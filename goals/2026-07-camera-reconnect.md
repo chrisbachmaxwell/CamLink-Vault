@@ -67,7 +67,7 @@ Three mechanisms exist and the scenario falls between them:
       (app broadcasts disconnected), restarts the simulator, asserts the
       app reconnects by itself within 30 s (SSE `camera` event + API
       state), no wizard/API nudge
-- [ ] Reconnect works when the camera comes back on a different address:
+- [x] Reconnect works when the camera comes back on a different address:
       test moves the simulator to a new port/host between cycles, a
       search event carries the new address, app reconnects and persists it
 - [ ] Mid-session power cycle: photos captured after reconnect file into
@@ -121,3 +121,4 @@ GUID persistence; no same-Wi-Fi work; no new dependencies.
   re-joins on interface-set change without GUID change or restart, unit
   test drives the hop. Gates green. · abe0a12
 - 2026-07-09 · cycle 2: server reconnect watch (2 s probe of saved host + SSDP-search IPs; reconnects + persists without browser tab). Integration test drives external PtpIpSimulator stop/restart. · b6baf35
+- 2026-07-09 · cycle 3: different-address reconnect — watch prefers recent SSDP-search IP, persists new host on success; test moves sim to 127.0.0.2 + injected M-SEARCH. · 0707d63
