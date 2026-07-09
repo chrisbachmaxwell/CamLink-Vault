@@ -2,6 +2,10 @@
 
 Dated, newest first. One line of context each; details live in linked pages.
 
+- 2026-07-09 — **Vault lives on GitHub, checkpoints are manual.** Private
+  repo `chrisbachmaxwell/CamLink-Vault`, local at `~/CamLink-Vault`, pushed
+  with explicit `git push` (single sync system; Obsidian Git plugin optional
+  later). SDK repo CLAUDE.md points every agent session at it.
 - 2026-07-09 — **RAW handled, JPEG recommended.** CR3 files store fine; grid
   shows embedded-JPEG sidecars; clinics are advised JPEG Large/Fine.
 - 2026-07-09 — **Support the R6 Mark III's 0xc1b6 event** by decoding the
