@@ -27,7 +27,7 @@ patient's history. Typos and duplicate names must not scatter records.
 - [x] Wizard-free flow: typing a new name offers "create patient"; typing
       an existing one matches it (test via API)
 - [x] Session history view groups by patient → visits
-- [ ] Migration/unfiled handling for pre-existing session folders, tested
+- [x] Migration/unfiled handling for pre-existing session folders, tested
 - [ ] Smoke test extended: two visits for one patient + one for a
       same-named patient with different DOB file into distinct folders
 - [ ] All three gates green; pushed
@@ -47,3 +47,4 @@ Status: BLOCKED and write the blocker in the log.
 - 2026-07-09 · CaptureSession `folder`/`patientId`/`visitId`; clinic `visits.ts` + server start-by-patientId → `patients/<id>-<slug>/visits/<ts>/`; manifest fields covered by tests · `dc6cdba`
 - 2026-07-09 · `/api/patients` + `/api/patients/match`; front-desk find/create UI; patients-api HTTP tests · `70ef1ce`
 - 2026-07-09 · History groups by patient→visits (nested + legacy); `/api/sessions` returns `{patients,sessions}` · `6c8a3d2`
+- 2026-07-09 · Unfiled list + explicit `/api/unfiled/file` migration (never auto-move); UI picker · `781a505`
