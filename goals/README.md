@@ -18,9 +18,10 @@ Each goal is ONE page a work loop maintains. Rules:
 - When a goal hits DONE: move its summary to [[project-status]], list any
   follow-ups in [[roadmap]], set Status: DONE. The page stays as history.
 
-Current sequence (do A before B; C after A; D independent):
-1. [[2026-07-patient-records]] (Phase A)
+Current sequence (updated 2026-07-09 — field defect jumps the queue):
+1. [[2026-07-camera-reconnect]] (power-cycle reconnect — CURRENT)
 2. [[2026-07-visit-compare-ui]] (Phase B)
 3. [[2026-07-clinic-lockdown]] (Phase C)
 4. USB tether (Phase D — needs a goal page when its turn comes; design in
    repo docs/PTP-PLAN.md)
+Done: [[2026-07-patient-records]] (Phase A, 2026-07-09).

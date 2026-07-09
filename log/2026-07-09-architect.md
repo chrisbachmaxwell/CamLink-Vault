@@ -119,3 +119,39 @@ paste-ready commands. Encoded it:
   the commands + expected outcome; never prose alone.
 - [[2026-07-patient-records]] — the open R6 III sanity-pass item now
   includes its full command block and steps.
+
+---
+
+# Addendum 2 (same day): Chris's field test → reconnect goal jumps queue
+
+Chris's hands-on feedback, translated per Job C (concrete items, never
+vague notes):
+- Positive: created patients WITHOUT DOB and started sessions with them
+  later — works as intended. Noted as PARTIAL on the Phase A
+  Waiting-on-Chris item.
+- Defect: camera-hotspot power cycle never reconnects. Camera off →
+  correct "disconnected". Camera on again + CamLink chosen + Mac rejoins
+  the camera AP → app stays dead. Terminal shows NO answered searches
+  from 192.168.1.x after the hop; only mesh chatter from 192.168.15.200.
+  The 4 unhandled-event lines he pasted are all documented known-harmless
+  chatter in [[eos-event-records]] (power-off noise) — tracer ruled them
+  out in seconds, exactly its job.
+
+Root-cause reading of the code (worker verifies):
+- UI does poll `/api/connect` every 5 s, but on the camera's own AP the
+  PTP port only opens after the camera's SSDP search is ANSWERED.
+- The announcer joins multicast at boot; nothing re-joins after the Mac
+  hops interfaces onto the camera AP → the search is never heard → the
+  camera gives up → port never opens → poll fails forever.
+- `cameraFound` auto-connect is wizard-only (`if (configured) return`),
+  so a configured app ignores the "camera is back" signal by design.
+
+Actions:
+- New goal [[2026-07-camera-reconnect]] (PLANNED): announcer interface
+  re-join (GUID and from-boot rule preserved), server-side reconnect
+  watcher independent of any browser tab, DHCP-moved-camera handling,
+  mid-session survival test, plain-language waiting state. Simulator
+  kill/restart makes most of it agent-verifiable; real R6 III drills sit
+  under Waiting on Chris with exact commands.
+- [[roadmap]] + [[goals/README]] + [[INDEX]]: reconnect goal is CURRENT,
+  Phase B queued behind it. Boot-time-only announcer debt folded in.

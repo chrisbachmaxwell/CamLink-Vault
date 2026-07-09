@@ -37,7 +37,8 @@ per-patient folders in apps built on the SDK. First market: clinics
 ## Goals (active work loops)
 - [[goals/README]] — loop protocol (Done when / Waiting on Chris / Stop)
 - [[2026-07-patient-records]] — Phase A: local patient index & visits (DONE)
-- [[2026-07-visit-compare-ui]] — Phase B: patient page & visit compare (CURRENT)
+- [[2026-07-camera-reconnect]] — power-cycle reconnect field defect (CURRENT)
+- [[2026-07-visit-compare-ui]] — Phase B: patient page & visit compare (after R)
 - [[2026-07-clinic-lockdown]] — Phase C: localhost, PIN, audit, no-cloud CI
 - Constraint for all product work: [[hipaa-local-first]]
 

@@ -1,16 +1,22 @@
 # Roadmap — WHAT IS LEFT
 
-Last updated: 2026-07-09 (Phase A architect-DONE; Phase B is next).
-Ordered by what makes the app a usable orthodontist product fastest.
-Governing constraint: [[hipaa-local-first]] — local only, LAN only.
+Last updated: 2026-07-09 (Chris's field test found a reconnect defect —
+it jumps the queue ahead of Phase B). Ordered by what makes the app a
+usable orthodontist product fastest. Governing constraint:
+[[hipaa-local-first]] — local only, LAN only.
 
-## The four phases (each has/gets a goal page in goals/)
+## The phases (each has/gets a goal page in goals/)
 - ✅ **A. Patient records & visits** → [[2026-07-patient-records]] — DONE
   2026-07-09 (architect re-review). Still open there: Chris's real-office
-  R6 III sanity pass (Waiting on Chris).
+  R6 III sanity pass (partial 2026-07-09: patient create w/o DOB +
+  later session confirmed working; rest blocked on reconnect).
+- 🔥 **R. Camera power-cycle reconnect** → [[2026-07-camera-reconnect]] —
+  field defect from Chris's test: camera off/on on its own AP never
+  reconnects (announcer deaf after Wi-Fi hop + wizard-only cameraFound).
+  **← next loop priority. Core product promise; jumps Phase B.**
 - **B. Patient page & visit compare** → [[2026-07-visit-compare-ui]] —
   timeline per patient, side-by-side progress comparison (the ortho
-  payoff). **← next loop priority; Phase A dependency satisfied.**
+  payoff). Starts after R.
 - **C. Clinic lockdown** → [[2026-07-clinic-lockdown]] — localhost bind,
   PIN + auto-lock, audit log, FileVault/backup docs, no-cloud CI check.
 - **D. USB tether transport (P4a)** — design in repo docs/PTP-PLAN.md;
@@ -41,7 +47,8 @@ Open data point: which SetRemoteMode value the R6 III accepted.
   Cosmetic — no containment breach, unreachable from the clinic app; fold
   into the next SDK-touching goal.
 - Same-Wi-Fi flow untested end-to-end (blocked on router fix)
-- Announcer port-contention detection is boot-time only
+- Announcer port-contention detection is boot-time only — now part of
+  [[2026-07-camera-reconnect]] (interface re-join)
 - Keep the unhandled-event tracer forever ([[eos-event-records]])
 - Server binds all interfaces today — moves to localhost-default in Phase C
 - Legacy typed-name `POST /api/session { patientName }` still works (smoke

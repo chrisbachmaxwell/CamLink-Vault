@@ -93,6 +93,10 @@ from the clinic app. Status: DONE; summary promoted to [[project-status]].
 ## Waiting on Chris (not loopable)
 - [ ] Real-office sanity pass: create 3 patients, 2 visits each, with the
       R6 III — does the front desk flow feel right?
+      PARTIAL 2026-07-09: Chris created patients without DOB and started
+      sessions with them later — works as intended. The full 3×2 pass is
+      blocked by the power-cycle reconnect defect he found mid-test →
+      [[2026-07-camera-reconnect]]. Re-run this pass after that goal.
 
       To run it:
       ```
