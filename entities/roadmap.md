@@ -1,18 +1,17 @@
 # Roadmap — WHAT IS LEFT
 
-Last updated: 2026-07-09 (after Phase A patient-records loop). Ordered by
-what makes the app a usable orthodontist product fastest. Governing
-constraint: [[hipaa-local-first]] — local only, LAN only.
+Last updated: 2026-07-09 (architect fixes landed; awaiting re-review).
+Ordered by what makes the app a usable orthodontist product fastest.
+Governing constraint: [[hipaa-local-first]] — local only, LAN only.
 
 ## The four phases (each has/gets a goal page in goals/)
 - 🔶 **A. Patient records & visits** → [[2026-07-patient-records]] —
-  implemented, but architect review (2026-07-09) rejected DONE: flaky
-  test gate (adapter-mock order assertion) + SDK `folder` path-traversal
-  defect. **← next loop priority: land the two required fixes on the
-  goal page.** Also Waiting on Chris for real-office R6 III sanity.
+  architect-required fixes landed (`db01c8d`, `f4f8a1e`, `3b2b69a`);
+  10/10 `npm test` proof recorded. **← awaiting architect re-review to
+  flip DONE.** Also Waiting on Chris for real-office R6 III sanity.
 - **B. Patient page & visit compare** → [[2026-07-visit-compare-ui]] —
   timeline per patient, side-by-side progress comparison (the ortho
-  payoff). Starts after Phase A's required fixes.
+  payoff). Starts after Phase A is architect-DONE.
 - **C. Clinic lockdown** → [[2026-07-clinic-lockdown]] — localhost bind,
   PIN + auto-lock, audit log, FileVault/backup docs, no-cloud CI check.
 - **D. USB tether transport (P4a)** — design in repo docs/PTP-PLAN.md;
@@ -38,10 +37,10 @@ an older menu-gen-1 body; Nikon/Sony = new adapters.
 Open data point: which SetRemoteMode value the R6 III accepted.
 
 ## Known debt
-- Flaky test gate: adapter-mock asserts storage order across concurrent
-  downloads (required fix on [[2026-07-patient-records]])
-- SDK `CaptureSessionOptions.folder` accepts `..` traversal; storage
-  providers don't enforce containment (required fix, same goal page)
+- ~~Flaky adapter-mock storage-order assertion~~ — fixed `db01c8d`
+  (order-independent; 10/10 proof)
+- ~~SDK `folder` path traversal~~ — rejected in CaptureSession constructor
+  `f4f8a1e` (`assertSafeSessionFolder`)
 - Same-Wi-Fi flow untested end-to-end (blocked on router fix)
 - Announcer port-contention detection is boot-time only
 - Keep the unhandled-event tracer forever ([[eos-event-records]])

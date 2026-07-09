@@ -1,7 +1,7 @@
 # Project status — WHAT IS DONE
 
-Last updated: 2026-07-09 (patient-records Phase A loop). Update this
-page in the same session as any meaningful repo work.
+Last updated: 2026-07-09 (architect-required fixes landed; awaiting
+re-review). Update this page in the same session as any meaningful repo work.
 
 ## Milestones (from the original spec)
 - ✅ M0 monorepo, CI, docs skeleton
@@ -13,11 +13,10 @@ page in the same session as any meaningful repo work.
   `github.com/chrisbachmaxwell/CamLink-Vault`; SDK `CLAUDE.md` / `AGENTS.md`
   point agents at it
 - 🔶 **Phase A — Patient records & visits** ([[2026-07-patient-records]]):
-  implemented (local `patients.json` index, nested visit folders,
-  create/match API + front-desk UI, grouped history, explicit unfiled
-  migration, extended smoke) but NOT DONE — architect review 2026-07-09
-  found a flaky test gate + an SDK folder-traversal defect; fixes required
-  before DONE
+  implemented; architect-required fixes landed 2026-07-09 (`db01c8d`
+  flaky gate, `f4f8a1e` folder traversal, `3b2b69a` already-filed test).
+  Status still IN PROGRESS pending architect re-review — do not mark DONE
+  until that flips.
 - ⏳ Phase B visit-compare UI · Phase C clinic lockdown · Phase D USB tether
   (see [[roadmap]])
 - ⏳ M2 native kits (iOS/Android) — scaffolds only
@@ -34,16 +33,13 @@ page in the same session as any meaningful repo work.
   render in the session grid via embedded-JPEG `.thumb.jpg` sidecars, with
   a one-time in-app JPEG advisory. See [[canon-eos-r6-mark-iii]].
 
-## Quality gates
-- Build + ptp-simulator smoke: verified green (architect, 2026-07-09 late).
-- `npm test` is NOT reliably green: order-dependent assertion in
-  adapter-mock races concurrent session downloads — failed 2 of 3 full
-  runs. Fix is required cycle 1 of [[2026-07-patient-records]].
-- Unit/integration tests across 7 workspaces (SDK + 5 adapter/ptp packages
-  + clinic-app); clinic alone has 18 vitest cases
-- Clinic-app smoke (`ptp-simulator`): wizard → session, then two visits for
-  one patient + one visit for a same-named patient with different DOB into
-  distinct `patients/<id>/visits/` folders
+## Quality gates (worker re-verified 2026-07-09 after architect fixes)
+- `npm run build` green; `node apps/clinic/test/smoke.mjs ptp-simulator` green
+- `npm test`: **10/10 consecutive green** after `db01c8d` (order-independent
+  adapter-mock assertion). SDK session tests now cover folder traversal
+  rejects (absolute / `..` / NUL) + nested accept.
+- Unit/integration tests across 7 workspaces; clinic 18 vitest cases; SDK
+  session suite 15 tests
 - Adapter certification suite passes for mock, CCAPI-sim, PTP-sim
 
 ## Where things live

@@ -48,6 +48,8 @@ per-patient folders in apps built on the SDK. First market: clinics
 - [[log/2026-07-09-patient-records-loop]] — Phase A patient records & visits
 - [[log/2026-07-09-architect]] — Phase A review: NOT DONE, flaky gate +
   SDK folder-traversal defect; required fixes on the goal page
+- [[log/2026-07-09-architect-fixes]] — worker landed the three required
+  fixes; awaiting architect re-review
 
 ## Operations
 - [[vault-maintenance]] — the loops that keep this vault alive
