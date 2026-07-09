@@ -1,0 +1,47 @@
+# CamLink Vault — INDEX
+
+The map of everything known about the CamLink project. Agents: start here,
+follow links, open only what the trail points at. Never sweep whole folders.
+
+## What CamLink is
+One sentence: a camera-connectivity platform — cameras connect over Wi-Fi
+(USB planned), and as the photographer shoots, photos file themselves into
+per-patient folders in apps built on the SDK. First market: clinics
+(orthodontists, plastic surgeons, med spas, dermatologists).
+
+- [[camlink-sdk]] — the product: architecture, repo layout, current status
+- [[clinic-app]] — the reference app clinics actually use
+- [[project-status]] — WHAT IS DONE (read this first for state)
+- [[roadmap]] — WHAT IS LEFT (read this first for next steps)
+- [[decisions]] — dated log of every decision that shaped the build
+
+## Hardware validated
+- [[canon-eos-r10]] — entry body; quirks: SetRemoteMode 0x2002, degraded mode
+- [[canon-eos-r6-mark-iii]] — 2025 body; new menus, new event record 0xc1b6, CR3
+
+## Protocol knowledge (the moat — none of this is in official docs)
+- [[ptp-ip-protocol]] — the activation-free transport CamLink speaks
+- [[eos-utility-pairing]] — the UPnP/SSDP discovery dance (the hard part)
+- [[eos-event-records]] — the four object-added dialects + the invariant
+- [[session-handoff]] — why you must NEVER disconnect-reconnect a Canon
+- [[remote-shutter-degraded-mode]] — 0x2002, the 0x15 fallback, recovery loop
+- [[canon-ccapi]] — the parked alternative (needs one-time activation)
+- [[adapter-pattern]] — the architecture rule that makes new cameras cheap
+
+## Environment traps (cost days; check BEFORE debugging "camera not found")
+- [[macos-networking-traps]] — Spotify on UDP 1900, Local Network permission,
+  firewall, Wi-Fi auto-hop. THE checklist for silent discovery failures.
+- [[home-network-filter]] — Chris's router blocks device-to-device traffic
+- [[test-environment]] — Chris's MacBook: macOS 26.5.1, Node 24, Terminal
+
+## Chronicle
+- [[log/2026-07-09-backfill]] — the full field-debugging saga, ordered, with
+  every dead end and what each one taught us
+
+## Operations
+- [[vault-maintenance]] — the loops that keep this vault alive
+- [[agent-onboarding]] — paste-ready instructions for future agents/projects
+
+## Rules (also in CLAUDE.md)
+1. One lesson per file. 2. Update, don't duplicate. 3. Delete what's wrong.
+4. Never touch `raw/`.
