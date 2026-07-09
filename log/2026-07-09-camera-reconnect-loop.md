@@ -21,7 +21,7 @@ test; jumps Phase B.
    sim to 127.0.0.2 + injected M-SEARCH.
 4. `33962aa` — mid-session power cycle → same visit folder + manifest.
 5. `f07dbb6` — plain-language WAITING_FOR_CAMERA banner; vitest helpers.
-6.  — hard-rule guard script; vault clinic-app + roadmap;
+6. `1732eac` — hard-rule guard script; vault clinic-app + roadmap;
    all Done-when agent-verifiable boxes checked. Status stays IN PROGRESS.
 
 ## Scope guard held
