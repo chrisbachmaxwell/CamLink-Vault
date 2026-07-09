@@ -105,3 +105,17 @@ Decisions:
   editing/annotations/export/new automation deps).
 
 Phase B is ready for the worker.
+
+---
+
+# Addendum (same day): hands-on-test command rule
+
+Chris asked that every request for real-life testing come with exact
+paste-ready commands. Encoded it:
+- [[test-environment]] — standard hands-on-test preamble block (pull,
+  install, build, start; open localhost:3333; Ctrl+C after; Chris never
+  commits after testing).
+- [[goals/README]] — loop rule: every Waiting-on-Chris item must carry
+  the commands + expected outcome; never prose alone.
+- [[2026-07-patient-records]] — the open R6 III sanity-pass item now
+  includes its full command block and steps.

@@ -3,6 +3,10 @@
 Each goal is ONE page a work loop maintains. Rules:
 - **Done when** items must be agent-verifiable (tests, smoke runs, greppable
   facts) — anything needing Chris's hands goes under **Waiting on Chris**.
+- Every **Waiting on Chris** item must carry exact paste-ready Terminal
+  commands and what he should expect to see — start from the standard
+  preamble in [[test-environment]]. Never ask Chris to test with prose
+  alone. (His rule, 2026-07-09.)
 - Every loop cycle: pull both repos → next unchecked item → implement with
   tests → all three gates green (build / npm test / ptp-simulator smoke) →
   push code → check the box + append one dated line to **Iteration log** →

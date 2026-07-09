@@ -12,7 +12,26 @@
   Local Network permission for Terminal (fixed by reboot → popup → Allow),
   Wi-Fi auto-hop off no-internet networks (fix: Auto-Join OFF on home
   network during camera-hotspot sessions).
-- Repo lives at `~/CamLink-SDK` (a.k.a. `/Users/chrismaxwell/CamLink-SDK`).
+- Repo lives at `~/CamLink-SDK` (a.k.a. `/Users/chrismaxwell/CamLink-SDK`);
+  vault at `~/CamLink-Vault`.
 - Chris is non-technical: instructions must be exact commands + what to
   expect; the app should name problems itself (this shaped [[clinic-app]]'s
   diagnostics).
+
+## Standard hands-on-test preamble (agents: copy this into every request)
+Any "Waiting on Chris" test request MUST include this block verbatim
+(plus test-specific steps and what he should expect to see). Rule added
+2026-07-09 at Chris's request — see [[goals/README]].
+
+```
+cd ~/CamLink-SDK
+git pull
+npm install
+npm run build
+npm start -w @camlink/clinic-app
+```
+
+Then: open http://localhost:3333 in Chrome. Stop the app afterwards with
+Ctrl+C in Terminal. Chris does NOT commit or push anything after testing —
+he reports what he saw in plain words and the architect turns it into
+goal-page items.

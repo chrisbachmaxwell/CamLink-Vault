@@ -94,6 +94,23 @@ from the clinic app. Status: DONE; summary promoted to [[project-status]].
 - [ ] Real-office sanity pass: create 3 patients, 2 visits each, with the
       R6 III — does the front desk flow feel right?
 
+      To run it:
+      ```
+      cd ~/CamLink-SDK
+      git pull
+      npm install
+      npm run build
+      npm start -w @camlink/clinic-app
+      ```
+      Open http://localhost:3333 in Chrome, connect the R6 III through
+      the wizard (Camera's own Wi-Fi), then: type a name → Create patient
+      (add DOB) → Start visit → shoot → End session. Repeat for 3
+      patients, 2 visits each. Expect folders under
+      `captures/patients/<id>-<name>/visits/<timestamp>/` and History
+      grouped by patient. Also try two patients with the SAME name and
+      different DOBs — they must stay separate. When done: Ctrl+C in
+      Terminal, then tell the architect in plain words what felt wrong.
+
 ## Stop clause
 Max 12 cycles, or 2 consecutive cycles with no new checked box → set
 Status: BLOCKED and write the blocker in the log.
