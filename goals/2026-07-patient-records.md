@@ -24,7 +24,7 @@ patient's history. Typos and duplicate names must not scatter records.
       rename, collision behavior)
 - [x] Visit folders nest under the patient as designed; manifest carries
       patientId + visitId
-- [ ] Wizard-free flow: typing a new name offers "create patient"; typing
+- [x] Wizard-free flow: typing a new name offers "create patient"; typing
       an existing one matches it (test via API)
 - [ ] Session history view groups by patient → visits
 - [ ] Migration/unfiled handling for pre-existing session folders, tested
@@ -45,3 +45,4 @@ Status: BLOCKED and write the blocker in the log.
 (loop appends: date · what changed · commit hash)
 - 2026-07-09 · PatientIndex module (`apps/clinic/src/patients.ts`) + 9 vitest cases (create/search/rename/DOB collision/folder helpers); clinic workspace now runs `vitest` · `af4abc8`
 - 2026-07-09 · CaptureSession `folder`/`patientId`/`visitId`; clinic `visits.ts` + server start-by-patientId → `patients/<id>-<slug>/visits/<ts>/`; manifest fields covered by tests · `dc6cdba`
+- 2026-07-09 · `/api/patients` + `/api/patients/match`; front-desk find/create UI; patients-api HTTP tests · `70ef1ce`
