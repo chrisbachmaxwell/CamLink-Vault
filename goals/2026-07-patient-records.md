@@ -1,6 +1,6 @@
 # Goal: Patient records & visits (Phase A — the product core)
 
-Status: PLANNED · Created: 2026-07-09 · Owner: work loop
+Status: IN PROGRESS · Created: 2026-07-09 · Owner: work loop
 Constraint: LOCAL ONLY — no cloud, no external services ([[hipaa-local-first]]).
 
 ## Why
@@ -20,7 +20,7 @@ patient's history. Typos and duplicate names must not scatter records.
   "New visit" button on a patient → session flow as today.
 
 ## Done when (agent-verifiable)
-- [ ] Patient index module in the clinic app with tests (create, search,
+- [x] Patient index module in the clinic app with tests (create, search,
       rename, collision behavior)
 - [ ] Visit folders nest under the patient as designed; manifest carries
       patientId + visitId
@@ -43,3 +43,4 @@ Status: BLOCKED and write the blocker in the log.
 
 ## Iteration log
 (loop appends: date · what changed · commit hash)
+- 2026-07-09 · PatientIndex module (`apps/clinic/src/patients.ts`) + 9 vitest cases (create/search/rename/DOB collision/folder helpers); clinic workspace now runs `vitest` · `af4abc8`
