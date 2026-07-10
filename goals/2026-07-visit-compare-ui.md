@@ -48,29 +48,29 @@ Field feedback folded in (Chris, 2026-07-09, real R6 III session):
       against disk fixtures, incl. RAW-with-sidecar and failed photos)
 - [x] Patient page renders patients → visits → photos from disk state
       (unit tests on the render/shaping modules against fixtures)
-- [ ] Compare mode: two visits side-by-side with A/B large view; pairing
+- [x] Compare mode: two visits side-by-side with A/B large view; pairing
       + keyboard stepping logic covered by unit tests (jsdom ok — no new
       browser automation deps)
-- [ ] Handles visits with zero/failed photos gracefully (tests)
-- [ ] Any photo, anywhere it renders (live session grid, visit grid,
+- [x] Handles visits with zero/failed photos gracefully (tests)
+- [x] Any photo, anywhere it renders (live session grid, visit grid,
       compare), opens a large view on click: JPEG loads full-res on
       demand; RAW opens its sidecar thumb with the existing JPEG
       advisory; Esc/click closes (logic/jsdom tests) — Chris feedback #1
-- [ ] History is grouped, not stacked: the below-session list renders
+- [x] History is grouped, not stacked: the below-session list renders
       patient → collapsible visits using the groups /api/sessions already
       returns; the active session is visually separated from history
       (render-module tests against fixtures) — Chris feedback #3
-- [ ] The visit view shows WHERE photos live: the on-disk folder path
+- [x] The visit view shows WHERE photos live: the on-disk folder path
       (relative under captures/) with a copy-path control, so the front
       desk can find files in Finder (DOM/logic test) — Chris feedback #2
-- [ ] Navigation: search → patient page in 1 click; patient page →
+- [x] Navigation: search → patient page in 1 click; patient page →
       compare in ≤2 more (asserted in a DOM/unit test of the nav flow,
       not by eyeballing)
-- [ ] Smoke extended: after the existing patient-records checks, fetch
+- [x] Smoke extended: after the existing patient-records checks, fetch
       the visit-photos endpoint for both of janeA's visits and assert
       compare-able payloads (photo lists non-empty, thumbs resolve)
-- [ ] All three gates green; pushed
-- [ ] Vault [[clinic-app]] page updated
+- [x] All three gates green; pushed
+- [x] Vault [[clinic-app]] page updated
 
 ## Waiting on Chris
 - [ ] Show a real orthodontist (or front-desk person) and write their
@@ -84,3 +84,6 @@ browser-automation dependencies — roadmap items, not this goal.
 ## Iteration log
 - 2026-07-10 cycle 1: visit-photos endpoint + disk/API tests (JPEG, RAW+sidecar, failed, empty) — `f50b8a9` (branch cursor/visit-compare-6345)
 - 2026-07-10 cycle 2: patient-page + photo-display shaping modules + UI wire-up — `8d60797`
+- 2026-07-10 cycle 3: compare pairing + keyboard stepping — `ae1c05f`
+- 2026-07-10 cycles 4–9: empty/failed, large-view, grouped history, storage-path, nav budgets, smoke visit-photos, clinic-app vault — `eba9194`
+  (Status left IN PROGRESS for architect re-review of the actual diff)

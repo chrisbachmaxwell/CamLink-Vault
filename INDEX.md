@@ -58,6 +58,9 @@ per-patient folders in apps built on the SDK. First market: clinics
   architect-required items
 - [[log/2026-07-10-architect]] — check-in: Phase B not started; two stale
   branches identified (do not merge)
+- [[log/2026-07-10-visit-compare-loop]] — Phase B worker loop; all
+  agent-verifiable Done-when checked (`eba9194`); Status IN PROGRESS
+  for architect re-review
 - [[log/2026-07-09-architect-fixes]] — worker landed the three required
   fixes; awaiting architect re-review
 

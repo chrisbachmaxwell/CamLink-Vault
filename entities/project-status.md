@@ -1,8 +1,8 @@
 # Project status — WHAT IS DONE
 
-Last updated: 2026-07-09 (architect re-review — reconnect goal DONE and
-merged; Phase B is next). Update this page in the same session as any
-meaningful repo work.
+Last updated: 2026-07-10 (Phase B visit-compare worker loop — agent
+Done-when checked; Status IN PROGRESS pending architect re-review).
+Update this page in the same session as any meaningful repo work.
 
 ## Milestones (from the original spec)
 - ✅ M0 monorepo, CI, docs skeleton
@@ -29,8 +29,10 @@ meaningful repo work.
   survival, plain-language UI waiting state, hard-rule guard script.
   Hardware proof still open: Chris's three R6 III power-cycle drills on
   the goal page.
-- ⏳ Phase B visit-compare UI · Phase C clinic lockdown · Phase D USB tether
-  (see [[roadmap]])
+- ⏳ **Phase B visit-compare UI** ([[2026-07-visit-compare-ui]], worker
+  Done-when checked 2026-07-10 on `cursor/visit-compare-6345` tip
+  `eba9194`; Status IN PROGRESS for architect re-review) · Phase C clinic
+  lockdown · Phase D USB tether (see [[roadmap]])
 - ⏳ M2 native kits (iOS/Android) — scaffolds only
 - ⏳ M6 npm publish pipeline — not started
 
