@@ -28,20 +28,34 @@ this note exists so no future agent mistakes them for pending work.
 
 ---
 
-# Addendum: Chris's first reconnect drill — blocked at the network layer
+# Addendum: Chris's first reconnect drill — blocked (cause under diagnosis)
 
 Chris attempted the camera-hotspot connection; camera reached "pairing
-with the computer in progress — start EOS Utility". App never connected.
-Terminal evidence: reconnect watch running, but the ONLY SSDP searches
-answered were from 192.168.15.200 (home mesh) — meaning the Mac was on
-the HOME network while the camera waited on its own AP. Classic
-[[macos-networking-traps]] auto-hop: macOS drops the internet-less camera
-AP and rejoins home Wi-Fi within seconds. Not (yet) evidence against the
-reconnect fix — the Mac wasn't on the camera's network for it to act.
-Gave Chris: `ipconfig getifaddr en0` to see which network he's really
-on, Auto-Join OFF on the home network during camera sessions, then
-re-drill. If it still fails WITH the Mac verifiably on 192.168.1.x, that
-becomes a real defect against [[2026-07-camera-reconnect]].
+with the computer in progress — start EOS Utility". App never connected;
+no "answered a device search" from 192.168.1.x ever appeared.
+
+CORRECTION (same evening): my first read blamed the
+[[macos-networking-traps]] auto-hop because the terminal kept answering
+192.168.15.200 (home mesh). But the app's announce lines carry NO
+timestamps — those answers may all predate the Wi-Fi switch. Chris
+states Auto-Join was OFF and the Mac stayed on the camera's Wi-Fi.
+Withdrawn as the conclusion; auto-hop remains just one hypothesis.
+(Lesson for the app AND future logs: timestamps on announce lines would
+have settled this instantly — added to the fix list.)
+
+Open hypotheses, in structured-diagnosis order (commands sent to Chris):
+1. Camera port 15740 closed until its SSDP search is answered, and the
+   announcer — despite cycle-1's interface re-join — still doesn't hear
+   M-SEARCH on the camera AP on REAL macOS (unit test used injected
+   interfaces; field macOS multicast delivery is the untested layer).
+2. macOS Local Network permission reset (blocks both SSDP and TCP probes
+   silently; "No route to host" signature).
+3. Saved host in camlink-clinic.json differs from the camera's current
+   address, and no SSDP search is heard to supply the fresh IP (ties
+   back to 1).
+Evidence requested: `ipconfig getifaddr en0`, `ping -c 3 192.168.1.2`,
+`nc -vz -G 3 192.168.1.2 15740`, saved-config host value, and whether
+any 192.168.1.x announce line appears while on the camera's Wi-Fi.
 
 Product take-away queued on [[roadmap]]: the reconnect waiting banner
 should self-diagnose the wrong-network case ("this computer is on
