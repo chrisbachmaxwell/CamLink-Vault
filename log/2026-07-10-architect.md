@@ -25,3 +25,26 @@ this note exists so no future agent mistakes them for pending work.
 - Worker: Phase B loop not yet started — prompt already drafted for Chris.
 - Chris: reconnect R6 III drills ([[2026-07-camera-reconnect]]) and the
   Phase A real-office pass ([[2026-07-patient-records]]) both still open.
+
+---
+
+# Addendum: Chris's first reconnect drill — blocked at the network layer
+
+Chris attempted the camera-hotspot connection; camera reached "pairing
+with the computer in progress — start EOS Utility". App never connected.
+Terminal evidence: reconnect watch running, but the ONLY SSDP searches
+answered were from 192.168.15.200 (home mesh) — meaning the Mac was on
+the HOME network while the camera waited on its own AP. Classic
+[[macos-networking-traps]] auto-hop: macOS drops the internet-less camera
+AP and rejoins home Wi-Fi within seconds. Not (yet) evidence against the
+reconnect fix — the Mac wasn't on the camera's network for it to act.
+Gave Chris: `ipconfig getifaddr en0` to see which network he's really
+on, Auto-Join OFF on the home network during camera sessions, then
+re-drill. If it still fails WITH the Mac verifiably on 192.168.1.x, that
+becomes a real defect against [[2026-07-camera-reconnect]].
+
+Product take-away queued on [[roadmap]]: the reconnect waiting banner
+should self-diagnose the wrong-network case ("this computer is on
+<home network>; the camera is broadcasting EOS-XXXX — rejoin it") by
+reusing the wizard's 📻 interface checks. The app must name this trap
+itself instead of an architect reading SSDP lines.

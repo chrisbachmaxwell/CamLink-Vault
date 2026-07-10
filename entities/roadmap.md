@@ -30,6 +30,12 @@ only, LAN only.
   reliability king for offices. Needs a goal page when its turn comes.
 
 ## Also queued
+- Reconnect waiting banner self-diagnoses wrong-network (2026-07-10,
+  from Chris's blocked drill): while the reconnect watch runs, detect
+  "this computer is not on the camera's subnet" (reuse the wizard's 📻
+  interface checks) and say which Wi-Fi to rejoin — macOS auto-hop makes
+  this the #1 real-world failure ([[macos-networking-traps]]). Fold into
+  [[2026-07-wizard-simplify]] or its own small goal.
 - Fix Chris's home/office network filter ([[home-network-filter]]) — need
   router brand/ISP from Chris
 - Package the clinic app for staff (double-click app, no Terminal) — folds
