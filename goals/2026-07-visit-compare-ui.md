@@ -1,6 +1,6 @@
 # Goal: Patient page & visit compare (Phase B — the payoff)
 
-Status: PLANNED (dependencies DONE — ready to start) · Created: 2026-07-09
+Status: IN PROGRESS · Created: 2026-07-09
 Constraint: LOCAL ONLY ([[hipaa-local-first]]).
 
 ## Why
@@ -43,7 +43,7 @@ Field feedback folded in (Chris, 2026-07-09, real R6 III session):
   only ever loads for JPEGs, on demand.
 
 ## Done when (agent-verifiable)
-- [ ] Visit-photos endpoint: given patientId+visitId, returns the visit's
+- [x] Visit-photos endpoint: given patientId+visitId, returns the visit's
       photos with thumb/full URLs from manifest + sidecars (API tests
       against disk fixtures, incl. RAW-with-sidecar and failed photos)
 - [ ] Patient page renders patients → visits → photos from disk state
@@ -82,3 +82,4 @@ Scope guard: no editing/annotations, no export, no printing, no new
 browser-automation dependencies — roadmap items, not this goal.
 
 ## Iteration log
+- 2026-07-10 cycle 1: visit-photos endpoint + disk/API tests (JPEG, RAW+sidecar, failed, empty) — `TODOHASH` (branch cursor/visit-compare-6345)
