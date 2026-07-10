@@ -1,7 +1,7 @@
 # Roadmap — WHAT IS LEFT
 
-Last updated: 2026-07-09 (reconnect goal architect-DONE and merged;
-Phase B is next). Ordered by what makes the app a usable orthodontist
+Last updated: 2026-07-10 (Phase B worker Done-when checked; awaiting
+architect re-review). Ordered by what makes the app a usable orthodontist
 product fastest. Governing constraint: [[hipaa-local-first]] — local
 only, LAN only.
 
@@ -17,9 +17,10 @@ only, LAN only.
   multicast delivery.
 - **B. Patient page & visit compare** → [[2026-07-visit-compare-ui]] —
   timeline per patient, side-by-side progress comparison (the ortho
-  payoff). Now also carries Chris's 2026-07-09 UX feedback: clickable
-  photos → large view, grouped (not stacked) history, visible on-disk
-  location. **← next loop priority.**
+  payoff). Chris's 2026-07-09 UX feedback folded in (clickable photos,
+  grouped history, visible on-disk location). Worker checked all
+  agent-verifiable Done-when items 2026-07-10 (`eba9194`); Status
+  IN PROGRESS until architect re-reviews the diff. **← architect next.**
 - **W. Wizard simplification** → [[2026-07-wizard-simplify]] — Chris's
   feedback: one prompt at a time on the camera's-Wi-Fi path, no
   troubleshooting wall, green checks collapse after success. UI/flow

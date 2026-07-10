@@ -25,6 +25,22 @@ History groups by patient → visits. See [[2026-07-patient-records]].
   `POST /api/unfiled/file` — never auto-moved.
 - History: `GET /api/sessions` → `{ patients: [...visits], sessions: [...] }`.
 
+## Patient page & visit compare (Phase B — 2026-07-10)
+Goal: [[2026-07-visit-compare-ui]] (IN PROGRESS — architect re-review).
+Branch: `cursor/visit-compare-6345` (tip `eba9194`).
+- `GET /api/visit-photos?patientId=&visitId=` — photos + thumb/full URLs
+  from manifest + `.thumb.jpg` sidecars (JPEG / RAW+sidecar / failed / empty).
+- Patient page: click a history patient → timeline of visits with photo
+  grids, on-disk `captures/…` path + Copy path control.
+- Compare: pick two visits → side-by-side grids → A/B large view; arrow
+  keys step pairs (`public/compare.js`).
+- Click any photo (live session, visit grid, compare) → large view;
+  JPEG full-res on demand; RAW uses sidecar only (never CR3 in `<img>`).
+- History grouped patient → visits via `history-render.js`; live session
+  banner separated from history (`hist-active-session`).
+- Front-end logic in small ESM modules under `public/` (vitest + jsdom);
+  no Playwright/Puppeteer. Smoke asserts visit-photos for both janeA visits.
+
 ## Connection wizard
 - Three tiles: Same Wi-Fi network / Camera's own Wi-Fi / Practice mode
   (simulator). CCAPI hidden behind an "Advanced" link. (Chris explicitly
@@ -68,10 +84,15 @@ History groups by patient → visits. See [[2026-07-patient-records]].
   old UI through three updates — never again).
 - RAW (CR3) shots: camera's embedded JPEG preview saved as
   `<file>.thumb.jpg` sidecar; grid renders it; one-time banner advises
-  switching the camera to JPEG for clinic use.
+  switching the camera to JPEG for clinic use. Phase B large view and
+  compare obey the same rule (`photo-display.js` / `large-view.js`).
+- Testable ESM modules: `reconnect-messages.js`, `photo-display.js`,
+  `patient-page.js`, `compare.js`, `large-view.js`, `history-render.js`,
+  `storage-path.js`, `nav.js` (jsdom ok; no browser-automation deps).
 - Modes: `ptp` (real camera) | `ptp-simulator` | `simulator` (CCAPI sim) |
   `canon` (CCAPI real) | `mock`.
 - Process guards for uncaughtException/unhandledRejection (a camera reset
   once crashed the whole app — never again).
-- Clinic package now has vitest coverage (patient index, visits, history,
-  unfiled, HTTP create/match). Smoke extends to multi-visit + same-name DOB.
+- Clinic package vitest coverage includes patient index, visits, history,
+  unfiled, visit-photos, patient-page/compare/large-view/nav, HTTP APIs.
+  Smoke extends to multi-visit + same-name DOB + visit-photos compare payloads.
