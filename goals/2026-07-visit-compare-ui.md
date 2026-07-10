@@ -46,7 +46,7 @@ Field feedback folded in (Chris, 2026-07-09, real R6 III session):
 - [x] Visit-photos endpoint: given patientId+visitId, returns the visit's
       photos with thumb/full URLs from manifest + sidecars (API tests
       against disk fixtures, incl. RAW-with-sidecar and failed photos)
-- [ ] Patient page renders patients → visits → photos from disk state
+- [x] Patient page renders patients → visits → photos from disk state
       (unit tests on the render/shaping modules against fixtures)
 - [ ] Compare mode: two visits side-by-side with A/B large view; pairing
       + keyboard stepping logic covered by unit tests (jsdom ok — no new
@@ -82,4 +82,5 @@ Scope guard: no editing/annotations, no export, no printing, no new
 browser-automation dependencies — roadmap items, not this goal.
 
 ## Iteration log
-- 2026-07-10 cycle 1: visit-photos endpoint + disk/API tests (JPEG, RAW+sidecar, failed, empty) — `TODOHASH` (branch cursor/visit-compare-6345)
+- 2026-07-10 cycle 1: visit-photos endpoint + disk/API tests (JPEG, RAW+sidecar, failed, empty) — `f50b8a9` (branch cursor/visit-compare-6345)
+- 2026-07-10 cycle 2: patient-page + photo-display shaping modules + UI wire-up — `8d60797`
