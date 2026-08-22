@@ -1,66 +1,39 @@
-# Roadmap — WHAT IS LEFT
+# roadmap — WHAT IS LEFT
 
-Last updated: 2026-07-09 (reconnect goal architect-DONE and merged;
-Phase B is next). Ordered by what makes the app a usable orthodontist
-product fastest. Governing constraint: [[hipaa-local-first]] — local
-only, LAN only.
+Rewritten 2026-08-22. Ordered by Chris's priorities. Governing
+constraint: [[hipaa-local-first]].
 
-## The phases (each has/gets a goal page in goals/)
-- ✅ **A. Patient records & visits** → [[2026-07-patient-records]] — DONE
-  2026-07-09 (architect re-review). Still open there: Chris's real-office
-  R6 III sanity pass (partial 2026-07-09: patient create w/o DOB +
-  later session confirmed working; rest blocked on reconnect).
-- ✅ **R. Camera power-cycle reconnect** → [[2026-07-camera-reconnect]] —
-  DONE 2026-07-09 (architect re-review; merged to mainline). Hardware
-  proof still open: Chris's three R6 III power-cycle drills (commands on
-  the goal page) — the simulator can't exercise real macOS Wi-Fi-hop
-  multicast delivery.
-- **B. Patient page & visit compare** → [[2026-07-visit-compare-ui]] —
-  timeline per patient, side-by-side progress comparison (the ortho
-  payoff). Now also carries Chris's 2026-07-09 UX feedback: clickable
-  photos → large view, grouped (not stacked) history, visible on-disk
-  location. **← next loop priority.**
-- **W. Wizard simplification** → [[2026-07-wizard-simplify]] — Chris's
-  feedback: one prompt at a time on the camera's-Wi-Fi path, no
-  troubleshooting wall, green checks collapse after success. UI/flow
-  only; plumbing untouched. After B.
-- **C. Clinic lockdown** → [[2026-07-clinic-lockdown]] — localhost bind,
-  PIN + auto-lock, audit log, FileVault/backup docs, no-cloud CI check.
-- **D. USB tether transport (P4a)** — design in repo docs/PTP-PLAN.md;
-  reliability king for offices. Needs a goal page when its turn comes.
+## Now (active)
+1. **R5 Mark II FTP dialect** — [[2026-08-r5ii-ftp-dialect]]: read the
+   relay's FTP conversation trace, fix whatever the body speaks, prove
+   "works for all FTP cameras" (Chris's words).
+2. **Field-close multi-room** — a second body as `room-2` in the office
+   ([[2026-09-multi-room]], last unchecked box).
 
-## Also queued
-- Reconnect waiting banner self-diagnoses wrong-network (2026-07-10,
-  from Chris's blocked drill): while the reconnect watch runs, detect
-  "this computer is not on the camera's subnet" (reuse the wizard's 📻
-  interface checks) and say which Wi-Fi to rejoin — macOS auto-hop makes
-  this the #1 real-world failure ([[macos-networking-traps]]). Fold into
-  [[2026-07-wizard-simplify]] or its own small goal.
-- Fix Chris's home/office network filter ([[home-network-filter]]) — need
-  router brand/ISP from Chris
-- Package the clinic app for staff (double-click app, no Terminal) — folds
-  naturally after Phase C
-- Vault ops: schedule [[vault-maintenance]] loops; wikilink→markdown-link
-  conversion for GitHub browsing
-- M6 npm publish pipeline · M2 native kits · CCAPI keep-or-remove decision
-- Adapter certification doc for third-party authors
-- Windows validation pass
-- Wizard test step: warn when the test file is RAW
-- Retake/delete UI in sessions (clinic feedback anticipated) — soft-delete
-  to `.trash/` per [[hipaa-local-first]]
+## Next
+3. **FTPS + BAA hosting + compliance sign-off** — the hard gate before
+   ANY patient photo touches the relay (repo docs/CLOUD-RELAY-PLAN.md).
+   Includes per-clinic relay accounts issued at install time (replaces
+   the built-in shared prototype account; rotates the burned pull token
+   and FTP password).
+4. **Auto-install updates at 6 AM when no visit is active** — offered
+   2026-08-22, awaiting Chris's go; small change on top of
+   [[in-app-updates]].
 
-## Hardware matrix to grow
-Validated: EOS R10, EOS R6 Mark III. Next: R50/R8, R5 Mark II, a PowerShot,
-an older menu-gen-1 body; Nikon/Sony = new adapters.
-Open data point: which SetRemoteMode value the R6 III accepted.
+## Later
+5. **Distribution: Electron/Tauri single-download signed app** with
+   auto-update — trigger: first outside clinic onboards (decision
+   2026-08-21 in [[decisions]]). Interim shipped: installer + app-mode.
+6. **Med Photo Box** — GL.iNet Beryl AX travel-router kit for hostile
+   clinic networks (repo docs/MED-PHOTO-BOX.md; hardware sourced).
+7. **USB tether (Phase D)** — `@medphoto/adapter-usb`; design in repo
+   docs/PTP-PLAN.md.
+8. **Clinic lockdown (Phase C)** — [[2026-07-clinic-lockdown]]: PIN,
+   audit log, no-cloud CI guard.
+9. **Other FTP vendors** (Sony/Nikon/Fuji pro bodies) — adapter is
+   vendor-agnostic by design; needs per-vendor field proof.
 
-## Known debt
-- `assertSafeSessionFolder('.')` normalizes to `''` → session writes to
-  the storage root instead of throwing (architect probe 2026-07-09).
-  Cosmetic — no containment breach, unreachable from the clinic app; fold
-  into the next SDK-touching goal.
-- Same-Wi-Fi flow untested end-to-end (blocked on router fix)
-- Keep the unhandled-event tracer forever ([[eos-event-records]])
-- Server binds all interfaces today — moves to localhost-default in Phase C
-- Legacy typed-name `POST /api/session { patientName }` still works (smoke
-  uses it) but new UI prefers `patientId`; consider deprecating after Phase B
+## Done recently (details in [[project-status]])
+Multi-room · earlier-photo guard · honest presence · in-app updates ·
+Mac app installer · home redesign + flow rules · cloud relay on Railway ·
+FTP push transport · Med Photo rename (all 2026-08-21/22).

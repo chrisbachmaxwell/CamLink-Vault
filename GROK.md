@@ -1,7 +1,6 @@
-# Med Photo Vault — agent instructions (Claude)
+# Med Photo Vault — agent instructions (Grok)
 
-(AGENTS.md and GROK.md are this file's mirrors for other tools — KEEP ALL
-THREE IN SYNC.)
+(CLAUDE.md and AGENTS.md are this file's mirrors — KEEP ALL THREE IN SYNC.)
 
 You are inside the knowledge vault — the PROJECT BRAIN — for **Med Photo**
 (formerly CamLink; renamed 2026-08-21): camera → app → patient-folder

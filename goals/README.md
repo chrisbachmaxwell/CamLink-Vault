@@ -27,3 +27,15 @@ Current sequence (updated 2026-07-09 late):
    repo docs/PTP-PLAN.md)
 Done: [[2026-07-patient-records]] (Phase A) ·
 [[2026-07-camera-reconnect]] (reconnect defect) — both 2026-07-09.
+
+Current sequence (updated 2026-08-22 — supersedes the list above):
+1. [[2026-08-r5ii-ftp-dialect]] — CURRENT: R5 Mark II / all-FTP-cameras
+2. [[2026-09-multi-room]] — BUILT; only the second-body field box open
+3. [[2026-08-simplicity-pass]] — largely shipped in the 2026-08-21 flow
+   overhaul; reconcile its boxes against [[project-status]]
+4. [[2026-07-clinic-lockdown]] (Phase C)
+Done since July: [[2026-07-visit-compare-ui]] (shipped inside the
+2026-08 redesign) · [[2026-07-wizard-simplify]] (superseded by
+[[design-doctrine]]'s wizard escape-hatches + zero-typing relay).
+Gates are now SIX (build · unit · smoke ptp-simulator · smoke ftp ·
+smoke multi-room · browser ui-gate) — "all three gates" above is stale.
