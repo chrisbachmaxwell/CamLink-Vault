@@ -2,6 +2,15 @@
 
 Dated, newest first. One line of context each; details live in linked pages.
 
+- 2026-08-24 — **Left drawer shell + dashboard home** (Chris, with
+  reference screenshots — reverses 2026-08-21 "no left sidebar", whose
+  own revisit condition — real destinations — is now met). FOUR
+  destinations, ≤3 clicks deep: Home (dashboard: Start a visit, In
+  progress, Cameras at a glance, Today), Patients (search → patient →
+  compare; unfiled lives here), Cameras, Settings (bottom of drawer:
+  People, updates, connection, IT guide, sign out; company/multi-office
+  later). Update chip sits at the drawer's bottom. Roles trim the
+  drawer. [[design-doctrine]]
 - 2026-08-24 — **A photo that reaches us can never vanish.** A capture
   arriving with no visit open is filed into a held "Photo without a
   visit (<camera>)" session in Unfiled — never dropped. Born from the
