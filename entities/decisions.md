@@ -2,6 +2,20 @@
 
 Dated, newest first. One line of context each; details live in linked pages.
 
+- 2026-08-24 — **The patient library lists PATIENT RECORDS, never
+  folders** (Chris: orphaned photos in the list "was a mistake").
+  System/buffer sessions and legacy name-only folders never pose as
+  patients; verification happens AT CAPTURE TIME via the live banners
+  — the photographer confirms photos land on the right patient while
+  shooting. Unfiled section removed from the library. Photos on disk
+  are still never deleted. [[2026-09-patient-library]]
+- 2026-08-24 — **A visit without photos is not a visit.** Ending a
+  0-photo visit saves nothing (folder discarded only after verifying
+  it holds nothing but its manifest); 0-photo visits are hidden from
+  all listings. [[2026-09-patient-library]]
+- 2026-08-24 — **Photos are for looking at and taking with you**:
+  full-screen gallery (arrows, filename, taken time) + per-photo
+  download + whole-visit zip, RAW included. [[2026-09-patient-library]]
 - 2026-08-24 — **Left drawer shell + dashboard home** (Chris, with
   reference screenshots — reverses 2026-08-21 "no left sidebar", whose
   own revisit condition — real destinations — is now met). FOUR

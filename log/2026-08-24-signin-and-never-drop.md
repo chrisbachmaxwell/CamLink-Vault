@@ -87,3 +87,15 @@ later wave — the session itself already shows in Unfiled).
   to JPEG". Gate-enforced: a .NEF push must produce the model-specific
   banner. DECIDED: no RAW preview extraction — clinics shoot JPEG;
   RAW is stored safely but steered away from.
+
+## Addendum 3: drawer shipped (v0.14.0); patient library direction (v0.15.0)
+- v0.14.0 left-drawer shell + dashboard home shipped (see decisions +
+  docs/DESIGN.md screen map). Delivered via GitHub API file commits —
+  workspace git transport to GitHub down all evening; every file
+  blob-SHA-verified against the gate-tested local commit.
+- Chris field feedback on the Patients area → goal
+  [[goals/2026-09-patient-library]]: search-first library of PATIENT
+  RECORDS (no folder orphans, Unfiled section removed — capture-time
+  banners are the filing moment; photos on disk still never deleted),
+  0-photo visits never saved and hidden from listings, full-screen
+  gallery + per-photo download + visit zip. v0.15.0 build running.
