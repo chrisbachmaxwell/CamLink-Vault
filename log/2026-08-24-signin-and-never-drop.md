@@ -72,3 +72,18 @@ later wave — the session itself already shows in Unfiled).
   banner now names the active visits with one-click
   "End <patient>'s visit & update" actions (409 carries activeVisits).
   Doctrine reaffirmed: a banner offers the next step, never a wall.
+
+## Addendum 2: Z8 DELIVERS; RAW warning with per-model instructions (v0.13.1)
+- Auto-send ON worked: `DSC_0016.NEF` stored into the visit — the Z8
+  pipeline is FIELD-PROVEN end to end (camera → relay → app → visit).
+- New complaint: "saved ✓ (no preview)" — the Z8 sent RAW. Chris: "I
+  only want to send jpegs" + "there should be a warning in the app with
+  instructions… it should know the type of camera."
+- v0.13.1: RAW detection covers all mainstream extensions (was
+  CR2/CR3-only — the NEF slipped past silently); the banner names the
+  camera and gives the MODEL'S OWN menu path to switch to JPEG
+  (camera-catalog `jpegAdvice` per FTP entry, generic fallback);
+  onboarding steps for every FTP model now include "set image quality
+  to JPEG". Gate-enforced: a .NEF push must produce the model-specific
+  banner. DECIDED: no RAW preview extraction — clinics shoot JPEG;
+  RAW is stored safely but steered away from.
