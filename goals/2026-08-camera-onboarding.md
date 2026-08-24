@@ -11,11 +11,11 @@ lands on this flow; the old transport-tile wizard remains as the
 "Not sure / another camera" fallback and behind Menu → Change camera.
 
 ## Done when (verified by:)
-- [ ] Flow implemented behind the existing gates (verified by: ui-gate
+- [x] Flow implemented behind the existing gates (2026-08-22, v0.10.0) (verified by: ui-gate
       drives add-a-camera through the model picker)
-- [ ] First-run lands on the connect flow (verified by: ui-gate — fresh
+- [x] First-run lands on the connect flow (2026-08-22, headless check) (verified by: ui-gate — fresh
       state opens on Connect, not the transport tiles)
-- [ ] R5 Mark II warning shown when that model is picked (verified by:
+- [x] R5 Mark II warning shown when that model is picked (2026-08-22) (verified by:
       gate asserts 'passive' in the rendered card)
 - [ ] Chris onboards a camera end-to-end through the new flow
       (verified by: Chris's session — the field box)
@@ -35,3 +35,6 @@ open a hardware-page investigation instead of guessing.
 ## Iteration log
 - 2026-08-22 — Catalog (`camera-catalog.js`) + server model field
   landed; UI in progress (agent working in apps/clinic).
+- 2026-08-22 (later) — Flow SHIPPED (v0.10.0, all six gates green; first-run
+  verified headless). Remaining: the field box — Chris onboards a body
+  end-to-end through the new flow.
