@@ -2,7 +2,7 @@
 
 Rewritten 2026-08-22 after the 2026-08-21/22 field marathon (see
 [[log/2026-08-21-med-photo-field-day]]; July history in earlier logs).
-Clinic app **v0.12.0** (2026-08-24, see
+Clinic app **v0.12.1** (2026-08-24, see
 [[log/2026-08-24-signin-and-never-drop]]), branch
 `claude/camera-sdk-adapter-pattern-4pj5r8` (repo default).
 
@@ -59,7 +59,11 @@ Clinic app **v0.12.0** (2026-08-24, see
   filed as a held "Photo without a visit" session in Unfiled — the app
   can no longer lose a photo it received (Z8 incident, 2026-08-24).
 - **Named, clickable camera pill** (v0.12): pill shows the camera's
-  name; clicking opens Camera setup (not for review role).
+  name; clicking opens Camera setup (not for review role). v0.12.1:
+  with several cameras it focuses (visit's camera / pin / only camera)
+  or aggregates with worst-news-wins ("All N cameras connected" vs one
+  troubled camera named / "X of N not connected"); per-camera status
+  lights on the Camera setup page; disconnect alerts name the camera.
 - Patient records, visits, patient page + compare, unfiled filing —
   Phases A/B, shipped July–August.
 

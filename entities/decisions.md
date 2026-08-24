@@ -10,6 +10,14 @@ Dated, newest first. One line of context each; details live in linked pages.
 - 2026-08-24 — **The pill is a door, not a lamp.** The camera pill
   shows the camera's NAME and clicking it opens Camera setup
   (troubleshoot / rename / connect). Hidden action for review role.
+- 2026-08-24 — **One pill, many cameras: focus when obvious, else
+  worst news wins** (Chris: one name "won't make sense"). Pill shows
+  the visit's camera / the pin / the only camera; a multi-camera home
+  aggregates — "All N cameras connected" only when every camera earned
+  green; one struggling camera takes the pill BY NAME; 2+ become
+  "X of N not connected". Problems are never averaged into green.
+  Camera setup page carries a per-camera status light (full picture);
+  gate-enforced (ui-gate asserts the plural).
 - 2026-08-22 — **"Room" is dead as a word.** Cameras are just NAMED
   cameras; starting a visit = choose the camera (chips in Start a visit;
   device remembers). Internal ids/APIs keep `room` for wire compat.
