@@ -2,6 +2,15 @@
 
 Dated, newest first. One line of context each; details live in linked pages.
 
+- 2026-08-22 — **"Room" is dead as a word.** Cameras are just NAMED
+  cameras; starting a visit = choose the camera (chips in Start a visit;
+  device remembers). Internal ids/APIs keep `room` for wire compat.
+- 2026-08-22 — **Multi-user confirmed by Chris**: three roles (Owner /
+  Staff / Review), PIN sign-in via profile picker. NEW: multi-OFFICE
+  direction — a company has locations; a super user sees all, local
+  users only what they're given. v1 stores per-user `locations` but
+  enforces nothing; cross-location sync waits for the BAA cloud.
+
 - 2026-08-22 — **A held photo is resolved by a human, in place**: the banner
   offers "It was just taken — add it to this visit"; adoption files it AND
   teaches the camera's clock offset (the wrong-clock bootstrap).

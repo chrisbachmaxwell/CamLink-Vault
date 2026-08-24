@@ -1,4 +1,4 @@
-# Multi-user model — PROPOSED 2026-08-22 (awaiting Chris's read)
+# Multi-user model — CONFIRMED by Chris 2026-08-22 (build underway)
 
 Chris's second big ask (2026-08-22): two jobs — capture (camera +
 patient selection) and review (many team members) — with multiple
@@ -41,3 +41,16 @@ goals merge.
 3. Device pinning as a real setting (supersedes the ?room= URL trick).
 Concurrent multi-viewer already works (SSE broadcasts) — additive, not
 a rebuild.
+
+## Chris's confirmations + amendments (2026-08-22, same day)
+- Three roles: yes. PIN sign-in: yes.
+- Kill the word "room" everywhere user-facing — cameras are named
+  cameras; starting a visit = CHOOSE THE CAMERA (selection chips in the
+  Start-a-visit zone; last choice remembered per device; pinned devices
+  skip it). Internal `room` ids/APIs unchanged (wire compat).
+- Home should not jump straight to patient-typing — it leads with the
+  camera choice, then the patient.
+- Multi-OFFICE: company → locations; super user sees all; local users
+  see only what they're granted. v1: `locations: []` stored on users,
+  unenforced; real enforcement + cross-location visibility need the
+  BAA cloud ([[roadmap]] FTPS milestone) — local-first stays the rule.

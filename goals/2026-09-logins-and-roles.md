@@ -1,7 +1,7 @@
 # Goal: Logins, roles, and the review seat
 
-Status: PROPOSED (2026-08-22 — design in [[multi-user-model]]; awaiting
-Chris's reaction before any build). Absorbs [[2026-07-clinic-lockdown]]
+Status: IN PROGRESS (2026-08-22 — Chris confirmed same day; foundation
+being built by agents: server auth layer + camera-first language). Absorbs [[2026-07-clinic-lockdown]]
 (Phase C: PIN, audit) as its foundation layer.
 
 Context: Chris (2026-08-22): capture is one job; many team members
@@ -37,3 +37,6 @@ must never be forced through login setup.
 
 ## Iteration log
 - 2026-08-22 — Proposed; design captured; waiting on Chris.
+- 2026-08-22 (later) — Chris confirmed (3 roles, PIN); "room" language
+  killed; camera chosen at visit start; multi-office direction added.
+  Agents building: auth foundation (server) + camera-first UI.
