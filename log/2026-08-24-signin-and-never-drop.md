@@ -50,3 +50,25 @@ later wave — the session itself already shows in Unfiled).
   multi-room second body.
 - `photoBuffered` UI affordance; per-camera relay logins; Railway token
   deletion by Chris.
+
+## Addendum (same day): Z8 trace verdict + v0.13.0
+- **Z8 "no photos" SOLVED BY TRACE, camera-side**: relay trace shows the
+  Z8 connect → login → PWD → PASV → NLST (directory listing) → QUIT,
+  over and over — **it never sends STOR**. The camera checks in but has
+  nothing queued to send: Nikon's FTP **Auto send is OFF** (or
+  send-marking off). App/relay are fine; queueDepth 0, lastSeen live.
+  Fix is on the camera: Network menu → Connect to FTP server →
+  Options → **Auto send ON** (+ send JPEG if RAW+JPEG). No re-add
+  needed. NOTE: yesterday's `4J6A6738.JPG` is a Canon-style name —
+  that upload was almost certainly the R5 II, not the Z8.
+- **"Room 1" on the pill**: his default camera was literally still
+  NAMED "Room 1" (pre-rename default) and relay mode had NO rename UI.
+  v0.13.0: default is now "Camera 1" (persisted "Room 1" migrates),
+  and relay-mode Camera setup lists every camera with status light +
+  Rename/Remove.
+- **v0.13.0 shipped** (all six gates green): home **In progress** zone
+  (every live visit: patient, camera, count, since; Open/End with
+  confirm; live-updating; hidden for review) and the update-blocked
+  banner now names the active visits with one-click
+  "End <patient>'s visit & update" actions (409 carries activeVisits).
+  Doctrine reaffirmed: a banner offers the next step, never a wall.
