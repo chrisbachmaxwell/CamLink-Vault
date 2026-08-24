@@ -99,3 +99,26 @@ later wave — the session itself already shows in Unfiled).
   banners are the filing moment; photos on disk still never deleted),
   0-photo visits never saved and hidden from listings, full-screen
   gallery + per-photo download + visit zip. v0.15.0 build running.
+
+## Addendum 4: patient library v2 shipped (v0.15.0)
+- Built by a background agent from an exhaustive spec, then verified
+  independently: all six gates green, including five NEW assertions
+  (search-first hidden-at-rest + no #unfiled-block, empty-visit
+  discard + "nothing was saved" done card, gallery from live grid and
+  patient page with Esc, download hrefs, visit-zip PK header).
+- Stop clause held: the empty-visit discard path readdir-verifies the
+  folder holds ONLY manifest.json before removing it; anything else
+  present → folder kept, visit kept.
+- Mistake caught: the gate's pushed-JPEG fixture was a 22-byte
+  header-only file — undecodable, so the browser never rendered an
+  <img> to click for the gallery step. Replaced with a real 1×1
+  baseline JPEG (same bytes adapter-mock uses).
+- Shipped via the GitHub API route again (git transport still down):
+  server.ts pushed and blob-SHA-verified in-session (remote commit
+  9db84a4), remaining five files (app.js, index.html, styles.css,
+  ui-gate.mjs, package.json LAST) pushed by a delegated agent under
+  the same byte-exact protocol — local commit dd2b9fd is the truth.
+- Vault: project-status rewritten to v0.15.0 (drawer, JPEG steering,
+  library v2 bullets; Unfiled wording corrected in older bullets),
+  goal page Done-when boxes checked (field pass with Chris still
+  open), decisions already logged earlier today.

@@ -2,7 +2,7 @@
 
 Rewritten 2026-08-22 after the 2026-08-21/22 field marathon (see
 [[log/2026-08-21-med-photo-field-day]]; July history in earlier logs).
-Clinic app **v0.12.1** (2026-08-24, see
+Clinic app **v0.15.0** (2026-08-24, see
 [[log/2026-08-24-signin-and-never-drop]]), branch
 `claude/camera-sdk-adapter-pattern-4pj5r8` (repo default).
 
@@ -36,8 +36,10 @@ Clinic app **v0.12.1** (2026-08-24, see
   room strip; `?room=` pins a device to a room. Real-second-body field
   test still open.
 - **Earlier-photo guard** ([[earlier-photo-guard]]): EXIF capture-time
-  gate + learned per-camera clock offsets + held-photo buffer surfaced
-  in Unfiled + one-click adoption that teaches wrong clocks.
+  gate + learned per-camera clock offsets + held-photo buffer resolved
+  in place by the live banner ("It was just taken" adoption teaches
+  wrong clocks). Since v0.15.0 held sessions never appear in the
+  patient library — capture-time banners are the filing moment.
 - **Honest camera presence** ([[camera-presence]]): pill green only on
   evidence; amber waiting/disconnected; 5 s drop watcher + plain alert.
 - **In-app updates** ([[in-app-updates]]): 6 AM daily + boot checks,
@@ -56,16 +58,43 @@ Clinic app **v0.12.1** (2026-08-24, see
   role-checked APIs + audit.log, review = read-only home. Solo mode
   sacred: 0 users = no auth anywhere. Field test with a teammate open.
 - **Never-drop photo buffer** (v0.12): a capture with no visit open is
-  filed as a held "Photo without a visit" session in Unfiled — the app
-  can no longer lose a photo it received (Z8 incident, 2026-08-24).
+  filed as a held "Photo without a visit" session — the app can no
+  longer lose a photo it received (Z8 incident, 2026-08-24). Held
+  sessions live on disk, resolved via the live banner (v0.15.0 removed
+  the Unfiled library section; photos are never deleted).
 - **Named, clickable camera pill** (v0.12): pill shows the camera's
   name; clicking opens Camera setup (not for review role). v0.12.1:
   with several cameras it focuses (visit's camera / pin / only camera)
   or aggregates with worst-news-wins ("All N cameras connected" vs one
   troubled camera named / "X of N not connected"); per-camera status
   lights on the Camera setup page; disconnect alerts name the camera.
-- Patient records, visits, patient page + compare, unfiled filing —
-  Phases A/B, shipped July–August.
+- Patient records, visits, patient page + compare — Phases A/B,
+  shipped July–August.
+- **Dashboard home + actionable updates** (v0.13.0): In-progress zone
+  lists every live visit with Open/End; Cameras-at-a-glance tiles; the
+  update-blocked banner names WHO is in a visit and offers "End X's
+  visit & update". Relay-mode camera list gained rename; default camera
+  name is "Camera 1" (Room 1 migrated).
+- **JPEG steering** (v0.13.1): DECIDED — no RAW preview extraction.
+  A RAW arriving shows a model-specific warning with the exact menu
+  path to switch that camera to JPEG ([[camera-catalog]] jpegAdvice);
+  RAW files still store and download. v0.13.2: starting a visit from
+  the patient page asks "Which camera?" exactly like home (and relay
+  mode never shows a fake picker).
+- **Left-drawer shell** (v0.14.0, [[design-doctrine]]): four
+  destinations ≤3 clicks (Home dashboard / Patients / Cameras /
+  Settings), collapsible drawer persisted per device, roles trim the
+  drawer, update chip at the drawer's bottom.
+- **Patient library v2** (v0.15.0, goal [[2026-09-patient-library]]):
+  search-first library of PATIENT RECORDS (never folders — system/
+  legacy name-only sessions never pose as patients; Unfiled section
+  removed, filing happens at capture time via the live banners; files
+  stay on disk under captures/). Empty visits are never saved (folder
+  discarded only if it holds nothing but manifest.json) and legacy
+  0-photo visits are hidden. Full-screen gallery (arrows/keys,
+  filename + taken time) + per-photo download + whole-visit zip
+  (store-only, zero deps); RAW downloadable without preview; visit
+  lists collapse past 6.
 
 ## Verification gates (ALL green before any push)
 build · npm test (10 workspaces) · smoke ptp-simulator · smoke ftp ·
