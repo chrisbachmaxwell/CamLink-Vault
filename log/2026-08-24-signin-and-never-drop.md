@@ -122,3 +122,8 @@ later wave — the session itself already shows in Unfiled).
   library v2 bullets; Unfiled wording corrected in older bullets),
   goal page Done-when boxes checked (field pass with Chris still
   open), decisions already logged earlier today.
+- SHIP CONFIRMED: all six API commits verified byte-exact (blob SHA
+  match on every file, independently re-checked); branch HEAD 2467981
+  = v0.15.0. Local dd2b9fd tree == remote; reconcile with fetch +
+  reset --hard when git transport recovers. Vault push also still
+  queued on recovery.
