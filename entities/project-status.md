@@ -2,8 +2,9 @@
 
 Rewritten 2026-08-22 after the 2026-08-21/22 field marathon (see
 [[log/2026-08-21-med-photo-field-day]]; July history in earlier logs).
-Clinic app **v0.9.2**, branch `claude/camera-sdk-adapter-pattern-4pj5r8`
-(repo default).
+Clinic app **v0.12.0** (2026-08-24, see
+[[log/2026-08-24-signin-and-never-drop]]), branch
+`claude/camera-sdk-adapter-pattern-4pj5r8` (repo default).
 
 ## Product identity
 - Renamed **CamLink → Med Photo** repo-wide 2026-08-21 (packages
@@ -45,6 +46,20 @@ Clinic app **v0.9.2**, branch `claude/camera-sdk-adapter-pattern-4pj5r8`
 - **Mac app** (`npm run install-app -w @medphoto/clinic-app`):
   Med Photo.app + generated icon in Applications/Spotlight, launchd
   server-at-login, Chromium app-mode window (no browser chrome).
+- **Camera-first language + onboarding** (v0.11): "room" is banned
+  user-facing (gate-enforced); "Which camera?" chips at visit start;
+  model-first connect flow with per-model instructions from
+  [[camera-catalog]] (10 models, R5 II passive-mode warning).
+- **Multi-user** ([[multi-user-model]], goal [[2026-09-logins-and-roles]],
+  v0.11–v0.12): three roles (Owner/Staff/Review), PIN profile-picker
+  sign-in, People page (first person added = Owner, turns access on),
+  role-checked APIs + audit.log, review = read-only home. Solo mode
+  sacred: 0 users = no auth anywhere. Field test with a teammate open.
+- **Never-drop photo buffer** (v0.12): a capture with no visit open is
+  filed as a held "Photo without a visit" session in Unfiled — the app
+  can no longer lose a photo it received (Z8 incident, 2026-08-24).
+- **Named, clickable camera pill** (v0.12): pill shows the camera's
+  name; clicking opens Camera setup (not for review role).
 - Patient records, visits, patient page + compare, unfiled filing —
   Phases A/B, shipped July–August.
 

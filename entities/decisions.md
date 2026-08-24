@@ -2,6 +2,14 @@
 
 Dated, newest first. One line of context each; details live in linked pages.
 
+- 2026-08-24 — **A photo that reaches us can never vanish.** A capture
+  arriving with no visit open is filed into a held "Photo without a
+  visit (<camera>)" session in Unfiled — never dropped. Born from the
+  Nikon Z8 field incident: the relay trace proved the upload completed
+  (`upload complete 4J6A6738.JPG`), and the app silently discarded it.
+- 2026-08-24 — **The pill is a door, not a lamp.** The camera pill
+  shows the camera's NAME and clicking it opens Camera setup
+  (troubleshoot / rename / connect). Hidden action for review role.
 - 2026-08-22 — **"Room" is dead as a word.** Cameras are just NAMED
   cameras; starting a visit = choose the camera (chips in Start a visit;
   device remembers). Internal ids/APIs keep `room` for wire compat.

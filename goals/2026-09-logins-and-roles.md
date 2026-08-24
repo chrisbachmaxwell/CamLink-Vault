@@ -12,21 +12,23 @@ a login never receives photos, a room does ([[multi-user-model]]).
 Constraint: simple, beautiful, Apple-esque ([[design-doctrine]]).
 
 ## Done when (verified by:)
-- [ ] Users store (name, role, PIN hash) + login sessions; every API
+- [x] Users store (name, role, PIN hash) + login sessions; every API
       permission-checked by role (verified by: unit tests per role ×
-      endpoint class)
-- [ ] Profile-picker sign-in + signed-in chip + Menu sign-out
-      (verified by: ui-gate signs in as Staff and as Review)
-- [ ] Review role: library-first home; NO visit/camera controls render
-      (verified by: ui-gate asserts absence)
+      endpoint class — users-api.test.ts, 10 tests)
+- [x] Profile-picker sign-in + signed-in chip + Menu sign-out
+      (verified by: ui-gate step 8 signs in as Owner and as Review)
+- [x] Review role: library-first home; NO visit/camera controls render
+      (verified by: ui-gate asserts start form hidden, menu trimmed,
+      camera pill not clickable, server returns 403)
 - [ ] Un-pinned device asks "In which room?" once when starting a visit
       with 2+ rooms; pinned devices never asked (verified by: ui-gate)
-- [ ] Append-only local audit log for visit start/end, patient views,
+- [x] Append-only local audit log for visit start/end, patient views,
       held-photo adoption, camera changes — no PHI beyond local ids;
       never pushed anywhere (verified by: unit test + grep gate)
-- [ ] All existing gates stay green; single-user installs see ONE
+- [x] All existing gates stay green; single-user installs see ONE
       optional owner profile, zero new friction until a second user is
-      added (verified by: existing ui-gate path unchanged pre-login)
+      added (verified by: solo mode sacred — 0 users = no auth
+      anywhere; ui-gate pre-login path unchanged)
 - [ ] Field: Chris + one teammate use capture and review seats at once
       (verified by: Chris's session)
 
@@ -40,3 +42,11 @@ must never be forced through login setup.
 - 2026-08-22 (later) — Chris confirmed (3 roles, PIN); "room" language
   killed; camera chosen at visit start; multi-office direction added.
   Agents building: auth foundation (server) + camera-first UI.
+- 2026-08-24 — Sign-in UI SHIPPED in v0.12.0: Apple-TV profile picker
+  → PIN pad, People page (Menu → People; adding the first person turns
+  access on and makes them Owner), user chip, sign-out, review role
+  read-only home. Server auth (UserStore, cookie sessions, role
+  matrix, audit.log) shipped v0.11.x. Remaining unchecked: "In which
+  room?" prompt is now the "Which camera?" chips (shipped, camera-first
+  wave) and the FIELD test — Chris + teammate, two seats at once.
+  Multi-office `locations[]` stored but UNENFORCED (needs BAA cloud).
