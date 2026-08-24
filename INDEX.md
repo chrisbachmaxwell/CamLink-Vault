@@ -16,6 +16,7 @@ surgeons, med spas, dermatologists).
 | --- | --- | --- |
 | Anything (always) | [[project-status]], [[roadmap]] | the row below |
 | A camera not connecting/transferring | [[macos-networking-traps]], [[camera-presence]] | the camera's entity page; [[home-network-filter]] |
+| Adding/onboarding a camera | [[camera-catalog]] | the camera's entity page |
 | The FTP/auto-send path | [[ftp-push-transfer]] | [[2026-09-multi-room]], repo docs/HARDWARE-TESTING.md |
 | The Cloud Relay | [[med-photo-relay]] | [[three-tier-connectivity]], [[hipaa-local-first]] |
 | PTP/IP (EOS Utility mode) | [[ptp-ip-protocol]] | [[eos-utility-pairing]], [[eos-event-records]], [[session-handoff]] |
@@ -63,7 +64,10 @@ surgeons, med spas, dermatologists).
 - [[test-environment]] — Chris's MacBook: macOS 26.5.1, Node, Terminal
 
 ## Goals (active work loops — protocol in [[goals/README]])
-- CURRENT: [[2026-08-r5ii-ftp-dialect]] — R5 II / all-FTP-cameras
+- CURRENT (active loop): [[2026-08-camera-onboarding]] — model-first
+  connect flow
+- [[2026-08-r5ii-ftp-dialect]] — BLOCKED on Chris's passive-ON retry;
+  resumes the moment his trace lands
 - [[2026-09-multi-room]] — BUILT; field second-body box open
 - [[2026-08-simplicity-pass]] — largely shipped via the 2026-08-21 flow
   overhaul; check boxes against [[project-status]]
