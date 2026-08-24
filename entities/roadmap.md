@@ -16,21 +16,24 @@ constraint: [[hipaa-local-first]].
    Includes per-clinic relay accounts issued at install time (replaces
    the built-in shared prototype account; rotates the burned pull token
    and FTP password).
-4. **Auto-install updates at 6 AM when no visit is active** — offered
+4. **Logins, roles, and the review seat** — [[2026-09-logins-and-roles]]
+   (PROPOSED, design in [[multi-user-model]]; absorbs Phase C lockdown).
+   Waiting on Chris's read of the proposal.
+5. **Auto-install updates at 6 AM when no visit is active** — offered
    2026-08-22, awaiting Chris's go; small change on top of
    [[in-app-updates]].
 
 ## Later
-5. **Distribution: Electron/Tauri single-download signed app** with
+6. **Distribution: Electron/Tauri single-download signed app** with
    auto-update — trigger: first outside clinic onboards (decision
    2026-08-21 in [[decisions]]). Interim shipped: installer + app-mode.
-6. **Med Photo Box** — GL.iNet Beryl AX travel-router kit for hostile
+7. **Med Photo Box** — GL.iNet Beryl AX travel-router kit for hostile
    clinic networks (repo docs/MED-PHOTO-BOX.md; hardware sourced).
-7. **USB tether (Phase D)** — `@medphoto/adapter-usb`; design in repo
+8. **USB tether (Phase D)** — `@medphoto/adapter-usb`; design in repo
    docs/PTP-PLAN.md.
-8. **Clinic lockdown (Phase C)** — [[2026-07-clinic-lockdown]]: PIN,
+9. **Clinic lockdown (Phase C)** — [[2026-07-clinic-lockdown]]: PIN,
    audit log, no-cloud CI guard.
-9. **Other FTP vendors** (Sony/Nikon/Fuji pro bodies) — adapter is
+10. **Other FTP vendors** (Sony/Nikon/Fuji pro bodies) — adapter is
    vendor-agnostic by design; needs per-vendor field proof.
 
 ## Done recently (details in [[project-status]])

@@ -25,6 +25,7 @@ surgeons, med spas, dermatologists).
 | Updates / install / Mac app | [[in-app-updates]] | repo apps/clinic/scripts/install-mac-app.mjs |
 | Picking up work | [[goals/README]] | the CURRENT goal it names |
 | Compliance / patient data | [[hipaa-local-first]] | repo docs/CLOUD-RELAY-PLAN.md |
+| Logins / roles / review seat | [[multi-user-model]] | [[2026-09-logins-and-roles]] |
 
 ## The product
 - [[camlink-sdk]] — architecture, repo layout (repo rename pending)
@@ -71,7 +72,9 @@ surgeons, med spas, dermatologists).
 - [[2026-09-multi-room]] — BUILT; field second-body box open
 - [[2026-08-simplicity-pass]] — largely shipped via the 2026-08-21 flow
   overhaul; check boxes against [[project-status]]
-- [[2026-07-clinic-lockdown]] — Phase C, queued
+- [[2026-09-logins-and-roles]] — PROPOSED: multi-user design awaiting
+  Chris (absorbs clinic-lockdown)
+- [[2026-07-clinic-lockdown]] — Phase C, queued (being absorbed above)
 - DONE: [[2026-07-patient-records]] · [[2026-07-camera-reconnect]] ·
   [[2026-07-visit-compare-ui]] (shipped inside the 2026-08 redesign) ·
   [[2026-07-wizard-simplify]] (superseded by [[design-doctrine]])
