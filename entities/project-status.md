@@ -166,3 +166,15 @@ presence pill).
   macOS TLS/mDNS/OIDC host, control-plane grant/TLS-pin issuance, embedded
   release key, notarized installer, and clinic update route migration remain.
   See [[log/2026-08-25-trusted-desktop-hub-transport]].
+- ✅ **Device-bound Hub access joined end to end** in SDK commit `d290a80`:
+  proof-bound enrollment now signs and stores the Hub TLS certificate/SPKI
+  pins; the control plane issues only authorized-location connection material
+  with fresh Hub trust plus a short-lived grant bound to the native desktop's
+  Ed25519 key; and the restricted native HTTPS client consumes that exact
+  closed non-PHI response before local mDNS/TLS matching. Slow/incomplete
+  request bodies, redirect/token leakage, expanded/oversized responses, wrong
+  scope, pin substitution, stale grants, invalid issuer config, and v1 schema
+  rollout are regression-tested. Empty-Hub v1 stores migrate automatically;
+  v1 stores with Hubs fail closed and require re-enrollment because TLS pins
+  cannot be guessed. Actual macOS host adapters and clinic Hub route wiring
+  remain. See [[log/2026-08-25-device-bound-hub-access]].
