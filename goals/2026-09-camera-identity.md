@@ -101,3 +101,17 @@ valid alongside.
   speaks → primary row stays dark) + relay test (primary in map).
   Lesson: never let a "compat aggregate" be any NEW reader's default.
   All six gates green; relay redeployed; SDK pushed (4a93b29).
+- 2026-08-25 (v0.16.2) — Chris's first field pass surfaced three gaps,
+  all fixed same session: (1) photoBuffered had NO UI — a photo shot
+  on a camera with no visit open was saved but INVISIBLE, which read
+  as "photos aren't being added"; now a banner offers one-click
+  adoption into the open visit (or says where the photo went). (2)
+  The patient-page "Which camera?" ask still skipped relay mode — it
+  silently used the default camera; now it asks whenever
+  relayPerCamera is live (confirmed cameras only). (3) Ending a visit
+  with photos now lands on the PATIENT'S record (Chris: "I want to go
+  back to that patient's page"); done card stays for empty/name-only
+  visits. Race caught by the gate: the sessionEnded broadcast also
+  ran the new navigation and yanked pages mid-turnover — navigation
+  now belongs ONLY to the user's own End click (doctrine: never
+  auto-navigate away from the user). All six gates green; pushed.
