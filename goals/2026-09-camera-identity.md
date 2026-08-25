@@ -52,20 +52,20 @@ Context (Chris, 2026-08-25):
    (warn only on clearly-different bodies).
 
 ## Done when (verified by:)
-- [ ] A live shot with an hours-wrong EXIF clock files straight into
+- [x] A live shot with an hours-wrong EXIF clock files straight into
       the visit — no hold banner (ui-gate)
-- [ ] First stored photo binds the body serial to the camera entry;
+- [x] First stored photo binds the body serial to the camera entry;
       a later photo with a different serial shows the mismatch banner
       AND still stores (ui-gate)
-- [ ] Relay mode: two cameras with their own logins → photos route to
+- [x] Relay mode: two cameras with their own logins → photos route to
       each camera's own visit; camera picker works over relay
       (gate/smoke against the in-repo relay)
-- [ ] A newly added camera is hidden from the start-visit picker and
+- [x] A newly added camera is hidden from the start-visit picker and
       marked "waiting for first sign-in" until its login connects
       (ui-gate)
-- [ ] Old relay (no camera-registration endpoint) keeps today's
+- [x] Old relay (no camera-registration endpoint) keeps today's
       shared-login behavior — no errors (test)
-- [ ] All six gates green; relay redeployed to Railway; field: R6 III
+- [ ] All six gates green (✓) and relay redeployed (✓, 2026-08-25); field: R6 III
       at home files into its own visit under its own name (Chris)
 
 ## Stop clause
