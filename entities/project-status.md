@@ -2,8 +2,8 @@
 
 Rewritten 2026-08-22 after the 2026-08-21/22 field marathon (see
 [[log/2026-08-21-med-photo-field-day]]; July history in earlier logs).
-Clinic app **v0.16.0** (2026-08-24, see
-[[log/2026-08-24-signin-and-never-drop]]), branch
+Clinic app **v0.16.2** (2026-08-25, see
+[[log/2026-08-25-camera-identity]]), branch
 `claude/camera-sdk-adapter-pattern-4pj5r8` (repo default).
 
 ## Product identity
@@ -24,6 +24,10 @@ Clinic app **v0.16.0** (2026-08-24, see
   headers, FTP tracer. TEST PHOTOS ONLY (HIPAA gate:
   [[hipaa-local-first]]). Built-in provisioning: the app ships knowing
   its relay — zero typing, doctrine-enforced by the browser gate.
+  Since v0.16: PER-CAMERA relay sign-ins (one login per camera on the
+  one listener, synced idempotently from the app; files route by the
+  login that sent them; per-login presence incl. the primary's own
+  row — never the any-camera aggregate). Old relays/apps keep working.
 
 ## Clinic app (the product surface)
 - **Home** (screen map + flow rules in [[design-doctrine]]): Start a
@@ -35,11 +39,17 @@ Clinic app **v0.16.0** (2026-08-24, see
   add-time; per-room simultaneous visits; ONE shared patient library;
   room strip; `?room=` pins a device to a room. Real-second-body field
   test still open.
-- **Earlier-photo guard** ([[earlier-photo-guard]]): EXIF capture-time
-  gate + learned per-camera clock offsets + held-photo buffer resolved
-  in place by the live banner ("It was just taken" adoption teaches
-  wrong clocks). Since v0.15.0 held sessions never appear in the
-  patient library — capture-time banners are the filing moment.
+- **Camera identity, not dates** (v0.16, goal
+  [[2026-09-camera-identity]] — supersedes the earlier-photo DATE gate,
+  [[earlier-photo-guard]]): a photo pushed by the visit's camera while
+  the visit is live ALWAYS files; EXIF only teaches per-camera clock
+  offsets, surfaced as set-your-clock advice on Cameras. First stored
+  photo BINDS the body's EXIF serial to the camera entry; a different
+  serial (or clearly-wrong model, catalog-checked) warns loudly but
+  never blocks a store. New cameras are "waiting for first sign-in"
+  (hidden from the picker) until their login connects. A photo
+  arriving with NO visit open is buffered (never dropped) AND now
+  raises a banner — mid-visit it offers one-click adoption (v0.16.2).
 - **Honest camera presence** ([[camera-presence]]): pill green only on
   evidence; amber waiting/disconnected; 5 s drop watcher + plain alert.
 - **In-app updates** ([[in-app-updates]]): 6 AM daily + boot checks,
@@ -106,6 +116,9 @@ presence pill).
 - **Canon R5 Mark II**: logs in to relay, transfer fails — ACTIVE, FTP
   tracer deployed, passive-mode prime suspect
   ([[canon-eos-r5-mark-ii]], goal [[2026-08-r5ii-ftp-dialect]]).
-- Multi-room second-body test; R6 III clock set (hours wrong — see
-  [[earlier-photo-guard]]); Railway project token deletion (Chris —
-  token was pasted in chat, treat as burned).
+- Multi-room second-body test; Railway project token deletion (Chris —
+  token was pasted in chat, treat as burned). R6 III wrong clock no
+  longer blocks anything (v0.16 identity-over-dates) — Cameras page
+  advises setting it.
+- Camera-identity field pass (Chris): R6 III on its own relay sign-in
+  files into its own visit; ending lands on the patient record.
