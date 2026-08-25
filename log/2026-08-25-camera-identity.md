@@ -59,3 +59,23 @@ per-camera relay sign-ins / registration = first sign-in).
   ending lands on the patient record.
 - R5 Mark II relay transfer (passive-mode suspect) unchanged.
 - FTPS + BAA milestone unchanged (relay stays TEST PHOTOS ONLY).
+
+## Addendum: "slow" was broken — truncated uploads accepted as photos
+Chris (JPEGs now, still slow, "faster yesterday — what changed?"). The
+relay FTP trace answered: DSC_7240/7270.JPG re-sent over and over —
+one complete 248 KB copy, then a 68 KB partial, then 0 B — each
+"completing" with 226 because CameraFtpServer treated ANY data-socket
+close as success (proxies turn a camera's mid-file death into a clean
+FIN). So nothing changed in the app: the Wi-Fi link (camera showed
+2.4 GHz) is dropping mid-transfer and every visible photo is several
+broken attempts. Two defects in one: perceived slowness AND partial/
+0-byte files delivered as real photos (integrity risk).
+**v0.17.1 (389d61c)**: completeness judged from the BYTES — 0-length
+uploads and JPEGs missing FFD9 are refused with 426 (camera re-sends
+by itself); per-login failedUploads/lastFailAt flow through presence →
+relay /v1/health → adapter → app; one rate-limited banner names the
+camera whose upload broke; Cameras page carries weak-Wi-Fi advice
+while failures are recent. Regression test drives a raw PASV socket,
+kills it mid-JPEG, asserts 426 + counters + no photoCaptured. All six
+gates green; relay redeployed. Physical advice to Chris: 5 GHz / move
+closer to the router.
