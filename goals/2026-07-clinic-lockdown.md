@@ -1,6 +1,6 @@
 # Goal: Clinic lockdown (Phase C — HIPAA technical safeguards)
 
-Status: PLANNED (after [[2026-07-patient-records]]) · Created: 2026-07-09
+Status: IN PROGRESS (Capture Hub LAN foundation shipped 2026-08-25) · Created: 2026-07-09
 Grounding: [[hipaa-local-first]] — safeguards, not compliance claims.
 
 ## Why
@@ -25,7 +25,7 @@ open network, make loss/theft survivable, and leave an audit trail.
   hosts; CI fails if any non-LAN endpoint appears.
 
 ## Done when (agent-verifiable)
-- [ ] Default bind is localhost; `--lan` documented and PIN-gated (tests)
+- [x] Default bind is localhost; `--lan` documented and PIN-gated (tests)
 - [ ] PIN setup/unlock/auto-lock implemented with tests (hashing, lockout
       after N failures)
 - [ ] Audit log writes the listed events; tested; documented location
@@ -43,3 +43,12 @@ open network, make loss/theft survivable, and leave an audit trail.
 Max 12 cycles, or 2 consecutive no-progress cycles → BLOCKED + log why.
 
 ## Iteration log
+
+- 2026-08-25: Capture Hub foundation built. Default HTTP bind is
+  `127.0.0.1`; explicit `--lan` refuses to open a socket until a local owner
+  exists. Signed-out state is reduced to non-PHI boot metadata and SSE is
+  authenticated. New PINs use scrypt, legacy SHA-256 records migrate after a
+  successful login, five attempts trigger a one-minute source/profile lock,
+  and JSON request bodies are capped at 64 KiB. Independent concurrent-attack
+  testing passed. **LAN mode remains pre-pilot** because HTTP is plaintext;
+  TLS/device enrolment and idle auto-lock are next.

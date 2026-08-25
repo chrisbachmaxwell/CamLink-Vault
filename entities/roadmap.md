@@ -37,8 +37,9 @@ constraint: [[hipaa-local-first]].
    clinic networks (repo docs/MED-PHOTO-BOX.md; hardware sourced).
 8. **USB tether (Phase D)** — `@medphoto/adapter-usb`; design in repo
    docs/PTP-PLAN.md.
-9. **Clinic lockdown (Phase C)** — [[2026-07-clinic-lockdown]]: PIN,
-   audit log, no-cloud CI guard.
+9. **Clinic lockdown (Phase C)** — [[2026-07-clinic-lockdown]]: localhost
+   default plus PIN-gated `--lan` foundation shipped 2026-08-25; next are
+   TLS/device enrolment, idle auto-lock, audit completion and no-cloud CI.
 10. **Other FTP vendors** (Sony/Nikon/Fuji pro bodies) — adapter is
    vendor-agnostic by design; needs per-vendor field proof.
 
@@ -56,3 +57,12 @@ persistent trash browser is needed beyond Undo.
   Mark II success rules out a generally slow relay, but does not yet identify
   whether the Z8 issue is resume/REST behavior, passive-data demux, Wi-Fi,
   or camera profile state.
+
+## 2026-08-25 Capture Hub follow-up
+
+- Add TLS plus device enrolment before any real-patient LAN pilot. Plain HTTP
+  can expose PINs, cookies, photos and patient data to a network observer.
+- Add idle auto-lock, then finish the Phase C audit/no-cloud/deployment gates.
+- The later multi-location promise remains separate: centralized staff/device
+  identity, encrypted metadata/photo synchronization and per-clinic/location
+  authorization. Do not repurpose the test-only Cloud Relay for PHI.

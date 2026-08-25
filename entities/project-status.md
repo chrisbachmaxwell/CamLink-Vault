@@ -144,3 +144,11 @@ presence pill).
   app/package builder, manifest signer + embedded production public key,
   updater integration, and controlled artifact upload remain open. See
   [[log/2026-08-25-mac-release-runbook]].
+- ✅ **Capture Hub LAN foundation**: the clinic app now binds only to
+  localhost by default; explicit `--lan` requires a local user/PIN and opens
+  the Hub to office workstations. Signed-out state/events disclose no PHI,
+  PINs use scrypt with legacy migration, rapid guesses lock out, and request
+  bodies are bounded. Independent attack testing and all camera/UI gates
+  passed. This is **not approved for real-patient LAN use yet**: TLS/device
+  enrolment and idle auto-lock remain required. See
+  [[log/2026-08-25-capture-hub-foundation]].
