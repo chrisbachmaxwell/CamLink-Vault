@@ -2,7 +2,7 @@
 
 Rewritten 2026-08-22 after the 2026-08-21/22 field marathon (see
 [[log/2026-08-21-med-photo-field-day]]; July history in earlier logs).
-Clinic app **v0.15.0** (2026-08-24, see
+Clinic app **v0.16.0** (2026-08-24, see
 [[log/2026-08-24-signin-and-never-drop]]), branch
 `claude/camera-sdk-adapter-pattern-4pj5r8` (repo default).
 

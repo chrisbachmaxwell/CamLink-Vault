@@ -77,3 +77,15 @@ valid alongside.
 ## Iteration log
 - 2026-08-25 — Direction from Chris (three messages, quoted above);
   design set; brain updated before build per his standing rule.
+- 2026-08-25 — **v0.16.0 built, verified, SHIPPED** (commit 5ca3b6f,
+  pushed over real git — the transport outage ended mid-session; the
+  v0.15.0 API-route commits reconciled cleanly, trees identical). The
+  build agent died silently ~2 h in with the tree complete; verified
+  its work independently: all six gates green including the four new
+  assertions (6-h-old EXIF stores with no hold banner; serial …1111
+  binds then …2222 raises the mismatch banner AND stores; unconfirmed
+  camera hidden from picker until first upload; relay two-login strict
+  routing with per-camera value cards). Relay redeployed to Railway
+  same session. Client model check shipped stricter than spec: warns
+  only when the photo's model positively matches a DIFFERENT catalog
+  entry. Remaining: Chris's field pass with the R6 III + z8.
