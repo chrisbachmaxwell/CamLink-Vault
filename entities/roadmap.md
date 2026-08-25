@@ -46,8 +46,10 @@ only, LAN only.
 - Adapter certification doc for third-party authors
 - Windows validation pass
 - Wizard test step: warn when the test file is RAW
-- Retake/delete UI in sessions (clinic feedback anticipated) — soft-delete
-  to `.trash/` per [[hipaa-local-first]]
+- ✅ Retake/delete UI in sessions shipped 2026-08-25 (`4d6194d`) — live
+  tile + viewer removal, local `.trash/`, manifest tombstone, batch Undo.
+  Hands-on clinic feedback decides whether a persistent trash browser is
+  needed beyond Undo.
 
 ## Hardware matrix to grow
 Validated: EOS R10, EOS R6 Mark III. Next: R50/R8, R5 Mark II, a PowerShot,
@@ -64,3 +66,10 @@ Open data point: which SetRemoteMode value the R6 III accepted.
 - Server binds all interfaces today — moves to localhost-default in Phase C
 - Legacy typed-name `POST /api/session { patientName }` still works (smoke
   uses it) but new UI prefers `patientId`; consider deprecating after Phase B
+
+## 2026-08-25 transfer follow-up
+- Trace and reproduce the Nikon Z8 against the relay's single-port FTP
+  state machine before recommending that path for Z8 clinics. Same-day R6
+  Mark II success rules out a generally slow relay, but does not yet identify
+  whether the Z8 issue is resume/REST behavior, passive-data demux, Wi-Fi,
+  or camera profile state.
