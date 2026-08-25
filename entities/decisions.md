@@ -2,6 +2,22 @@
 
 Dated, newest first. One line of context each; details live in linked pages.
 
+- 2026-08-25 — **A camera IS its sign-in plus its serial; photos file
+  by identity, never by dates** (Chris: "not relying on dates but just
+  the pictures being received as they are shot"). A photo pushed by
+  the visit's camera while the visit is live files in, period — the
+  in-visit EXIF hold is gone (partially reverses 2026-08-22's gate;
+  EXIF now only teaches clock offsets, surfaced as advice). The first
+  stored photo binds the body's EXIF serial to the camera entry;
+  serial/model disagreement warns loudly but NEVER blocks a store.
+  [[2026-09-camera-identity]]
+- 2026-08-25 — **Per-camera relay sign-ins; registration = first
+  sign-in.** The relay's single FTP listener takes one login per
+  camera (login = camera, same as local mode), synced idempotently
+  from the app; files route by the login that sent them. A new camera
+  entry is "waiting for its first sign-in" (hidden from the picker)
+  until that login actually connects. Shared legacy login and old
+  relays keep working. [[2026-09-camera-identity]]
 - 2026-08-24 — **The patient library lists PATIENT RECORDS, never
   folders** (Chris: orphaned photos in the list "was a mistake").
   System/buffer sessions and legacy name-only folders never pose as
