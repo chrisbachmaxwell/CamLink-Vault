@@ -133,3 +133,16 @@ valid alongside.
   (into the open visit, or the safe buffer). Also fixes a latent bug
   the detector exposed: offset learning now resists backlog poisoning
   (a flood of old files must not redefine the camera's clock).
+- 2026-08-25 — **v0.17.0 SHIPPED**: backlog-flood banner live. Server
+  counts stale arrivals (offset-corrected EXIF; SDK now reads bare
+  TIFF, so NEFs are datable) into per-camera bursts → one aggregated
+  banner with running count, an honest "where they're going" line
+  (open visit vs safe buffer) and the model's stop steps
+  (backlogAdvice; Nikon path concrete, others generic). Per-file
+  buffered/RAW banners yield during a burst. Offset learning hardened
+  against backlog poisoning (fresher-always, larger-only-within-
+  drift). Gate: 3-file 2-day-old burst → ONE banner, count 3, stop
+  instructions present. All six gates green. OPEN QUESTION for Chris:
+  during an open visit a backlog still files INTO the visit (his
+  identity-over-dates rule); if he wants old bursts held aside with
+  "Add all / Keep out", that's the next iteration.
