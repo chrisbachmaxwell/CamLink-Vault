@@ -89,3 +89,15 @@ valid alongside.
   same session. Client model check shipped stricter than spec: warns
   only when the photo's model positively matches a DIFFERENT catalog
   entry. Remaining: Chris's field pass with the R6 III + z8.
+- 2026-08-25 (later) — **Field defect, same night: one live camera lit
+  every camera green.** Chris added "z8 display" (own login); only that
+  login was live, but "z8 rental" showed on too — the default camera
+  read the relay's account-level AGGREGATE presence (any login live →
+  connected), a compat compromise the v0.16.0 code even documented.
+  v0.16.1: /v1/health's cameras map now includes the PRIMARY login's
+  own row plus `primaryUser`; the app reads the primary's own row when
+  present (old relays fall back to the aggregate, where it is honest —
+  single shared login). Regression pinned in adapter test (only cam-b
+  speaks → primary row stays dark) + relay test (primary in map).
+  Lesson: never let a "compat aggregate" be any NEW reader's default.
+  All six gates green; relay redeployed; SDK pushed (4a93b29).
