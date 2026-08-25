@@ -39,4 +39,14 @@ constraint: [[hipaa-local-first]].
 ## Done recently (details in [[project-status]])
 Multi-room · earlier-photo guard · honest presence · in-app updates ·
 Mac app installer · home redesign + flow rules · cloud relay on Railway ·
-FTP push transport · Med Photo rename (all 2026-08-21/22).
+FTP push transport · Med Photo rename (all 2026-08-21/22) · recoverable
+live photo removal (v0.18.0, 2026-08-25; tile/viewer → local `.trash/` +
+manifest tombstone + batch Undo). Hands-on feedback decides whether a
+persistent trash browser is needed beyond Undo.
+
+## 2026-08-25 transfer follow-up
+- Trace and reproduce the Nikon Z8 against the relay's single-port FTP
+  state machine before recommending that path for Z8 clinics. Same-day R6
+  Mark II success rules out a generally slow relay, but does not yet identify
+  whether the Z8 issue is resume/REST behavior, passive-data demux, Wi-Fi,
+  or camera profile state.

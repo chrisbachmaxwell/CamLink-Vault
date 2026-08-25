@@ -122,3 +122,17 @@ presence pill).
   advises setting it.
 - Camera-identity field pass (Chris): R6 III on its own relay sign-in
   files into its own visit; ending lands on the patient record.
+
+## 2026-08-25 addendum
+- ✅ **Recoverable live photo removal** shipped in Med Photo **v0.18.0**
+  (SDK commit `4d6194d`): every completed live tile has a touch-sized trash
+  control, the full-screen viewer has the same action, removal moves the
+  photo and RAW preview into local `.trash/`, and a 10-second batch Undo
+  restores bytes plus manifest state. Deleted manifest tombstones survive
+  later captures/restarts; review-only users cannot change photos.
+- Field A/B on the same relay: a Nikon Z8 delivered a three-JPEG backlog
+  slowly and produced one refused/truncated attempt; a Canon R6 Mark II
+  then delivered 17 JPEGs quickly with zero failures. Relay-to-Mac pulls
+  were immediate. Current verdict: the bottleneck is the Z8-to-relay
+  compatibility path, not the relay in general. See
+  [[log/2026-08-25-camera-transfer-and-recoverable-delete]].
