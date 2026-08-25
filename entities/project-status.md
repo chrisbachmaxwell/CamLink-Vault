@@ -2,8 +2,8 @@
 
 Rewritten 2026-08-22 after the 2026-08-21/22 field marathon (see
 [[log/2026-08-21-med-photo-field-day]]; July history in earlier logs).
-Clinic app **v0.16.2** (2026-08-25, see
-[[log/2026-08-25-camera-identity]]), branch
+Clinic app **v0.18.0** (2026-08-25, see
+[[log/2026-08-25-camera-transfer-and-recoverable-delete]]), branch
 `claude/camera-sdk-adapter-pattern-4pj5r8` (repo default).
 
 ## Product identity
@@ -136,3 +136,11 @@ presence pill).
   were immediate. Current verdict: the bottleneck is the Z8-to-relay
   compatibility path, not the relay in general. See
   [[log/2026-08-25-camera-transfer-and-recoverable-delete]].
+- **Mac release foundation** exists but is not a production updater:
+  signed non-PHI manifest verification (`33b2751`), a filesystem-backed
+  non-PHI release service (`6092011`, Railway preparation `11beff8`), and
+  operator signing/notarization guidance in SDK PR #5. The separate Railway
+  project was not verified or deployed in that session. A self-contained
+  app/package builder, manifest signer + embedded production public key,
+  updater integration, and controlled artifact upload remain open. See
+  [[log/2026-08-25-mac-release-runbook]].

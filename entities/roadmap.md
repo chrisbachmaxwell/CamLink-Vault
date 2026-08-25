@@ -24,9 +24,15 @@ constraint: [[hipaa-local-first]].
    [[in-app-updates]].
 
 ## Later
-6. **Distribution: Electron/Tauri single-download signed app** with
-   auto-update — trigger: first outside clinic onboards (decision
-   2026-08-21 in [[decisions]]). Interim shipped: installer + app-mode.
+6. **Distribution: signed/notarized single-download Mac app + verified
+   auto-update** — foundation exists (signed manifest verifier, non-PHI
+   release service, operator runbook in SDK PR #5), but the current app-mode
+   installer still depends on a source checkout. Next code slices: choose and
+   build the self-contained Electron/Tauri package; wire the production
+   Ed25519 signer/public key and updater; add a controlled immutable-artifact
+   upload path; then verify the separate Railway release service. Waiting on
+   Chris only for Med Photo business Apple Developer enrollment/invite
+   ([[log/2026-08-25-mac-release-runbook]]).
 7. **Med Photo Box** — GL.iNet Beryl AX travel-router kit for hostile
    clinic networks (repo docs/MED-PHOTO-BOX.md; hardware sourced).
 8. **USB tether (Phase D)** — `@medphoto/adapter-usb`; design in repo
