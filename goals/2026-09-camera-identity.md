@@ -115,3 +115,21 @@ valid alongside.
   ran the new navigation and yanked pages mid-turnover — navigation
   now belongs ONLY to the user's own End click (doctrine: never
   auto-navigate away from the user). All six gates green; pushed.
+- 2026-08-25 (v0.17.0 direction) — **Backlog floods get ONE warning
+  with stop instructions** (Chris, watching his Z8 drain 30 queued
+  NEFs, 38 min remaining: "should our app detect old photos when they
+  happen and have the warnings saying old photos are being uploaded
+  and then give instructions to stop it"). The reserved revisit
+  condition fired. Design: the app CANNOT control the camera (FTP
+  push is one-way by design — that's why it works on every brand), so
+  the answer is detection + one honest banner: per camera, arrivals
+  whose own capture time (clock-offset-corrected) is well in the past
+  count into a burst; the banner aggregates ("uploading older photos —
+  N so far, M RAW; kept safe") and carries the camera's OWN stop steps
+  (catalog `backlogAdvice`; Nikon: Options → Auto send OFF →
+  "Deselect all?" clears the queue). Per-file buffered/RAW banners go
+  quiet while a burst is active — one flood, one banner. FILING IS
+  UNCHANGED: identity over dates stands; burst photos still store
+  (into the open visit, or the safe buffer). Also fixes a latent bug
+  the detector exposed: offset learning now resists backlog poisoning
+  (a flood of old files must not redefine the camera's clock).
