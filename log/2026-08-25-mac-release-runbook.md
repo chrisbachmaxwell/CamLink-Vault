@@ -32,6 +32,10 @@
     the repository's clinical relay;
   - fixed package HEAD requests that incorrectly returned 200 for a missing
     package without checking storage.
+- Follow-up SDK commit `11c6359` refreshed the stale root lockfile entry after
+  `11beff8` removed the release service's manifest dependency, and aligned both
+  manifest examples with the implemented `/v1/packages/<filename>` route.
+  Lockfile-only install, both release builds, and all 10 release tests passed.
 
 ## Safety decisions
 - Never request, accept, export, or store an Apple private key, `.p12`,
