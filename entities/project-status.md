@@ -144,3 +144,12 @@ presence pill).
   app/package builder, manifest signer + embedded production public key,
   updater integration, and controlled artifact upload remain open. See
   [[log/2026-08-25-mac-release-runbook]].
+- ✅ **Distributed clinic security foundation** shipped in SDK commit
+  `de29c19`: non-PHI organization/location membership enforcement, proof-bound
+  Ed25519 Hub enrollment, signed Hub credentials, privacy-safe discovery, and
+  adversarial HTTP tests. Patient builds now fail closed on the prototype
+  relay; camera filenames and legacy manifests are contained and no-clobber.
+  All build/typecheck/unit/smoke/multi-room/browser gates passed. This is the
+  foundation, not the end-user promise yet: enrolled-device Hub HTTPS, native
+  sign-in/discovery wiring, signed updater integration, and BAA-backed remote
+  photo sync remain. See [[log/2026-08-25-distributed-clinic-foundation]].
