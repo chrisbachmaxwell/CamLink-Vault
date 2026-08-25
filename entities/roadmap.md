@@ -4,10 +4,12 @@ Rewritten 2026-08-22. Ordered by Chris's priorities. Governing
 constraint: [[hipaa-local-first]].
 
 ## Now (active)
-1. **Distributed app usable layer** — wire enrolled-device HTTPS into the
-   Capture Hub, then native OIDC sign-in → authorized locations → mDNS Hub
-   discovery → public-key pinning. Keep the control plane non-PHI. Wire the
-   signed release client so Check for updates no longer uses Git.
+1. **Distributed app usable layer** — transport contracts are now green in
+   `920baa2`. Next wire the real native macOS OIDC/mDNS/TLS host, register and
+   issue Hub TLS pins + short-lived device grants from the control plane, and
+   put the HTTPS authorization boundary in front of the clinic Hub routes.
+   Then embed the production release public key/native verifier+installer and
+   migrate Check for updates off Git. Keep the control plane non-PHI.
 2. **R5 Mark II FTP dialect** — [[2026-08-r5ii-ftp-dialect]]: read the
    relay's FTP conversation trace, fix whatever the body speaks, prove
    "works for all FTP cameras" (Chris's words).

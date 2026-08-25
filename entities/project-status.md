@@ -153,3 +153,16 @@ presence pill).
   foundation, not the end-user promise yet: enrolled-device Hub HTTPS, native
   sign-in/discovery wiring, signed updater integration, and BAA-backed remote
   photo sync remain. See [[log/2026-08-25-distributed-clinic-foundation]].
+- ✅ **Trusted desktop/Hub transport checkpoint** shipped in SDK commit
+  `920baa2`: strict OIDC/JWKS verification, native device identity, signed
+  short-lived Hub grants and requests, TLS certificate/SPKI pin enforcement,
+  a bounded HTTPS Hub ingress boundary, and the native sign-in → authorized
+  location → mDNS match → pinned Hub connection orchestrator. The signed
+  release client now keeps the verified update inode immutable through staging
+  and repeats verification through the exact install handle; a clinic-safe
+  update bridge defers around active visits. Independent adversarial retests
+  passed after closing pathname-replacement, stalled-body, and ignored-abort
+  races. These are wired contracts, not yet a downloadable app: the native
+  macOS TLS/mDNS/OIDC host, control-plane grant/TLS-pin issuance, embedded
+  release key, notarized installer, and clinic update route migration remain.
+  See [[log/2026-08-25-trusted-desktop-hub-transport]].
