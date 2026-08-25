@@ -55,9 +55,13 @@ Clinic app **v0.18.0** (2026-08-25, see
 - **In-app updates** ([[in-app-updates]]): 6 AM daily + boot checks,
   corner-chip one-click install, self-restart under launchd; survives
   bare launchd PATH and rewritten package-lock.
-- **Mac app** (`npm run install-app -w @medphoto/clinic-app`):
-  Med Photo.app + generated icon in Applications/Spotlight, launchd
-  server-at-login, Chromium app-mode window (no browser chrome).
+- **Mac app**: the legacy `install-app` launcher still exists for development,
+  and SDK commit `74c5a76` now adds a genuinely self-contained Electron app
+  plus separate Apple-silicon/Intel ZIPs. The destination Mac needs no source
+  checkout, Node/npm/Git, Chrome, or other browser. Captures live outside the
+  replaceable bundle in Application Support. The current artifacts are ad-hoc
+  signed internal-test builds; public warning-free download still needs
+  Developer ID signing/notarization.
 - **Camera-first language + onboarding** (v0.11): "room" is banned
   user-facing (gate-enforced); "Which camera?" chips at visit start;
   model-first connect flow with per-model instructions from
@@ -178,3 +182,15 @@ presence pill).
   v1 stores with Hubs fail closed and require re-enrollment because TLS pins
   cannot be guessed. Actual macOS host adapters and clinic Hub route wiring
   remain. See [[log/2026-08-25-device-bound-hub-access]].
+- ✅ **Standalone Mac download checkpoint** shipped in SDK commit `74c5a76`:
+  a secure Electron window embeds the existing clinic UI and a bundled Node
+  camera service, persists captures only under macOS Application Support, and
+  produces ad-hoc-signed arm64 and x64 ZIPs. An independent clean-profile
+  Launch Services test proved the exact packaged binary starts without the
+  repo/runtime/browser, serves v0.18.0, and stops its child cleanly. A
+  child-bound random readiness proof closes the local port-claim race. Full
+  build/typecheck/unit/PTP/FTP/multi-room/UI gates passed. This is the local
+  Capture Hub app, not yet the cross-computer viewer promise: OIDC/location
+  selection, mDNS/pinned-TLS Hub connection, public Apple signing/notarization,
+  hosted downloads, and signed native updates remain. See
+  [[log/2026-08-25-standalone-mac-download]].

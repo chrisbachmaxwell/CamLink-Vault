@@ -4,12 +4,12 @@ Rewritten 2026-08-22. Ordered by Chris's priorities. Governing
 constraint: [[hipaa-local-first]].
 
 ## Now (active)
-1. **Distributed app usable layer** — transport contracts (`920baa2`) and the
-   device-bound control-plane connection-material flow (`d290a80`) are green.
-   Next wire the real native macOS OIDC/mDNS/TLS/keychain host and put the HTTPS
-   authorization boundary in front of the clinic Hub routes. Then embed the
-   production release public key/native verifier+installer and migrate Check
-   for updates off Git. Keep the control plane non-PHI.
+1. **Distributed app usable layer** — transport contracts (`920baa2`), the
+   device-bound connection-material flow (`d290a80`), and self-contained Mac
+   packaging (`74c5a76`) are green. Next wire real macOS OIDC/location
+   selection, mDNS/TLS/keychain adapters, and the HTTPS authorization boundary
+   in front of clinic Hub viewer routes. Then deploy the non-PHI Railway
+   control plane with durable backing. Keep patient bytes at the Hub.
 2. **R5 Mark II FTP dialect** — [[2026-08-r5ii-ftp-dialect]]: read the
    relay's FTP conversation trace, fix whatever the body speaks, prove
    "works for all FTP cameras" (Chris's words).
@@ -30,14 +30,13 @@ constraint: [[hipaa-local-first]].
    [[in-app-updates]].
 
 ## Later
-7. **Distribution: signed/notarized single-download Mac app + verified
-   auto-update** — foundation exists (signed manifest verifier, non-PHI
-   release service, operator runbook in SDK PR #5), but the current app-mode
-   installer still depends on a source checkout. Next code slices: choose and
-   build the self-contained Electron/Tauri package; wire the production
-   Ed25519 signer/public key and updater; add a controlled immutable-artifact
-   upload path; then verify the separate Railway release service. Waiting on
-   Chris only for Med Photo business Apple Developer enrollment/invite
+7. **Distribution: public signed/notarized download + verified auto-update** —
+   the self-contained Electron app and arm64/x64 internal-test ZIPs now exist
+   (`74c5a76`), along with the signed-manifest/release-service/update-client
+   foundations. Next: Developer ID sign/notarize, publish immutable artifacts,
+   embed the production Ed25519 key/native verifier+installer, migrate Check
+   for updates off Git, and verify the Railway release service. Waiting on
+   Chris only when Apple Developer enrollment/invite becomes necessary
    ([[log/2026-08-25-mac-release-runbook]]).
 8. **Med Photo Box** — GL.iNet Beryl AX travel-router kit for hostile
    clinic networks (repo docs/MED-PHOTO-BOX.md; hardware sourced).
