@@ -42,6 +42,15 @@ warning-free double-click install needs Apple Developer Program access,
 Developer ID Application signing, and Apple notarization/stapling. No archive
 or Railway change can replace that Apple trust chain.
 
+## Other-Mac follow-up
+The affected machine is an Apple M1 with 8 GB on macOS Tahoe, so the published
+arm64 architecture is correct. v0.18.8 still bounced after Open Anyway, before
+the app could show its startup/recovery page. The build Mac has zero valid
+code-signing identities. This field result elevates Developer ID signing and
+notarization from a public-distribution polish item to the active first-install
+blocker; do not spend another cycle on Intel builds or Terminal quarantine
+workarounds for this M1.
+
 ## Data safety
 The installed app was moved to Trash recoverably. The application data under
 Application Support was deliberately preserved. No captures or patient data
