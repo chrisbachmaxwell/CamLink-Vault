@@ -80,6 +80,8 @@ surgeons, med spas, dermatologists).
   [[2026-07-wizard-simplify]] (superseded by [[design-doctrine]])
 
 ## Chronicle (newest first)
+- [[log/2026-08-26-finder-safe-mac-release]] — v0.18.8 removes AppleDouble
+  ZIP entries, proves Finder-style extraction, and replaces the live download
 - [[log/2026-08-26-mac-bootstrap-recovery]] — other-Mac quarantine
   reproduction; visible v0.18.7 startup recovery; durable Railway releases
 - [[log/2026-08-21-med-photo-field-day]] — THE marathon: rename, FTP,

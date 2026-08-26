@@ -2,8 +2,8 @@
 
 Rewritten 2026-08-22 after the 2026-08-21/22 field marathon (see
 [[log/2026-08-21-med-photo-field-day]]; July history in earlier logs).
-Clinic app **v0.18.7** (2026-08-26, see
-[[log/2026-08-26-mac-bootstrap-recovery]]), branch
+Clinic app **v0.18.8** (2026-08-26, see
+[[log/2026-08-26-finder-safe-mac-release]]), branch
 `claude/camera-sdk-adapter-pattern-4pj5r8` (repo default).
 
 ## Product identity
@@ -58,8 +58,9 @@ Clinic app **v0.18.7** (2026-08-26, see
 - **Self-contained Mac app** (`@medphoto/desktop-app`): packaged Electron
   window + clinic runtime, no checkout/Node/browser required. The signed
   updater verifies and atomically installs releases from Railway; v0.18.7
-  shows a startup/recovery window instead of silently bouncing if its local
-  camera service cannot start.
+  added a visible startup/recovery window. v0.18.8 fixes first-install ZIPs:
+  browser download + Finder/Archive Utility extraction no longer materializes
+  AppleDouble `._*` files that invalidate Electron's framework signature.
 - **Camera-first language + onboarding** (v0.11): "room" is banned
   user-facing (gate-enforced); "Which camera?" chips at visit start;
   model-first connect flow with per-model instructions from
@@ -154,6 +155,18 @@ presence pill).
   [[log/2026-08-26-signed-mac-updater-live]] and
   [[log/2026-08-26-mac-bootstrap-recovery]].
 - Remaining distribution gates are explicit: the other arm64 Mac needs one
-  manual v0.18.7 bootstrap, then **Check for updates** works; public
+  manual v0.18.8 bootstrap, then **Check for updates** works; public
   Gatekeeper installation still needs Developer ID signing/notarization;
   the Intel packaging path builds and verifies, but final x64 is not hosted.
+- ✅ **Finder-safe Mac bootstrap** shipped in **v0.18.8** (SDK commit
+  `1279efa`). The v0.18.7 ZIP contained 143 AppleDouble `._*` entries. The
+  updater's `ditto` extractor masked them, but Finder materialized them inside
+  Electron Framework and broke the code signature, causing the Dock-bounce
+  failure. Packaging now disables copyfile metadata, rejects AppleDouble and
+  unsafe entries, standard-extracts the exact ZIP, and deep/strict verifies
+  the extracted app; the publisher and updater enforce the same AppleDouble
+  rejection. Railway serves the signed 0.18.8 arm64 package from the durable
+  release volume while preserving 0.18.6 and 0.18.7 URLs. Independent exact-
+  artifact validation passed. Gatekeeper's first-download warning remains an
+  Apple Developer ID/notarization dependency, not an archive defect. See
+  [[log/2026-08-26-finder-safe-mac-release]].

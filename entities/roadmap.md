@@ -26,12 +26,13 @@ constraint: [[hipaa-local-first]].
 ## Later
 6. **Public Mac distribution** — the self-contained Electron app, offline
    Ed25519 publisher, Railway release service and verified native updater are
-   live for arm64 internal tests (v0.18.7; three successful end-to-end
+   live for arm64 internal tests (v0.18.8; three successful end-to-end
    self-updates). Immutable arm64 history now lives on a persistent Railway
-   volume. Remaining: Developer ID signing/notarization so the first download
-   opens without a Gatekeeper bypass, and host/test the Intel artifact. See
+   volume. The Finder/Archive Utility bootstrap path is archive-valid as of
+   v0.18.8. Remaining: Developer ID signing/notarization so the first download
+   opens without macOS Open Anyway, and host/test the Intel artifact. See
    [[log/2026-08-26-signed-mac-updater-live]] and
-   [[log/2026-08-26-mac-bootstrap-recovery]].
+   [[log/2026-08-26-finder-safe-mac-release]].
 7. **Med Photo Box** — GL.iNet Beryl AX travel-router kit for hostile
    clinic networks (repo docs/MED-PHOTO-BOX.md; hardware sourced).
 8. **USB tether (Phase D)** — `@medphoto/adapter-usb`; design in repo
@@ -48,7 +49,8 @@ FTP push transport · Med Photo rename (all 2026-08-21/22) · recoverable
 live photo removal (v0.18.0, 2026-08-25; tile/viewer → local `.trash/` +
 manifest tombstone + batch Undo). Hands-on feedback decides whether a
 persistent trash browser is needed beyond Undo. Self-contained arm64 Mac app
-+ signed Railway updater (v0.18.7, 2026-08-26); initial public-download
++ signed Railway updater (v0.18.8, 2026-08-26); Finder-safe first-install ZIP
+is live; initial public-download
 notarization remains open.
 
 ## 2026-08-25 transfer follow-up
