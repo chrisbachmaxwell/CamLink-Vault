@@ -60,3 +60,15 @@ viewer-only desktop mode remain gated.
 - Connect the downloaded app's viewer-only mode so staff do not need to paste a
   Hub URL into Safari/Chrome.
 - Developer ID signing/notarization remains the reliable first-install gate.
+
+## First update field result
+
+One Mac updated to v0.18.11 successfully. A second Apple-silicon Mac reported
+"The update could not be verified and was not installed." The live manifest,
+Ed25519 signature and full package SHA-256 remained valid. The exact updater
+module extracted from the published v0.18.10 app then downloaded all
+113,832,972 live bytes and staged/verified v0.18.11 successfully. Therefore no
+bad release or key mismatch was reproduced; the second-Mac failure is currently
+device-local or transient. Safe next field steps are one retry on the now-stable
+service, then the direct v0.18.11 DMG replacement if it repeats. Record free
+storage and the exact installed version before changing updater code.

@@ -13,6 +13,10 @@ constraint: [[hipaa-local-first]].
    enable **Settings -> Other computers** on the Hub; use a Review PIN in the
    second computer's browser; prove one synthetic visit/photo appears live.
    If unreachable, check Local Network permission and router client isolation.
+   One Mac updated successfully; the second gave a safe verification refusal
+   even though the exact v0.18.10 updater verifies the live package locally.
+   Retry once on the stable service; if repeated, replace from the v0.18.11 DMG
+   and record free storage plus installed version before updater changes.
 
 ## Next
 4. **FTPS + BAA hosting + compliance sign-off** — the hard gate before

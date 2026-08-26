@@ -220,3 +220,7 @@ presence pill).
   `a6edecc3989583684e12ff4748eebdf260a9c9e65484033fd7c23dbe93d2a9bd`.
   This route is synthetic-only HTTP until TLS/device enrollment lands. See
   [[log/2026-08-26-same-lan-multicomputer-v01811]].
+  First field update: one Mac self-updated; a second returned the safe
+  verification refusal. The exact published v0.18.10 updater independently
+  downloaded and verified the live v0.18.11 package, so the signed release/key
+  is not presently reproduced as bad. Retry/direct-DMG field isolation remains.
