@@ -80,6 +80,8 @@ surgeons, med spas, dermatologists).
   [[2026-07-wizard-simplify]] (superseded by [[design-doctrine]])
 
 ## Chronicle (newest first)
+- [[log/2026-08-26-mac-bootstrap-recovery]] — other-Mac quarantine
+  reproduction; visible v0.18.7 startup recovery; durable Railway releases
 - [[log/2026-08-21-med-photo-field-day]] — THE marathon: rename, FTP,
   relay, multi-room, guard, presence, Mac app, updates, R5 II opened
 - [[log/2026-08-21-ftp-adapter-built]] — FTP research + build detail

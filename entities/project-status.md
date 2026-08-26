@@ -2,8 +2,8 @@
 
 Rewritten 2026-08-22 after the 2026-08-21/22 field marathon (see
 [[log/2026-08-21-med-photo-field-day]]; July history in earlier logs).
-Clinic app **v0.18.6** (2026-08-26, see
-[[log/2026-08-26-signed-mac-updater-live]]), branch
+Clinic app **v0.18.7** (2026-08-26, see
+[[log/2026-08-26-mac-bootstrap-recovery]]), branch
 `claude/camera-sdk-adapter-pattern-4pj5r8` (repo default).
 
 ## Product identity
@@ -55,9 +55,11 @@ Clinic app **v0.18.6** (2026-08-26, see
 - **In-app updates** ([[in-app-updates]]): 6 AM daily + boot checks,
   corner-chip one-click install, self-restart under launchd; survives
   bare launchd PATH and rewritten package-lock.
-- **Mac app** (`npm run install-app -w @medphoto/clinic-app`):
-  Med Photo.app + generated icon in Applications/Spotlight, launchd
-  server-at-login, Chromium app-mode window (no browser chrome).
+- **Self-contained Mac app** (`@medphoto/desktop-app`): packaged Electron
+  window + clinic runtime, no checkout/Node/browser required. The signed
+  updater verifies and atomically installs releases from Railway; v0.18.7
+  shows a startup/recovery window instead of silently bouncing if its local
+  camera service cannot start.
 - **Camera-first language + onboarding** (v0.11): "room" is banned
   user-facing (gate-enforced); "Which camera?" chips at visit start;
   model-first connect flow with per-model instructions from
@@ -137,17 +139,21 @@ presence pill).
   compatibility path, not the relay in general. See
   [[log/2026-08-25-camera-transfer-and-recoverable-delete]].
 - ✅ **Self-contained Mac app + signed in-app updater** shipped for the
-  arm64 internal-test channel in **v0.18.6** (SDK commits `d746071`,
-  `53ed95f`). Railway serves a closed Ed25519-signed manifest and immutable
+  arm64 internal-test channel in **v0.18.7** (SDK commits `d746071`,
+  `53ed95f`, `b231454`). Railway serves a closed Ed25519-signed manifest and immutable
   ZIP; the app verifies signature, SHA-256, code signature, bundle ID,
   version and architecture, defers active visits, atomically replaces the
   `/Applications` bundle, health-checks the restart and rolls back on
   failure. Live proof included an intentionally caught failed restart that
   restored v0.18.2, followed by successful v0.18.4 → v0.18.5 → v0.18.6
-  self-updates with local relay/test configuration retained. See
-  [[log/2026-08-26-signed-mac-updater-live]].
+  self-updates with local relay/test configuration retained. v0.18.7 adds an
+  immediate startup window and a persistent recovery screen; exact
+  quarantine, clean-launch and forced-child-failure tests passed. Railway now
+  stores immutable 0.18.6 + 0.18.7 artifacts on a persistent `/data` volume,
+  so later source deploys no longer resend all historical ZIPs. See
+  [[log/2026-08-26-signed-mac-updater-live]] and
+  [[log/2026-08-26-mac-bootstrap-recovery]].
 - Remaining distribution gates are explicit: the other arm64 Mac needs one
-  manual v0.18.6 bootstrap, then **Check for updates** works; public
+  manual v0.18.7 bootstrap, then **Check for updates** works; public
   Gatekeeper installation still needs Developer ID signing/notarization;
-  the Intel packaging path builds and verifies, but final v0.18.6 is not
-  produced or hosted on the current latest-only Railway channel.
+  the Intel packaging path builds and verifies, but final x64 is not hosted.
