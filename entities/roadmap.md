@@ -34,9 +34,11 @@ constraint: [[hipaa-local-first]].
    [[log/2026-08-26-signed-mac-updater-live]] and
    [[log/2026-08-26-finder-safe-mac-release]].
    **Active blocker:** the M1/Tahoe field Mac still bounces after Open Anyway,
-   and the build Mac has no Developer ID identity. Enroll/provision the Apple
-   Developer account, then sign, notarize, staple, and re-run the clean-Mac
-   browser-download launch gate before more bootstrap debugging.
+   although an earlier unsigned ZIP opened on that same Mac. Confirm Finder Get
+   Info reports the intended version and eliminate an older duplicate/running
+   instance before changing packaging again. Developer ID signing/notarization
+   remains required for warning-free distribution, but is not yet proven to be
+   the cause of this regression.
 7. **Med Photo Box** — GL.iNet Beryl AX travel-router kit for hostile
    clinic networks (repo docs/MED-PHOTO-BOX.md; hardware sourced).
 8. **USB tether (Phase D)** — `@medphoto/adapter-usb`; design in repo

@@ -46,10 +46,11 @@ or Railway change can replace that Apple trust chain.
 The affected machine is an Apple M1 with 8 GB on macOS Tahoe, so the published
 arm64 architecture is correct. v0.18.8 still bounced after Open Anyway, before
 the app could show its startup/recovery page. The build Mac has zero valid
-code-signing identities. This field result elevates Developer ID signing and
-notarization from a public-distribution polish item to the active first-install
-blocker; do not spend another cycle on Intel builds or Terminal quarantine
-workarounds for this M1.
+code-signing identities, but that is not a complete explanation: an earlier
+unsigned Med Photo ZIP was unzipped and successfully opened on this same Mac
+after Open Anyway. Corrected next gate: verify the exact app version through
+Finder Get Info and eliminate an older duplicate/background instance before
+changing the archive or declaring notarization the sole blocker.
 
 ## Data safety
 The installed app was moved to Trash recoverably. The application data under
