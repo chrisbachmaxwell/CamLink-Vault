@@ -2,8 +2,8 @@
 
 Rewritten 2026-08-22 after the 2026-08-21/22 field marathon (see
 [[log/2026-08-21-med-photo-field-day]]; July history in earlier logs).
-Clinic app **v0.18.9** (2026-08-26, see
-[[log/2026-08-26-mac-startup-recovery-v0189]]), branch
+Clinic app **v0.18.10** (2026-08-26, see
+[[log/2026-08-26-mac-dmg-bootstrap-v01810]]), branch
 `claude/camera-sdk-adapter-pattern-4pj5r8` (repo default).
 
 ## Product identity
@@ -64,6 +64,10 @@ Clinic app **v0.18.9** (2026-08-26, see
   v0.18.9 bounds startup page and clinic navigation loads, retries with a fresh
   renderer, recovers a renderer that crashes after launch, and falls back to a
   native macOS error (or exits) instead of bouncing indefinitely in the Dock.
+  v0.18.10 adds a verified DMG first-install path with an Applications shortcut,
+  aggressively raises the real window above Finder/System Settings, and makes a
+  losing second instance exit immediately instead of waiting behind an invisible
+  dialog. The DMG is served separately from signed updater history on Railway.
 - **Camera-first language + onboarding** (v0.11): "room" is banned
   user-facing (gate-enforced); "Which camera?" chips at visit start;
   model-first connect flow with per-model instructions from
@@ -187,3 +191,16 @@ presence pill).
   remains the final confirmation; Developer ID/notarization remains the
   separate warning-free distribution gate. See
   [[log/2026-08-26-mac-startup-recovery-v0189]].
+- ✅ **Finder-first DMG bootstrap v0.18.10** shipped to the internal-test
+  download surface (SDK commit `0fa055d`). Railway serves the exact verified
+  arm64 DMG at a separate immutable `/v1/bootstrap/` route; signed updater
+  history remains on `/v1/packages/`. The DMG contains Med Photo plus an
+  Applications shortcut and passes DMG verification, arm64/version checks and
+  deep/strict code-sign verification. All workspace tests and the PTP, FTP,
+  multi-room, relay and browser UI gates pass. A clean, unquarantined M1/Tahoe
+  launch produced one healthy service and one visible window. A realistic
+  quarantined repro stopped inside macOS `_dyld_start` before Electron/Med Photo
+  code ran, which confirms that source-level recovery cannot make unsigned
+  first downloads reliable. Developer ID signing/notarization remains the
+  honest public-distribution gate. See
+  [[log/2026-08-26-mac-dmg-bootstrap-v01810]].

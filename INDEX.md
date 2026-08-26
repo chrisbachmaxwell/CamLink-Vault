@@ -80,6 +80,9 @@ surgeons, med spas, dermatologists).
   [[2026-07-wizard-simplify]] (superseded by [[design-doctrine]])
 
 ## Chronicle (newest first)
+- [[log/2026-08-26-mac-dmg-bootstrap-v01810]] — v0.18.10 adds a verified
+  Finder DMG, separate Railway bootstrap route, and records the pre-JavaScript
+  Gatekeeper boundary on the affected M1/Tahoe first-install path
 - [[log/2026-08-26-mac-startup-recovery-v0189]] — v0.18.9 bounds Mac
   window startup, retries renderer failures, and makes silent Dock bouncing
   terminate in a visible native recovery path
