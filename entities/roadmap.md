@@ -9,22 +9,26 @@ constraint: [[hipaa-local-first]].
    "works for all FTP cameras" (Chris's words).
 2. **Field-close multi-room** — a second body as `room-2` in the office
    ([[2026-09-multi-room]], last unchecked box).
+3. **Field-test same-LAN Hub + Viewer** — update two arm64 Macs to v0.18.11;
+   enable **Settings -> Other computers** on the Hub; use a Review PIN in the
+   second computer's browser; prove one synthetic visit/photo appears live.
+   If unreachable, check Local Network permission and router client isolation.
 
 ## Next
-3. **FTPS + BAA hosting + compliance sign-off** — the hard gate before
+4. **FTPS + BAA hosting + compliance sign-off** — the hard gate before
    ANY patient photo touches the relay (repo docs/CLOUD-RELAY-PLAN.md).
    Includes per-clinic relay accounts issued at install time (replaces
    the built-in shared prototype account; rotates the burned pull token
    and FTP password).
-4. **Logins, roles, and the review seat** — [[2026-09-logins-and-roles]]
+5. **Logins, roles, and the review seat** — [[2026-09-logins-and-roles]]
    (PROPOSED, design in [[multi-user-model]]; absorbs Phase C lockdown).
    Waiting on Chris's read of the proposal.
-5. **Auto-install updates at 6 AM when no visit is active** — offered
+6. **Auto-install updates at 6 AM when no visit is active** — offered
    2026-08-22, awaiting Chris's go; small change on top of
    [[in-app-updates]].
 
 ## Later
-6. **Public Mac distribution** — the self-contained Electron app, offline
+7. **Public Mac distribution** — the self-contained Electron app, offline
    Ed25519 publisher, Railway release service and verified native updater are
    live for arm64 internal tests (v0.18.10; three successful end-to-end
    self-updates). Immutable arm64 history now lives on a persistent Railway
@@ -40,17 +44,17 @@ constraint: [[hipaa-local-first]].
    block with no server, renderer or window, so no further Electron startup
    change can honestly promise reliable unsigned first install. Field-test the
    DMG, but Developer ID signing/notarization is the required reliable fix.
-7. **Med Photo Box** — GL.iNet Beryl AX travel-router kit for hostile
+8. **Med Photo Box** — GL.iNet Beryl AX travel-router kit for hostile
    clinic networks (repo docs/MED-PHOTO-BOX.md; hardware sourced).
-8. **USB tether (Phase D)** — `@medphoto/adapter-usb`; design in repo
+9. **USB tether (Phase D)** — `@medphoto/adapter-usb`; design in repo
    docs/PTP-PLAN.md.
-9. **Clinic lockdown (Phase C)** — [[2026-07-clinic-lockdown]]: PIN,
+10. **Clinic lockdown (Phase C)** — [[2026-07-clinic-lockdown]]: PIN,
    audit log, no-cloud CI guard.
-10. **Other FTP vendors** (Sony/Nikon/Fuji pro bodies) — adapter is
+11. **Other FTP vendors** (Sony/Nikon/Fuji pro bodies) — adapter is
    vendor-agnostic by design; needs per-vendor field proof.
 
 ## Done recently (details in [[project-status]])
-Multi-room · earlier-photo guard · honest presence · in-app updates ·
+Multi-room · synthetic same-LAN Hub/browser Viewer (v0.18.11) · earlier-photo guard · honest presence · in-app updates ·
 Mac app installer · Finder-first DMG + bounded Mac startup/renderer recovery (v0.18.10) · home redesign + flow rules · cloud relay on Railway ·
 FTP push transport · Med Photo rename (all 2026-08-21/22) · recoverable
 live photo removal (v0.18.0, 2026-08-25; tile/viewer → local `.trash/` +

@@ -80,6 +80,9 @@ surgeons, med spas, dermatologists).
   [[2026-07-wizard-simplify]] (superseded by [[design-doctrine]])
 
 ## Chronicle (newest first)
+- [[log/2026-08-26-same-lan-multicomputer-v01811]] — v0.18.11 adds an
+  owner-controlled same-LAN Capture Hub and authenticated browser Viewers for
+  synthetic multicomputer workflow testing; one Hub retains the only library
 - [[log/2026-08-26-mac-dmg-bootstrap-v01810]] — v0.18.10 adds a verified
   Finder DMG, separate Railway bootstrap route, and records the pre-JavaScript
   Gatekeeper boundary on the affected M1/Tahoe first-install path

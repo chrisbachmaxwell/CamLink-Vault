@@ -2,8 +2,8 @@
 
 Rewritten 2026-08-22 after the 2026-08-21/22 field marathon (see
 [[log/2026-08-21-med-photo-field-day]]; July history in earlier logs).
-Clinic app **v0.18.10** (2026-08-26, see
-[[log/2026-08-26-mac-dmg-bootstrap-v01810]]), branch
+Clinic app **v0.18.11** (2026-08-26, see
+[[log/2026-08-26-same-lan-multicomputer-v01811]]), branch
 `claude/camera-sdk-adapter-pattern-4pj5r8` (repo default).
 
 ## Product identity
@@ -39,6 +39,13 @@ Clinic app **v0.18.10** (2026-08-26, see
   add-time; per-room simultaneous visits; ONE shared patient library;
   room strip; `?room=` pins a device to a room. Real-second-body field
   test still open.
+- **Same-LAN multicomputer proof** (v0.18.11): one packaged Capture Hub owns
+  the cameras and only capture store; a local Owner can share the library on
+  stable port 3555 and copy a private-network address. Independently signed-in
+  Safari/Chrome Viewers receive the same patient library and live SSE events,
+  start no adapters and cannot change Hub sharing. This is authenticated HTTP
+  for synthetic data only; pinned TLS, device enrollment and native discovery
+  are still required before patient use.
 - **Camera identity, not dates** (v0.16, goal
   [[2026-09-camera-identity]] — supersedes the earlier-photo DATE gate,
   [[earlier-photo-guard]]): a photo pushed by the visit's camera while
@@ -204,3 +211,12 @@ presence pill).
   first downloads reliable. Developer ID signing/notarization remains the
   honest public-distribution gate. See
   [[log/2026-08-26-mac-dmg-bootstrap-v01810]].
+- ✅ **Same-LAN Hub/browser Viewer v0.18.11** shipped (SDK commit `911d466`).
+  An Owner can turn on sharing from the packaged Hub, which restarts on port
+  3555 and displays its private-network URL. A second computer signs in through
+  Safari/Chrome and sees the same library and live events; it creates no second
+  photo store. Full tests/smokes/UI gate and a dynamic two-session proof passed.
+  Railway serves the signed arm64 v0.18.11 ZIP with SHA-256
+  `a6edecc3989583684e12ff4748eebdf260a9c9e65484033fd7c23dbe93d2a9bd`.
+  This route is synthetic-only HTTP until TLS/device enrollment lands. See
+  [[log/2026-08-26-same-lan-multicomputer-v01811]].
