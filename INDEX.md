@@ -80,6 +80,9 @@ surgeons, med spas, dermatologists).
   [[2026-07-wizard-simplify]] (superseded by [[design-doctrine]])
 
 ## Chronicle (newest first)
+- [[log/2026-08-26-mac-startup-recovery-v0189]] — v0.18.9 bounds Mac
+  window startup, retries renderer failures, and makes silent Dock bouncing
+  terminate in a visible native recovery path
 - [[log/2026-08-26-finder-safe-mac-release]] — v0.18.8 removes AppleDouble
   ZIP entries, proves Finder-style extraction, and replaces the live download
 - [[log/2026-08-26-mac-bootstrap-recovery]] — other-Mac quarantine

@@ -2,8 +2,8 @@
 
 Rewritten 2026-08-22 after the 2026-08-21/22 field marathon (see
 [[log/2026-08-21-med-photo-field-day]]; July history in earlier logs).
-Clinic app **v0.18.8** (2026-08-26, see
-[[log/2026-08-26-finder-safe-mac-release]]), branch
+Clinic app **v0.18.9** (2026-08-26, see
+[[log/2026-08-26-mac-startup-recovery-v0189]]), branch
 `claude/camera-sdk-adapter-pattern-4pj5r8` (repo default).
 
 ## Product identity
@@ -61,6 +61,9 @@ Clinic app **v0.18.8** (2026-08-26, see
   added a visible startup/recovery window. v0.18.8 fixes first-install ZIPs:
   browser download + Finder/Archive Utility extraction no longer materializes
   AppleDouble `._*` files that invalidate Electron's framework signature.
+  v0.18.9 bounds startup page and clinic navigation loads, retries with a fresh
+  renderer, recovers a renderer that crashes after launch, and falls back to a
+  native macOS error (or exits) instead of bouncing indefinitely in the Dock.
 - **Camera-first language + onboarding** (v0.11): "room" is banned
   user-facing (gate-enforced); "Which camera?" chips at visit start;
   model-first connect flow with per-model instructions from
@@ -170,3 +173,17 @@ presence pill).
   artifact validation passed. Gatekeeper's first-download warning remains an
   Apple Developer ID/notarization dependency, not an archive defect. See
   [[log/2026-08-26-finder-safe-mac-release]].
+- ✅ **Mac startup recovery v0.18.9** shipped (SDK commit `bace836`). The
+  desktop shell no longer waits forever on an Electron renderer: initial loads
+  have deadlines, the main page gets one fresh-window retry, and post-load
+  renderer crash/unresponsive/main-frame failure triggers recovery while the
+  local camera service stays alive. If HTML recovery also fails, a native
+  versioned error appears; if even native UI is unavailable, the process exits
+  instead of bouncing forever. An independent exact-artifact test killed the
+  renderer and observed one replacement renderer, one window, and the same
+  healthy service. Railway serves the signed arm64 v0.18.9 ZIP with SHA-256
+  `5faeefff642a0c1ec6478bd3784b2afb260ec8d4173087373c1673cdfcfe1199`
+  while preserving v0.18.6-v0.18.8. Field retry on the affected M1/Tahoe Mac
+  remains the final confirmation; Developer ID/notarization remains the
+  separate warning-free distribution gate. See
+  [[log/2026-08-26-mac-startup-recovery-v0189]].
