@@ -2,8 +2,8 @@
 
 Rewritten 2026-08-22 after the 2026-08-21/22 field marathon (see
 [[log/2026-08-21-med-photo-field-day]]; July history in earlier logs).
-Clinic app **v0.18.14** (2026-08-27, see
-[[log/2026-08-27-hub-restart-signin-recovery-v01814]]), branch
+Clinic app **v0.18.15** (2026-08-27, see
+[[log/2026-08-27-patient-record-release-v01815]]), branch
 `claude/camera-sdk-adapter-pattern-4pj5r8` (repo default).
 
 ## 2026-08-27 cloud-authoritative pivot
@@ -18,7 +18,8 @@ Clinic app **v0.18.14** (2026-08-27, see
   routing, explicit Unassigned queue, upload-id/SHA idempotency, opaque object
   keys, PHI-free closed audit facts, referential integrity, soft deletion.
 - This is synthetic foundation only—not a working cloud app and not a HIPAA
-  claim. v0.18.14 remains live; no release/AWS resource/BAA/local data changed.
+  claim. The cloud foundation remains unreleased; the separately scoped local
+  patient-record desktop release is v0.18.15. No BAA or local capture data changed.
   Full gates passed; see [[log/2026-08-27-cloud-authoritative-library-pivot]].
 
 ## 2026-08-27 patient record organization
@@ -99,8 +100,10 @@ Clinic app **v0.18.14** (2026-08-27, see
   desktop shell update before account sign-in through an HttpOnly,
   loopback-only capability; ordinary browsers and LAN viewers remain blocked.
   Safe progress/error state is pollable without exposing patient/session data.
-  v0.18.14 is live on the Railway release volume with the signed updater ZIP
-  and stable first-install DMG independently streamed and hash-verified.
+  v0.18.15 is live on the Railway release volume with the signed updater ZIP
+  and stable first-install DMG independently streamed, signature-verified,
+  and hash-verified. It carries the local patient-record organization work;
+  this is not a cloud/AWS release.
 - **Self-contained Mac app** (`@medphoto/desktop-app`): packaged Electron
   window + clinic runtime, no checkout/Node/browser required. The signed
   updater verifies and atomically installs releases from Railway; v0.18.7

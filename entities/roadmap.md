@@ -53,7 +53,7 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
 ## Later
 12. **Public Mac distribution** — the self-contained Electron app, offline
    Ed25519 publisher, Railway release service and verified native updater are
-   live for arm64 internal tests (v0.18.10; three successful end-to-end
+   live for arm64 internal tests (current v0.18.15; three successful end-to-end
    self-updates). Immutable arm64 history now lives on a persistent Railway
    volume. The Finder/Archive Utility bootstrap path is archive-valid as of
    v0.18.8. Remaining: Developer ID signing/notarization so the first download
