@@ -16,6 +16,24 @@ credential resolves server-side to one opaque organization/location/camera id.
 An upload goes only to that camera's active visit; without a matching visit it
 is retained in an explicit Unassigned queue.
 
+## Per-camera identity and theft response
+The server address may be shared, but every physical camera must have its own
+random FTP/FTPS username and password plus a separate write-only cloud ingest
+credential. The credential, never the camera's display name, binds uploads to
+one organization/location/camera. A per-camera DNS alias is optional later; it
+is not the security boundary.
+
+Owners can create replacement setup values or disable a camera. Rotation is
+staged: provision the new relay login, atomically switch the cloud credential,
+then retire the previous relay login with an idempotent retry. Disabling a
+stolen camera revokes only its login and cloud credential. Other cameras and
+previously stored photos remain available. A camera may retain the old values
+in its menu, but those values must receive no authority after revocation.
+
+The current Railway implementation proves this workflow only with synthetic
+photos over plain FTP. Production requires FTPS/TLS, an executed BAA, managed
+secret protection, revocation drills and the remaining compliance gates.
+
 ## Storage rule
 Final S3 object keys contain opaque ids only. Patient names, DOBs, original
 filenames, signed URLs, and image bytes never enter logs/audit. Buckets are

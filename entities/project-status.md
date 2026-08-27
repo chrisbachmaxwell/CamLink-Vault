@@ -7,6 +7,25 @@ Clinic app **v0.18.16** (2026-08-27, see
 `claude/camera-sdk-adapter-pattern-4pj5r8` (repo default).
 
 ## 2026-08-27 cloud-authoritative pivot
+- SDK `220f584` + `d846eef` establish the v0.19 cloud-first camera path. A
+  fresh clinic now onboards an organization, location and first Owner; cloud
+  mode never starts a legacy local camera bridge. Each physical camera receives
+  a unique relay username/password plus a separate write-only cloud ingest
+  credential. Owners can rotate those values or disable one stolen camera
+  without changing another camera or its previously stored photos.
+- Camera profile replacement is a staged, failure-safe saga: relay acceptance
+  precedes the atomic cloud credential switch, and the old relay username is
+  then retired idempotently. If that last cleanup is temporarily unavailable,
+  the API returns an explicit pending-retirement state and retries without
+  losing the new one-time setup values. The old cloud credential is already
+  unusable at that point.
+- The synthetic Railway relay now fsyncs a durable spool before returning FTP
+  success, restores accepted jobs and dynamic camera bindings after restart,
+  keeps a revoked camera's held job from blocking other cameras, and applies
+  profile changes only after its binding envelope is durably committed. FTP
+  dialogue/path/user/IP logging is disabled by default and redacted when
+  explicitly enabled. This remains **plain FTP for synthetic photos only**;
+  FTPS/TLS, BAA, managed secret storage and production drills remain gates.
 - Chris replaced the end-user local Capture Hub / **Share this library**
   direction with one cloud clinical library visible to every authorized app
   ([[cloud-authoritative-library]], goal [[2026-08-cloud-clinical-library]]).
@@ -192,6 +211,13 @@ build · npm test (10 workspaces) · smoke ptp-simulator · smoke ftp ·
 smoke multi-room · ui-gate (headless Chromium: click-path doctrine,
 two-room drive, turnover, camera-setup page, zero-typing relay, honest
 presence pill).
+
+For the v0.19 camera foundation, the full root build/workspace suite and all
+three smokes + UI gate passed. Final focused gates passed with relay 34/34,
+clinical API 17/17, clinical client 8/8, cloud domain 10/10, clinic 85 passed
+with one expected skip, and desktop 25/25. Independent adversarial probes also
+proved failure-atomic relay profile writes/deletes, restart recovery, two-camera
+isolation, and a 202 pending-retirement retry completing as 200.
 
 ## Open field items
 - **Canon R5 Mark II**: logs in to relay, transfer fails — ACTIVE, FTP

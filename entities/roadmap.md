@@ -10,13 +10,18 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    projection are live. Next: push realtime, multi-location selection, durable
    migration tooling, restore/revocation/retention drills and the planned
    production PostgreSQL adapter/migrations.
-2. **Synthetic direct-camera ingest** — AWS Transfer Family FTPS → S3 → ingest
-   workflow; R6 Mark II camera credential maps to one location/camera and files
-   only into that camera's active visit (otherwise Unassigned).
+2. **Synthetic direct-camera ingest** — v0.19's Railway bridge now gives every
+   camera unique, rotatable and independently revocable FTP + cloud-ingest
+   credentials, durably spools before acknowledgement, and survives restart.
+   Next: deploy the coordinated relay/AWS configuration, prove two physical
+   cameras plus theft revocation, then replace synthetic plain FTP with the
+   production FTPS/TLS endpoint under the BAA gate. Each credential maps to one
+   location/camera and files only into that camera's active visit (otherwise
+   Unassigned).
 3. **Downloaded app cloud mode** — single-location sign-in/shared library is
    implemented in v0.18.16 with no permanent local photo write. Next:
-   multi-location picker, device/session administration and exact two-Mac
-   packaged field proof.
+   publish/deploy the v0.19 clean-onboarding artifact, multi-location picker,
+   device/session administration and exact two-Mac packaged field proof.
 
 ## Next
 4. **Patient record & clinic organization** — make the shared library a

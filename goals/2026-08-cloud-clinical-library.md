@@ -17,8 +17,10 @@ Constraint: [[hipaa-local-first]] · Decision: [[cloud-authoritative-library]]
       membership; strict per-location authorization. Realtime is a 3-second
       app projection refresh for this internal build; push events remain open.
 - [x] Private S3 object adapter and short-lived authorized display access.
-- [ ] Synthetic AWS sandbox: Transfer Family FTPS → S3 → ingest event → active
-      visit / Unassigned queue; R6 Mark II profile proof.
+- [ ] Synthetic direct camera sandbox: the durable Railway bridge and AWS API
+      contracts are implemented with unique per-camera credentials, staged
+      rotation and independent theft revocation. Coordinated live deployment,
+      two-camera/R6 Mark II proof, then FTPS/TLS replacement remain open.
 - [x] Desktop cloud mode for the single synthetic location: username/password
       sign-in, Owner-managed reviewer accounts, shared patient/visit/photo
       views and no permanent local photo write. Multi-location picker remains
@@ -56,3 +58,14 @@ that exact gate. Two no-progress cycles → record the blocker here.
   signed manifest pointed to the read-only CloudFront package, whose full
   download matched the signed SHA-256. The private/versioned S3 release bucket
   is separate from clinical storage and explicitly PHI-prohibited.
+- 2026-08-27 · Cycle 4: SDK `220f584` + `d846eef`; fresh cloud clinic setup,
+  direct camera registry, unique per-camera relay and cloud credentials,
+  owner-only rotation/revocation, durable pre-ack relay spool, restart recovery,
+  failure-atomic binding changes and cross-camera scheduling landed. Full root
+  build/workspaces, PTP/FTP/multi-room smokes and UI gate passed; final focused
+  gates were relay 34, API 17, client 8, domain 10, clinic 85 + one expected
+  skip, desktop 25. Independent failure injection and a pending-retirement retry
+  saga passed. Railway has a `/data` volume and coordinated variables staged,
+  but the rotated relay control secret has not been transmitted to AWS and the
+  new relay/app have not been deployed. Synthetic relay transport is still
+  plain FTP and must not carry PHI.
