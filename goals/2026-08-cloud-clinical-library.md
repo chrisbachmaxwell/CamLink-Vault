@@ -18,9 +18,9 @@ Constraint: [[hipaa-local-first]] · Decision: [[cloud-authoritative-library]]
       app projection refresh for this internal build; push events remain open.
 - [x] Private S3 object adapter and short-lived authorized display access.
 - [ ] Synthetic direct camera sandbox: the durable Railway bridge and AWS API
-      contracts are implemented with unique per-camera credentials, staged
-      rotation and independent theft revocation. Coordinated live deployment,
-      two-camera/R6 Mark II proof, then FTPS/TLS replacement remain open.
+      contracts are live with unique per-camera credentials, staged rotation
+      and independent theft revocation. Two-camera/R6 Mark II field proof, then
+      FTPS/TLS replacement remain open.
 - [x] Desktop cloud mode for the single synthetic location: username/password
       sign-in, Owner-managed reviewer accounts, shared patient/visit/photo
       views and no permanent local photo write. Multi-location picker remains
@@ -71,5 +71,17 @@ that exact gate. Two no-progress cycles → record the blocker here.
   `UPDATE_COMPLETE`; Railway deployment `4b758caf-35f9-4b8b-8a5a-763a64bf3841`
   succeeded with the `/data` volume. Both health endpoints, rotated primary FTP
   authentication and a live unique-profile create/remove probe passed. The
-  v0.19 Mac app remains unpublished. Synthetic relay transport is still plain
-  FTP and must not carry PHI.
+  At the end of this backend cycle, the v0.19 Mac app remained unpublished.
+  Synthetic relay transport is still plain FTP and must not carry PHI.
+- 2026-08-27 · Cycle 5: packaged and published exact arm64 v0.19.0. ZIP
+  SHA-256 `a32fb9892f6057925c8760ea67031c4f0f2efae593662a8eeb65848879509405`
+  passed archive, version, architecture, code-signature and native-updater
+  verification; DMG SHA-256
+  `bf723e1b5d4ee6cc2763d87bcfd6ced1b0f08c0b34ba5a09bded66a5e2e57c86`
+  passed `hdiutil verify`. The signed Railway manifest is live and an actual
+  v0.18.16 client check reports v0.19.0 available. Final release-service
+  deployment `1eb9937d-d6b0-4d94-9400-f588dd87eb62` serves the no-store latest
+  arm64 DMG with the exact verified hash. The app guides only an unclaimed
+  clinic through organization/location/first-Owner and Camera now/later;
+  existing clinics correctly start at username/password sign-in. Developer ID
+  signing/notarization remains the first-install Gatekeeper gate.

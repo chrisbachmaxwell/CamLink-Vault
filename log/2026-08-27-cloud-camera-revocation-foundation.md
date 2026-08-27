@@ -60,9 +60,20 @@ photos already stored in the clinical library.
 - AWS `/v1/health` and authenticated relay `/v1/health` returned OK; the rotated
   primary FTP credential completed login/quit; and a temporary unique camera
   profile was configured and removed through the live management endpoint.
-- The v0.19 Mac application has not yet been packaged or published. Existing
-  downloads remain on the prior release and will not show the new clean-clinic
-  onboarding until that separately verified release is published.
+- Exact arm64 v0.19.0 was packaged and published after the backend proof. The
+  ZIP SHA-256 is
+  `a32fb9892f6057925c8760ea67031c4f0f2efae593662a8eeb65848879509405` and
+  the DMG SHA-256 is
+  `bf723e1b5d4ee6cc2763d87bcfd6ced1b0f08c0b34ba5a09bded66a5e2e57c86`.
+  Archive/version/arm64/code-signature/native-updater gates and DMG verification
+  passed. The live Ed25519 manifest verifies and an actual v0.18.16
+  updater check reports v0.19.0 available. Release-service deployment
+  `1eb9937d-d6b0-4d94-9400-f588dd87eb62` also returns the byte-exact verified
+  DMG from the app's no-store latest-installer URL.
+- Clean onboarding is conditional by design: an unclaimed clinic is guided
+  through organization, location, first Owner and Camera now/later. The current
+  synthetic AWS tenant is already claimed, so a new Mac pointed at it leads
+  with username/password sign-in and joins the existing clinic.
 
 The current hosted relay is plain FTP and **synthetic photos only**. This work
 does not claim HIPAA readiness. Production remains gated on FTPS/TLS, AWS BAA,

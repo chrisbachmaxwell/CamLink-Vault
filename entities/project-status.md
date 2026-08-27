@@ -2,7 +2,7 @@
 
 Rewritten 2026-08-22 after the 2026-08-21/22 field marathon (see
 [[log/2026-08-21-med-photo-field-day]]; July history in earlier logs).
-Clinic app **v0.18.16** (2026-08-27, see
+Clinic app **v0.19.0** (2026-08-27, see
 [[log/2026-08-27-cloud-authoritative-library-live]]), branch
 `claude/camera-sdk-adapter-pattern-4pj5r8` (repo default).
 
@@ -33,8 +33,13 @@ Clinic app **v0.18.16** (2026-08-27, see
   relay control, and Railway deployment `4b758caf-35f9-4b8b-8a5a-763a64bf3841`
   succeeded from `a718bef` with its `/data` volume. Authenticated relay health,
   AWS health, rotated primary FTP authentication, and a temporary unique camera
-  profile create/remove proof all passed. The v0.19 Mac app is not yet packaged
-  or published; current downloads do not yet include the new onboarding.
+  profile create/remove proof all passed. The exact arm64 v0.19.0 app is now
+  packaged and published: a signed manifest/update check reports it available,
+  the CloudFront ZIP matches the signed SHA-256, and Railway's no-store direct
+  installer returns the byte-exact verified DMG. A genuinely unclaimed clinic
+  receives organization/location/first-Owner setup plus Camera now/later; this
+  already-claimed synthetic tenant correctly leads with username/password
+  sign-in instead of repeating clinic creation.
 - Chris replaced the end-user local Capture Hub / **Share this library**
   direction with one cloud clinical library visible to every authorized app
   ([[cloud-authoritative-library]], goal [[2026-08-cloud-clinical-library]]).
