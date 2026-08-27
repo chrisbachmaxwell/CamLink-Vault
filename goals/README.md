@@ -39,3 +39,13 @@ Done since July: [[2026-07-visit-compare-ui]] (shipped inside the
 [[design-doctrine]]'s wizard escape-hatches + zero-typing relay).
 Gates are now SIX (build · unit · smoke ptp-simulator · smoke ftp ·
 smoke multi-room · browser ui-gate) — "all three gates" above is stale.
+
+Current sequence (updated 2026-08-27 — supersedes every list above):
+1. [[2026-08-cloud-clinical-library]] — CURRENT: cloud data plane, FTPS ingest,
+   downloaded-app cloud mode, verified migration, final BAA/compliance gate
+2. [[2026-08-r5ii-ftp-dialect]] — keep field evidence; align with FTPS fleet
+3. [[2026-09-multi-room]] — reinterpret remaining field box as cloud
+   camera→active-visit routing
+4. Public distribution + USB and other transports after the cloud workflow
+Gates remain SIX, with package/service-specific adversarial tests added as each
+cloud slice lands.

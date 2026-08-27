@@ -5,11 +5,12 @@ renamed 2026-08-21). Agents: start here, follow links, open only what
 the trail points at. Never sweep whole folders.
 
 ## What Med Photo is
-One sentence: the easiest software to store patient photos — cameras
-connect over Wi-Fi (three tiers: LAN, travel-router Box, Cloud Relay;
-USB planned), and as the photographer shoots, photos file themselves
-into per-patient folders. First market: clinics (orthodontists, plastic
-surgeons, med spas, dermatologists).
+One sentence: the easiest software to store patient photos — a camera uploads
+as the photographer shoots, and every authorized computer sees the same
+cloud-authoritative patient/visit library. FTPS internet ingest is the primary
+R6 Mark II direction; local adapters remain for camera protocols that need
+them. First market: clinics (orthodontists, plastic surgeons, med spas,
+dermatologists).
 
 ## Task router — open ONLY what your task needs
 | Your task touches… | Read first | Then |
@@ -24,7 +25,7 @@ surgeons, med spas, dermatologists).
 | Photos filing to wrong/missing patients | [[earlier-photo-guard]] | — |
 | Updates / install / Mac app | [[in-app-updates]] | repo apps/clinic/scripts/install-mac-app.mjs |
 | Picking up work | [[goals/README]] | the CURRENT goal it names |
-| Compliance / patient data | [[hipaa-local-first]] | repo docs/CLOUD-RELAY-PLAN.md |
+| Compliance / patient data / cloud library | [[hipaa-local-first]] | [[cloud-authoritative-library]], repo docs/CLOUD-CLINICAL-DATA-PLANE.md |
 | Logins / roles / review seat | [[multi-user-model]] | [[2026-09-logins-and-roles]] |
 
 ## The product
@@ -33,7 +34,8 @@ surgeons, med spas, dermatologists).
 - [[project-status]] — WHAT IS DONE (v0.9.2 as of 2026-08-22)
 - [[roadmap]] — WHAT IS LEFT, in priority order
 - [[decisions]] — dated log of every decision that shaped the build
-- [[med-photo-relay]] — the live hosted relay (Railway)
+- [[med-photo-relay]] — the live synthetic-only hosted relay (Railway)
+- [[cloud-authoritative-library]] — the 2026-08-27 source-of-truth decision
 
 ## Hardware validated
 - [[canon-eos-r10]] — entry body (PTP/IP; no FTP support)
@@ -55,7 +57,8 @@ surgeons, med spas, dermatologists).
 
 ## Product doctrine
 - [[design-doctrine]] — Apple-simple; screen map; the flow rules
-- [[hipaa-local-first]] — the red lines (constraint on ALL work)
+- [[hipaa-local-first]] — the BAA/PHI/migration red lines
+- [[cloud-authoritative-library]] — every app sees one central library
 
 ## Environment traps (check BEFORE debugging code)
 - [[macos-networking-traps]] — Spotify on UDP 1900, Local Network
@@ -65,8 +68,9 @@ surgeons, med spas, dermatologists).
 - [[test-environment]] — Chris's MacBook: macOS 26.5.1, Node, Terminal
 
 ## Goals (active work loops — protocol in [[goals/README]])
-- CURRENT (active loop): [[2026-08-camera-onboarding]] — model-first
-  connect flow
+- CURRENT (active loop): [[2026-08-cloud-clinical-library]] — FTPS/S3/
+  PostgreSQL cloud library + multi-computer app
+- [[2026-08-camera-onboarding]] — model-first connect flow
 - [[2026-08-r5ii-ftp-dialect]] — BLOCKED on Chris's passive-ON retry;
   resumes the moment his trace lands
 - [[2026-09-multi-room]] — BUILT; field second-body box open
@@ -80,6 +84,9 @@ surgeons, med spas, dermatologists).
   [[2026-07-wizard-simplify]] (superseded by [[design-doctrine]])
 
 ## Chronicle (newest first)
+- [[log/2026-08-27-cloud-authoritative-library-pivot]] — retires end-user
+  local library sharing; adds the synthetic cloud clinical domain and safe
+  migration boundary
 - [[log/2026-08-26-same-lan-multicomputer-v01811]] — v0.18.11 adds an
   owner-controlled same-LAN Capture Hub and authenticated browser Viewers for
   synthetic multicomputer workflow testing; one Hub retains the only library

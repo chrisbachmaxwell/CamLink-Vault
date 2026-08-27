@@ -6,6 +6,21 @@ Clinic app **v0.18.14** (2026-08-27, see
 [[log/2026-08-27-hub-restart-signin-recovery-v01814]]), branch
 `claude/camera-sdk-adapter-pattern-4pj5r8` (repo default).
 
+## 2026-08-27 cloud-authoritative pivot
+- Chris replaced the end-user local Capture Hub / **Share this library**
+  direction with one cloud clinical library visible to every authorized app
+  ([[cloud-authoritative-library]], goal [[2026-08-cloud-clinical-library]]).
+- SDK `f2ce0a1` removes the packaged sharing UI/API/IPC and always starts the
+  installed app loopback-only. It migrates a legacy `shareOnLan: true`
+  preference to false without touching any local capture.
+- New `@medphoto/clinical-cloud-domain` foundation (9 adversarial tests):
+  organization/location scoping, reviewer read-only, camera→active-visit
+  routing, explicit Unassigned queue, upload-id/SHA idempotency, opaque object
+  keys, PHI-free closed audit facts, referential integrity, soft deletion.
+- This is synthetic foundation only—not a working cloud app and not a HIPAA
+  claim. v0.18.14 remains live; no release/AWS resource/BAA/local data changed.
+  Full gates passed; see [[log/2026-08-27-cloud-authoritative-library-pivot]].
+
 ## Product identity
 - Renamed **CamLink → Med Photo** repo-wide 2026-08-21 (packages
   `@medphoto/*`; config migrates `camlink-clinic.json` → `med-photo.json`
@@ -39,17 +54,18 @@ Clinic app **v0.18.14** (2026-08-27, see
   add-time; per-room simultaneous visits; ONE shared patient library;
   room strip; `?room=` pins a device to a room. Real-second-body field
   test still open.
-- **Same-LAN multicomputer proof** (v0.18.11): one packaged Capture Hub owns
-  the cameras and only capture store; a local Owner can share the library on
+- **Retired same-LAN multicomputer proof** (v0.18.11): one packaged Capture Hub owned
+  the cameras and only capture store; a local Owner could share the library on
   stable port 3555 and copy a private-network address. Independently signed-in
-  Safari/Chrome Viewers receive the same patient library and live SSE events,
-  start no adapters and cannot change Hub sharing. This is authenticated HTTP
+  Safari/Chrome Viewers received the same patient library and live SSE events,
+  started no adapters and could not change Hub sharing. This was authenticated HTTP
   for synthetic data only; pinned TLS, device enrollment and native discovery
   are still required before patient use.
-  v0.18.14 fixes the sharing restart transition: memory-only sessions still
+  v0.18.14 fixed the sharing restart transition: memory-only sessions still
   require the Owner PIN again, but local and remote pages now leave stale
   Settings/library views, show the profile picker, and restore the same library
-  after sign-in.
+  after sign-in. This end-user flow was retired by SDK `f2ce0a1`; explicit CLI
+  LAN tests remain engineering fixtures only.
 - **Camera identity, not dates** (v0.16, goal
   [[2026-09-camera-identity]] — supersedes the earlier-photo DATE gate,
   [[earlier-photo-guard]]): a photo pushed by the visit's camera while
