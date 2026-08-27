@@ -15,22 +15,43 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    computer sees the same library; no permanent local capture store.
 
 ## Next
-4. **Verified migration + purge** — upload existing libraries resumably,
+4. **Patient record & clinic organization** — make the shared library a
+   usable patient record, not merely a place to start a visit. Patient list
+   and patient page: edit the photo-workflow identity (legal/preferred name,
+   DOB, external MRN/EHR id where available), show a clear visit timeline,
+   consent status, provider/procedure/body-area labels and photos together;
+   actions are Edit patient, Start visit, view/compare/filter photos, and
+   later Add/view consent. Preserve audit history and recoverable deletion.
+   Med Photo deliberately does **not** become the system of record for full
+   medical history, medications, insurance, diagnoses, billing, scheduling or
+   clinical charting—those remain in the practice's EHR.
+5. **Consent forms & photo permissions** — versioned, signed clinical-photo
+   acknowledgement plus a separately explicit marketing/publication release;
+   patient-page indicator, durable signed artifact, withdrawal/revocation
+   behavior, audit facts and role controls. Build/test only with synthetic
+   records until the production compliance gate passes.
+6. **Verified migration + purge** — upload existing libraries resumably,
    compare digest/counts, human approve, then offer a separately confirmed
    purge. Never delete a local library in an update.
-5. **Production compliance gate** — execute AWS BAA; eligible-service/threat/
+7. **Production compliance gate** — execute AWS BAA; eligible-service/threat/
    retention/backup/restore/revocation/audit/incident review; advisor sign-off.
    No real PHI before this last gate.
-6. **R5 Mark II FTP dialect** — [[2026-08-r5ii-ftp-dialect]]; later validate
+8. **EHR integration (opt-in, adapter first)** — after the clinical cloud
+   record and compliance gate: per-EHR patient/demographic lookup and daily
+   schedule import to remove duplicate entry, then audited, idempotent export
+   of an authorized photo/visit package to the chart. Never silently make an
+   EHR the source of truth, import a full chart, or send photos without
+   per-integration authorization and reconciliation proof.
+9. **R5 Mark II FTP dialect** — [[2026-08-r5ii-ftp-dialect]]; later validate
    FTPS compatibility if this body remains in the supported cloud fleet.
-7. **Field-close multi-camera** — [[2026-09-multi-room]] routing semantics now
+10. **Field-close multi-camera** — [[2026-09-multi-room]] routing semantics now
    become cloud camera→active-visit field proof.
-8. **Auto-install updates at 6 AM when no visit is active** — offered
+11. **Auto-install updates at 6 AM when no visit is active** — offered
    2026-08-22, awaiting Chris's go; small change on top of
    [[in-app-updates]].
 
 ## Later
-9. **Public Mac distribution** — the self-contained Electron app, offline
+12. **Public Mac distribution** — the self-contained Electron app, offline
    Ed25519 publisher, Railway release service and verified native updater are
    live for arm64 internal tests (v0.18.10; three successful end-to-end
    self-updates). Immutable arm64 history now lives on a persistent Railway
@@ -46,13 +67,18 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    block with no server, renderer or window, so no further Electron startup
    change can honestly promise reliable unsigned first install. Field-test the
    DMG, but Developer ID signing/notarization is the required reliable fix.
-10. **Med Photo Box** — reassess; internet-direct FTPS may remove the need for
+13. **Med Photo Box** — reassess; internet-direct FTPS may remove the need for
    travel-router hardware on isolated clinic networks (repo
    docs/MED-PHOTO-BOX.md; hardware sourced).
-11. **USB tether (Phase D)** — `@medphoto/adapter-usb`; design in repo
+14. **USB tether (Phase D)** — `@medphoto/adapter-usb`; design in repo
    docs/PTP-PLAN.md.
-12. **Other FTP vendors** (Sony/Nikon/Fuji pro bodies) — adapter is
+15. **Other FTP vendors** (Sony/Nikon/Fuji pro bodies) — adapter is
    vendor-agnostic by design; needs per-vendor field proof.
+16. **Capture protocols & baseline-assisted repeat capture** — clinic-defined
+    photo sequences and optional prior-view reference for a follow-up shot.
+    Defer until the patient record is useful and the core AWS/consent work is
+    established; validate against real clinic workflow before claiming
+    automatic alignment.
 
 ## Done recently (details in [[project-status]])
 Multi-room · retired synthetic same-LAN Hub/browser proof (v0.18.11–v0.18.14) · profile-first
