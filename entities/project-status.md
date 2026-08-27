@@ -2,8 +2,8 @@
 
 Rewritten 2026-08-22 after the 2026-08-21/22 field marathon (see
 [[log/2026-08-21-med-photo-field-day]]; July history in earlier logs).
-Clinic app **v0.18.12** (2026-08-27, see
-[[log/2026-08-27-profile-menu-and-signin-v01812]]), branch
+Clinic app **v0.18.13** (2026-08-27, see
+[[log/2026-08-27-signed-out-update-recovery-v01813]]), branch
 `claude/camera-sdk-adapter-pattern-4pj5r8` (repo default).
 
 ## Product identity
@@ -61,7 +61,10 @@ Clinic app **v0.18.12** (2026-08-27, see
   evidence; amber waiting/disconnected; 5 s drop watcher + plain alert.
 - **In-app updates** ([[in-app-updates]]): 6 AM daily + boot checks,
   corner-chip one-click install, self-restart under launchd; survives
-  bare launchd PATH and rewritten package-lock.
+  bare launchd PATH and rewritten package-lock. v0.18.13 lets the installed
+  desktop shell update before account sign-in through an HttpOnly,
+  loopback-only capability; ordinary browsers and LAN viewers remain blocked.
+  Safe progress/error state is pollable without exposing patient/session data.
 - **Self-contained Mac app** (`@medphoto/desktop-app`): packaged Electron
   window + clinic runtime, no checkout/Node/browser required. The signed
   updater verifies and atomically installs releases from Railway; v0.18.7
@@ -75,6 +78,9 @@ Clinic app **v0.18.12** (2026-08-27, see
   aggressively raises the real window above Finder/System Settings, and makes a
   losing second instance exit immediately instead of waiting behind an invisible
   dialog. The DMG is served separately from signed updater history on Railway.
+  v0.18.13 adds a fixed, allowlisted **Download latest installer** recovery when
+  a Mac rejects automatic verification; Railway resolves that no-store pointer
+  to the current immutable DMG while signed updater history remains separate.
 - **Camera-first language + onboarding** (v0.11): "room" is banned
   user-facing (gate-enforced); "Which camera?" chips at visit start;
   model-first connect flow with per-model instructions from
