@@ -2,8 +2,8 @@
 
 Rewritten 2026-08-22 after the 2026-08-21/22 field marathon (see
 [[log/2026-08-21-med-photo-field-day]]; July history in earlier logs).
-Clinic app **v0.18.11** (2026-08-26, see
-[[log/2026-08-26-same-lan-multicomputer-v01811]]), branch
+Clinic app **v0.18.12** (2026-08-27, see
+[[log/2026-08-27-profile-menu-and-signin-v01812]]), branch
 `claude/camera-sdk-adapter-pattern-4pj5r8` (repo default).
 
 ## Product identity
@@ -31,7 +31,7 @@ Clinic app **v0.18.11** (2026-08-26, see
 
 ## Clinic app (the product surface)
 - **Home** (screen map + flow rules in [[design-doctrine]]): Start a
-  visit / Today / Patients zones; one header menu everywhere; brand =
+  visit / Today / Patients zones; one left drawer everywhere; brand =
   Home; no dead ends; non-destructive Change camera; bottom-left status
   chip; Camera setup page (Menu) is the permanent home of every
   camera's sign-in values with rename/remove.
@@ -55,8 +55,8 @@ Clinic app **v0.18.11** (2026-08-26, see
   serial (or clearly-wrong model, catalog-checked) warns loudly but
   never blocks a store. New cameras are "waiting for first sign-in"
   (hidden from the picker) until their login connects. A photo
-  arriving with NO visit open is buffered (never dropped) AND now
-  raises a banner — mid-visit it offers one-click adoption (v0.16.2).
+  arriving with NO visit open is buffered (never dropped), stays quiet
+  during patient-facing work, and appears only on the camera that received it.
 - **Honest camera presence** ([[camera-presence]]): pill green only on
   evidence; amber waiting/disconnected; 5 s drop watcher + plain alert.
 - **In-app updates** ([[in-app-updates]]): 6 AM daily + boot checks,
@@ -83,7 +83,11 @@ Clinic app **v0.18.11** (2026-08-26, see
   v0.11–v0.12): three roles (Owner/Staff/Review), PIN profile-picker
   sign-in, People page (first person added = Owner, turns access on),
   role-checked APIs + audit.log, review = read-only home. Solo mode
-  sacred: 0 users = no auth anywhere. Field test with a teammate open.
+  sacred: 0 users = no auth anywhere. v0.18.12 immediately enters the
+  profile picker after the first Owner is created, and moves identity,
+  Owner-only People access and working Sign out into the top-right profile
+  menu. Settings no longer contains a session action. Field test with a
+  teammate remains open.
 - **Never-drop photo buffer** (v0.12): a capture with no visit open is
   filed as a held "Photo without a visit" session — the app can no
   longer lose a photo it received (Z8 incident, 2026-08-24). Held
@@ -224,3 +228,14 @@ presence pill).
   verification refusal. The exact published v0.18.10 updater independently
   downloaded and verified the live v0.18.11 package, so the signed release/key
   is not presently reproduced as bad. Retry/direct-DMG field isolation remains.
+- ✅ **Profile-first sign-in v0.18.12** shipped (SDK commit `94a1cb5`). Adding
+  the first Owner now reloads directly into the profile picker, so access is
+  never left in stale solo mode. The signed-in initials button opens a
+  top-right account menu with name, role, Owner-only Manage people and a tested
+  Sign out back to the picker; the redundant Settings row is gone. The noisy
+  broken-upload Wi-Fi banner and matching camera-card warning were removed,
+  while transfer rejection/storage safety remain unchanged. Railway serves the
+  signed arm64 updater ZIP with SHA-256
+  `254c06f07da04ca45c884d21a087e29ac0905377d284e0ab564f8f45a6e11c78`
+  and the direct-download DMG with SHA-256
+  `038792ede397eb81a3a22fff2e63bfbefee96bceb689a451afd245148d419462`.

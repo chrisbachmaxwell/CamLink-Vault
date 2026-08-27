@@ -9,14 +9,12 @@ constraint: [[hipaa-local-first]].
    "works for all FTP cameras" (Chris's words).
 2. **Field-close multi-room** — a second body as `room-2` in the office
    ([[2026-09-multi-room]], last unchecked box).
-3. **Field-test same-LAN Hub + Viewer** — update two arm64 Macs to v0.18.11;
+3. **Field-test same-LAN Hub + Viewer** — update two arm64 Macs to v0.18.12;
    enable **Settings -> Other computers** on the Hub; use a Review PIN in the
    second computer's browser; prove one synthetic visit/photo appears live.
    If unreachable, check Local Network permission and router client isolation.
-   One Mac updated successfully; the second gave a safe verification refusal
-   even though the exact v0.18.10 updater verifies the live package locally.
-   Retry once on the stable service; if repeated, replace from the v0.18.11 DMG
-   and record free storage plus installed version before updater changes.
+   v0.18.12 fixes the first-Owner transition and puts working Sign out in the
+   top-right profile menu, so use that flow to switch between Owner and Review.
 
 ## Next
 4. **FTPS + BAA hosting + compliance sign-off** — the hard gate before
@@ -24,9 +22,11 @@ constraint: [[hipaa-local-first]].
    Includes per-clinic relay accounts issued at install time (replaces
    the built-in shared prototype account; rotates the burned pull token
    and FTP password).
-5. **Logins, roles, and the review seat** — [[2026-09-logins-and-roles]]
-   (PROPOSED, design in [[multi-user-model]]; absorbs Phase C lockdown).
-   Waiting on Chris's read of the proposal.
+5. **Shared staff identity for downloaded Viewer apps** — current Owner/Staff/
+   Review PINs live on one Hub and work for same-LAN browser Viewers. Connect
+   the native multi-computer foundations to the control plane so a staff login
+   can discover only enrolled Hubs for its organization/location, without
+   copying local user files or creating another photo library.
 6. **Auto-install updates at 6 AM when no visit is active** — offered
    2026-08-22, awaiting Chris's go; small change on top of
    [[in-app-updates]].
@@ -58,7 +58,8 @@ constraint: [[hipaa-local-first]].
    vendor-agnostic by design; needs per-vendor field proof.
 
 ## Done recently (details in [[project-status]])
-Multi-room · synthetic same-LAN Hub/browser Viewer (v0.18.11) · earlier-photo guard · honest presence · in-app updates ·
+Multi-room · synthetic same-LAN Hub/browser Viewer (v0.18.11) · profile-first
+sign-in and account menu (v0.18.12) · earlier-photo guard · honest presence · in-app updates ·
 Mac app installer · Finder-first DMG + bounded Mac startup/renderer recovery (v0.18.10) · home redesign + flow rules · cloud relay on Railway ·
 FTP push transport · Med Photo rename (all 2026-08-21/22) · recoverable
 live photo removal (v0.18.0, 2026-08-25; tile/viewer → local `.trash/` +
