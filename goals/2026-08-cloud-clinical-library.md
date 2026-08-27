@@ -94,3 +94,10 @@ that exact gate. Two no-progress cycles → record the blocker here.
   and reached `UPDATE_COMPLETE`. Exact arm64 v0.19.2 is live through the signed
   Railway manifest, immutable CloudFront ZIP and no-store DMG pointer. Full
   workspace tests, PTP/FTP/multi-room smokes and the UI gate passed.
+- 2026-08-27 · Cycle 7: field screenshots caught Settings routing a cloud
+  clinic into the retired manual relay address/token page. SDK `df96174` guards
+  both Settings and a stale relay-tile click, returning cloud installs to the
+  model-first flow that provisions unique camera credentials automatically.
+  Exact arm64 v0.19.3 is live through signed Railway deployment
+  `c374dc68-9306-4d54-bd1d-a938398b5345`; full workspace tests, required
+  PTP/FTP/multi-room smokes and browser UI gate passed.

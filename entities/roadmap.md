@@ -18,9 +18,11 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    then replace synthetic plain FTP with the production FTPS/TLS endpoint under
    the BAA gate. Each credential maps to one location/camera and files only into
    that camera's active visit (otherwise Unassigned).
-3. **Downloaded app cloud mode** — v0.19.2 arm64 is live with clean-clinic
+3. **Downloaded app cloud mode** — v0.19.3 arm64 is live with clean-clinic
    onboarding, email/password sign-in and email-code recovery, single-location
-   shared library, pre-sign-in updates and no permanent local photo write.
+   shared library, pre-sign-in updates and no permanent local photo write. Its
+   camera setup is model-first and automatically provisions the per-camera
+   relay values; staff never enter the relay control URL/token.
    Immediate field step: finish the one-time legacy Owner-to-email screen on an
    installed app. Next: multi-location picker, device/session administration
    and exact two-Mac packaged field proof.

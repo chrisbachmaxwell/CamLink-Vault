@@ -2,11 +2,17 @@
 
 Rewritten 2026-08-22 after the 2026-08-21/22 field marathon (see
 [[log/2026-08-21-med-photo-field-day]]; July history in earlier logs).
-Clinic app **v0.19.2** (2026-08-27, see
-[[log/2026-08-27-email-first-setup-v0192]]), branch
+Clinic app **v0.19.3** (2026-08-27, see
+[[log/2026-08-27-cloud-camera-setup-routing-v0193]]), branch
 `claude/camera-sdk-adapter-pattern-4pj5r8` (repo default).
 
 ## 2026-08-27 cloud-authoritative pivot
+- SDK `df96174` and live app v0.19.3 remove the last accidental path from a
+  cloud clinic into the legacy manual relay-address/access-token form.
+  Settings **Change how the camera connects** now opens the model-first camera
+  flow, which creates one unique server-side FTP profile and shows only the
+  camera-entered host, port, username, password and folder. A stale cloud page
+  already on the old Internet Relay tile is also redirected safely.
 - SDK `6f6dd70` and live app v0.19.2 make every new human account email-first.
   Clean-clinic setup asks for the Owner's email; People creates email accounts;
   email-code password recovery is available before sign-in; legacy synthetic
