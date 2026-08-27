@@ -35,4 +35,13 @@ account has an executed BAA and the eligible-service, threat, backup/restore,
 retention, audit, access-revocation, and incident-response gates pass. Railway
 and the current prototype relay remain synthetic/non-PHI only.
 
+## Release/update separation
+Railway remains the non-PHI signed-manifest plane only. Large immutable ZIP
+and DMG bytes live in a separate private, versioned S3 release bucket behind
+read-only CloudFront; neither surface receives clinical records or photo
+bytes. The package URL and SHA-256 are signed by the offline Ed25519 key. AWS
+clinical storage remains a separate PHI-prohibited synthetic data plane. The
+installed shell can check and apply a verified update before sign-in, so
+Cognito or clinical-API availability cannot strand a computer on an old build.
+
 Repo specification: `docs/CLOUD-CLINICAL-DATA-PLANE.md`.

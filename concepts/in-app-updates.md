@@ -1,28 +1,37 @@
-# In-app updates — the corner chip
+# In-app updates — signed packaged contract
 
-Chris (2026-08-21/22): no Terminal for starting OR updating; checks must
-be automatic. Shipped v0.8.0–v0.9.1.
+Chris (2026-08-21/27): downloading Med Photo onto another computer is useful
+only if that installed app can keep itself current without Terminal. Update
+access is part of the desktop shell, not part of clinical authorization.
 
-## How it works (dev-repo form of auto-update)
-- Check = `git fetch` + commits-behind count. Automatic shortly after
-  boot and at **6:00 AM local daily**; offline mornings stay silent.
-- The **bottom-left status chip** is the whole UI ("like claude and
-  codex" — Chris): quiet `Med Photo · vX.Y.Z` at rest (click = check),
-  blue **"Update ready — click to install"** when behind, live progress
-  while applying. Menu → Check for updates is the second door.
-- Apply = pull → npm install → build, refused while any visit is active;
-  under launchd (MEDPHOTO_SUPERVISED=1 from the installer wrapper) the
-  process exits non-zero and launchd relaunches the new build; the page
-  reloads itself onto the new version.
+## Production-shaped path
+- The packaged Electron shell checks the non-PHI Railway release service at
+  boot, on the existing daily schedule, and when the corner chip or Settings
+  button is clicked.
+- Railway serves the closed Ed25519-signed manifest. A separate private,
+  versioned S3 release bucket serves the immutable ZIP and DMG through
+  read-only CloudFront. The signing private key remains offline; only its
+  public key is embedded in the app.
+- Before staging, the native updater verifies manifest signature, SHA-256,
+  platform, semantic version, minimum supported version, archive containment,
+  bundle id, app version, architecture and macOS code signature.
+- Installation is refused during an active visit. Otherwise it uses sibling
+  same-volume atomic renames, launches the candidate, waits for a nonce-bound
+  health proof and restores the backup automatically on failure.
+- The updater never uses `git pull`, npm or a source checkout in a packaged
+  app. Those remain developer-only behavior.
 
-## Field failures survived (both reproduced, both tested)
-- **spawn npm ENOENT**: launchd starts the server with a bare PATH; the
-  updater builds its own PATH starting from the running node binary's
-  dir (npm lives beside node).
-- **package-lock.json rewritten by a different npm** blocked `git pull`
-  forever: the repo's lockfile is canonical — restored before pull and
-  after install, every update starts and ends with a clean tree.
+## Authentication separation
+The desktop shell gives its loopback child an HttpOnly startup capability.
+That allows Check for updates before clinical sign-in while ordinary browsers
+and network peers remain blocked. AWS/Cognito login failure, account
+revocation, or a clinical API outage must never prevent an app from checking
+or installing a signed release. The release service contains no PHI.
 
-Auto-INSTALL (6 AM, only when idle) deliberately not enabled — offered,
-awaiting Chris. Electron auto-update replaces all of this at
-distribution time ([[roadmap]]).
+## First install and recovery
+The direct DMG is a separate bootstrap surface from signed updater history.
+It is the recovery door when an old app cannot verify/apply an update. Public,
+warning-free first install still requires Apple Developer ID signing and
+notarization; the internal synthetic build may require macOS Open Anyway.
+
+Operator procedure and exact gates: repo `docs/RELEASE-PUBLISHING.md`.

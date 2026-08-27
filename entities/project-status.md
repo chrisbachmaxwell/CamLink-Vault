@@ -2,8 +2,8 @@
 
 Rewritten 2026-08-22 after the 2026-08-21/22 field marathon (see
 [[log/2026-08-21-med-photo-field-day]]; July history in earlier logs).
-Clinic app **v0.18.15** (2026-08-27, see
-[[log/2026-08-27-patient-record-release-v01815]]), branch
+Clinic app **v0.18.16** (2026-08-27, see
+[[log/2026-08-27-cloud-authoritative-library-live]]), branch
 `claude/camera-sdk-adapter-pattern-4pj5r8` (repo default).
 
 ## 2026-08-27 cloud-authoritative pivot
@@ -17,10 +17,24 @@ Clinic app **v0.18.15** (2026-08-27, see
   organization/location scoping, reviewer read-only, camera→active-visit
   routing, explicit Unassigned queue, upload-id/SHA idempotency, opaque object
   keys, PHI-free closed audit facts, referential integrity, soft deletion.
-- This is synthetic foundation only—not a working cloud app and not a HIPAA
-  claim. The cloud foundation remains unreleased; the separately scoped local
-  patient-record desktop release is v0.18.15. No BAA or local capture data changed.
-  Full gates passed; see [[log/2026-08-27-cloud-authoritative-library-pivot]].
+- The tagged synthetic AWS clinical stack is now live: private
+  KMS-backed/versioned S3, DynamoDB PITR, Cognito, Lambda and an authenticated
+  HTTPS API. It is explicitly PHI-prohibited until the production compliance
+  gate.
+- Desktop cloud mode adds username/password sign-in, Owner-managed
+  owner/staff/reviewer accounts, cloud patients/visits/photos, recoverable
+  delete/restore, visit ZIPs and a 3-second shared-library refresh. Cloud
+  camera bindings are opaque and persisted; display names are never identity.
+- Two independent app processes proved the core path: owner capture uploaded
+  one synthetic photo, reviewer saw and downloaded it, reviewer mutation was
+  denied, and the camera host wrote zero local photo files. The cloud-enabled
+  desktop release is v0.18.16. No BAA or existing local capture changed; FTPS,
+  multi-location, migration/purge and production controls remain open. See
+  [[log/2026-08-27-cloud-authoritative-library-live]].
+- SDK `9bcc526` and v0.18.16 are published through the signed updater: Railway serves only the
+  signed manifest and a private versioned S3 bucket serves the verified ZIP
+  and DMG through read-only CloudFront. The live ZIP hash matched the manifest;
+  the packaged cloud child, pre-sign-in updater and fresh profile all passed.
 
 ## 2026-08-27 patient record organization
 - ✅ The clinic reference app now presents a patient record rather than only a

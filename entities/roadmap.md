@@ -6,13 +6,17 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
 
 ## Now (active)
 1. **Cloud clinical data plane** — [[2026-08-cloud-clinical-library]]:
-   PostgreSQL adapter/migrations, OIDC clinical API, private S3 originals/
-   derivatives, authorized short-lived photo access and realtime events.
+   the synthetic Cognito/Lambda/DynamoDB/private-S3 path and two-computer app
+   projection are live. Next: push realtime, multi-location selection, durable
+   migration tooling, restore/revocation/retention drills and the planned
+   production PostgreSQL adapter/migrations.
 2. **Synthetic direct-camera ingest** — AWS Transfer Family FTPS → S3 → ingest
    workflow; R6 Mark II camera credential maps to one location/camera and files
    only into that camera's active visit (otherwise Unassigned).
-3. **Downloaded app cloud mode** — ordinary sign-in + location picker; every
-   computer sees the same library; no permanent local capture store.
+3. **Downloaded app cloud mode** — single-location sign-in/shared library is
+   implemented in v0.18.16 with no permanent local photo write. Next:
+   multi-location picker, device/session administration and exact two-Mac
+   packaged field proof.
 
 ## Next
 4. **Patient record & clinic organization** — make the shared library a
@@ -53,9 +57,10 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
 ## Later
 12. **Public Mac distribution** — the self-contained Electron app, offline
    Ed25519 publisher, Railway release service and verified native updater are
-   live for arm64 internal tests (current v0.18.15; three successful end-to-end
-   self-updates). Immutable arm64 history now lives on a persistent Railway
-   volume. The Finder/Archive Utility bootstrap path is archive-valid as of
+   live for arm64 internal tests (current v0.18.16). Railway now serves only
+   small signed manifests; immutable ZIP/DMG bytes live in a separate private,
+   versioned S3 release bucket behind read-only CloudFront, avoiding Railway's
+   package-upload ceiling. The Finder/Archive Utility bootstrap path is archive-valid as of
    v0.18.8. Remaining: Developer ID signing/notarization so the first download
    opens without macOS Open Anyway, and host/test the Intel artifact. See
    [[log/2026-08-26-signed-mac-updater-live]] and
