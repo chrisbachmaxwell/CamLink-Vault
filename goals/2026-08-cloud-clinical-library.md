@@ -58,14 +58,18 @@ that exact gate. Two no-progress cycles → record the blocker here.
   signed manifest pointed to the read-only CloudFront package, whose full
   download matched the signed SHA-256. The private/versioned S3 release bucket
   is separate from clinical storage and explicitly PHI-prohibited.
-- 2026-08-27 · Cycle 4: SDK `220f584` + `d846eef`; fresh cloud clinic setup,
+- 2026-08-27 · Cycle 4: SDK `220f584` + `d846eef` + `a40171a` + `a718bef`;
+  fresh cloud clinic setup,
   direct camera registry, unique per-camera relay and cloud credentials,
   owner-only rotation/revocation, durable pre-ack relay spool, restart recovery,
   failure-atomic binding changes and cross-camera scheduling landed. Full root
   build/workspaces, PTP/FTP/multi-room smokes and UI gate passed; final focused
   gates were relay 34, API 17, client 8, domain 10, clinic 85 + one expected
   skip, desktop 25. Independent failure injection and a pending-retirement retry
-  saga passed. Railway has a `/data` volume and coordinated variables staged,
-  but the rotated relay control secret has not been transmitted to AWS and the
-  new relay/app have not been deployed. Synthetic relay transport is still
-  plain FTP and must not carry PHI.
+  saga passed. The approved rotated control token was transferred directly into
+  AWS without entering source/vault/logs. CloudFormation reached
+  `UPDATE_COMPLETE`; Railway deployment `4b758caf-35f9-4b8b-8a5a-763a64bf3841`
+  succeeded with the `/data` volume. Both health endpoints, rotated primary FTP
+  authentication and a live unique-profile create/remove probe passed. The
+  v0.19 Mac app remains unpublished. Synthetic relay transport is still plain
+  FTP and must not carry PHI.

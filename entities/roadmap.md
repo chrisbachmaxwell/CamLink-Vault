@@ -13,11 +13,11 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
 2. **Synthetic direct-camera ingest** — v0.19's Railway bridge now gives every
    camera unique, rotatable and independently revocable FTP + cloud-ingest
    credentials, durably spools before acknowledgement, and survives restart.
-   Next: deploy the coordinated relay/AWS configuration, prove two physical
-   cameras plus theft revocation, then replace synthetic plain FTP with the
-   production FTPS/TLS endpoint under the BAA gate. Each credential maps to one
-   location/camera and files only into that camera's active visit (otherwise
-   Unassigned).
+   The coordinated relay/AWS configuration is live and the management/rotated
+   login probes pass. Next: prove two physical cameras plus theft revocation,
+   then replace synthetic plain FTP with the production FTPS/TLS endpoint under
+   the BAA gate. Each credential maps to one location/camera and files only into
+   that camera's active visit (otherwise Unassigned).
 3. **Downloaded app cloud mode** — single-location sign-in/shared library is
    implemented in v0.18.16 with no permanent local photo write. Next:
    publish/deploy the v0.19 clean-onboarding artifact, multi-location picker,

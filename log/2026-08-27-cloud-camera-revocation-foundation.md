@@ -11,6 +11,8 @@ photos already stored in the clinical library.
 - SDK `220f584` — cloud-first onboarding, camera registry, direct relay path,
   durable capture direction and Owner camera controls.
 - SDK `d846eef` — failure-safe rotation and relay profile persistence ordering.
+- SDK `a40171a` + `a718bef` — fix clean dependency order and scope Railway's
+  build to SDK → FTP adapter → relay rather than the full desktop monorepo.
 - Cloud mode does not start the legacy local camera bridge. Existing local
   captures remain untouched; no migration or purge was authorized.
 - New profile values are returned once. Clinical records retain hashes; the
@@ -42,11 +44,25 @@ photos already stored in the clinical library.
   first activation 200; rotation 202 pending; retry 200; the correct old relay
   username retired.
 
-## Deployment boundary
-The Railway relay volume is attached at `/data` and coordinated variables are
-staged, not active. The rotated synthetic relay control token is held outside
-source/vault and has not been transmitted to AWS. No v0.19 app or new relay was
-deployed in this session.
+## Live synthetic deployment
+- With Chris's explicit approval, the rotated relay control token was
+  transferred directly from device Keychain into the AWS Lambda environment.
+  It did not enter command output, source, commits, this vault or logs; the
+  temporary transfer copies were deleted.
+- CloudFormation stack `medphoto-synthetic-clinical-v2` reached
+  `UPDATE_COMPLETE`; Lambda reported Active/Successful and confirmed the relay
+  origin/host/port plus a configured token without revealing it.
+- The first two Railway builds failed safely before replacing the live service:
+  one exposed a clean-monorepo dependency-order problem and the next omitted
+  SDK from the scoped relay build. Commits `a40171a` and `a718bef` fixed those
+  gates. Exact deployment `4b758caf-35f9-4b8b-8a5a-763a64bf3841` then succeeded
+  from `a718bef` with its `/data` volume and no error-level deployment logs.
+- AWS `/v1/health` and authenticated relay `/v1/health` returned OK; the rotated
+  primary FTP credential completed login/quit; and a temporary unique camera
+  profile was configured and removed through the live management endpoint.
+- The v0.19 Mac application has not yet been packaged or published. Existing
+  downloads remain on the prior release and will not show the new clean-clinic
+  onboarding until that separately verified release is published.
 
 The current hosted relay is plain FTP and **synthetic photos only**. This work
 does not claim HIPAA readiness. Production remains gated on FTPS/TLS, AWS BAA,

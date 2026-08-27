@@ -7,7 +7,9 @@ Clinic app **v0.18.16** (2026-08-27, see
 `claude/camera-sdk-adapter-pattern-4pj5r8` (repo default).
 
 ## 2026-08-27 cloud-authoritative pivot
-- SDK `220f584` + `d846eef` establish the v0.19 cloud-first camera path. A
+- SDK `220f584` + `d846eef` establish the v0.19 cloud-first camera path;
+  `a40171a` + `a718bef` make the clean Railway relay build dependency-scoped
+  and deterministic. A
   fresh clinic now onboards an organization, location and first Owner; cloud
   mode never starts a legacy local camera bridge. Each physical camera receives
   a unique relay username/password plus a separate write-only cloud ingest
@@ -26,6 +28,13 @@ Clinic app **v0.18.16** (2026-08-27, see
   dialogue/path/user/IP logging is disabled by default and redacted when
   explicitly enabled. This remains **plain FTP for synthetic photos only**;
   FTPS/TLS, BAA, managed secret storage and production drills remain gates.
+- The coordinated synthetic backend is live. AWS stack
+  `medphoto-synthetic-clinical-v2` reached `UPDATE_COMPLETE` with active Lambda
+  relay control, and Railway deployment `4b758caf-35f9-4b8b-8a5a-763a64bf3841`
+  succeeded from `a718bef` with its `/data` volume. Authenticated relay health,
+  AWS health, rotated primary FTP authentication, and a temporary unique camera
+  profile create/remove proof all passed. The v0.19 Mac app is not yet packaged
+  or published; current downloads do not yet include the new onboarding.
 - Chris replaced the end-user local Capture Hub / **Share this library**
   direction with one cloud clinical library visible to every authorized app
   ([[cloud-authoritative-library]], goal [[2026-08-cloud-clinical-library]]).
