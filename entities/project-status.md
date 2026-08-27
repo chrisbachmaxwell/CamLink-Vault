@@ -21,6 +21,20 @@ Clinic app **v0.18.14** (2026-08-27, see
   claim. v0.18.14 remains live; no release/AWS resource/BAA/local data changed.
   Full gates passed; see [[log/2026-08-27-cloud-authoritative-library-pivot]].
 
+## 2026-08-27 patient record organization
+- ✅ The clinic reference app now presents a patient record rather than only a
+  visit start: name, DOB, an optional short photo-workflow note, visit/photo
+  timeline, existing Compare, and an in-place Edit action (SDK `154c2b5`).
+  Stable patient ids and historic visit folders are preserved on edit; review
+  users cannot edit. Consent displays a deliberately honest **Not recorded**
+  placeholder until the separate signed-permission data model is built.
+- Browser coverage opens a patient, changes DOB/note, leaves/reopens to prove
+  persistence, creates a second real FTP visit, and compares two visits. This
+  closes the patient-page/Compare UI-gate item in [[2026-08-simplicity-pass]].
+  The cloud library will carry the same organization after its current
+  PostgreSQL/API/object-access work is complete; this change does not claim
+  real-PHI AWS readiness.
+
 ## Product identity
 - Renamed **CamLink → Med Photo** repo-wide 2026-08-21 (packages
   `@medphoto/*`; config migrates `camlink-clinic.json` → `med-photo.json`
