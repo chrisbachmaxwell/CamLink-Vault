@@ -18,8 +18,8 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    then replace synthetic plain FTP with the production FTPS/TLS endpoint under
    the BAA gate. Each credential maps to one location/camera and files only into
    that camera's active visit (otherwise Unassigned).
-3. **Downloaded app cloud mode** — v0.19.0 arm64 is live with clean-clinic
-   onboarding, existing-clinic username/password sign-in, single-location
+3. **Downloaded app cloud mode** — v0.19.2 arm64 is live with clean-clinic
+   onboarding, email/password sign-in and email-code recovery, single-location
    shared library, pre-sign-in updates and no permanent local photo write.
    Next: multi-location picker, device/session administration and exact two-Mac
    packaged field proof.
@@ -63,7 +63,7 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
 ## Later
 12. **Public Mac distribution** — the self-contained Electron app, offline
    Ed25519 publisher, Railway release service and verified native updater are
-   live for arm64 internal tests (current v0.19.0). Railway serves signed
+   live for arm64 internal tests (current v0.19.2). Railway serves signed
    manifests plus the no-store latest bootstrap pointer; immutable ZIP/DMG
    bytes also live in a separate private, versioned S3 release bucket behind
    read-only CloudFront, avoiding Railway's

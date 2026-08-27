@@ -22,11 +22,17 @@ stations never see it.
   export) hang off this seat.
 No per-patient ACLs in v1.
 
-## Login UX (Apple-esque, clinic-real)
-Profile picker on open (initials/faces, Apple-TV style) → 4–6 digit
-PIN. No passwords/email on the LAN app. Header shows a quiet
-signed-in chip; sign-out in the Menu. Fast user-switching is the
-requirement (shared front-desk devices).
+## Login UX (cloud-authoritative app)
+Every human account uses a normalized email plus password. Clean-clinic setup
+creates the first Owner with an email; Owners add Staff/Review accounts by
+email; password recovery sends a 6-digit code to the verified email. Passwords
+are at least 8 characters and require uppercase, lowercase, a number and a
+symbol. A v0.19.0 legacy synthetic username may sign in only to complete the
+one-time same-membership email migration; it cannot open library/camera/People
+APIs first. The header profile menu contains identity and sign-out.
+
+The earlier local-only PIN picker remains engineering compatibility code for
+explicit LAN fixtures, not the downloaded cloud product direction.
 
 ## What it buys besides permissions
 The HIPAA audit trail ([[hipaa-local-first]]): who started/ended each
@@ -43,7 +49,8 @@ Concurrent multi-viewer already works (SSE broadcasts) — additive, not
 a rebuild.
 
 ## Chris's confirmations + amendments (2026-08-22, same day)
-- Three roles: yes. PIN sign-in: yes.
+- Three roles: yes. Cloud human sign-in is email/password; the earlier PIN
+  confirmation applied to the retired local-only product direction.
 - Kill the word "room" everywhere user-facing — cameras are named
   cameras; starting a visit = CHOOSE THE CAMERA (selection chips in the
   Start-a-visit zone; last choice remembered per device; pinned devices

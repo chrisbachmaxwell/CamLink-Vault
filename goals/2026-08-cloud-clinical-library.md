@@ -21,7 +21,7 @@ Constraint: [[hipaa-local-first]] · Decision: [[cloud-authoritative-library]]
       contracts are live with unique per-camera credentials, staged rotation
       and independent theft revocation. Two-camera/R6 Mark II field proof, then
       FTPS/TLS replacement remain open.
-- [x] Desktop cloud mode for the single synthetic location: username/password
+- [x] Desktop cloud mode for the single synthetic location: email/password
       sign-in, Owner-managed reviewer accounts, shared patient/visit/photo
       views and no permanent local photo write. Multi-location picker remains
       open.
@@ -85,3 +85,12 @@ that exact gate. Two no-progress cycles → record the blocker here.
   clinic through organization/location/first-Owner and Camera now/later;
   existing clinics correctly start at username/password sign-in. Developer ID
   signing/notarization remains the first-install Gatekeeper gate.
+- 2026-08-27 · Cycle 6: SDK `27d1ce1` made clinic setup, People and sign-in
+  email-first, added non-enumerating email-code password recovery and a
+  mandatory same-membership migration for legacy usernames. SDK `6f6dd70`
+  lowered the password minimum from 12 to 8 everywhere while retaining upper,
+  lower, number and symbol checks. Cognito reports `MinimumLength: 8`; the
+  reviewed change set modified Lambda/API/IAM/UserPool with no replacements
+  and reached `UPDATE_COMPLETE`. Exact arm64 v0.19.2 is live through the signed
+  Railway manifest, immutable CloudFront ZIP and no-store DMG pointer. Full
+  workspace tests, PTP/FTP/multi-room smokes and the UI gate passed.

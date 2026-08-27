@@ -2,11 +2,19 @@
 
 Rewritten 2026-08-22 after the 2026-08-21/22 field marathon (see
 [[log/2026-08-21-med-photo-field-day]]; July history in earlier logs).
-Clinic app **v0.19.0** (2026-08-27, see
-[[log/2026-08-27-cloud-authoritative-library-live]]), branch
+Clinic app **v0.19.2** (2026-08-27, see
+[[log/2026-08-27-email-first-setup-v0192]]), branch
 `claude/camera-sdk-adapter-pattern-4pj5r8` (repo default).
 
 ## 2026-08-27 cloud-authoritative pivot
+- SDK `6f6dd70` and live app v0.19.2 make every new human account email-first.
+  Clean-clinic setup asks for the Owner's email; People creates email accounts;
+  email-code password recovery is available before sign-in; legacy synthetic
+  usernames are gated from the library until the same membership is migrated
+  to email. Passwords now require 8 rather than 12 characters while retaining
+  uppercase, lowercase, number and symbol checks. The AWS Cognito policy and
+  packaged validation agree at 8; CloudFormation reached `UPDATE_COMPLETE`
+  without replacing the UserPool, database or clinical photo bucket.
 - SDK `220f584` + `d846eef` establish the v0.19 cloud-first camera path;
   `a40171a` + `a718bef` make the clean Railway relay build dependency-scoped
   and deterministic. A
