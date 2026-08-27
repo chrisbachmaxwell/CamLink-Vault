@@ -2,8 +2,8 @@
 
 Rewritten 2026-08-22 after the 2026-08-21/22 field marathon (see
 [[log/2026-08-21-med-photo-field-day]]; July history in earlier logs).
-Clinic app **v0.18.13** (2026-08-27, see
-[[log/2026-08-27-signed-out-update-recovery-v01813]]), branch
+Clinic app **v0.18.14** (2026-08-27, see
+[[log/2026-08-27-hub-restart-signin-recovery-v01814]]), branch
 `claude/camera-sdk-adapter-pattern-4pj5r8` (repo default).
 
 ## Product identity
@@ -46,6 +46,10 @@ Clinic app **v0.18.13** (2026-08-27, see
   start no adapters and cannot change Hub sharing. This is authenticated HTTP
   for synthetic data only; pinned TLS, device enrollment and native discovery
   are still required before patient use.
+  v0.18.14 fixes the sharing restart transition: memory-only sessions still
+  require the Owner PIN again, but local and remote pages now leave stale
+  Settings/library views, show the profile picker, and restore the same library
+  after sign-in.
 - **Camera identity, not dates** (v0.16, goal
   [[2026-09-camera-identity]] — supersedes the earlier-photo DATE gate,
   [[earlier-photo-guard]]): a photo pushed by the visit's camera while
@@ -65,6 +69,8 @@ Clinic app **v0.18.13** (2026-08-27, see
   desktop shell update before account sign-in through an HttpOnly,
   loopback-only capability; ordinary browsers and LAN viewers remain blocked.
   Safe progress/error state is pollable without exposing patient/session data.
+  v0.18.14 is live on the Railway release volume with the signed updater ZIP
+  and stable first-install DMG independently streamed and hash-verified.
 - **Self-contained Mac app** (`@medphoto/desktop-app`): packaged Electron
   window + clinic runtime, no checkout/Node/browser required. The signed
   updater verifies and atomically installs releases from Railway; v0.18.7
@@ -93,7 +99,8 @@ Clinic app **v0.18.13** (2026-08-27, see
   profile picker after the first Owner is created, and moves identity,
   Owner-only People access and working Sign out into the top-right profile
   menu. Settings no longer contains a session action. Field test with a
-  teammate remains open.
+  teammate remains open. v0.18.14 makes Hub-restart reauthentication explicit
+  and prevents a stale signed-out page from looking like an empty library.
 - **Never-drop photo buffer** (v0.12): a capture with no visit open is
   filed as a held "Photo without a visit" session — the app can no
   longer lose a photo it received (Z8 incident, 2026-08-24). Held

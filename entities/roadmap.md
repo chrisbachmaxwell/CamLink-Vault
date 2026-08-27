@@ -9,14 +9,16 @@ constraint: [[hipaa-local-first]].
    "works for all FTP cameras" (Chris's words).
 2. **Field-close multi-room** — a second body as `room-2` in the office
    ([[2026-09-multi-room]], last unchecked box).
-3. **Field-test same-LAN Hub + Viewer** — update two arm64 Macs to v0.18.13;
+3. **Field-test same-LAN Hub + Viewer** — update two arm64 Macs to v0.18.14;
    enable **Settings -> Other computers** on the Hub; use a Review PIN in the
    second computer's browser; prove one synthetic visit/photo appears live.
    If unreachable, check Local Network permission and router client isolation.
    v0.18.12 fixes the first-Owner transition and puts working Sign out in the
-   top-right profile menu. v0.18.13 also allows the installed Mac to update from
-   the signed-out profile picker and offers a direct-installer recovery if that
-   Mac rejects automatic verification.
+   top-right profile menu. v0.18.13 allows the installed Mac to update from the
+   signed-out profile picker and offers direct-installer recovery. v0.18.14
+   explicitly returns the Hub and every open Viewer to the profile picker when
+   sharing restarts the memory-only session; after the Owner/Review PIN, the
+   same library must return.
 
 ## Next
 4. **FTPS + BAA hosting + compliance sign-off** — the hard gate before
@@ -62,7 +64,7 @@ constraint: [[hipaa-local-first]].
 ## Done recently (details in [[project-status]])
 Multi-room · synthetic same-LAN Hub/browser Viewer (v0.18.11) · profile-first
 sign-in and account menu (v0.18.12) · signed-out local update + installer
-recovery (v0.18.13) · earlier-photo guard · honest presence · in-app updates ·
+recovery (v0.18.13) · Hub-restart sign-in/library recovery (v0.18.14) · earlier-photo guard · honest presence · in-app updates ·
 Mac app installer · Finder-first DMG + bounded Mac startup/renderer recovery (v0.18.10) · home redesign + flow rules · cloud relay on Railway ·
 FTP push transport · Med Photo rename (all 2026-08-21/22) · recoverable
 live photo removal (v0.18.0, 2026-08-25; tile/viewer → local `.trash/` +
