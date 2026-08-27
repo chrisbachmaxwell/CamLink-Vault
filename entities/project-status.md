@@ -15,6 +15,10 @@ Clinic app **v0.19.2** (2026-08-27, see
   uppercase, lowercase, number and symbol checks. The AWS Cognito policy and
   packaged validation agree at 8; CloudFormation reached `UPDATE_COMPLETE`
   without replacing the UserPool, database or clinical photo bucket.
+  Operational field follow-up confirmed the pre-email synthetic Owner remains
+  enabled and `CONFIRMED`; its password was administratively reset without
+  changing the membership or storing the credential, so the mandatory
+  same-membership email upgrade can now be completed in the app.
 - SDK `220f584` + `d846eef` establish the v0.19 cloud-first camera path;
   `a40171a` + `a718bef` make the clean Railway relay build dependency-scoped
   and deterministic. A

@@ -21,8 +21,9 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
 3. **Downloaded app cloud mode** — v0.19.2 arm64 is live with clean-clinic
    onboarding, email/password sign-in and email-code recovery, single-location
    shared library, pre-sign-in updates and no permanent local photo write.
-   Next: multi-location picker, device/session administration and exact two-Mac
-   packaged field proof.
+   Immediate field step: finish the one-time legacy Owner-to-email screen on an
+   installed app. Next: multi-location picker, device/session administration
+   and exact two-Mac packaged field proof.
 
 ## Next
 4. **Patient record & clinic organization** — make the shared library a
