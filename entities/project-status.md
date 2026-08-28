@@ -2,8 +2,8 @@
 
 Rewritten 2026-08-22 after the 2026-08-21/22 field marathon (see
 [[log/2026-08-21-med-photo-field-day]]; July history in earlier logs).
-Clinic app **v0.19.5** (2026-08-28, see
-[[log/2026-08-28-active-visit-conflict-repair-v0195]]). Code integration branch:
+Clinic app **v0.19.7** (2026-08-28, see
+[[log/2026-08-28-clean-mac-updater-v0197]]). Code integration branch:
 `main` (GitHub default since 2026-08-28).
 
 ## 2026-08-28 development governance
@@ -21,6 +21,31 @@ Clinic app **v0.19.5** (2026-08-28, see
   CamLink-SDK `main` as unprotected; enabling and verifying protection remains
   a separately authorized GitHub-settings action. PR discipline plus the local
   guard is the present enforcement boundary.
+
+## 2026-08-28 clean-Mac updater and role-independent maintenance
+- Field evidence from a second Mac showed v0.19.6 invoking Apple's `lipo`
+  shim during update verification. A clean Mac without Xcode Command Line
+  Tools therefore prompted to install developer tools and safely rejected the
+  update. SDK feature `d416ab8` merged through PR 9 as main commit `9941b0f`.
+  v0.19.7 now reads the arm64/x86_64 CPU type directly from the exact
+  no-follow 64-bit Mach-O executable header; the packaged updater no longer
+  invokes `lipo`.
+- Software Update is maintenance of the installed Mac, not a clinical role.
+  Owner, Staff and Review now see and may use it inside the packaged desktop
+  app through the private HttpOnly loopback capability. The same role-gated
+  update requests from an ordinary browser or LAN peer still return 403.
+- Root build/tests, PTP/FTP/multi-room smokes and the browser UI gate passed;
+  Node 20/22 PR CI passed. The exact 114082711-byte arm64 ZIP passed archive,
+  version, built-in architecture, deep/strict code-signature and native-updater
+  verification without `lipo`. The live Ed25519 manifest names v0.19.7 and
+  immutable CloudFront SHA-256
+  `e269bca45c0dbcfd440b67c05424d2de5f3e4e841bdcea1f371e0f36d7d71e0f`.
+  The no-store 124157235-byte direct DMG streamed as SHA-256
+  `4593489df9f22190e40dfae569fa049b262ffcae47437b927f25b0df8399efe1`.
+- A Mac still running v0.19.6 contains the broken verifier itself, so that Mac
+  needs the direct DMG once. After v0.19.7 is installed, future signed updates
+  no longer depend on Command Line Tools. Developer ID/notarization remains
+  the separate first-download Open Anyway gate.
 
 ## 2026-08-28 active-visit conflict repair
 - SDK feature commit `e603dc4` merged through PR 7 as main commit `7c0d11f`.

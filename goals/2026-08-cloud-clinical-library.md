@@ -146,3 +146,14 @@ that exact gate. Two no-progress cycles → record the blocker here.
   Railway and immutable CloudFront package SHA-256
   `2fa83cd6ca4c3d310bec1576a40961a276a4231d520672684005ccbbb61e2af7`.
   Two-Mac field confirmation remains open.
+- 2026-08-28 · Cycle 12: a clean second Mac proved v0.19.6's native verifier
+  invoked the `lipo` Xcode shim, prompting for Command Line Tools and safely
+  rejecting the update. SDK `d416ab8` merged through PR 9 as main `9941b0f`;
+  v0.19.7 reads the exact no-follow Mach-O header instead. Software Update is
+  now visible and usable by Owner, Staff and Review only through the packaged
+  app's private loopback capability; browser/LAN role restrictions remain.
+  Full root build/tests, required PTP/FTP/multi-room/UI gates and Node 20/22 CI
+  passed. The exact signed live ZIP and no-store DMG streamed with the hashes
+  recorded in [[log/2026-08-28-clean-mac-updater-v0197]]. The affected v0.19.6
+  Mac needs one direct-DMG recovery; future updates from v0.19.7 do not require
+  developer tools.

@@ -15,12 +15,16 @@ visit — "In which room?" (remembered per device); pinned capture
 stations never see it.
 
 ## Roles (three, resist more)
-- **Owner** — camera setup, users, updates + everything below
+- **Owner** — camera setup, users + everything below
 - **Staff** — start/end visits, adopt held photos + everything below
 - **Review** — patients, visits, compare; library-first home; no camera
   or visit controls. Future features (notes, tags, flag-for-doctor,
   export) hang off this seat.
 No per-patient ACLs in v1.
+
+Software Update is intentionally outside this role hierarchy: every signed-in
+role may maintain the installed desktop app through its private local desktop
+capability. Ordinary browser/LAN sessions do not receive that capability.
 
 ## Login UX (cloud-authoritative app)
 Every human account uses a normalized email plus password. Clean-clinic setup
