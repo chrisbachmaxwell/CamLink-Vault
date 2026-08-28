@@ -38,6 +38,21 @@ the `CamLink-SDK` repo (repo rename pending; product name is Med Photo).
 - Session summaries → `log/YYYY-MM-DD-<slug>.md`: decisions made, mistakes
   caught, patterns confirmed. Then update the wiki pages those touch.
 
+## Multi-agent delivery (mandatory)
+- `main` is the only integration truth in both CamLink-SDK and this vault.
+  Feature-branch commits are work in progress until their PRs merge to `main`.
+- One agent = one task = one isolated worktree = one feature branch = one PR.
+  Never share a worktree or implement in Chris's primary checkout.
+- Declare owned paths before editing. Overlapping path ownership must be
+  sequenced by the single designated integration owner.
+- Preserve unknown work: never reset, clean, stash, overwrite, force-push or
+  use `git add .`; stage only exact owned files.
+- Agents push branches and open PRs. Only the integration owner merges, one PR
+  at a time, after fresh-main and gate verification. Direct `main` pushes are
+  forbidden. See [[multi-agent-delivery]] for exact commands and handoff form.
+- Every report separates feature commit, PR state, `main` merge SHA,
+  release/deploy state and runtime proof. "Pushed" never means "merged".
+
 ## Session end (non-negotiable ritual)
 Before finishing ANY working session — and immediately whenever Chris
 says "wrap up" or "done" — without being asked:
@@ -45,8 +60,9 @@ says "wrap up" or "done" — without being asked:
    patterns confirmed, commits pushed, what a human should test by hand.
 2. Update `entities/project-status.md` and `entities/roadmap.md` to
    match reality.
-3. `git push` this vault AND any code repo you changed.
-Work that isn't pushed and logged doesn't exist. If a session is cut off
+3. Push the owned feature branches for this vault AND any code repo changed;
+   open PRs to `main`. The integration owner records the resulting merge SHAs.
+Work that isn't pushed, reviewed and logged doesn't exist. If a session is cut off
 mid-task, the per-cycle pushes of the goal-loop protocol are the backstop
 — but never rely on them when you can run the ritual.
 
