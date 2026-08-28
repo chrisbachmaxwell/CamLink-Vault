@@ -134,3 +134,15 @@ that exact gate. Two no-progress cycles → record the blocker here.
   passed. The reviewed AWS update reached `UPDATE_COMPLETE`. The signed live
   manifest, streamed CloudFront ZIP, no-store DMG and exact native updater all
   verified as v0.19.4. Physical R6 Mark II and two-camera field proof remain.
+- 2026-08-28 · Cycle 11: field screenshots proved a split-brain case where a
+  stale Dynamo camera lock rejected Start visit while Home showed no active
+  visit, and the resulting generic amber message followed the user across all
+  screens. SDK `7c0d11f` repairs only an exact stale lock, preserves a
+  concurrent replacement, retries once, and returns a validated active-visit
+  summary for real conflicts. Notices are now dismissible, timed and scoped to
+  their originating view. PR 7 and Node 20/22 CI passed, as did the full local
+  build/tests, PTP/FTP/multi-room smokes and UI gate. AWS reached
+  `UPDATE_COMPLETE` with live health 200. Signed arm64 v0.19.5 is live through
+  Railway and immutable CloudFront package SHA-256
+  `2fa83cd6ca4c3d310bec1576a40961a276a4231d520672684005ccbbb61e2af7`.
+  Two-Mac field confirmation remains open.

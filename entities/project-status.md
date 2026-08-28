@@ -2,8 +2,8 @@
 
 Rewritten 2026-08-22 after the 2026-08-21/22 field marathon (see
 [[log/2026-08-21-med-photo-field-day]]; July history in earlier logs).
-Clinic app **v0.19.4** (2026-08-28, see
-[[log/2026-08-28-guided-camera-verification-v0194]]). Code integration branch:
+Clinic app **v0.19.5** (2026-08-28, see
+[[log/2026-08-28-active-visit-conflict-repair-v0195]]). Code integration branch:
 `main` (GitHub default since 2026-08-28).
 
 ## 2026-08-28 development governance
@@ -21,6 +21,28 @@ Clinic app **v0.19.4** (2026-08-28, see
   CamLink-SDK `main` as unprotected; enabling and verifying protection remains
   a separately authorized GitHub-settings action. PR discipline plus the local
   guard is the present enforcement boundary.
+
+## 2026-08-28 active-visit conflict repair
+- SDK feature commit `e603dc4` merged through PR 7 as main commit `7c0d11f`.
+  A camera lock whose visit record was missing or ended could previously block
+  every new visit while Home truthfully showed no active visit. Dynamo now
+  repairs only the exact stale lock, rereads if a concurrent visit replaced it,
+  and retries the start transaction once. Real conflicts carry a closed,
+  validated active-visit summary so the app can open or end the actual visit.
+- Persistent global amber banners were retired. Ordinary notices are
+  dismissible, expire after seven seconds, and clear when the user changes
+  screens. A real active-visit conflict remains only on the screen where it
+  occurred and provides its visit action instead of following the user through
+  Home, Patients, Cameras and Settings.
+- Full build/tests, PTP simulator, FTP, multi-room and browser UI gates passed;
+  GitHub CI passed on Node 20 and 22. AWS stack
+  `medphoto-synthetic-clinical-v2` reached `UPDATE_COMPLETE`; synthetic health
+  returned 200. Exact arm64 v0.19.5 is live through the signed Railway manifest
+  and immutable CloudFront ZIP. The streamed package is 114081847 bytes with
+  SHA-256 `2fa83cd6ca4c3d310bec1576a40961a276a4231d520672684005ccbbb61e2af7`.
+  The remaining field proof is to update both Macs, reproduce the former
+  start-visit path, and confirm either a new visit starts or the real active
+  visit opens from the conflict action.
 ## 2026-08-28 guided camera verification
 - SDK `f9531c8` and live arm64 app v0.19.4 replace the credential-dump camera
   setup with one contextual sequence: enter the five camera values, continue,
