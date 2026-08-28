@@ -32,3 +32,12 @@ rhythm); local FTP ≈5 s.
 
 Ratchet: ui-gate FAILS if the pill is green before first camera contact,
 and requires green on a real push.
+
+## Cloud-authoritative proof (v0.19.4)
+Issuing or rotating a cloud camera profile proves only that setup values exist;
+it does not prove the camera accepted them. The cloud API persists
+`lastUploadAt` and an opaque `lastUploadPhotoId` only when the upload digest and
+metadata completion succeed. The guided setup records a baseline, asks for one
+test photo, and accepts only newer evidence for the exact camera. It then shows
+the received image and changes the label to **Camera verified**. Existing
+profiles without evidence remain waiting until their next upload.

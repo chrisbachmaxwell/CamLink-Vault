@@ -20,16 +20,18 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    then replace synthetic plain FTP with the production FTPS/TLS endpoint under
    the BAA gate. Each credential maps to one location/camera and files only into
    that camera's active visit (otherwise Unassigned).
-3. **Downloaded app cloud mode** — v0.19.3 arm64 is live with clean-clinic
+3. **Downloaded app cloud mode** — v0.19.4 arm64 is live with clean-clinic
    onboarding, email/password sign-in and email-code recovery, single-location
    shared library, pre-sign-in updates and no permanent local photo write. Its
    camera setup is model-first and automatically provisions the per-camera
-   relay values; staff never enter the relay control URL/token.
+   relay values; staff never enter the relay control URL/token. Its guided
+   setup now reveals only the values needed for the current step, then asks for
+   one test photo and waits for that exact camera's verified cloud completion
+   before claiming the camera works.
    The live AWS null-marker activation defect is fixed and failed empty drafts
    are retired. The short-credential Lambda is live. Immediate field steps:
-   finish the one-time legacy
-   Owner-to-email screen, then click Continue once in camera setup and confirm
-   that the unique FTP values appear. Next: multi-location picker,
+   finish the one-time legacy Owner-to-email screen, then complete the guided
+   values → test-photo proof on the physical R6 Mark II. Next: multi-location picker,
    device/session administration and exact two-Mac packaged field proof.
 
 ## Next
@@ -71,7 +73,7 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
 ## Later
 12. **Public Mac distribution** — the self-contained Electron app, offline
    Ed25519 publisher, Railway release service and verified native updater are
-   live for arm64 internal tests (current v0.19.2). Railway serves signed
+   live for arm64 internal tests (current v0.19.4). Railway serves signed
    manifests plus the no-store latest bootstrap pointer; immutable ZIP/DMG
    bytes also live in a separate private, versioned S3 release bucket behind
    read-only CloudFront, avoiding Railway's

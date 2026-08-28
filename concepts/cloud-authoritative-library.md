@@ -16,6 +16,12 @@ credential resolves server-side to one opaque organization/location/camera id.
 An upload goes only to that camera's active visit; without a matching visit it
 is retained in an explicit Unassigned queue.
 
+Camera setup is also evidence-based: creating credentials is not a connection.
+The app asks for a test photo and claims verification only after the cloud API
+has checksum-verified and completed a newer upload for that exact camera. The
+opaque received-photo id may be used to show the synthetic proof image after
+the same authorization checks as every other cloud photo.
+
 ## Per-camera identity and theft response
 The server address may be shared, but every physical camera must have its own
 random FTP/FTPS username and password plus a separate write-only cloud ingest
