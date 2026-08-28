@@ -38,7 +38,8 @@ The direct DMG is a separate bootstrap surface from signed updater history.
 It is the recovery door when an old app cannot verify/apply an update. Public,
 warning-free first install still requires Apple Developer ID signing and
 notarization; the internal synthetic build may require macOS Open Anyway.
-Specifically, v0.19.6's verifier invoked `lipo`, so a clean Mac may require one
-manual v0.19.7 DMG install before the no-developer-tools updater can take over.
+Specifically, affected pre-v0.19.7 verifiers (including v0.19.5/v0.19.6)
+invoked `lipo`, so a clean Mac may require one manual v0.19.7 DMG install
+before the no-developer-tools updater can take over.
 
 Operator procedure and exact gates: repo `docs/RELEASE-PUBLISHING.md`.
