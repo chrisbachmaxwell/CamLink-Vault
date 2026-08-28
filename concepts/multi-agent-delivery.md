@@ -68,9 +68,15 @@ CamLink-SDK's committed helper creates clean worktrees from `origin/main`. Its
 clone-installed pre-push hook blocks direct pushes to `main` and detectable
 non-fast-forward rewrites. The vault carries the same local guard.
 
-GitHub reported on 2026-08-28 that branch protection/rulesets for this private
-repository require a plan upgrade (or public visibility). Until that changes,
+Chris confirmed on 2026-08-28 that the GitHub account is now on GitHub Pro, so
+the private-repository plan blocker is removed. A read-only GitHub API check
+still returned **Branch not protected** for CamLink-SDK `main`; no repository
+setting was changed during that audit. Until protection is explicitly enabled,
 the hooks, PR-only contract and single integration owner are strong workflow
-guards but not server-side enforcement; a user can bypass a local hook. When
-private branch protection becomes available, require PRs, required CI, current
-branches, no force pushes and no branch deletion on `main`.
+guards but not server-side enforcement; a user can bypass a local hook.
+
+Next governance action: separately authorize and enable protection on both
+CamLink-SDK and CamLink-Vault `main`, requiring pull requests, the applicable
+required CI checks, current branches, no force pushes and no deletion of
+`main`. Verify each rule through GitHub after writing it; GitHub Pro alone does
+not turn protection on automatically.

@@ -16,9 +16,11 @@ Clinic app **v0.19.4** (2026-08-28, see
   gate verification, exact-file staging, and separate merge/release/deploy
   evidence. Code PR 6 merged these rules to `main` as `c0affc0`. Local hooks
   block direct `main` and non-fast-forward pushes; helper scripts create clean
-  task worktrees. GitHub branch protection remains
-  unavailable for this private repository on the current plan, so PR discipline
-  plus the local guard is the present enforcement boundary.
+  task worktrees. Chris confirmed the account is now on GitHub Pro, removing
+  the private-repository plan blocker. A read-only API check still reports
+  CamLink-SDK `main` as unprotected; enabling and verifying protection remains
+  a separately authorized GitHub-settings action. PR discipline plus the local
+  guard is the present enforcement boundary.
 ## 2026-08-28 guided camera verification
 - SDK `f9531c8` and live arm64 app v0.19.4 replace the credential-dump camera
   setup with one contextual sequence: enter the five camera values, continue,
@@ -56,6 +58,12 @@ Clinic app **v0.19.4** (2026-08-28, see
   and the banner offers working **Go to visit** and **End it & start** actions
   instead of the dead `camera already has an active visit` sentence. Root
   build/tests, PTP/FTP/multi-room smokes and the browser UI gate passed.
+  Field screenshots at 09:23 preceded the v0.19.4 release at approximately
+  09:53. A fresh audit proved `aae5b44` is an ancestor of code `main` and the
+  v0.19.4 source, and the exact signed ZIP contains the Home refresh plus
+  **Go to ...'s visit** and **End it & start...** actions. The focused test and
+  clinic typecheck passed; those screenshots therefore show the older app, not
+  an unmerged or unpublished fix.
 - SDK `c43b75c` reduces the values a person must type into a physical camera:
   new profiles use a 13-character `mp-...` username and a 12-character random
   password whose alphabet omits `0`, `1`, `i`, `l`, and `o`. The separate

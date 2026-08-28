@@ -30,9 +30,11 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    before claiming the camera works.
    The live AWS null-marker activation defect is fixed and failed empty drafts
    are retired. The short-credential Lambda is live. Immediate field steps:
-   finish the one-time legacy Owner-to-email screen, then complete the guided
-   values → test-photo proof on the physical R6 Mark II. Next: multi-location picker,
-   device/session administration and exact two-Mac packaged field proof.
+   update both Macs to v0.19.4, confirm Home shows a visit started on the other
+   Mac and that its conflict notice opens or ends that visit, then complete the
+   guided values → test-photo proof on the physical R6 Mark II. Next:
+   multi-location picker, device/session administration and exact two-Mac
+   packaged field proof.
 
 ## Next
 4. **Patient record & clinic organization** — make the shared library a
@@ -89,14 +91,20 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    block with no server, renderer or window, so no further Electron startup
    change can honestly promise reliable unsigned first install. Field-test the
    DMG, but Developer ID signing/notarization is the required reliable fix.
-13. **Med Photo Box** — reassess; internet-direct FTPS may remove the need for
+13. **GitHub server-side branch protection** — GitHub Pro is now active, so
+   the private-repository plan blocker is gone. CamLink-SDK `main` still
+   returns **Branch not protected**. After explicit GitHub-settings approval,
+   protect `main` in both code and Vault repositories and verify required PR,
+   CI, current-branch, no-force-push and no-delete rules. Local hooks and the
+   integration-owner contract remain active meanwhile.
+14. **Med Photo Box** — reassess; internet-direct FTPS may remove the need for
    travel-router hardware on isolated clinic networks (repo
    docs/MED-PHOTO-BOX.md; hardware sourced).
-14. **USB tether (Phase D)** — `@medphoto/adapter-usb`; design in repo
+15. **USB tether (Phase D)** — `@medphoto/adapter-usb`; design in repo
    docs/PTP-PLAN.md.
-15. **Other FTP vendors** (Sony/Nikon/Fuji pro bodies) — adapter is
+16. **Other FTP vendors** (Sony/Nikon/Fuji pro bodies) — adapter is
    vendor-agnostic by design; needs per-vendor field proof.
-16. **Capture protocols & baseline-assisted repeat capture** — clinic-defined
+17. **Capture protocols & baseline-assisted repeat capture** — clinic-defined
     photo sequences and optional prior-view reference for a follow-up shot.
     Defer until the patient record is useful and the core AWS/consent work is
     established; validate against real clinic workflow before claiming
