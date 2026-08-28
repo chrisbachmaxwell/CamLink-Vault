@@ -467,5 +467,6 @@ isolation, and a 202 pending-retirement retry completing as 200.
   applies the existing three-second authoritative cloud projection to the
   visit currently on screen and advances the proposed desktop source version
   to 0.19.6. All local gates passed on fresh `origin/main`; the PR is not yet
-  merged, released, deployed or field-proven. See
+  merged, released, deployed or field-proven. GitHub Actions Node 20 and Node
+  22 also passed. See
   [[log/2026-08-28-cloud-live-visit-photo-refresh]].

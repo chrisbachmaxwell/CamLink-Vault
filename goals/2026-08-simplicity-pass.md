@@ -40,8 +40,8 @@ Per round: max 6 cycles or 2 no-progress cycles → BLOCKED with reasons.
   (`21eb8cd`): the existing three-second cloud projection refresh now applies
   the newest active summary to the visit already on screen, so the count and
   photo grid no longer require leave-and-reopen. Root build/tests, PTP/FTP/
-  multi-room smokes and browser UI gate passed; merge/release/field proof are
-  still open.
+  multi-room smokes, browser UI gate and GitHub Node 20/22 CI passed; merge/
+  release/field proof are still open.
 - 2026-08-28 · Cloud active-visit dead end fixed (`aae5b44`): Home now
   refreshes authoritative camera/visit state across computers, a fresh
   conflict immediately populates **In progress**, and the warning offers a

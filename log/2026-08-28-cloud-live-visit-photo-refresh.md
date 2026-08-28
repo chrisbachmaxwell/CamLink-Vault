@@ -32,9 +32,9 @@ here.
 - Local gates on fresh `origin/main`: root build and all workspace tests
   passed; PTP simulator, FTP and multi-room smokes passed; the browser UI gate
   passed.
+- GitHub Actions: Node 20 and Node 22 passed on code PR 8.
 - `main` merge SHA: not merged.
 - Release/package publication: not performed. Version 0.19.6 is source intent
   only until integration and release evidence exist.
 - Deployment/live app proof: not performed. The current live release remains
   v0.19.5.
-
