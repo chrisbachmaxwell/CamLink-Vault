@@ -6,6 +6,19 @@ Clinic app **v0.19.7** (2026-08-28, see
 [[log/2026-08-28-clean-mac-updater-v0197]]). Code integration branch:
 `main` (GitHub default since 2026-08-28).
 
+## 2026-08-28 cloud sign-in landing
+- A newly signed-in cloud computer now lands on Home even when another
+  computer already has a visit open. The shared visit stays visible under
+  **In progress** and requires an explicit **Open** action; local capture
+  stations retain active-visit resume behavior.
+- Camera selection remains intentionally conditional: one available camera is
+  automatic; two or more show **Which camera?** on Home, and patient-page
+  Start visit asks the same question.
+- SDK `6d314bc` merged through PR 11 as `main` commit `02c27d8`; root build,
+  all workspace tests, PTP/FTP/multi-room smokes, browser UI gate and GitHub
+  Node 20/22 CI passed. Desktop source is v0.19.9, but it is not yet
+  packaged/published/field-proven; the live signed release remains v0.19.7.
+
 ## 2026-08-28 two-computer session-end synchronization
 - A cloud visit ended from one signed-in computer now closes the stale live
   visit screen on every other signed-in computer viewing that same camera.

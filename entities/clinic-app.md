@@ -1,8 +1,8 @@
 # Med Photo clinic app
 
 `apps/clinic` in [[camlink-sdk]] · packaged by `apps/desktop` · clinic runtime
-**v0.18.6** inside desktop source **v0.19.8** as of 2026-08-28. The currently
-published signed desktop release remains **v0.19.7**; v0.19.8 is merged but not
+**v0.18.6** inside desktop source **v0.19.9** as of 2026-08-28. The currently
+published signed desktop release remains **v0.19.7**; v0.19.9 is merged but not
 yet packaged or published. The product is cloud-authoritative in packaged
 mode; the local capture paths below remain supported engineering/transport
 modes.
@@ -12,6 +12,9 @@ Built on public `@medphoto/*` APIs. Governing constraints:
 [[hipaa-local-first]] and [[cloud-authoritative-library]].
 
 ## Cloud active visits (2026-08-28)
+- Cloud sign-in always lands on Home. An already-running shared visit appears
+  under **In progress** and opens only after an explicit **Open** action;
+  signing in never silently enters another computer's live visit (`02c27d8`).
 - The cloud is the source of truth for camera-to-visit assignments. Home's
   **In progress** section must show every active visit, including one started
   from another computer; entering Home and the three-second shared-library

@@ -44,6 +44,13 @@ library purge, or provider agreement change unless Chris explicitly authorizes
 that exact gate. Two no-progress cycles → record the blocker here.
 
 ## Iteration log
+- 2026-08-28 · Follow-up: a field report showed a new cloud login silently
+  opening the current shared visit. SDK `6d314bc` merged through PR 11 as
+  `02c27d8`; cloud sign-in now lands on Home and leaves each shared visit under
+  In progress until the user chooses Open. One camera remains automatic; two
+  or more show Which camera on Home and the patient page. Root build/tests,
+  PTP/FTP/multi-room smokes, browser UI gate and Node 20/22 CI passed. Desktop
+  source is v0.19.9; package/publish and exact two-Mac field proof remain open.
 - 2026-08-27 · Cycle 1: architecture + synthetic clinical domain landed in SDK
   `f2ce0a1`; LAN sharing product surface removed and legacy preference disabled;
   existing captures untouched. Root build/typecheck/tests, PTP/FTP/multi-room
