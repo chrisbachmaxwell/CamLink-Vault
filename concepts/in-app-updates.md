@@ -15,6 +15,8 @@ access is part of the desktop shell, not part of clinical authorization.
 - Before staging, the native updater verifies manifest signature, SHA-256,
   platform, semantic version, minimum supported version, archive containment,
   bundle id, app version, architecture and macOS code signature.
+- Architecture verification reads the 64-bit Mach-O header directly. It must
+  never invoke `lipo` or require Xcode Command Line Tools on a clinic Mac.
 - Installation is refused during an active visit. Otherwise it uses sibling
   same-volume atomic renames, launches the candidate, waits for a nonce-bound
   health proof and restores the backup automatically on failure.
@@ -27,11 +29,16 @@ That allows Check for updates before clinical sign-in while ordinary browsers
 and network peers remain blocked. AWS/Cognito login failure, account
 revocation, or a clinical API outage must never prevent an app from checking
 or installing a signed release. The release service contains no PHI.
+Owner, Staff and Review may all maintain the installed desktop app through
+this private capability; clinical role permissions do not govern software
+maintenance.
 
 ## First install and recovery
 The direct DMG is a separate bootstrap surface from signed updater history.
 It is the recovery door when an old app cannot verify/apply an update. Public,
 warning-free first install still requires Apple Developer ID signing and
 notarization; the internal synthetic build may require macOS Open Anyway.
+Specifically, v0.19.6's verifier invoked `lipo`, so a clean Mac may require one
+manual v0.19.7 DMG install before the no-developer-tools updater can take over.
 
 Operator procedure and exact gates: repo `docs/RELEASE-PUBLISHING.md`.

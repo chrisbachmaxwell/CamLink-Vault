@@ -20,7 +20,7 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    then replace synthetic plain FTP with the production FTPS/TLS endpoint under
    the BAA gate. Each credential maps to one location/camera and files only into
    that camera's active visit (otherwise Unassigned).
-3. **Downloaded app cloud mode** — v0.19.5 arm64 is live with clean-clinic
+3. **Downloaded app cloud mode** — v0.19.7 arm64 is live with clean-clinic
    onboarding, email/password sign-in and email-code recovery, single-location
    shared library, pre-sign-in updates and no permanent local photo write. Its
    camera setup is model-first and automatically provisions the per-camera
@@ -30,7 +30,8 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    before claiming the camera works.
    The live AWS null-marker activation defect is fixed and failed empty drafts
    are retired. The short-credential Lambda is live. Immediate field steps:
-   update both Macs to v0.19.5, confirm a stale camera lock no longer blocks a
+   install v0.19.7 on both Macs (v0.19.6 needs one direct-DMG recovery), confirm
+   a stale camera lock no longer blocks a
    visit, Home shows a real visit started on the other Mac, and its contextual
    conflict notice opens or ends that visit. Then complete the
    guided values → test-photo proof on the physical R6 Mark II. Next:
@@ -40,6 +41,11 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    also re-renders the active visit currently on screen. Merge, full tests,
    signed manifest, immutable ZIP and direct DMG are proven; exact physical-
    camera field proof remains open.
+   v0.19.7 removes the clean-Mac `lipo`/developer-tools dependency and makes
+   desktop Software Update available to every clinical role while retaining
+   the private loopback capability boundary. Exact ZIP/DMG/live-manifest proof
+   is green; one field Mac must use the DMG once because its old v0.19.6
+   verifier cannot repair itself.
 
 ## Next
 4. **Patient record & clinic organization** — make the shared library a
@@ -80,7 +86,7 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
 ## Later
 12. **Public Mac distribution** — the self-contained Electron app, offline
    Ed25519 publisher, Railway release service and verified native updater are
-   live for arm64 internal tests (current v0.19.5). Railway serves signed
+   live for arm64 internal tests (current v0.19.7). Railway serves signed
    manifests plus the no-store latest bootstrap pointer; immutable ZIP/DMG
    bytes also live in a separate private, versioned S3 release bucket behind
    read-only CloudFront, avoiding Railway's
