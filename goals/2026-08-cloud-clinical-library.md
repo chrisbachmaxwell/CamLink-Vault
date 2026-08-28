@@ -101,3 +101,14 @@ that exact gate. Two no-progress cycles → record the blocker here.
   Exact arm64 v0.19.3 is live through signed Railway deployment
   `c374dc68-9306-4d54-bd1d-a938398b5345`; full workspace tests, required
   PTP/FTP/multi-room smokes and browser UI gate passed.
+- 2026-08-27 · Cycle 8: field setup exposed a DynamoDB condition mismatch:
+  staging persisted nullable activation/revocation markers, but activation
+  required the marker to be absent. SDK `a5bc7b4` accepts either absent or null
+  pending markers and fences revocation; a new Dynamo-command regression plus
+  all workspace tests and required PTP/FTP/multi-room/UI gates passed. The
+  reviewed Lambda/API-integration-only change set reached `UPDATE_COMPLETE`,
+  deployed SHA matched the local bundle, and API health returned 200. Six
+  failed empty profile drafts and their relay logins were retired after a
+  zero-dependent-record assertion. Current synthetic state has zero active or
+  pending camera drafts; one clean physical-camera retry remains the field
+  proof. No secret or PHI entered source, output notes, or the vault.

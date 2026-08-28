@@ -23,9 +23,11 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    shared library, pre-sign-in updates and no permanent local photo write. Its
    camera setup is model-first and automatically provisions the per-camera
    relay values; staff never enter the relay control URL/token.
-   Immediate field step: finish the one-time legacy Owner-to-email screen on an
-   installed app. Next: multi-location picker, device/session administration
-   and exact two-Mac packaged field proof.
+   The live AWS null-marker activation defect is fixed and failed empty drafts
+   are retired. Immediate field steps: finish the one-time legacy
+   Owner-to-email screen, then click Continue once in camera setup and confirm
+   that the unique FTP values appear. Next: multi-location picker,
+   device/session administration and exact two-Mac packaged field proof.
 
 ## Next
 4. **Patient record & clinic organization** — make the shared library a

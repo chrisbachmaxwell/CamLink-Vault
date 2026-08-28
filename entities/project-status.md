@@ -7,6 +7,18 @@ Clinic app **v0.19.3** (2026-08-27, see
 `claude/camera-sdk-adapter-pattern-4pj5r8` (repo default).
 
 ## 2026-08-27 cloud-authoritative pivot
+- SDK `a5bc7b4` fixes the first live cloud camera profile activation. DynamoDB
+  stores staged `activatedAt`/`revokedAt` markers explicitly as null, while the
+  original transaction incorrectly required `activatedAt` to be absent; every
+  otherwise-valid profile therefore returned `relay profile activation
+  conflicted`. The transaction now accepts absent or null pending markers and
+  also fences revocation. The reviewed Lambda-only/API-integration change set
+  reached `UPDATE_COMPLETE`, the deployed Lambda SHA matches the tested bundle,
+  and the synthetic API health check returns 200. Six failed empty profile
+  drafts and their relay logins were retired only after proving they referenced
+  zero visits/photos; the clinic now has zero active/pending camera drafts and
+  is ready for one clean field retry. No setup password, ingest credential or
+  relay control token was written to source, logs or the vault.
 - SDK `df96174` and live app v0.19.3 remove the last accidental path from a
   cloud clinic into the legacy manual relay-address/access-token form.
   Settings **Change how the camera connects** now opens the model-first camera
