@@ -42,10 +42,11 @@ Clinic app **v0.19.7** (2026-08-28, see
   `e269bca45c0dbcfd440b67c05424d2de5f3e4e841bdcea1f371e0f36d7d71e0f`.
   The no-store 124157235-byte direct DMG streamed as SHA-256
   `4593489df9f22190e40dfae569fa049b262ffcae47437b927f25b0df8399efe1`.
-- A Mac still running v0.19.6 contains the broken verifier itself, so that Mac
-  needs the direct DMG once. After v0.19.7 is installed, future signed updates
-  no longer depend on Command Line Tools. Developer ID/notarization remains
-  the separate first-download Open Anyway gate.
+- A Mac still running an affected pre-v0.19.7 build (including v0.19.5 or
+  v0.19.6) contains the broken verifier itself, so that Mac needs the direct
+  DMG once. After v0.19.7 is installed, future signed updates no longer depend
+  on Command Line Tools. Developer ID/notarization remains the separate
+  first-download Open Anyway gate.
 
 ## 2026-08-28 active-visit conflict repair
 - SDK feature commit `e603dc4` merged through PR 7 as main commit `7c0d11f`.

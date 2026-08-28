@@ -30,7 +30,8 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    before claiming the camera works.
    The live AWS null-marker activation defect is fixed and failed empty drafts
    are retired. The short-credential Lambda is live. Immediate field steps:
-   install v0.19.7 on both Macs (v0.19.6 needs one direct-DMG recovery), confirm
+   install v0.19.7 on both Macs (affected v0.19.5/v0.19.6 installs need one
+   direct-DMG recovery), confirm
    a stale camera lock no longer blocks a
    visit, Home shows a real visit started on the other Mac, and its contextual
    conflict notice opens or ends that visit. Then complete the
@@ -44,7 +45,7 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    v0.19.7 removes the clean-Mac `lipo`/developer-tools dependency and makes
    desktop Software Update available to every clinical role while retaining
    the private loopback capability boundary. Exact ZIP/DMG/live-manifest proof
-   is green; one field Mac must use the DMG once because its old v0.19.6
+   is green; one field Mac must use the DMG once because its pre-v0.19.7
    verifier cannot repair itself.
 
 ## Next

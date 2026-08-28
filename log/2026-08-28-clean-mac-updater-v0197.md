@@ -12,9 +12,9 @@
 - Show Software Update to Owner, Staff and Review in the installed app. Permit
   all three only when the request carries the private HttpOnly desktop
   capability; retain existing role denials for ordinary browser/LAN requests.
-- v0.19.6 cannot self-repair because the broken verifier is in that installed
-  app. Use the direct v0.19.7 DMG once on that Mac; subsequent updates use the
-  fixed verifier.
+- An affected pre-v0.19.7 app, including v0.19.5/v0.19.6, cannot self-repair
+  because the broken verifier is already installed. Use the direct v0.19.7
+  DMG once on that Mac; subsequent updates use the fixed verifier.
 
 ## Delivery evidence
 - Feature commit: SDK `d416ab8`.
