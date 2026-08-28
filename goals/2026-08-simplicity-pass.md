@@ -36,6 +36,11 @@ Doctrine: [[design-doctrine]] / repo docs/DESIGN.md. This goal never
 Per round: max 6 cycles or 2 no-progress cycles → BLOCKED with reasons.
 
 ## Iteration log
+- 2026-08-28 · Two-computer cloud visit end fixed in code PR 10 (`dc80e66`,
+  merged as `1ab5602`): the authenticated projection now closes the stale live
+  visit screen when another computer ends that exact camera's visit. Full
+  local gates and GitHub Node 20/22 CI passed. Desktop source is v0.19.8;
+  package/publish and exact two-Mac field proof remain open.
 - 2026-08-28 · Direct-cloud live-grid regression corrected in code PR 8
   (`21eb8cd`): the existing three-second cloud projection refresh now applies
   the newest active summary to the visit already on screen, so the count and

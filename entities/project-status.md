@@ -6,6 +6,20 @@ Clinic app **v0.19.7** (2026-08-28, see
 [[log/2026-08-28-clean-mac-updater-v0197]]). Code integration branch:
 `main` (GitHub default since 2026-08-28).
 
+## 2026-08-28 two-computer session-end synchronization
+- A cloud visit ended from one signed-in computer now closes the stale live
+  visit screen on every other signed-in computer viewing that same camera.
+  The existing three-second authenticated cloud projection already refreshed
+  active photos/counts; it now also reconciles the authoritative `ended`
+  transition instead of handling only `still active`.
+- The fix deliberately does not broadcast patient-bearing end summaries over
+  the process-global SSE channel. Each computer derives the transition from
+  its tenant-scoped authenticated projection.
+- SDK `dc80e66` merged through PR 10 as `main` commit `1ab5602`; root build,
+  all workspace tests, PTP/FTP/multi-room smokes, browser UI gate and GitHub
+  Node 20/22 CI passed. Desktop source is v0.19.8, but v0.19.8 is not yet
+  packaged/published/field-proven; the live signed release remains v0.19.7.
+
 ## 2026-08-28 development governance
 - `main` was created from the exact then-current default commit `f9531c8` and
   made the GitHub default branch. The legacy

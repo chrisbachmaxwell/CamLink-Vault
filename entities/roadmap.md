@@ -47,6 +47,10 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    the private loopback capability boundary. Exact ZIP/DMG/live-manifest proof
    is green; one field Mac must use the DMG once because its pre-v0.19.7
    verifier cannot repair itself.
+   v0.19.8 source is merged: when either Mac ends a cloud visit, the other
+   Mac's authenticated three-second projection now closes the same stale live
+   visit screen. Package/sign/publish v0.19.8, then field-prove the exact
+   two-Mac end flow; until that happens the live signed release is v0.19.7.
 
 ## Next
 4. **Patient record & clinic organization** — make the shared library a
@@ -125,7 +129,8 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
 ## Done recently (details in [[project-status]])
 Canonical `main` + isolated multi-agent PR workflow (2026-08-28) ·
 Cloud active-visit synchronization + stale-lock repair + contextual visit
-conflicts (`aae5b44`, `7c0d11f`) ·
+conflicts (`aae5b44`, `7c0d11f`) · two-computer visit-end source fix
+(`1ab5602`, release pending) ·
 Multi-room · retired synthetic same-LAN Hub/browser proof (v0.18.11–v0.18.14) · profile-first
 sign-in and account menu (v0.18.12) · signed-out local update + installer
 recovery (v0.18.13) · Hub-restart sign-in/library recovery (v0.18.14) · earlier-photo guard · honest presence · in-app updates ·
