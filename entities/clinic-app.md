@@ -1,9 +1,11 @@
 # Med Photo clinic app
 
 `apps/clinic` in [[camlink-sdk]] · packaged by `apps/desktop` · clinic runtime
-**v0.18.6** inside desktop **v0.19.5** as of 2026-08-28. The product is now
-cloud-authoritative in packaged mode; the local capture paths below remain
-supported engineering/transport modes.
+**v0.18.6** inside desktop source **v0.19.8** as of 2026-08-28. The currently
+published signed desktop release remains **v0.19.7**; v0.19.8 is merged but not
+yet packaged or published. The product is cloud-authoritative in packaged
+mode; the local capture paths below remain supported engineering/transport
+modes.
 
 developers get. Governing constraint: [[hipaa-local-first]].
 Built on public `@medphoto/*` APIs. Governing constraints:
@@ -23,6 +25,10 @@ Built on public `@medphoto/*` APIs. Governing constraints:
   the locked visit consistently; if that visit is missing or ended, it deletes
   only the exact stale lock and retries once. If another visit wins during the
   repair, the reread returns that real visit rather than deleting it.
+- A live visit viewed on two signed-in computers closes on both when either
+  computer ends it. The non-clicking computer detects the ended transition in
+  its tenant-scoped three-second projection and leaves the stale live screen
+  (`1ab5602`; desktop source v0.19.8, release pending).
 - Notifications are contextual, not global residue. Ordinary notices have a
   close control, expire after seven seconds, and clear on navigation. A real
   active-visit conflict stays only on the screen where the action is relevant.
