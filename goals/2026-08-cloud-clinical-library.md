@@ -112,3 +112,12 @@ that exact gate. Two no-progress cycles → record the blocker here.
   zero-dependent-record assertion. Current synthetic state has zero active or
   pending camera drafts; one clean physical-camera retry remains the field
   proof. No secret or PHI entered source, output notes, or the vault.
+- 2026-08-28 · Cycle 9: SDK `c43b75c` shortens only the camera-entered relay
+  values to a 13-character username and 12-character unambiguous password.
+  The 43-character cloud-ingest credential remains hidden and unchanged, and
+  profiles remain unique, rotatable and independently revocable. API, relay,
+  clinic, isolated Canon timer regression, PTP/FTP/multi-room smokes and the
+  complete browser UI gate passed. One root run showed the known host-clock
+  jump in unrelated timed tests; every affected package passed in isolation.
+  AWS deployment is paused only because the console session expired and now
+  requires Chris's private IAM sign-in.

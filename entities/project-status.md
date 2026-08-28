@@ -7,6 +7,14 @@ Clinic app **v0.19.3** (2026-08-27, see
 `claude/camera-sdk-adapter-pattern-4pj5r8` (repo default).
 
 ## 2026-08-27 cloud-authoritative pivot
+- SDK `c43b75c` reduces the values a person must type into a physical camera:
+  new profiles use a 13-character `mp-...` username and a 12-character random
+  password whose alphabet omits `0`, `1`, `i`, `l`, and `o`. The separate
+  43-character cloud-ingest credential remains internal, random and unchanged;
+  per-camera rotation and theft revocation remain intact. API 37/37, relay
+  34/34, clinic 88 with one expected skip, all required PTP/FTP/multi-room
+  smokes and the browser UI gate passed. AWS deployment is pending a fresh
+  console sign-in after the prior session expired.
 - SDK `a5bc7b4` fixes the first live cloud camera profile activation. DynamoDB
   stores staged `activatedAt`/`revokedAt` markers explicitly as null, while the
   original transaction incorrectly required `activatedAt` to be absent; every

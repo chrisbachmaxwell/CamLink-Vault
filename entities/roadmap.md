@@ -13,6 +13,8 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
 2. **Synthetic direct-camera ingest** — v0.19's Railway bridge now gives every
    camera unique, rotatable and independently revocable FTP + cloud-ingest
    credentials, durably spools before acknowledgement, and survives restart.
+   New camera-entered profiles are shortened to a 13-character username and
+   12-character unambiguous password; the long cloud credential stays hidden.
    The coordinated relay/AWS configuration is live and the management/rotated
    login probes pass. Next: prove two physical cameras plus theft revocation,
    then replace synthetic plain FTP with the production FTPS/TLS endpoint under
@@ -24,7 +26,8 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    camera setup is model-first and automatically provisions the per-camera
    relay values; staff never enter the relay control URL/token.
    The live AWS null-marker activation defect is fixed and failed empty drafts
-   are retired. Immediate field steps: finish the one-time legacy
+   are retired. The short-credential Lambda deployment is pending a fresh AWS
+   console sign-in. Immediate field steps after deploy: finish the one-time legacy
    Owner-to-email screen, then click Continue once in camera setup and confirm
    that the unique FTP values appear. Next: multi-location picker,
    device/session administration and exact two-Mac packaged field proof.
