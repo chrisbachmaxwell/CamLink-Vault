@@ -27,6 +27,7 @@ dermatologists).
 | Picking up work | [[goals/README]] | the CURRENT goal it names |
 | Compliance / patient data / cloud library | [[hipaa-local-first]] | [[cloud-authoritative-library]], repo docs/CLOUD-CLINICAL-DATA-PLANE.md |
 | Logins / roles / review seat | [[multi-user-model]] | [[2026-09-logins-and-roles]] |
+| Multiple agents / branches / merging | [[multi-agent-delivery]] | [[agent-onboarding]], repo docs/MULTI-AGENT-WORKFLOW.md |
 
 ## The product
 - [[camlink-sdk]] — architecture, repo layout (repo rename pending)
@@ -111,10 +112,12 @@ dermatologists).
 ## Operations
 - [[vault-maintenance]] — the loops that keep this brain alive
 - [[agent-onboarding]] — paste-ready instructions for future agents
+- [[multi-agent-delivery]] — isolated worktrees, path ownership, PRs and one
+  integration owner; `main` is the only merge truth
 - Agent entry files: `CLAUDE.md` (Claude) · `AGENTS.md` (OpenAI/Codex/
   Cursor) · `GROK.md` (Grok) — mirrors, KEEP IN SYNC
 
 ## Rules (also in the agent entry files)
 1. One lesson per file. 2. Update, don't duplicate. 3. Delete what's
 wrong. 4. Never touch `raw/`. 5. Session end = log + status/roadmap +
-push (the ritual).
+feature PRs (the ritual). 6. Only the integration owner merges to `main`.

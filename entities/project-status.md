@@ -3,8 +3,22 @@
 Rewritten 2026-08-22 after the 2026-08-21/22 field marathon (see
 [[log/2026-08-21-med-photo-field-day]]; July history in earlier logs).
 Clinic app **v0.19.3** (2026-08-27, see
-[[log/2026-08-27-cloud-camera-setup-routing-v0193]]), branch
-`claude/camera-sdk-adapter-pattern-4pj5r8` (repo default).
+[[log/2026-08-27-cloud-camera-setup-routing-v0193]]). Code integration branch:
+`main` (GitHub default since 2026-08-28).
+
+## 2026-08-28 development governance
+- `main` was created from the exact then-current default commit `f9531c8` and
+  made the GitHub default branch. The legacy
+  `claude/camera-sdk-adapter-pattern-4pj5r8` branch remains intact so active
+  work is not deleted, but it is no longer an integration target.
+- Mandatory multi-agent workflow: one task/owner/worktree/branch/PR, declared
+  path ownership, one integration owner, serialized merges, fresh-main and
+  gate verification, exact-file staging, and separate merge/release/deploy
+  evidence. Code PR 6 merged these rules to `main` as `c0affc0`. Local hooks
+  block direct `main` and non-fast-forward pushes; helper scripts create clean
+  task worktrees. GitHub branch protection remains
+  unavailable for this private repository on the current plan, so PR discipline
+  plus the local guard is the present enforcement boundary.
 
 ## 2026-08-27 cloud-authoritative pivot
 - SDK `aae5b44` (2026-08-28) makes cloud active visits authoritative on every

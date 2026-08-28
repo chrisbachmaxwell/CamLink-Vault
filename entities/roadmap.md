@@ -101,6 +101,7 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
     automatic alignment.
 
 ## Done recently (details in [[project-status]])
+Canonical `main` + isolated multi-agent PR workflow (2026-08-28) ·
 Cloud active-visit synchronization + actionable visit conflicts (`aae5b44`) ·
 Multi-room · retired synthetic same-LAN Hub/browser proof (v0.18.11–v0.18.14) · profile-first
 sign-in and account menu (v0.18.12) · signed-out local update + installer
