@@ -14,8 +14,9 @@ Clinic app **v0.19.3** (2026-08-27, see
 - Mandatory multi-agent workflow: one task/owner/worktree/branch/PR, declared
   path ownership, one integration owner, serialized merges, fresh-main and
   gate verification, exact-file staging, and separate merge/release/deploy
-  evidence. Local hooks block direct `main` and non-fast-forward pushes; helper
-  scripts create clean task worktrees. GitHub branch protection remains
+  evidence. Code PR 6 merged these rules to `main` as `c0affc0`. Local hooks
+  block direct `main` and non-fast-forward pushes; helper scripts create clean
+  task worktrees. GitHub branch protection remains
   unavailable for this private repository on the current plan, so PR discipline
   plus the local guard is the present enforcement boundary.
 

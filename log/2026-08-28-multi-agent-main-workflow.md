@@ -34,7 +34,7 @@ could also be described ambiguously as "main" even when it was not integrated.
 
 ## Evidence boundary
 
-- Code feature commit/PR: `742f0c3`, PR 6; merge SHA pending at brain-branch
-  commit time.
+- Code feature commit/PR: `742f0c3`, PR 6; both CI jobs passed and the PR
+  merged to `main` as `c0affc0` at 2026-08-28T15:49:07Z.
 - No package, release, deployment, provider mutation or patient-data mutation
   was performed.

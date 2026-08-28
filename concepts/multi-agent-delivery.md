@@ -13,6 +13,8 @@ brain. The full code-repository command reference is
   intact only to avoid destroying active work.
 - Code and brain merge independently. A code merge does not prove its vault
   handoff merged, and a vault merge does not prove code or deployment.
+- The code workflow entered `main` through PR 6 at merge commit `c0affc0`;
+  both Node 20 and Node 22 CI jobs passed before the integration-owner merge.
 
 ## Ownership model
 
