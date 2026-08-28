@@ -49,8 +49,12 @@ that exact gate. Two no-progress cycles → record the blocker here.
   `02c27d8`; cloud sign-in now lands on Home and leaves each shared visit under
   In progress until the user chooses Open. One camera remains automatic; two
   or more show Which camera on Home and the patient page. Root build/tests,
-  PTP/FTP/multi-room smokes, browser UI gate and Node 20/22 CI passed. Desktop
-  source is v0.19.9; package/publish and exact two-Mac field proof remain open.
+  PTP/FTP/multi-room smokes, browser UI gate and Node 20/22 CI passed. Exact
+  arm64 v0.19.9 is now live through the signed Railway manifest, immutable
+  CloudFront ZIP and no-store direct DMG. The full public bytes match the
+  locally verified SHA-256 values recorded in
+  [[log/2026-08-28-home-on-login-v0199-release]]. Exact two-Mac field proof
+  remains open.
 - 2026-08-27 · Cycle 1: architecture + synthetic clinical domain landed in SDK
   `f2ce0a1`; LAN sharing product surface removed and legacy preference disabled;
   existing captures untouched. Root build/typecheck/tests, PTP/FTP/multi-room

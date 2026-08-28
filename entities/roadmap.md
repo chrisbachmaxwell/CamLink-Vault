@@ -20,7 +20,7 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    then replace synthetic plain FTP with the production FTPS/TLS endpoint under
    the BAA gate. Each credential maps to one location/camera and files only into
    that camera's active visit (otherwise Unassigned).
-3. **Downloaded app cloud mode** — v0.19.7 arm64 is live with clean-clinic
+3. **Downloaded app cloud mode** — v0.19.9 arm64 is live with clean-clinic
    onboarding, email/password sign-in and email-code recovery, single-location
    shared library, pre-sign-in updates and no permanent local photo write. Its
    camera setup is model-first and automatically provisions the per-camera
@@ -30,7 +30,7 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    before claiming the camera works.
    The live AWS null-marker activation defect is fixed and failed empty drafts
    are retired. The short-credential Lambda is live. Immediate field steps:
-   install v0.19.7 on both Macs (affected v0.19.5/v0.19.6 installs need one
+   install v0.19.9 on both Macs (affected v0.19.5/v0.19.6 installs need one
    direct-DMG recovery), confirm
    a stale camera lock no longer blocks a
    visit, Home shows a real visit started on the other Mac, and its contextual
@@ -47,14 +47,13 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    the private loopback capability boundary. Exact ZIP/DMG/live-manifest proof
    is green; one field Mac must use the DMG once because its pre-v0.19.7
    verifier cannot repair itself.
-   v0.19.8 source is merged: when either Mac ends a cloud visit, the other
-   Mac's authenticated three-second projection now closes the same stale live
-   visit screen. Package/sign/publish v0.19.8, then field-prove the exact
-   two-Mac end flow; until that happens the live signed release is v0.19.7.
-   v0.19.9 source is merged: a new cloud sign-in lands on Home and shows shared
-   visits under In progress instead of silently opening one. Camera choice is
-   automatic for one camera and explicit for two or more. Package/sign/publish
-   v0.19.9, then field-prove both behaviors on the two Macs.
+   Live v0.19.9 includes the v0.19.8 session-end reconciliation: when either
+   Mac ends a cloud visit, the other Mac's authenticated three-second
+   projection closes the same stale live visit screen. It also makes a new
+   cloud sign-in land on Home and show shared visits under In progress instead
+   of silently opening one. Camera choice is automatic for one camera and
+   explicit for two or more. Signed ZIP/manifest/direct-DMG proof is green;
+   field-prove these exact behaviors on the two Macs.
 
 ## Next
 4. **Patient record & clinic organization** — make the shared library a
@@ -95,7 +94,7 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
 ## Later
 12. **Public Mac distribution** — the self-contained Electron app, offline
    Ed25519 publisher, Railway release service and verified native updater are
-   live for arm64 internal tests (current v0.19.7). Railway serves signed
+   live for arm64 internal tests (current v0.19.9). Railway serves signed
    manifests plus the no-store latest bootstrap pointer; immutable ZIP/DMG
    bytes also live in a separate private, versioned S3 release bucket behind
    read-only CloudFront, avoiding Railway's
