@@ -1,7 +1,7 @@
 # Med Photo clinic app
 
 `apps/clinic` in [[camlink-sdk]] · packaged by `apps/desktop` · clinic runtime
-**v0.18.6** inside desktop **v0.19.3** as of 2026-08-28. The product is now
+**v0.18.6** inside desktop **v0.19.5** as of 2026-08-28. The product is now
 cloud-authoritative in packaged mode; the local capture paths below remain
 supported engineering/transport modes.
 
@@ -19,6 +19,13 @@ Built on public `@medphoto/*` APIs. Governing constraints:
   camera), returns its current summary, and the browser immediately offers
   **Go to visit** and **End it & start**. Clicking Go to visit refetches cloud
   state before rendering so an already-ended visit cannot appear live.
+- A camera-active lock is not sufficient proof by itself. The cloud API reads
+  the locked visit consistently; if that visit is missing or ended, it deletes
+  only the exact stale lock and retries once. If another visit wins during the
+  repair, the reread returns that real visit rather than deleting it.
+- Notifications are contextual, not global residue. Ordinary notices have a
+  close control, expire after seven seconds, and clear on navigation. A real
+  active-visit conflict stays only on the screen where the action is relevant.
 
 ## Front-desk workflow (the product promise)
 Find or create a patient (search-as-you-type; optional DOB for name
