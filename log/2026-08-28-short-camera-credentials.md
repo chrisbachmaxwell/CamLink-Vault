@@ -26,11 +26,18 @@ making staff type machine-oriented strings into the camera keyboard.
   timer tests even though wall time was seconds; each reported package passed
   normally in isolation.
 
-## Deployment boundary
-The tested Lambda bundle is ready, but the AWS console session expired and now
-shows the private IAM sign-in form. No credential was requested or recorded.
-Deploy the existing synthetic stack only after Chris completes that login, then
-verify the deployed Lambda digest and health endpoint before field retry.
+## Deployment proof
+- Chris privately restored the expired AWS IAM browser session; no credential
+  was requested, read or recorded.
+- The artifact was uploaded to the existing private synthetic artifact bucket.
+  The reviewed CloudFormation change set contained only non-replacing changes
+  to `ClinicalApiFunction` and `ApiIntegration`.
+- Stack `medphoto-synthetic-clinical-v2` reached `UPDATE_COMPLETE`.
+- Deployed Lambda SHA-256 was
+  `PqBcraLlGawc+/Y/nZsMiNGFBasSQ4EHKsU+GxBC9h4=`, exactly matching the local
+  tested ZIP.
+- The live `/v1/health` response was HTTP 200 with
+  `{"ok":true,"environment":"synthetic-only"}`.
 
 No camera password, relay token, PHI, filename or provider response is recorded
 here.

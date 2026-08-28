@@ -13,8 +13,11 @@ Clinic app **v0.19.3** (2026-08-27, see
   43-character cloud-ingest credential remains internal, random and unchanged;
   per-camera rotation and theft revocation remain intact. API 37/37, relay
   34/34, clinic 88 with one expected skip, all required PTP/FTP/multi-room
-  smokes and the browser UI gate passed. AWS deployment is pending a fresh
-  console sign-in after the prior session expired.
+  smokes and the browser UI gate passed. The reviewed change set modified only
+  the Lambda and API integration without replacement; CloudFormation reached
+  `UPDATE_COMPLETE`, deployed code SHA-256 matched the tested bundle
+  (`PqBcraLlGawc+/Y/nZsMiNGFBasSQ4EHKsU+GxBC9h4=`), and the live synthetic
+  health endpoint returned `{"ok":true,"environment":"synthetic-only"}`.
 - SDK `a5bc7b4` fixes the first live cloud camera profile activation. DynamoDB
   stores staged `activatedAt`/`revokedAt` markers explicitly as null, while the
   original transaction incorrectly required `activatedAt` to be absent; every

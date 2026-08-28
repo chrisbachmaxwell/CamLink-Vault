@@ -26,8 +26,8 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    camera setup is model-first and automatically provisions the per-camera
    relay values; staff never enter the relay control URL/token.
    The live AWS null-marker activation defect is fixed and failed empty drafts
-   are retired. The short-credential Lambda deployment is pending a fresh AWS
-   console sign-in. Immediate field steps after deploy: finish the one-time legacy
+   are retired. The short-credential Lambda is live. Immediate field steps:
+   finish the one-time legacy
    Owner-to-email screen, then click Continue once in camera setup and confirm
    that the unique FTP values appear. Next: multi-location picker,
    device/session administration and exact two-Mac packaged field proof.

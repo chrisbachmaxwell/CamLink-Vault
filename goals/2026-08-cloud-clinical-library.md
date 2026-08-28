@@ -119,5 +119,6 @@ that exact gate. Two no-progress cycles → record the blocker here.
   clinic, isolated Canon timer regression, PTP/FTP/multi-room smokes and the
   complete browser UI gate passed. One root run showed the known host-clock
   jump in unrelated timed tests; every affected package passed in isolation.
-  AWS deployment is paused only because the console session expired and now
-  requires Chris's private IAM sign-in.
+  After Chris privately restored the AWS session, the reviewed Lambda/API-only
+  change set reached `UPDATE_COMPLETE`; deployed digest matched the tested
+  bundle and the live synthetic health endpoint returned 200.
