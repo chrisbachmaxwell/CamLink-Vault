@@ -101,6 +101,7 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
     automatic alignment.
 
 ## Done recently (details in [[project-status]])
+Cloud active-visit synchronization + actionable visit conflicts (`aae5b44`) ·
 Multi-room · retired synthetic same-LAN Hub/browser proof (v0.18.11–v0.18.14) · profile-first
 sign-in and account menu (v0.18.12) · signed-out local update + installer
 recovery (v0.18.13) · Hub-restart sign-in/library recovery (v0.18.14) · earlier-photo guard · honest presence · in-app updates ·

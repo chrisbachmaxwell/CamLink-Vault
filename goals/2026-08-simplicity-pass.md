@@ -36,6 +36,11 @@ Doctrine: [[design-doctrine]] / repo docs/DESIGN.md. This goal never
 Per round: max 6 cycles or 2 no-progress cycles → BLOCKED with reasons.
 
 ## Iteration log
+- 2026-08-28 · Cloud active-visit dead end fixed (`aae5b44`): Home now
+  refreshes authoritative camera/visit state across computers, a fresh
+  conflict immediately populates **In progress**, and the warning offers a
+  direct door to the exact visit plus End-and-start. Focused cloud UI tests,
+  root build/tests, PTP/FTP/multi-room smokes and the browser UI gate passed.
 - 2026-08-27 · Patient-record organization shipped in the clinic reference
   app (`154c2b5`): a patient page now shows/edit-saves name, DOB and a short
   photo-workflow note; consent is visibly "Not recorded" until its separate

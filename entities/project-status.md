@@ -7,6 +7,14 @@ Clinic app **v0.19.3** (2026-08-27, see
 `claude/camera-sdk-adapter-pattern-4pj5r8` (repo default).
 
 ## 2026-08-27 cloud-authoritative pivot
+- SDK `aae5b44` (2026-08-28) makes cloud active visits authoritative on every
+  open app. The three-second shared-library refresh now also refreshes camera
+  and active-visit state, and Home refreshes that state whenever it is opened.
+  If another computer already started a visit, the 409 response carries the
+  exact active visit summary; Home immediately shows it under **In progress**
+  and the banner offers working **Go to visit** and **End it & start** actions
+  instead of the dead `camera already has an active visit` sentence. Root
+  build/tests, PTP/FTP/multi-room smokes and the browser UI gate passed.
 - SDK `c43b75c` reduces the values a person must type into a physical camera:
   new profiles use a 13-character `mp-...` username and a 12-character random
   password whose alphabet omits `0`, `1`, `i`, `l`, and `o`. The separate

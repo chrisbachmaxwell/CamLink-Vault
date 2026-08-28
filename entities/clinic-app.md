@@ -1,10 +1,24 @@
-# CamLink Clinic (reference app)
+# Med Photo clinic app
 
-`apps/clinic` in [[camlink-sdk]] · local web app · `npm start -w @camlink/clinic-app`
-→ http://localhost:3333 · v0.2.0 (version shows in header + boot log)
+`apps/clinic` in [[camlink-sdk]] · packaged by `apps/desktop` · clinic runtime
+**v0.18.6** inside desktop **v0.19.3** as of 2026-08-28. The product is now
+cloud-authoritative in packaged mode; the local capture paths below remain
+supported engineering/transport modes.
 
-Built ONLY on public `@camlink/*` APIs — it dogfoods exactly what third-party
 developers get. Governing constraint: [[hipaa-local-first]].
+Built on public `@medphoto/*` APIs. Governing constraints:
+[[hipaa-local-first]] and [[cloud-authoritative-library]].
+
+## Cloud active visits (2026-08-28)
+- The cloud is the source of truth for camera-to-visit assignments. Home's
+  **In progress** section must show every active visit, including one started
+  from another computer; entering Home and the three-second shared-library
+  cycle both refresh camera/visit state (`aae5b44`).
+- A start conflict is never a text-only wall. The clinic server resolves the
+  requested camera's active visit (or the requested patient's visit on another
+  camera), returns its current summary, and the browser immediately offers
+  **Go to visit** and **End it & start**. Clicking Go to visit refetches cloud
+  state before rendering so an already-ended visit cannot appear live.
 
 ## Front-desk workflow (the product promise)
 Find or create a patient (search-as-you-type; optional DOB for name
