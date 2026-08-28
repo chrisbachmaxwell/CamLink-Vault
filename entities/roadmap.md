@@ -36,6 +36,9 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    guided values → test-photo proof on the physical R6 Mark II. Next:
    multi-location picker, device/session administration and exact two-Mac
    packaged field proof.
+   Code PR 8 proposes v0.19.6 so the already-running three-second cloud
+   projection refresh also re-renders the active visit currently on screen;
+   local gates are green, but merge, release and field proof remain open.
 
 ## Next
 4. **Patient record & clinic organization** — make the shared library a

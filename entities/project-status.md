@@ -459,3 +459,14 @@ isolation, and a 202 pending-retirement retry completing as 200.
   `254c06f07da04ca45c884d21a087e29ac0905377d284e0ab564f8f45a6e11c78`
   and the direct-download DMG with SHA-256
   `038792ede397eb81a3a22fff2e63bfbefee96bceb689a451afd245148d419462`.
+
+## 2026-08-28 pending integration
+
+- A field report proved direct-to-cloud photos were stored but the visible
+  active visit stayed stale until it was reopened. Code PR 8 (`21eb8cd`)
+  applies the existing three-second authoritative cloud projection to the
+  visit currently on screen and advances the proposed desktop source version
+  to 0.19.6. All local gates passed on fresh `origin/main`; the PR is not yet
+  merged, released, deployed or field-proven. GitHub Actions Node 20 and Node
+  22 also passed. See
+  [[log/2026-08-28-cloud-live-visit-photo-refresh]].
