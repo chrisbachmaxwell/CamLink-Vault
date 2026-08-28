@@ -2,8 +2,8 @@
 
 Rewritten 2026-08-22 after the 2026-08-21/22 field marathon (see
 [[log/2026-08-21-med-photo-field-day]]; July history in earlier logs).
-Clinic app **v0.19.7** (2026-08-28, see
-[[log/2026-08-28-clean-mac-updater-v0197]]). Code integration branch:
+Clinic app **v0.19.9** (2026-08-28, see
+[[log/2026-08-28-home-on-login-v0199-release]]). Code integration branch:
 `main` (GitHub default since 2026-08-28).
 
 ## 2026-08-28 cloud sign-in landing
@@ -16,8 +16,13 @@ Clinic app **v0.19.7** (2026-08-28, see
   Start visit asks the same question.
 - SDK `6d314bc` merged through PR 11 as `main` commit `02c27d8`; root build,
   all workspace tests, PTP/FTP/multi-room smokes, browser UI gate and GitHub
-  Node 20/22 CI passed. Desktop source is v0.19.9, but it is not yet
-  packaged/published/field-proven; the live signed release remains v0.19.7.
+  Node 20/22 CI passed. Exact arm64 v0.19.9 is packaged and live: its signed
+  Railway manifest points to the immutable 114082920-byte CloudFront ZIP with
+  SHA-256 `29722a24c606d84084acbb88f73803f27b7cd75f87732e169c089cb31923bba4`.
+  The no-store 124157413-byte direct DMG has SHA-256
+  `b2ff8348e3debf4ad4db6a95bd81e327c115b21be57d20d66fe8bfad88bf74e6`.
+  Archive, version, arm64, deep/strict code-signature, DMG and exact native-
+  updater verification passed. Exact two-Mac field proof remains open.
 
 ## 2026-08-28 two-computer session-end synchronization
 - A cloud visit ended from one signed-in computer now closes the stale live
@@ -30,8 +35,8 @@ Clinic app **v0.19.7** (2026-08-28, see
   its tenant-scoped authenticated projection.
 - SDK `dc80e66` merged through PR 10 as `main` commit `1ab5602`; root build,
   all workspace tests, PTP/FTP/multi-room smokes, browser UI gate and GitHub
-  Node 20/22 CI passed. Desktop source is v0.19.8, but v0.19.8 is not yet
-  packaged/published/field-proven; the live signed release remains v0.19.7.
+  Node 20/22 CI passed. The change shipped as part of live v0.19.9 rather than
+  a standalone v0.19.8 package; exact two-Mac end-visit field proof remains.
 
 ## 2026-08-28 development governance
 - `main` was created from the exact then-current default commit `f9531c8` and
