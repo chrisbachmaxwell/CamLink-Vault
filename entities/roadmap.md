@@ -51,6 +51,10 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    Mac's authenticated three-second projection now closes the same stale live
    visit screen. Package/sign/publish v0.19.8, then field-prove the exact
    two-Mac end flow; until that happens the live signed release is v0.19.7.
+   v0.19.9 source is merged: a new cloud sign-in lands on Home and shows shared
+   visits under In progress instead of silently opening one. Camera choice is
+   automatic for one camera and explicit for two or more. Package/sign/publish
+   v0.19.9, then field-prove both behaviors on the two Macs.
 
 ## Next
 4. **Patient record & clinic organization** — make the shared library a
@@ -130,7 +134,8 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
 Canonical `main` + isolated multi-agent PR workflow (2026-08-28) ·
 Cloud active-visit synchronization + stale-lock repair + contextual visit
 conflicts (`aae5b44`, `7c0d11f`) · two-computer visit-end source fix
-(`1ab5602`, release pending) ·
+(`1ab5602`, release pending) · cloud sign-in lands on Home (`02c27d8`,
+release pending) ·
 Multi-room · retired synthetic same-LAN Hub/browser proof (v0.18.11–v0.18.14) · profile-first
 sign-in and account menu (v0.18.12) · signed-out local update + installer
 recovery (v0.18.13) · Hub-restart sign-in/library recovery (v0.18.14) · earlier-photo guard · honest presence · in-app updates ·
