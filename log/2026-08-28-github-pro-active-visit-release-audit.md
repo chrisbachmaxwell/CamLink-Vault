@@ -29,3 +29,10 @@ human proof is to update both Macs, start a synthetic visit on one, then verify
 the other Mac shows it on Home and can open or end it from the actionable
 conflict notice. No code, deployment, patient data or GitHub setting changed
 during this audit.
+
+Process correction: after the integration branch was confirmed already current,
+the integration owner mistakenly included `git push --force-with-lease` in the
+verification command. Git reported **Everything up-to-date**, so no remote ref
+was rewritten, but the command itself violates the workflow. Do not use a force
+flag after a no-op rebase; use an ordinary push, and return any real conflict to
+the branch owner.
