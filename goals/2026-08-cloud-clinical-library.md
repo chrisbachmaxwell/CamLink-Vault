@@ -21,6 +21,9 @@ Constraint: [[hipaa-local-first]] · Decision: [[cloud-authoritative-library]]
       contracts are live with unique per-camera credentials, staged rotation
       and independent theft revocation. Two-camera/R6 Mark II field proof, then
       FTPS/TLS replacement remain open.
+- [x] Guided physical-camera setup with truthful proof: enter the provisioned
+      values, take a test photo, and claim verified only after that exact
+      camera's checksum-verified completed cloud upload.
 - [x] Desktop cloud mode for the single synthetic location: email/password
       sign-in, Owner-managed reviewer accounts, shared patient/visit/photo
       views and no permanent local photo write. Multi-location picker remains
@@ -122,3 +125,12 @@ that exact gate. Two no-progress cycles → record the blocker here.
   After Chris privately restored the AWS session, the reviewed Lambda/API-only
   change set reached `UPDATE_COMPLETE`; deployed digest matched the tested
   bundle and the live synthetic health endpoint returned 200.
+- 2026-08-28 · Cycle 10: SDK `f9531c8` and live arm64 v0.19.4 add the guided
+  values → test-photo → verified sequence. Cloud completion stores durable
+  per-camera upload evidence; an older photo cannot satisfy a newly opened
+  setup test; the received synthetic image is shown as proof and otherwise
+  retained in Unassigned. The disable notice now expires after five seconds.
+  Full workspace build/tests, PTP/FTP/multi-room smokes and the browser UI gate
+  passed. The reviewed AWS update reached `UPDATE_COMPLETE`. The signed live
+  manifest, streamed CloudFront ZIP, no-store DMG and exact native updater all
+  verified as v0.19.4. Physical R6 Mark II and two-camera field proof remain.

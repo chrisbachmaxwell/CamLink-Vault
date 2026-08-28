@@ -2,8 +2,8 @@
 
 Rewritten 2026-08-22 after the 2026-08-21/22 field marathon (see
 [[log/2026-08-21-med-photo-field-day]]; July history in earlier logs).
-Clinic app **v0.19.3** (2026-08-27, see
-[[log/2026-08-27-cloud-camera-setup-routing-v0193]]). Code integration branch:
+Clinic app **v0.19.4** (2026-08-28, see
+[[log/2026-08-28-guided-camera-verification-v0194]]). Code integration branch:
 `main` (GitHub default since 2026-08-28).
 
 ## 2026-08-28 development governance
@@ -19,6 +19,33 @@ Clinic app **v0.19.3** (2026-08-27, see
   task worktrees. GitHub branch protection remains
   unavailable for this private repository on the current plan, so PR discipline
   plus the local guard is the present enforcement boundary.
+## 2026-08-28 guided camera verification
+- SDK `f9531c8` and live arm64 app v0.19.4 replace the credential-dump camera
+  setup with one contextual sequence: enter the five camera values, continue,
+  then take a test photo. The app waits for a checksum-verified completed cloud
+  upload from that exact camera, shows the received image, and only then says
+  **Camera verified**. A preexisting upload cannot satisfy a newly rotated
+  profile's test. If no visit is active, the synthetic test photo is retained
+  honestly in Unassigned.
+- Cloud camera state now persists `lastUploadAt` plus an opaque photo id in the
+  same completion transaction as the upload/photo records. Dashboard, header,
+  and camera card labels no longer turn green merely because credentials were
+  issued. Existing camera profiles become verified on their next completed
+  upload; no historical photo migration or backfill was performed.
+- Camera-disable feedback is a five-second informational notice instead of a
+  persistent amber banner. Full workspace build/tests, PTP/FTP/multi-room
+  smokes and the browser UI gate passed. AWS stack
+  `medphoto-synthetic-clinical-v2` reached `UPDATE_COMPLETE`; the deployed
+  Lambda code matched the reviewed bundle and synthetic health remained 200.
+- The signed v0.19.4 arm64 updater is live. Railway manifest deployment
+  `ea5fcd5d-75b2-4452-8178-876acc43f998` names the immutable CloudFront ZIP;
+  its streamed SHA-256 is
+  `e3a96484976dc93496c5f9994c0c42e60e01daf5f5cad47dfa7d5ac538073a9d`.
+  The no-store latest DMG streamed as
+  `870349212f677d5307a1b12889fabf1e605b54e367d937430f45ce0a71021f41`.
+  The exact native updater verifier passed. This is still synthetic-only, and
+  unsigned first-install reliability still requires Developer ID signing and
+  notarization.
 
 ## 2026-08-27 cloud-authoritative pivot
 - SDK `aae5b44` (2026-08-28) makes cloud active visits authoritative on every
