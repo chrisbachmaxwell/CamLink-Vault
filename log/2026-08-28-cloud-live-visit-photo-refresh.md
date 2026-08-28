@@ -27,14 +27,19 @@ here.
 ## Evidence boundary
 
 - Feature commit: `21eb8cd` on `codex/live-visit-auto-refresh`.
-- Code PR: `chrisbachmaxwell/CamLink-SDK#8`, open and not merged at this log
-  checkpoint.
+- Code PR: `chrisbachmaxwell/CamLink-SDK#8`, merged to `main` as `de0a2d9`.
 - Local gates on fresh `origin/main`: root build and all workspace tests
   passed; PTP simulator, FTP and multi-room smokes passed; the browser UI gate
   passed.
 - GitHub Actions: Node 20 and Node 22 passed on code PR 8.
-- `main` merge SHA: not merged.
-- Release/package publication: not performed. Version 0.19.6 is source intent
-  only until integration and release evidence exist.
-- Deployment/live app proof: not performed. The current live release remains
-  v0.19.5.
+- Exact merged-main integration build and all workspace tests passed. The
+  arm64 package passed ZIP integrity, DMG verification, version 0.19.6,
+  arm64 architecture and deep/strict code-signature validation.
+- The Railway latest manifest is v0.19.6 and its Ed25519 signature verifies
+  against the app's release public key. The live immutable CloudFront ZIP is
+  114082024 bytes with SHA-256
+  `1739a7b8c7ca4e775a89955d6f997443dd15f5711784cf4e0801a37df97aec98`.
+- The live direct-download DMG is 124156200 bytes with SHA-256
+  `05ba39453ba7df0405536cbee62433e1a11c64962585418df496762f2399fbe1`.
+- Deployment proof is complete. Field proof that an already-open visit updates
+  after the physical camera sends a new photo remains open.

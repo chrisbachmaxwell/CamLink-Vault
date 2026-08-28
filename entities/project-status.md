@@ -460,13 +460,18 @@ isolation, and a 202 pending-retirement retry completing as 200.
   and the direct-download DMG with SHA-256
   `038792ede397eb81a3a22fff2e63bfbefee96bceb689a451afd245148d419462`.
 
-## 2026-08-28 pending integration
+## 2026-08-28 live cloud-visit refresh release
 
 - A field report proved direct-to-cloud photos were stored but the visible
   active visit stayed stale until it was reopened. Code PR 8 (`21eb8cd`)
   applies the existing three-second authoritative cloud projection to the
-  visit currently on screen and advances the proposed desktop source version
-  to 0.19.6. All local gates passed on fresh `origin/main`; the PR is not yet
-  merged, released, deployed or field-proven. GitHub Actions Node 20 and Node
-  22 also passed. See
+  visit currently on screen. The PR merged to SDK `main` at `de0a2d9` and
+  shipped as v0.19.6. A fresh exact-merge build and all workspace tests passed;
+  the packaged arm64 app passed ZIP, DMG, version, architecture and deep/strict
+  signature checks. Railway serves the signed v0.19.6 manifest, CloudFront ZIP
+  SHA-256 `1739a7b8c7ca4e775a89955d6f997443dd15f5711784cf4e0801a37df97aec98`,
+  and direct-download DMG SHA-256
+  `05ba39453ba7df0405536cbee62433e1a11c64962585418df496762f2399fbe1`.
+  Live field proof that an open visit advances after a real camera upload is
+  still required. See
   [[log/2026-08-28-cloud-live-visit-photo-refresh]].
