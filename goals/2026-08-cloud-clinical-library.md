@@ -44,6 +44,20 @@ library purge, or provider agreement change unless Chris explicitly authorizes
 that exact gate. Two no-progress cycles → record the blocker here.
 
 ## Iteration log
+- 2026-09-01 · SDK `9bc5ee7` implements the selected 15-minute cloud visit
+  inactivity boundary with a one-minute warning and **Keep visit open** reset.
+  Expiry is enforced at tenant-scoped visit reads and camera upload grants, so
+  a later photo remains unassigned even if the browser is closed or offline;
+  the visible patient screen also signs out at its deadline. Staff can reopen
+  the same automatically or manually ended visit when its patient/camera locks
+  are free, then explicitly add eligible same-camera photos received while it
+  was ended or leave them in Needs assignment. Lifecycle operations are
+  audited without PHI, and Dynamo assignment/reopen writes are transactionally
+  fenced. Root build/tests, all required PTP/FTP/multi-room/UI gates, focused
+  boundary/API/domain/client/Dynamo tests, JS syntax and diff checks passed.
+  Commit is pushed to the legacy feature branch only; `main` integration,
+  synthetic AWS deployment, desktop package/sign/release and two-Mac field
+  proof remain open.
 - 2026-08-28 · Follow-up: a field report showed a new cloud login silently
   opening the current shared visit. SDK `6d314bc` merged through PR 11 as
   `02c27d8`; cloud sign-in now lands on Home and leaves each shared visit under

@@ -54,6 +54,13 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    of silently opening one. Camera choice is automatic for one camera and
    explicit for two or more. Signed ZIP/manifest/direct-DMG proof is green;
    field-prove these exact behaviors on the two Macs.
+   Source commit `9bc5ee7` adds the chosen 15-minute visit inactivity boundary,
+   final-minute keep-open warning, sign-in lock, same-visit reopen, and explicit
+   assignment of eligible photos received while ended. Next: integrate through
+   code `main`, deploy the matching synthetic cloud API, package/release the
+   matching desktop build, then field-prove warning → auto-end → sign-in →
+   reopen → waiting-photo choice across two Macs. Do not describe this as live
+   before those separate evidence lines are green.
 
 ## Next
 4. **Patient record & clinic organization** — make the shared library a
@@ -134,7 +141,8 @@ Canonical `main` + isolated multi-agent PR workflow (2026-08-28) ·
 Cloud active-visit synchronization + stale-lock repair + contextual visit
 conflicts (`aae5b44`, `7c0d11f`) · two-computer visit-end source fix
 (`1ab5602`, release pending) · cloud sign-in lands on Home (`02c27d8`,
-release pending) ·
+release pending) · 15-minute visit auto-end + recoverable reopen source
+(`9bc5ee7`, integration/deploy/release pending) ·
 Multi-room · retired synthetic same-LAN Hub/browser proof (v0.18.11–v0.18.14) · profile-first
 sign-in and account menu (v0.18.12) · signed-out local update + installer
 recovery (v0.18.13) · Hub-restart sign-in/library recovery (v0.18.14) · earlier-photo guard · honest presence · in-app updates ·

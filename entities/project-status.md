@@ -6,6 +6,26 @@ Clinic app **v0.19.9** (2026-08-28, see
 [[log/2026-08-28-home-on-login-v0199-release]]). Code integration branch:
 `main` (GitHub default since 2026-08-28).
 
+## 2026-09-01 visit inactivity and reopen recovery — source only
+- SDK `9bc5ee7` on `claude/camera-sdk-adapter-pattern-4pj5r8` implements a
+  server-authoritative 15-minute cloud visit inactivity boundary. A camera-side
+  upload request or explicit **Keep visit open** resets the full
+  window; the browser warns during the final minute, refreshes cloud truth at
+  expiry, signs out, and removes the patient screen from view.
+- An automatically or manually ended cloud visit can reopen as the same visit
+  only when its patient and camera are still free. Photos received while it
+  was ended stay in **Needs assignment**. After reopen, staff get an explicit
+  choice to add only the eligible same-camera waiting photos or leave them
+  unassigned. Auto-end, keep-open, reopen, and assignment have separate
+  opaque-id audit facts; the Dynamo operations retain active-lock and
+  assignment race guards.
+- Expired cloud authentication now returns 401, clears the stale app session,
+  and hides the patient surface instead of wrapping an End visit failure as a
+  conflict. Root build, all workspace tests, PTP/FTP/multi-room smokes, browser
+  UI gate, focused exact-boundary/API/domain/client/Dynamo tests, JavaScript
+  syntax checks, and diff checks passed. The commit is pushed, but it is not on
+  code `main`, deployed to AWS, packaged, signed, or released.
+
 ## 2026-08-28 cloud sign-in landing
 - A newly signed-in cloud computer now lands on Home even when another
   computer already has a visit open. The shared visit stays visible under

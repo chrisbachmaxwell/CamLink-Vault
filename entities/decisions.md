@@ -2,6 +2,12 @@
 
 Dated, newest first. One line of context each; details live in linked pages.
 
+- 2026-09-01 — **Cloud visits auto-end after 15 minutes without a photo or an
+  explicit keep-open; recovery is Reopen visit, not Pause.** Warn in the final
+  minute, lock the patient screen at expiry, keep later camera photos in Needs
+  assignment, and require a human to add eligible waiting photos after the same
+  visit reopens. Manual accidental endings may reopen through the same guarded
+  operation. [[log/2026-09-01-visit-inactivity-reopen]]
 - 2026-08-25 — **A camera IS its sign-in plus its serial; photos file
   by identity, never by dates** (Chris: "not relying on dates but just
   the pictures being received as they are shot"). A photo pushed by

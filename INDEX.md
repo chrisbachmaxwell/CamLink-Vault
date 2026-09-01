@@ -85,6 +85,9 @@ dermatologists).
   [[2026-07-wizard-simplify]] (superseded by [[design-doctrine]])
 
 ## Chronicle (newest first)
+- [[log/2026-09-01-visit-inactivity-reopen]] — source implementation for
+  15-minute cloud visit auto-end, one-minute warning, patient-screen lock,
+  same-visit reopen, and explicit recovery of photos received while ended
 - [[log/2026-08-27-cloud-authoritative-library-pivot]] — retires end-user
   local library sharing; adds the synthetic cloud clinical domain and safe
   migration boundary

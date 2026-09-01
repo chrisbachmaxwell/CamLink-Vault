@@ -12,6 +12,14 @@ Built on public `@medphoto/*` APIs. Governing constraints:
 [[hipaa-local-first]] and [[cloud-authoritative-library]].
 
 ## Cloud active visits (2026-08-28)
+- Source `9bc5ee7` adds a 15-minute inactivity boundary: a photo/upload request
+  or **Keep visit open** resets the deadline, the final minute warns, and
+  expiry signs out and hides the patient screen. The cloud API is authoritative
+  even if the browser is closed; a later file goes to Needs assignment.
+- Ended visits can reopen as the same visit only while patient/camera locks are
+  free. After reopen, eligible same-camera photos received during the ended
+  interval require an explicit Add or Leave choice. The source is pushed but
+  not yet integrated, deployed, packaged, or released.
 - Cloud sign-in always lands on Home. An already-running shared visit appears
   under **In progress** and opens only after an explicit **Open** action;
   signing in never silently enters another computer's live visit (`02c27d8`).
