@@ -2,20 +2,24 @@
 
 Rewritten 2026-08-22 after the 2026-08-21/22 field marathon (see
 [[log/2026-08-21-med-photo-field-day]]; July history in earlier logs).
-Published desktop **v0.19.9** (2026-08-28, see
-[[log/2026-08-28-home-on-login-v0199-release]]). Code integration branch:
+Published desktop **v0.20.0** (2026-09-05, synthetic internal test; see
+[[log/2026-09-05-patient-workspace-publication]]). Code integration branch:
 `main` (GitHub default since 2026-08-28).
 
 ## 2026-09-05 patient workspace
 Patient workspace 0.20.0 is merged on SDK main `22a3770` via PRs 12/14/13/15,
 with full local gates and Node 20/22 CI green. Rich shared patient profiles,
 structured visit details, authored append-only notes and the redesigned patient
-flow are implemented. Exact arm64 ZIP/DMG and a verified signed manifest are
-staged; fresh-profile packaged Electron startup passed. AWS Console is signed
-out, so the synthetic API and external ZIP were not uploaded and Railway was
-not deployed. Live latest remains 0.19.9. See
-[[log/2026-09-05-patient-workspace-implementation]] for exact hashes and resume
-steps. Forms/consent and physical two-Mac proof remain separate.
+flow are implemented. Chris restored AWS access; the exact synthetic API is
+now deployed with `UPDATE_COMPLETE` and the expected Lambda code hash. The
+signed arm64 release is live through Railway deployment
+`76143415-6703-4d5f-ad05-d8433b23b903`; the public ZIP and no-store DMG bytes
+match the prepared artifacts, and the packaged updater reports 0.20.0 available.
+The local installed app still reports 0.19.7 and was not changed. Authenticated
+workflow proof against the updated live API, physical two-Mac installation,
+forms/consent and broader RxPhoto parity remain separate. See
+[[log/2026-09-05-patient-workspace-publication]] for deployment proof and
+[[log/2026-09-05-patient-workspace-implementation]] for implementation gates.
 
 ## 2026-09-05 patient handling and design assessment
 Historical starting point; the approved implementation is recorded above.

@@ -9,9 +9,10 @@ access is part of the desktop shell, not part of clinical authorization.
   boot, on the existing daily schedule, and when the corner chip or Settings
   button is clicked.
 - Railway serves the closed Ed25519-signed manifest. A separate private,
-  versioned S3 release bucket serves the immutable ZIP and DMG through
-  read-only CloudFront. The signing private key remains offline; only its
-  public key is embedded in the app.
+  versioned S3 release bucket serves the immutable ZIP through read-only
+  CloudFront. The current direct bootstrap DMG is served by Railway. The
+  signing private key remains offline; only its public key is embedded in
+  the app.
 - Before staging, the native updater verifies manifest signature, SHA-256,
   platform, semantic version, minimum supported version, archive containment,
   bundle id, app version, architecture and macOS code signature.
@@ -43,3 +44,12 @@ invoked `lipo`, so a clean Mac may require one manual v0.19.7 DMG install
 before the no-developer-tools updater can take over.
 
 Operator procedure and exact gates: repo `docs/RELEASE-PUBLISHING.md`.
+
+## Current published evidence — 2026-09-05
+Arm64 v0.20.0 is live: signed latest and immutable CloudFront ZIP agree,
+the direct Railway latest DMG returns `Cache-Control: no-store` and its full
+bytes match the prepared DMG, and the exact packaged native updater reports
+0.20.0 available to a 0.19.9 client in a disposable profile. This check does
+not install the update. Chris's local installed bundle still reports 0.19.7;
+physical two-Mac proof remains open. See
+[[log/2026-09-05-patient-workspace-publication]]. (verify after: 2026-10)

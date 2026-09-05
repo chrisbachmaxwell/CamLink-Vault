@@ -38,11 +38,20 @@ Constraint: [[hipaa-local-first]] · Decision: [[cloud-authoritative-library]]
 - [x] AWS console/CloudShell access supplied for the synthetic sandbox; no
       long-lived access key entered in source, chat, or the vault.
 
-- [ ] Restore existing Med Photo AWS Console sign-in for staged 0.20.0.
-      Open Chrome's existing Console tab or run:
-      `open -a "Google Chrome" "https://us-east-1.console.aws.amazon.com/console/home?region=us-east-1"`.
-      Expect the signed-in AWS Console rather than the IAM sign-in form; tell
-      the agent when ready. No new access key or provider settings needed.
+- [x] Restore existing Med Photo AWS Console sign-in for staged 0.20.0.
+      Chris supplied the signed-in in-app AWS Console on 2026-09-05; existing
+      CloudShell access deployed the synthetic API and immutable ZIP without
+      new credentials, IAM/Cognito identities, policies or provider settings.
+- [ ] Install 0.20.0 and prove the shared patient workspace on both Macs using
+      existing authorized clinical accounts and synthetic records only. Open:
+      `open -a "Med Photo"`
+      Use Software Update and expect version 0.20.0; for direct recovery:
+      `open "https://med-photo-release-service-production.up.railway.app/v1/bootstrap/Med-Photo-0.20.0-darwin-arm64.dmg"`
+      Edit one synthetic patient's details on Mac A and verify them on Mac B;
+      check visit metadata, append an authored note, and verify the same note
+      on the other Mac. Confirm the reviewer stays read-only and a concurrent
+      edit offers conflict recovery without discarding the local draft.
+      This session did not change `/Applications/Med Photo.app` (0.19.7).
 
 ## Stop clause
 Stop before any real patient record/photo, production cloud deployment, local
@@ -50,6 +59,15 @@ library purge, or provider agreement change unless Chris explicitly authorizes
 that exact gate. Two no-progress cycles → record the blocker here.
 
 ## Iteration log
+- 2026-09-05 · AWS sign-in restored and prepared 0.20.0 publication completed.
+  CloudFormation code update plus its dependent integration URI reached
+  `UPDATE_COMPLETE`; deployed Lambda hash and synthetic health match. Immutable
+  app upload, retained rollback downloads, signed public manifest, full direct
+  DMG download and packaged native update check passed. Railway deployment
+  `76143415-6703-4d5f-ad05-d8433b23b903` is `SUCCESS`. SDK source remains
+  `22a3770`; no source changes or real records were needed. Authenticated live
+  workflow and two-Mac installation proof remain open. Exact evidence:
+  [[log/2026-09-05-patient-workspace-publication]].
 - 2026-09-05 · Approved patient workspace 0.20.0 merged at SDK main `22a3770`
   through PRs 12/14/13/15; full local/Node 20/22 gates green. Exact signed arm64
   artifacts staged and fresh-profile packaged startup passed. Current published

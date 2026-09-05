@@ -20,7 +20,7 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    then replace synthetic plain FTP with the production FTPS/TLS endpoint under
    the BAA gate. Each credential maps to one location/camera and files only into
    that camera's active visit (otherwise Unassigned).
-3. **Downloaded app cloud mode** — v0.19.9 arm64 is live with clean-clinic
+3. **Downloaded app cloud mode** — v0.20.0 arm64 is live with clean-clinic
    onboarding, email/password sign-in and email-code recovery, single-location
    shared library, pre-sign-in updates and no permanent local photo write. Its
    camera setup is model-first and automatically provisions the per-camera
@@ -30,7 +30,7 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    before claiming the camera works.
    The live AWS null-marker activation defect is fixed and failed empty drafts
    are retired. The short-credential Lambda is live. Immediate field steps:
-   install v0.19.9 on both Macs (affected v0.19.5/v0.19.6 installs need one
+   install v0.20.0 on both Macs (affected v0.19.5/v0.19.6 installs need one
    direct-DMG recovery), confirm
    a stale camera lock no longer blocks a
    visit, Home shows a real visit started on the other Mac, and its contextual
@@ -56,15 +56,16 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    field-prove these exact behaviors on the two Macs.
 
 ## Next
-4. **Patient workspace 0.20.0 — merged and packaged; publishing blocked.**
+4. **Patient workspace 0.20.0 — published; field verification next.**
    Main `22a3770` includes rich shared profiles, authored visit notes, structured
    metadata, patient tabs and visit preparation. Local gates/Node 20/22 CI and
-   fresh-profile packaged startup pass. Restore AWS Console sign-in, deploy the
-   exact synthetic API, upload and verify the immutable ZIP, then publish the
-   staged signed release. Live remains 0.19.9. Exact hashes/resume steps:
-   [[log/2026-09-05-patient-workspace-implementation]]. After publication, verify
-   two downloaded Mac builds together; signed consent and guided photo
-   protocols remain future work.
+   fresh-profile packaged startup pass. The exact synthetic API is deployed;
+   signed latest 0.20.0, public ZIP and no-store DMG are verified. The packaged
+   updater reports 0.20.0 available. Chris's local installed app is still 0.19.7.
+   Verify authenticated patient edits, visit details, notes and conflict recovery
+   against the live API on two downloaded Mac builds together. Signed consent
+   and guided photo protocols remain future work. Evidence and exact artifacts:
+   [[log/2026-09-05-patient-workspace-publication]].
 
 **Patient record & clinic organization direction** — make the shared library a
    usable patient record, not merely a place to start a visit. Patient list
@@ -85,8 +86,9 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    prepare → capture → review → complete flow with remembered defaults.
    Verify editing/reload/second-computer synchronization and role restrictions,
    preserve old visits/IDs, and visually inspect empty, populated, loading,
-   error and narrow-window states. The conversation concept is illustrative;
-   no new production workflow has shipped. See
+   error and narrow-window states. The original conversation concept was
+   illustrative; the first patient workspace slice is now published for
+   synthetic testing. See
    [[log/2026-09-05-patient-workspace-audit]].
 5. **Consent forms & photo permissions** — versioned, signed clinical-photo
    acknowledgement plus a separately explicit marketing/publication release;
