@@ -6,6 +6,18 @@ Clinic app **v0.19.9** (2026-08-28, see
 [[log/2026-08-28-home-on-login-v0199-release]]). Code integration branch:
 `main` (GitHub default since 2026-08-28).
 
+## 2026-09-05 patient handling and design assessment
+- Chris reports that patient information is too basic and the app's appearance
+  and flows feel less polished than RxPhoto. An audit confirmed a sparse local
+  patient record, a smaller shared patient schema, static consent text and
+  cloud-mode patient editing disabled in the installed frontend.
+- Synthetic browser inspection and a conversation-only patient-workspace
+  concept are complete. This is not an implemented feature or deployed release.
+  See [[clinic-app]] and [[log/2026-09-05-patient-workspace-audit]].
+- Next proposed implementation: shared editable patient details, visit context
+  and authored notes, consistent patient navigation, then durable forms and
+  photo permissions. Existing tenant/role/security boundaries still apply.
+
 ## 2026-08-28 cloud sign-in landing
 - A newly signed-in cloud computer now lands on Home even when another
   computer already has a visit open. The shared visit stays visible under

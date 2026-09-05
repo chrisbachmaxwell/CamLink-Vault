@@ -66,6 +66,18 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    Med Photo deliberately does **not** become the system of record for full
    medical history, medications, insurance, diagnoses, billing, scheduling or
    clinical charting—those remain in the practice's EHR.
+   **2026-09-05 user priority:** richer patient handling and a cohesive visual
+   redesign, using RxPhoto as a workflow reference. Start with shared editable
+   identity, preferred name, optional external chart ID/contact details, and
+   explicit duplicate handling. Model visit purpose, provider, body area,
+   baseline/follow-up and authored visit notes separately from patient-level
+   information. Then implement a consistent patient workspace and a short
+   prepare → capture → review → complete flow with remembered defaults.
+   Verify editing/reload/second-computer synchronization and role restrictions,
+   preserve old visits/IDs, and visually inspect empty, populated, loading,
+   error and narrow-window states. The conversation concept is illustrative;
+   no new production workflow has shipped. See
+   [[log/2026-09-05-patient-workspace-audit]].
 5. **Consent forms & photo permissions** — versioned, signed clinical-photo
    acknowledgement plus a separately explicit marketing/publication release;
    patient-page indicator, durable signed artifact, withdrawal/revocation
