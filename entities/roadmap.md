@@ -56,7 +56,17 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    field-prove these exact behaviors on the two Macs.
 
 ## Next
-4. **Patient record & clinic organization** — make the shared library a
+4. **Patient workspace 0.20.0 — merged and packaged; publishing blocked.**
+   Main `22a3770` includes rich shared profiles, authored visit notes, structured
+   metadata, patient tabs and visit preparation. Local gates/Node 20/22 CI and
+   fresh-profile packaged startup pass. Restore AWS Console sign-in, deploy the
+   exact synthetic API, upload and verify the immutable ZIP, then publish the
+   staged signed release. Live remains 0.19.9. Exact hashes/resume steps:
+   [[log/2026-09-05-patient-workspace-implementation]]. After publication, verify
+   two downloaded Mac builds together; signed consent and guided photo
+   protocols remain future work.
+
+**Patient record & clinic organization direction** — make the shared library a
    usable patient record, not merely a place to start a visit. Patient list
    and patient page: edit the photo-workflow identity (legal/preferred name,
    DOB, external MRN/EHR id where available), show a clear visit timeline,

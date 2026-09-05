@@ -1,9 +1,9 @@
 # Med Photo clinic app
 
 `apps/clinic` in [[camlink-sdk]] · packaged by `apps/desktop` · clinic runtime
-**v0.18.6** inside desktop source **v0.19.9** as of 2026-08-28. The currently
-published signed desktop release remains **v0.19.7**; v0.19.9 is merged but not
-yet packaged or published. The product is cloud-authoritative in packaged
+**v0.20.0** inside desktop source **v0.20.0** on main `22a3770` as of
+2026-09-05. The published desktop remains **v0.19.9**; 0.20.0 is packaged and
+staged but awaits AWS sign-in/deployment. The product is cloud-authoritative in packaged
 mode; the local capture paths below remain supported engineering/transport
 modes.
 
@@ -42,6 +42,16 @@ collisions) → Start visit → every photo files into
 `captures/patients/<id>-<slug>/visits/<ISO-timestamp>/` with
 `manifest.json` carrying `patientId` + `visitId` + SHA-256 → End session.
 History groups by patient → visits. See [[2026-07-patient-records]].
+
+## Patient workspace implementation — 2026-09-05
+
+The first slice is merged as 0.20.0 and locally packaged. It adds shared richer patient profiles, editable visit
+metadata and authored append-only notes. Overview, Photos & visits and Details
+replace the sparse patient page. Drafts survive cloud polling and stale edits
+must reload before retry. Signed forms/consent remain future work; the first
+slice makes no consent claim. Exact code, test and release boundaries are in
+[[log/2026-09-05-patient-workspace-implementation]]. The following audit is the
+historical starting point, not the current implementation contract.
 
 ## Patient handling audit — 2026-09-05
 
