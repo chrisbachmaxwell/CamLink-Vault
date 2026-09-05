@@ -38,12 +38,24 @@ Constraint: [[hipaa-local-first]] · Decision: [[cloud-authoritative-library]]
 - [x] AWS console/CloudShell access supplied for the synthetic sandbox; no
       long-lived access key entered in source, chat, or the vault.
 
+- [ ] Restore existing Med Photo AWS Console sign-in for staged 0.20.0.
+      Open Chrome's existing Console tab or run:
+      `open -a "Google Chrome" "https://us-east-1.console.aws.amazon.com/console/home?region=us-east-1"`.
+      Expect the signed-in AWS Console rather than the IAM sign-in form; tell
+      the agent when ready. No new access key or provider settings needed.
+
 ## Stop clause
 Stop before any real patient record/photo, production cloud deployment, local
 library purge, or provider agreement change unless Chris explicitly authorizes
 that exact gate. Two no-progress cycles → record the blocker here.
 
 ## Iteration log
+- 2026-09-05 · Approved patient workspace 0.20.0 merged at SDK main `22a3770`
+  through PRs 12/14/13/15; full local/Node 20/22 gates green. Exact signed arm64
+  artifacts staged and fresh-profile packaged startup passed. Current published
+  release stays 0.19.9. Blocker: AWS Console sign-in must be restored before
+  synthetic API deployment, external ZIP upload and final Railway publication.
+  Exact artifacts/resume: [[log/2026-09-05-patient-workspace-implementation]].
 - 2026-08-28 · Follow-up: a field report showed a new cloud login silently
   opening the current shared visit. SDK `6d314bc` merged through PR 11 as
   `02c27d8`; cloud sign-in now lands on Home and leaves each shared visit under
