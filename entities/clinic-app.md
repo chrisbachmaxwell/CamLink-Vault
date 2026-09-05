@@ -43,7 +43,41 @@ collisions) → Start visit → every photo files into
 `manifest.json` carrying `patientId` + `visitId` + SHA-256 → End session.
 History groups by patient → visits. See [[2026-07-patient-records]].
 
-## Patient records (Phase A — 2026-07-09)
+## Patient handling audit — 2026-09-05
+
+Chris requests richer patient information and a more polished, coherent
+workflow comparable to RxPhoto. This is an assessment and proposed direction;
+no patient schema, production UI, or service was changed in this session.
+
+- Source checked at SDK `9bc5ee7`, with fetched `origin/main` `02c27d8`.
+  Installed desktop plist reports v0.19.7. Its patient-page `index.html`
+  exactly matches the checkout by SHA-256; installed `app.js` independently
+  confirms the cloud-mode edit guard. This does not verify a newer downloaded
+  release or actual cloud-account behavior. (Verify after: 2026-09.)
+- The local patient model has name, optional DOB and one optional note, plus
+  stable ID and creation time. The cloud model has display name and nullable
+  DOB, plus tenant/location/identity timestamps; it has no patient note field.
+- Patient information renders name/DOB/note and a static `Consent / Not
+  recorded` placeholder. That placeholder is not a signed-consent workflow.
+  Patient Edit is hidden when cloud-authoritative mode is active.
+- Synthetic browser walkthrough: Home creates a patient and leaves staff at
+  Start visit; Patients initially requires search or Browse all, then opens
+  the record. This makes registration feel subordinate to camera capture.
+- Visual assessment: clean, readable foundation; sparse patient context,
+  repeated identity labels, emoji navigation and generic record content make
+  it feel unfinished. This is a design judgment, not a usability study.
+
+Proposed target: persistent patient identity with Overview, Photos & visits,
+Forms & consent, and Details; a contextual visit timeline; cloud-backed
+editing; visit purpose/provider/body-area/photo-view metadata; authored visit
+notes; separately versioned clinical-photo and marketing permissions.
+Keep optional contact fields optional and collect them only for an actual
+clinic workflow. Preserve fast repeat visits with remembered defaults.
+An interactive synthetic concept was produced in the Codex conversation;
+it has no persistence, live camera, signed artifact, or provider connection.
+See [[log/2026-09-05-patient-workspace-audit]] for evidence and next steps.
+
+## Local patient records (Phase A — 2026-07-09, engineering mode)
 - Local index: `captures/patients.json` (`id`, `name`, optional `dob`/`note`,
   `createdAt`). No cloud DB.
 - APIs: `GET/POST /api/patients`, `GET /api/patients/match`,
