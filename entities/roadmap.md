@@ -20,7 +20,7 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    then replace synthetic plain FTP with the production FTPS/TLS endpoint under
    the BAA gate. Each credential maps to one location/camera and files only into
    that camera's active visit (otherwise Unassigned).
-3. **Downloaded app cloud mode** — v0.20.1 arm64 is live with clean-clinic
+3. **Downloaded app cloud mode** — v0.20.2 arm64 is live with clean-clinic
    onboarding, email/password sign-in and email-code recovery, single-location
    shared library, pre-sign-in updates and no permanent local photo write. Its
    camera setup is model-first and automatically provisions the per-camera
@@ -32,13 +32,18 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    after sign-in loss. Software Update before sign-in remains intentional.
    Local/CI/package/public-release proof is green; see
    [[log/2026-09-05-camera-setup-access-audit]].
+   Version 0.20.2 offers Open for the same patient's active visit, preserves
+   its photos/details, and handles stale links and start races. Source, local
+   gates, CI, package and public update checks pass; see
+   [[log/2026-09-05-active-visit-recovery]].
    The live AWS null-marker activation defect is fixed and failed empty drafts
    are retired. The short-credential Lambda is live. Immediate field steps:
-   install v0.20.1 on both Macs (affected v0.19.5/v0.19.6 installs need one
+   install v0.20.2 on both Macs (affected v0.19.5/v0.19.6 installs need one
    direct-DMG recovery), confirm
    a stale camera lock no longer blocks a
    visit, Home shows a real visit started on the other Mac, and its contextual
-   conflict notice opens or ends that visit. Then complete the
+   conflict notice opens the same patient's visit without ending/recreating it;
+   turnover remains explicit for a different patient. Then complete the
    guided values → test-photo proof on the physical R6 Mark II. Next:
    multi-location picker, device/session administration and exact two-Mac
    packaged field proof.
@@ -65,7 +70,7 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    metadata, patient tabs and visit preparation. Local gates/Node 20/22 CI and
    fresh-profile packaged startup pass. The exact synthetic API is deployed;
    signed latest 0.20.0, public ZIP and no-store DMG are verified. The packaged
-   updater reports 0.20.0 available. Chris's local installed app is now verified as 0.20.0; use 0.20.1 for the next field pass.
+   updater reports 0.20.0 available. Chris's local installed app is now verified as 0.20.0; use 0.20.2 for the next field pass.
    Verify authenticated patient edits, visit details, notes and conflict recovery
    against the live API on two downloaded Mac builds together. Signed consent
    and guided photo protocols remain future work. Evidence and exact artifacts:

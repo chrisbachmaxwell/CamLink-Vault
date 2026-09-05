@@ -42,16 +42,19 @@ Constraint: [[hipaa-local-first]] · Decision: [[cloud-authoritative-library]]
       Chris supplied the signed-in in-app AWS Console on 2026-09-05; existing
       CloudShell access deployed the synthetic API and immutable ZIP without
       new credentials, IAM/Cognito identities, policies or provider settings.
-- [ ] Install 0.20.1 and prove the shared patient workspace on both Macs using
+- [ ] Install 0.20.2 and prove the shared patient workspace on both Macs using
       existing authorized clinical accounts and synthetic records only. Open:
       `open -a "Med Photo"`
-      Use Software Update and expect version 0.20.1; for direct recovery:
-      `open "https://med-photo-release-service-production.up.railway.app/v1/bootstrap/Med-Photo-0.20.1-darwin-arm64.dmg"`
+      Use Software Update and expect version 0.20.2; for direct recovery:
+      `open "https://med-photo-release-service-production.up.railway.app/v1/bootstrap/Med-Photo-0.20.2-darwin-arm64.dmg"`
       Edit one synthetic patient's details on Mac A and verify them on Mac B;
       check visit metadata, append an authored note, and verify the same note
       on the other Mac. Confirm the reviewer stays read-only and a concurrent
       edit offers conflict recovery without discarding the local draft.
-      The latest read-only installed version check is 0.20.0; 0.20.1 was not installed by the agent.
+      Start a synthetic visit on Mac A; the same patient's record on Mac B
+      should say Open visit and open the same visit with unchanged photos and
+      details. End it explicitly and verify both Macs reconcile the state.
+      The latest read-only installed version check is 0.20.0; 0.20.2 was not installed by the agent.
 
 ## Stop clause
 Stop before any real patient record/photo, production cloud deployment, local
@@ -59,6 +62,13 @@ library purge, or provider agreement change unless Chris explicitly authorizes
 that exact gate. Two no-progress cycles → record the blocker here.
 
 ## Iteration log
+- 2026-09-05 · Existing-patient visit recovery released as 0.20.2. SDK PR 17
+  → main `76fd261`, full required local gates and Node 20/22 CI pass. Exact
+  package startup, public signature/ZIP/DMG and native update offer pass;
+  Railway `d0190dec-5e74-442e-80a7-8da370e88114` is SUCCESS. No clinical API
+  deployment, real visit mutation or installed-app change. Same-patient Open,
+  metadata/photo preservation and stale-link tests are green. See
+  [[log/2026-09-05-active-visit-recovery]].
 - 2026-09-05 · Camera setup/access audit released as 0.20.1. Source PR 16 →
   main `ea79005`, required local gates and Node 20/22 CI pass; package startup,
   signed manifest, immutable ZIP, direct DMG and exact packaged update check
