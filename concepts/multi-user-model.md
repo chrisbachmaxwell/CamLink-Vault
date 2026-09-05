@@ -23,7 +23,7 @@ stations never see it.
 No per-patient ACLs in v1.
 
 Software Update is intentionally outside this role hierarchy: every signed-in
-role may maintain the installed desktop app through its private local desktop
+role, and the signed-out desktop shell, may maintain the installed app through its private local desktop
 capability. Ordinary browser/LAN sessions do not receive that capability.
 
 ## Login UX (cloud-authoritative app)
@@ -37,6 +37,20 @@ APIs first. The header profile menu contains identity and sign-out.
 
 The earlier local-only PIN picker remains engineering compatibility code for
 explicit LAN fixtures, not the downloaded cloud product direction.
+
+## Sign-in recovery and access audit — 2026-09-05
+The local live feed is bound to its session token. Enabling the first local
+account closes anonymous streams; sign-out and account removal close streams
+for the affected sessions. Cloud access loss clears the local session and
+returns 401; temporary identity-network failures retain the refresh token for
+retry. Losing sign-in closes an open photo viewer, clears setup credentials
+from page memory, and removes clinical navigation. Role restrictions remain
+403, with owner-only setup and People controls hidden for staff/review.
+The private desktop update capability grants no patient, visit or camera API
+access. Verified with actual disposable-server HTTP requests, local session
+revocation in a browser, cloud client tests and synthetic cloud UI fixtures.
+This does not replace cross-device revocation/restore drills. See
+[[log/2026-09-05-camera-setup-access-audit]].
 
 ## What it buys besides permissions
 The HIPAA audit trail ([[hipaa-local-first]]): who started/ended each
