@@ -27,3 +27,11 @@ This page records the durable principles:
 Goal pages are written against this doctrine from now on: every UI goal's
 "Done when" list must include "screen passes the one-primary-action test"
 and "browser UI gate green".
+
+## Camera setup refinement — 2026-09-05
+Camera → Connect → Test photo. Add opens the model picker directly. Connection
+instructions reveal Wi-Fi, server and login as separate tasks; names are
+optional. Existing-camera inspection never rotates a password. Replacement is
+explicit and confirmed. Back and Finish later preserve progress; only a new
+completed upload from the selected camera passes verification. See the code
+repo `docs/DESIGN.md` and [[log/2026-09-05-camera-setup-access-audit]].

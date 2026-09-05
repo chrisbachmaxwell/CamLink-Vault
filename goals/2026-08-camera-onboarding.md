@@ -17,16 +17,19 @@ lands on this flow; the old transport-tile wizard remains as the
       state opens on Connect, not the transport tiles)
 - [x] R5 Mark II warning shown when that model is picked (2026-08-22) (verified by:
       gate asserts 'passive' in the rendered card)
-- [ ] Chris onboards a camera end-to-end through the new flow
-      (verified by: Chris's session — the field box)
+- [x] One primary action per screen; Wi-Fi/server/login tasks, direct Add,
+      read-only saved inspection and explicit password replacement (2026-09-05, browser UI gate).
+- [x] Browser gate rejects historic uploads and photos from another camera;
+      interrupted proof checks recover without reporting success (2026-09-05).
 
 ## Waiting on Chris
-- Start from the preamble in [[test-environment]], open the Med Photo
-  app → Menu → **Add a camera** → pick your body from the dropdown →
-  follow the card exactly. Expect: the card's status line flips to
-  "checked in" after the first photo, and the photo appears in the
-  visit. Tell the agent which model and what the card got wrong, if
-  anything — that's a catalog fix, same session.
+- [ ] Onboard a physical camera end-to-end with synthetic photos.
+  Open the app with `open -a "Med Photo"`, then Software Update. In Cameras,
+  choose **Add a camera**, choose the model and follow **Wi-Fi → server →
+  login → test photo**. Expected: only a new completed photo from this camera
+  shows **Camera connected**. With no visit open, the test photo stays in
+  Unassigned; with a visit open, it goes into that camera's active visit.
+  Reopen the saved camera and confirm Test camera does not replace its login.
 
 ## Stop clause
 If the flow needs per-model FIRMWARE quirks beyond menu text, stop and
@@ -38,3 +41,8 @@ open a hardware-page investigation instead of guessing.
 - 2026-08-22 (later) — Flow SHIPPED (v0.10.0, all six gates green; first-run
   verified headless). Remaining: the field box — Chris onboards a body
   end-to-end through the new flow.
+
+- 2026-09-05 — Guided setup and sign-in/role recovery audited with synthetic
+  browser and actual HTTP fixtures. Source/release evidence in
+  [[log/2026-09-05-camera-setup-access-audit]]. Firmware menu text unchanged;
+  the physical-camera gate remains open.

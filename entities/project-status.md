@@ -2,9 +2,24 @@
 
 Rewritten 2026-08-22 after the 2026-08-21/22 field marathon (see
 [[log/2026-08-21-med-photo-field-day]]; July history in earlier logs).
-Published desktop **v0.20.0** (2026-09-05, synthetic internal test; see
-[[log/2026-09-05-patient-workspace-publication]]). Code integration branch:
+Published desktop **v0.20.1** (2026-09-05, synthetic internal test; see
+[[log/2026-09-05-camera-setup-access-audit]]). Code integration branch:
 `main` (GitHub default since 2026-08-28).
+
+## 2026-09-05 camera setup and access-flow audit
+SDK PR 16 is merged as `ea79005`; Node 20/22 CI and all required local gates
+pass. Camera setup now guides model → Wi-Fi → server → login → exact-camera
+new-photo proof. Saved inspection/Back never silently replace a camera password.
+Signed-out clinical navigation and owner-only controls are hidden appropriately;
+revoking access closes live feeds and open photo viewers. Temporary sign-in
+network failures recover without unnecessarily destroying the refresh session.
+Software updates intentionally remain available before clinical sign-in.
+Signed arm64 0.20.1 is live through Railway deployment
+`ebba862f-d6f8-4591-b18f-0c8b756c1132` (SUCCESS). Public manifest signature,
+immutable ZIP, full no-store DMG bytes, fresh-profile packaged startup and the
+packaged updater's 0.20.1 offer all pass. Chris's installed app is now read-only
+verified as 0.20.0; this session did not install 0.20.1. Physical-camera and
+exact two-Mac field proof remain open. See [[log/2026-09-05-camera-setup-access-audit]].
 
 ## 2026-09-05 patient workspace
 Patient workspace 0.20.0 is merged on SDK main `22a3770` via PRs 12/14/13/15,
@@ -15,7 +30,7 @@ now deployed with `UPDATE_COMPLETE` and the expected Lambda code hash. The
 signed arm64 release is live through Railway deployment
 `76143415-6703-4d5f-ad05-d8433b23b903`; the public ZIP and no-store DMG bytes
 match the prepared artifacts, and the packaged updater reports 0.20.0 available.
-The local installed app still reports 0.19.7 and was not changed. Authenticated
+At that earlier publication check, the installed app reported 0.19.7; the newer 0.20.0 observation is recorded above. Authenticated
 workflow proof against the updated live API, physical two-Mac installation,
 forms/consent and broader RxPhoto parity remain separate. See
 [[log/2026-09-05-patient-workspace-publication]] for deployment proof and

@@ -42,16 +42,16 @@ Constraint: [[hipaa-local-first]] · Decision: [[cloud-authoritative-library]]
       Chris supplied the signed-in in-app AWS Console on 2026-09-05; existing
       CloudShell access deployed the synthetic API and immutable ZIP without
       new credentials, IAM/Cognito identities, policies or provider settings.
-- [ ] Install 0.20.0 and prove the shared patient workspace on both Macs using
+- [ ] Install 0.20.1 and prove the shared patient workspace on both Macs using
       existing authorized clinical accounts and synthetic records only. Open:
       `open -a "Med Photo"`
-      Use Software Update and expect version 0.20.0; for direct recovery:
-      `open "https://med-photo-release-service-production.up.railway.app/v1/bootstrap/Med-Photo-0.20.0-darwin-arm64.dmg"`
+      Use Software Update and expect version 0.20.1; for direct recovery:
+      `open "https://med-photo-release-service-production.up.railway.app/v1/bootstrap/Med-Photo-0.20.1-darwin-arm64.dmg"`
       Edit one synthetic patient's details on Mac A and verify them on Mac B;
       check visit metadata, append an authored note, and verify the same note
       on the other Mac. Confirm the reviewer stays read-only and a concurrent
       edit offers conflict recovery without discarding the local draft.
-      This session did not change `/Applications/Med Photo.app` (0.19.7).
+      The latest read-only installed version check is 0.20.0; 0.20.1 was not installed by the agent.
 
 ## Stop clause
 Stop before any real patient record/photo, production cloud deployment, local
@@ -59,6 +59,12 @@ library purge, or provider agreement change unless Chris explicitly authorizes
 that exact gate. Two no-progress cycles → record the blocker here.
 
 ## Iteration log
+- 2026-09-05 · Camera setup/access audit released as 0.20.1. Source PR 16 →
+  main `ea79005`, required local gates and Node 20/22 CI pass; package startup,
+  signed manifest, immutable ZIP, direct DMG and exact packaged update check
+  pass. Signed-out update access is intentional and grants no clinical API
+  access. No cloud clinical API change. Field gates remain; see
+  [[log/2026-09-05-camera-setup-access-audit]].
 - 2026-09-05 · AWS sign-in restored and prepared 0.20.0 publication completed.
   CloudFormation code update plus its dependent integration URI reached
   `UPDATE_COMPLETE`; deployed Lambda hash and synthetic health match. Immutable
