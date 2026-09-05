@@ -46,18 +46,19 @@ before the no-developer-tools updater can take over.
 Operator procedure and exact gates: repo `docs/RELEASE-PUBLISHING.md`.
 
 ## Current published evidence — 2026-09-05
-Arm64 v0.20.1 is live: signed latest and immutable CloudFront ZIP agree,
+Arm64 v0.20.2 is live: signed latest and immutable CloudFront ZIP agree,
 the direct Railway latest DMG returns `Cache-Control: no-store` and its full
 bytes match the prepared DMG, and the exact packaged native updater reports
-0.20.1 available to a 0.20.0 client in a disposable profile. A fresh-profile
+0.20.2 available to a 0.20.1 client in a disposable profile. A fresh-profile
 launch of the exact packaged app shows sign-in with its update control and
 hidden clinical navigation. These checks do not install the update. Chris's
 installed bundle is read-only verified as 0.20.0; physical two-Mac proof remains
-open. See [[log/2026-09-05-camera-setup-access-audit]]. (verify after: 2026-10)
+open. See [[log/2026-09-05-active-visit-recovery]]. (verify after: 2026-10)
 
 For the next publisher run, use
-`/Users/chrismaxwell/MedPhoto-Package-Audit/0.20.1-release` as prior history.
-It contains only `manifests/` and `packages/`. Bootstrap DMG and receipts live
-separately in `/Users/chrismaxwell/MedPhoto-Clinical-Stage-0.20.1`; adding them
-inside the history root makes the strict publisher reject it. The incomplete
+`/Users/chrismaxwell/MedPhoto-Package-Audit/0.20.2-release` as prior history.
+It contains only `manifests/` and `packages/`, retaining 0.20.1/0.20.0/0.19.9.
+Bootstrap DMG and receipts live separately in
+`/Users/chrismaxwell/MedPhoto-Clinical-Stage-0.20.2`; adding them inside the
+history root makes the strict publisher reject it. The incomplete earlier
 `0.20.1-verified` directories are not the published bundle and must not be used.

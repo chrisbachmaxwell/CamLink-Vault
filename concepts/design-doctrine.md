@@ -35,3 +35,13 @@ optional. Existing-camera inspection never rotates a password. Replacement is
 explicit and confirmed. Back and Finish later preserve progress; only a new
 completed upload from the selected camera passes verification. See the code
 repo `docs/DESIGN.md` and [[log/2026-09-05-camera-setup-access-audit]].
+
+## Existing patient visits — 2026-09-05
+An exact stable patient ID with an active visit offers **Open visit**, with
+camera and photo-count context. Refresh the current projection before opening
+or preparing a new visit. A same-patient conflict offers only Open; it must
+not recommend ending/recreating that visit or overwrite its existing details.
+Different stable IDs remain different patients even when their names match.
+Explicit Open navigates to capture; background refresh preserves the page the
+user chose. Changed/ended stale links explain what happened and never open a
+replacement patient's visit. See [[log/2026-09-05-active-visit-recovery]].

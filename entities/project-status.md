@@ -2,9 +2,22 @@
 
 Rewritten 2026-08-22 after the 2026-08-21/22 field marathon (see
 [[log/2026-08-21-med-photo-field-day]]; July history in earlier logs).
-Published desktop **v0.20.1** (2026-09-05, synthetic internal test; see
-[[log/2026-09-05-camera-setup-access-audit]]). Code integration branch:
+Published desktop **v0.20.2** (2026-09-05, synthetic internal test; see
+[[log/2026-09-05-active-visit-recovery]]). Code integration branch:
 `main` (GitHub default since 2026-08-28).
+
+## 2026-09-05 existing patient visit recovery
+SDK PR 17 merged as `76fd261`; Node 20/22 CI and every required local gate
+pass. Patient records and Home offer Open visit for the same stable patient
+ID; fresh reads and guarded links prevent opening a replacement visit. A
+same-patient conflict offers only Open and preserves the existing folder,
+photos and metadata. Explicit Open now actually navigates into the visit.
+The exact signed arm64 0.20.2 package is live through Railway deployment
+`d0190dec-5e74-442e-80a7-8da370e88114` (SUCCESS). Public signature, immutable
+ZIP, full no-store DMG, packaged startup and update offer all pass. Installed
+app remains read-only verified as 0.20.0; no live patient/visit or clinical API
+was changed. Physical two-Mac proof remains open. See
+[[log/2026-09-05-active-visit-recovery]].
 
 ## 2026-09-05 camera setup and access-flow audit
 SDK PR 16 is merged as `ea79005`; Node 20/22 CI and all required local gates
