@@ -590,3 +590,11 @@ isolation, and a 202 pending-retirement retry completing as 200.
   Live field proof that an open visit advances after a real camera upload is
   still required. See
   [[log/2026-08-28-cloud-live-visit-photo-refresh]].
+
+## 2026-09-10 iPhone Canon relay foundation
+
+- Added bounded Swift RAM-only transfer coordinator and Apple chunk-reader
+  primitive with seven passing synthetic checks. No installable iPhone app,
+  production receiver, iOS build, HIPAA approval or validated Canon models yet.
+  Full Xcode/XCTest is missing on this Mac. See [[iphone-canon-relay]] and
+  [[log/2026-09-10-iphone-canon-relay]].

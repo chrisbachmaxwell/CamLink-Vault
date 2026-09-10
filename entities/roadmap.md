@@ -186,3 +186,11 @@ notarization remains open.
   Mark II success rules out a generally slow relay, but does not yet identify
   whether the Z8 issue is resume/REST behavior, passive-data demux, Wi-Fi,
   or camera profile state.
+
+## 2026-09-10 requested iPhone Canon connection
+
+- Target broad Canon USB support with no persistent patient data on iPhone.
+  Foundational Swift relay checks pass; next are full Xcode, signed iPhone app,
+  Canon discovery/events, authorized secure receiver, lifecycle cancellation,
+  card-based recovery, storage-residue audit and model/firmware validation.
+  Keep originals on camera; no phone offline queue. See [[iphone-canon-relay]].
