@@ -1,60 +1,55 @@
-# Canon USB through iPhone, no persistent patient data
+# Canon USB through iPhone to cloud
 
-Chris's 2026-09-10 instruction: target all Canon cameras, use iPhone, and
-save nothing patient-related on phones. This replaces the earlier conversational
-proposal to buffer pending photos on the phone. It does not authorize a cloud
-deployment or certify HIPAA compliance.
+Chris explicitly chose the cloud route on 2026-09-10, after requesting broad
+Canon support, an iPhone connection, and no persistent patient data on phones.
+That choice supersedes the earlier LAN-only direction for this feature. It
+does not establish HIPAA compliance or authorize use of real patient data before
+the existing production security and operational gates pass.
 
-## Design boundary
+## Implemented source
 
-Camera card → bounded iPhone RAM → authorized receiver. Patient data must not
-be written to Photos, Files, temporary downloads, caches, offline queues,
-backups, diagnostic attachments, or logs. Data necessarily traverses RAM;
-neither Swift object release nor Apple's chunk API proves zero OS residue.
-Stop transfer when the receiver/authorization/foreground session disappears.
-Keep original photos on the camera; never auto-delete them.
+SDK PR 18, branch `codex/iphone-cloud`, head `dc1defb`, adds the SwiftUI
+Med Photo Camera app, Canon USB CameraAdapter using ImageCaptureCore, desktop
+QR pairing, and the existing clinical AWS cloud ingest integration. Credentials
+expire after eight hours; enrollment and pending-transfer state remain in RAM.
+The phone polls only an opaque active-visit token, pins each capture to that
+visit, hashes bounded 256 KiB camera reads and streams an S3 upload in the
+foreground. Completion requires the expected byte count, digest and visit.
+Idempotent retries reconcile already completed uploads without resending them.
 
-Receipt-verified transfer is necessary: immutable receiver-side visit binding,
-exact byte count and digest, durable commit, replay prevention and reconciliation
-after ambiguous completion. Do not retarget old card photos to a new visit.
+No app photo-file writer, Photos-library save, disk queue, background upload,
+URL cache or credential persistence is provided. Switching away pauses capture;
+failed transfers retain camera originals. Replaced/expired enrollment prompts
+re-pairing. Changed visits cannot silently receive an earlier capture. Existing
+Canon sessions are retained rather than repeatedly closed and reopened.
 
-## Current implementation
+App-level memory-only design is not proof of zero operating-system/framework
+residue. Device storage audit remains required. Camera originals are never
+automatically deleted. Only JPEG/CR2/CR3 are currently selected for transfer.
+Broad Canon discovery is a validation target, not a claim that all Canon
+models, firmware, cables or live-capture events work.
 
-`native/MedPhotoKit` contains `MemoryOnlyCameraRelay`, an ImageCaptureCore
-chunk-reader primitive, and a synthetic `RelayVerification` executable. Reads
-are bounded to 256 KiB requests with acknowledgement backpressure, incremental
-SHA-256, exact receipt validation, sanitized errors and cancellation checks.
-There is no phone persistence API, camera-delete method or deployed receiver.
-The Apple reader compiles against this Mac's SDK; iOS remains unbuilt.
+## Evidence and delivery boundaries
 
-This is a foundation, not a complete Canon adapter or installable app. Broad
-Canon discovery/capability detection is planned; no Med Photo iPhone camera is
-field validated. Honcho's Canon matrix provides candidates only (EOS R, DSLR,
-EOS M and selected PowerShot). Never advertise every Canon as supported.
+- Source PR: https://github.com/chrisbachmaxwell/CamLink-SDK/pull/18
+- Native checks: eight synthetic coordinator/pairing checks; XCTest includes
+  a real bounded streamed HTTP transfer. CI built and launched the unsigned
+  iPhone simulator app; its initial screen was visually inspected.
+- Desktop QR pairing was visually checked at desktop and 390px width using
+  synthetic API fixtures. PTP, FTP, multi-room and browser UI gates passed.
+- Cloud API tests: 55 passing, including credential expiry/replacement,
+  changed-visit rejection, original-visit replay and completed-upload replay.
+- Final PR CI determines exact-head build/test evidence. No main merge,
+  AWS deployment, signed physical-device install or Canon field proof is
+  implied by a branch push or simulator run.
 
-## Remaining gates
+This task has no configured AWS deployment credentials or Apple signing
+identity; this Mac has Command Line Tools but no full Xcode. Cloud deployment
+must include both the API artifact and the new gateway status route. A signed
+physical iPhone build, camera/cable/model tests, storage-residue audit and the
+cloud BAA/security/clinic operational gates are still required. Keep testing
+synthetic-only until those gates are satisfied.
 
-Full Xcode/iOS toolchain, signed foreground app, native Canon adapter and event
-handling, secure authorized receiver, lifecycle/timeouts, card-based recovery,
-hardware/firmware matrix, and device/framework storage-residue audit. Complete
-security and clinic operational review before real patient data. HHS requires
-technical, administrative and physical safeguards; no-phone-storage alone is
-not compliance.
-
-Current task follows supplied local/LAN-only instructions. The separately
-recorded cloud-authoritative project remains unchanged; no third-party photo
-traffic was enabled here.
-
-Reproduce synthetic core checks:
-
-```sh
-cd /Users/chrismaxwell/CamLink-SDK
-swift run --package-path native/MedPhotoKit RelayVerification
-```
-
-Expected: seven synthetic checks pass. `swift test` is blocked by missing
-XCTest in Command Line Tools; `xcodebuild -version` confirms full Xcode is absent.
-No install command is offered until a signed iPhone artifact actually exists.
-
-Implementation specification and primary source links:
-`docs/IPHONE-CANON-RELAY.md` in SDK. See [[log/2026-09-10-iphone-canon-relay]].
+See SDK `docs/IPHONE-CANON-RELAY.md` and `native/MedPhotoCamera/README.md` for
+implementation details, primary references and exact build/install commands.
+See [[log/2026-09-10-iphone-canon-relay]].

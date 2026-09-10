@@ -591,10 +591,14 @@ isolation, and a 202 pending-retirement retry completing as 200.
   still required. See
   [[log/2026-08-28-cloud-live-visit-photo-refresh]].
 
-## 2026-09-10 iPhone Canon relay foundation
+## 2026-09-10 iPhone Canon cloud implementation
 
-- Added bounded Swift RAM-only transfer coordinator and Apple chunk-reader
-  primitive with seven passing synthetic checks. No installable iPhone app,
-  production receiver, iOS build, HIPAA approval or validated Canon models yet.
-  Full Xcode/XCTest is missing on this Mac. See [[iphone-canon-relay]] and
-  [[log/2026-09-10-iphone-canon-relay]].
+- SDK PR 18 (`dc1defb`) implements the native iPhone app, bounded foreground
+  Canon USB transfer, desktop QR pairing and cloud ingest with immutable visit
+  binding and eight-hour enrollment. Simulator build and launch passed; its
+  first screen and desktop/mobile pairing were visually checked. Native stream
+  tests, 55 API tests and the existing smoke/UI gates passed. Final exact-head
+  CI remains the source of truth. Source is on a feature PR, not merged or
+  deployed. AWS credentials, Apple signing, physical Canon/iPhone validation,
+  storage-residue audit and clinical compliance gates remain open. See
+  [[iphone-canon-relay]] and [[log/2026-09-10-iphone-canon-relay]].
