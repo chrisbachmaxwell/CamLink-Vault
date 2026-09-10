@@ -186,3 +186,13 @@ notarization remains open.
   Mark II success rules out a generally slow relay, but does not yet identify
   whether the Z8 issue is resume/REST behavior, passive-data demux, Wi-Fi,
   or camera profile state.
+
+## 2026-09-10 iPhone Canon cloud connection
+
+- Source implementation and simulator proof are in SDK PR 18. Next: designated
+  integration owner lands the green PR; deploy matching AWS API and gateway;
+  sign/install on iPhone; prove real Canon capture, interruption/retry and
+  patient-turnover behavior; inspect device storage; validate model/firmware
+  combinations. No universal Canon or HIPAA claim before evidence. Keep
+  originals on camera and maintain synthetic-only gates. See
+  [[iphone-canon-relay]].

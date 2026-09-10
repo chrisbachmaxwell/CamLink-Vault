@@ -121,3 +121,7 @@ dermatologists).
 1. One lesson per file. 2. Update, don't duplicate. 3. Delete what's
 wrong. 4. Never touch `raw/`. 5. Session end = log + status/roadmap +
 feature PRs (the ritual). 6. Only the integration owner merges to `main`.
+
+## iPhone USB camera connection
+- [[iphone-canon-relay]] — 2026-09-10 Canon/iPhone request, no persistent phone
+  patient data, foundation checks and unfulfilled hardware/security gates.
