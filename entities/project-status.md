@@ -597,8 +597,7 @@ isolation, and a 202 pending-retirement retry completing as 200.
   Canon USB transfer, desktop QR pairing and cloud ingest with immutable visit
   binding and eight-hour enrollment. Simulator build and launch passed; its
   first screen and desktop/mobile pairing were visually checked. Native stream
-  tests, 55 API tests and the existing smoke/UI gates passed. Final exact-head
-  CI remains the source of truth. Source is on a feature PR, not merged or
+  tests, 55 API tests and the existing smoke/UI gates passed. Final exact-head Node 20/22 CI and iPhone simulator build/launch passed. Source is on a feature PR, not merged or
   deployed. AWS credentials, Apple signing, physical Canon/iPhone validation,
   storage-residue audit and clinical compliance gates remain open. See
   [[iphone-canon-relay]] and [[log/2026-09-10-iphone-canon-relay]].

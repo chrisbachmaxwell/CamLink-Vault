@@ -55,3 +55,8 @@ Canon/iPhone capture tests and device storage audit, plus existing cloud
 security/BAA/operational readiness. No deploy, installed-device, universal
 Canon or HIPAA-compliance claim. Camera originals are preserved. Existing
 dirty vault checkout was untouched; these changes use its isolated PR worktree.
+
+Final verification: dc1defb passed Node 20/22 CI (34530663661) and native
+checks, XCTest, iOS build and simulator launch (34530663707). Source and vault
+PRs remain open for integration; neither production deployment nor phone install
+occurred. Local synthetic UI server was stopped after testing.

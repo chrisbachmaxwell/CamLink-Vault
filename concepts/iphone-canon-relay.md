@@ -39,7 +39,7 @@ models, firmware, cables or live-capture events work.
   synthetic API fixtures. PTP, FTP, multi-room and browser UI gates passed.
 - Cloud API tests: 55 passing, including credential expiry/replacement,
   changed-visit rejection, original-visit replay and completed-upload replay.
-- Final PR CI determines exact-head build/test evidence. No main merge,
+- Final head dc1defb passed Node 20/22 CI and the iPhone build, tests and simulator launch (runs 34530663661 and 34530663707). No main merge,
   AWS deployment, signed physical-device install or Canon field proof is
   implied by a branch push or simulator run.
 
