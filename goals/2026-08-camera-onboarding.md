@@ -27,7 +27,7 @@ lands on this flow; the old transport-tile wizard remains as the
   Open the app with `open -a "Med Photo"`, then Software Update. In Cameras,
   choose **Add a camera**, choose the model and follow **Wi-Fi → server →
   login → test photo**. Expected: only a new completed photo from this camera
-  shows **Camera connected**. With no visit open, the test photo stays in
+  shows **Photo received** (0.20.4 separates this from current connection). With no visit open, the test photo stays in
   Unassigned; with a visit open, it goes into that camera's active visit.
   Reopen the saved camera and confirm Test camera does not replace its login.
 
@@ -46,3 +46,9 @@ open a hardware-page investigation instead of guessing.
   browser and actual HTTP fixtures. Source/release evidence in
   [[log/2026-09-05-camera-setup-access-audit]]. Firmware menu text unchanged;
   the physical-camera gate remains open.
+
+- 2026-11-04 — Chris prioritizes ambient connection status over repeated setup
+  instructions. SDK PR 20 (`d050ea6`) reads exact scoped relay presence and
+  shows current connection separately from last photo; browser fixture proves
+  expiry, outage, per-camera isolation and no implicit credential rotation.
+  Physical R6 Mark II turn-on-and-shoot behavior is still unverified.
