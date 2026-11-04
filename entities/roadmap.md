@@ -5,8 +5,8 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
 [[cloud-authoritative-library]].
 
 ## 2026-11-04 verification checkpoint
-The public arm64 release and this Mac's installed bundle both report 0.20.2.
-Installing on this Mac is no longer an outstanding step; the second Mac and
+The public arm64 release is 0.20.3. Installation verification is pending on
+this Mac (last installed check 0.20.2); the second Mac and
 the paired physical-camera/shared-patient workflow are not verified by this
 read-only check. Continue the field checks below without treating a version
 check as workflow proof. Separate iPhone companion source on SDK
@@ -14,6 +14,19 @@ check as workflow proof. Separate iPhone companion source on SDK
 signing, backend deployment and physical-camera/storage-residue verification
 before it can be called a released camera path. See
 [[log/2026-11-04-current-app-status]]. (Verify after: 2026-11.)
+
+## Immediate visit-start repair (2026-11-04)
+SDK PR 19 (`464c10b` → main `b86d56e`, published 0.20.3) removes the optional-documentation gate,
+keeps explicit camera choice, omits blank metadata and replaces raw start
+errors with recovery instructions. Required local tests and package/startup
+checks and Node 20/22 CI pass. Publication is verified; next is installed-app
+verification and a synthetic live start on the exact service. AWS read-only
+inspection confirms the synthetic stack's Lambda hash matches the recorded
+September 0.20.0 artifact, which accepts visit metadata. The original request
+failure's exact cause remains unconfirmed; the legacy-service fixture proves
+that blank optional keys can produce the same error, not that this deployment
+is old. No clinical API change was made.
+See [[log/2026-11-04-visit-start-simplification]].
 
 ## Now (active)
 1. **Cloud clinical data plane** — [[2026-08-cloud-clinical-library]]:
@@ -31,7 +44,7 @@ before it can be called a released camera path. See
    then replace synthetic plain FTP with the production FTPS/TLS endpoint under
    the BAA gate. Each credential maps to one location/camera and files only into
    that camera's active visit (otherwise Unassigned).
-3. **Downloaded app cloud mode** — v0.20.2 arm64 is live with clean-clinic
+3. **Downloaded app cloud mode** — v0.20.3 arm64 is live with clean-clinic
    onboarding, email/password sign-in and email-code recovery, single-location
    shared library, pre-sign-in updates and no permanent local photo write. Its
    camera setup is model-first and automatically provisions the per-camera

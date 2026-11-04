@@ -1,15 +1,24 @@
 # Med Photo clinic app
 
 `apps/clinic` in [[camlink-sdk]] · packaged by `apps/desktop` · clinic runtime
-**v0.20.2** inside desktop source **v0.20.2** on main `76fd261`.
-The published arm64 manifest and this Mac's installed bundle both report
-**v0.20.2**, read-only verified 2026-11-04. See
-[[log/2026-11-04-current-app-status]]. The product is cloud-authoritative in packaged
+**v0.20.3** inside desktop source **v0.20.3** on main `b86d56e`.
+The published arm64 release is **v0.20.3**, verified 2026-11-04; installation
+verification is pending (last installed check 0.20.2). See
+[[log/2026-11-04-visit-start-simplification]]. The product is cloud-authoritative in packaged
 mode; the local capture paths below remain supported engineering/transport
 modes.
 
 Built on public `@medphoto/*` APIs. Governing constraints:
 [[hipaa-local-first]] and [[cloud-authoritative-library]].
+
+## Released start-visit repair — 2026-11-04
+SDK PR 19 merged as `b86d56e`; signed arm64 0.20.3 is published. Start visit
+opens capture immediately with one camera and asks only Which camera with two
+or more. Optional documentation stays in the visit's collapsed details panel.
+Blank details no longer add newer fields to a basic create request. Supplied
+context is never dropped on retry; normal edits still support clearing values.
+The UI offers recovery steps for service, sign-in, access and connection errors.
+See [[log/2026-11-04-visit-start-simplification]] for verified scope and limits.
 
 ## Cloud active visits (2026-08-28)
 - Cloud sign-in always lands on Home. An already-running shared visit appears
@@ -46,7 +55,7 @@ History groups by patient → visits. See [[2026-07-patient-records]].
 
 ## Patient workspace implementation — 2026-09-05
 
-The first slice was published as 0.20.0 and remains in current 0.20.2. It adds shared richer patient profiles, editable visit
+The first slice was published as 0.20.0 and remains in current 0.20.3. It adds shared richer patient profiles, editable visit
 metadata and authored append-only notes. Overview, Photos & visits and Details
 replace the sparse patient page. Drafts survive cloud polling and stale edits
 must reload before retry. Signed forms/consent remain future work; the first
