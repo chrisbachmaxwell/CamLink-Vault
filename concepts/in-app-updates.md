@@ -45,20 +45,24 @@ before the no-developer-tools updater can take over.
 
 Operator procedure and exact gates: repo `docs/RELEASE-PUBLISHING.md`.
 
-## Current published evidence — 2026-09-05
-Arm64 v0.20.2 is live: signed latest and immutable CloudFront ZIP agree,
-the direct Railway latest DMG returns `Cache-Control: no-store` and its full
-bytes match the prepared DMG, and the exact packaged native updater reports
-0.20.2 available to a 0.20.1 client in a disposable profile. A fresh-profile
-launch of the exact packaged app shows sign-in with its update control and
-hidden clinical navigation. These checks do not install the update. Chris's
-installed bundle is read-only verified as 0.20.0; physical two-Mac proof remains
-open. See [[log/2026-09-05-active-visit-recovery]]. (verify after: 2026-10)
+## Current published evidence — 2026-11-04
+Arm64 0.20.4 is live through Railway deployment
+`96cac965-0473-4fa1-a38a-82bf00858deb` (SUCCESS). The signed public manifest,
+complete immutable ZIP and no-store DMG match the prepared artifacts. SDK PR
+20 merged (`f13b35c`) after Node 20/22 CI and required local gates. Exact
+packaged startup with a fresh profile and strict signature verification pass.
+The camera-status API is also deployed, with matching digest and healthy
+synthetic endpoint. See [[log/2026-11-04-live-camera-status]]. The last installed
+plist check remains 0.20.2. Native computer control can read this running app
+but cannot activate its update button (AX actions have no effect; coordinate
+input reports no available windows). Chris has been asked to click the version
+badge and Update ready; do not equate published availability with installation.
 
-For the next publisher run, use
-`/Users/chrismaxwell/MedPhoto-Package-Audit/0.20.2-release` as prior history.
-It contains only `manifests/` and `packages/`, retaining 0.20.1/0.20.0/0.19.9.
-Bootstrap DMG and receipts live separately in
-`/Users/chrismaxwell/MedPhoto-Clinical-Stage-0.20.2`; adding them inside the
-history root makes the strict publisher reject it. The incomplete earlier
-`0.20.1-verified` directories are not the published bundle and must not be used.
+For 0.20.4 preparation, prior history was
+`/Users/chrismaxwell/MedPhoto-Package-Audit/0.20.3-release`; the new history is
+`/Users/chrismaxwell/MedPhoto-Package-Audit/0.20.4-release`. History roots must
+contain only `manifests/` and `packages/`, not deployment/DMG/receipt files.
+DMG and receipts belong in `/Users/chrismaxwell/MedPhoto-Clinical-Stage-0.20.4`.
+The Railway deploy bundle carries only the current bootstrap DMG to fit its
+upload limit; signed rollback ZIP history retains three previous versions.
+(Verify after: 2026-12.)

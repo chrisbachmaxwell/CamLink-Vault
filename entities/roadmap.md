@@ -4,8 +4,20 @@ Rewritten 2026-08-27 after the cloud-authoritative decision. Ordered by Chris's
 priorities. Governing boundaries: [[hipaa-local-first]] and
 [[cloud-authoritative-library]].
 
+## 2026-11-04 live camera status released
+SDK PR 20 (`d050ea6` → main `f13b35c`) released **0.20.4** with current per-camera cloud sign-in
+status, last photo received, automatic status refresh, stale/outage handling,
+and direct opening of saved camera checks. It retains the 0.20.3 visit-start
+repair. All required local gates pass: 481 tests plus one existing skip,
+PTP/FTP/multi-room smokes and browser gate. Mac packaging/startup and strict signature checks pass. Node 20/22 CI passed.
+The code-only synthetic API update is complete and healthy; Railway deployment
+`96cac965-0473-4fa1-a38a-82bf00858deb` is SUCCESS. Public manifest signature and
+complete ZIP/no-store DMG bytes match the tested artifacts. Installed Mac
+still read-only verified as 0.20.2. Physical camera behavior is unverified.
+See [[log/2026-11-04-live-camera-status]].
+
 ## 2026-11-04 verification checkpoint
-The public arm64 release is 0.20.3. Installation verification is pending on
+The public arm64 release is 0.20.4. Installation verification is pending on
 this Mac (last installed check 0.20.2); the second Mac and
 the paired physical-camera/shared-patient workflow are not verified by this
 read-only check. Continue the field checks below without treating a version
@@ -44,7 +56,7 @@ See [[log/2026-11-04-visit-start-simplification]].
    then replace synthetic plain FTP with the production FTPS/TLS endpoint under
    the BAA gate. Each credential maps to one location/camera and files only into
    that camera's active visit (otherwise Unassigned).
-3. **Downloaded app cloud mode** — v0.20.3 arm64 is live with clean-clinic
+3. **Downloaded app cloud mode** — v0.20.4 arm64 is live with clean-clinic
    onboarding, email/password sign-in and email-code recovery, single-location
    shared library, pre-sign-in updates and no permanent local photo write. Its
    camera setup is model-first and automatically provisions the per-camera

@@ -64,6 +64,12 @@ library purge, or provider agreement change unless Chris explicitly authorizes
 that exact gate. Two no-progress cycles → record the blocker here.
 
 ## Iteration log
+- 2026-11-04 — SDK PR 20 (`d050ea6`) released 0.20.4 with a read-only scoped
+  relay-presence projection. Required local gates and Mac packaging/startup
+  pass, as does Node 20/22 CI; merged main `f13b35c`. Code-only synthetic API
+  update and signed desktop publication are verified. Installation is pending
+  one in-app click from Chris because native automation cannot activate it.
+  No new IAM, credential, storage schema or provider change is involved.
 - 2026-11-04 · Released 0.20.3 visit-start repair: SDK PR 19 (`464c10b`)
   → main `b86d56e`, all required local gates and Node 20/22 CI pass. Patient-page
   capture skips optional paperwork; multi-camera choice and existing visits

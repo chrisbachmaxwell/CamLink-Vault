@@ -33,7 +33,7 @@ rhythm); local FTP ≈5 s.
 Ratchet: ui-gate FAILS if the pill is green before first camera contact,
 and requires green on a real push.
 
-## Cloud-authoritative proof (v0.19.4)
+## Historical cloud photo proof (v0.19.4–v0.20.3)
 Issuing or rotating a cloud camera profile proves only that setup values exist;
 it does not prove the camera accepted them. The cloud API persists
 `lastUploadAt` and an opaque `lastUploadPhotoId` only when the upload digest and
@@ -41,3 +41,28 @@ metadata completion succeed. The guided setup records a baseline, asks for one
 test photo, and accepts only newer evidence for the exact camera. It then shows
 the received image and changes the label to **Camera verified**. Existing
 profiles without evidence remain waiting until their next upload.
+
+## Current cloud connection (0.20.4 released, 2026-11-04)
+Chris clarified that setup should yield a dependable Connected / Not connected
+indicator and automatic arrival when shooting, without repeated test steps.
+The old cloud projection hard-coded `cameraConnected`/`live` false while some
+screens colored historical upload verification green. SDK PR 20 (`d050ea6`)
+separates these facts. The API reads existing authenticated relay `/v1/health`
+and maps only each scoped active camera profile's exact login. No account-wide
+aggregate can prove another camera is connected. Calls have a two-second
+body-inclusive deadline, 256 KiB limit and two-second success cache. Failures
+keep the camera list available with unknown connection status.
+
+Home, Cameras and camera checks show current connection plus last completed
+photo separately. Green requires live sign-in evidence checked within 12
+seconds; requests failing or aging out show Status unavailable. Starting a
+visit remains possible while a camera is asleep/disconnected. New-photo proof
+still requires a newer completed upload for that exact camera and says Photo
+received; disconnection does not erase photo history. Saved camera checks open
+directly without changing credentials. A live FTP connection does not prove
+that automatic transfer is enabled or that the next photo completed.
+
+Required local gates pass, including multi-camera isolation, status expiry,
+outage/recovery and disconnect after receipt. The code-only backend and signed desktop release are deployed and verified;
+installation and physical R6 Mark II power-cycle/automatic-transfer proof remain open.
+See [[log/2026-11-04-live-camera-status]]. (Verify after: 2026-12.)

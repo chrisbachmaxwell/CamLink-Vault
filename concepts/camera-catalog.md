@@ -22,6 +22,7 @@ one up.
 - `note` — optional one-liner (e.g. "this body has no FTP").
 - `steps` — that model's menu path, imperative, one action each, shown
   AFTER the values card.
+- `testHelp` — optional model-specific help, collapsed below live connection status.
 - `fieldProven` — true only when a real body ran the steps end-to-end.
 
 ## The rule
@@ -45,3 +46,8 @@ lesson lands (rule 2: update, don't duplicate).
 - Nikon Z (Z6 III / Z8 / Z9) — ftp — not field-proven
 - Fujifilm X / GFX (with FTP) — ftp — not field-proven
 - Not sure / another camera — choose (the old transport-tile wizard)
+
+
+2026-11-04: PR 20 adds optional R6 Mark II automatic-transfer menu help from
+Canon's C012 manual, not field proof. The combined R6/R6 II catalog entry's
+help explicitly names the Mark II. See [[canon-eos-r6-mark-ii]].
