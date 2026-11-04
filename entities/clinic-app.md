@@ -1,13 +1,13 @@
 # Med Photo clinic app
 
 `apps/clinic` in [[camlink-sdk]] · packaged by `apps/desktop` · clinic runtime
-**v0.20.0** inside desktop source **v0.20.0** on main `22a3770` as of
-2026-09-05. The published desktop remains **v0.19.9**; 0.20.0 is packaged and
-staged but awaits AWS sign-in/deployment. The product is cloud-authoritative in packaged
+**v0.20.2** inside desktop source **v0.20.2** on main `76fd261`.
+The published arm64 manifest and this Mac's installed bundle both report
+**v0.20.2**, read-only verified 2026-11-04. See
+[[log/2026-11-04-current-app-status]]. The product is cloud-authoritative in packaged
 mode; the local capture paths below remain supported engineering/transport
 modes.
 
-developers get. Governing constraint: [[hipaa-local-first]].
 Built on public `@medphoto/*` APIs. Governing constraints:
 [[hipaa-local-first]] and [[cloud-authoritative-library]].
 
@@ -22,8 +22,9 @@ Built on public `@medphoto/*` APIs. Governing constraints:
 - A start conflict is never a text-only wall. The clinic server resolves the
   requested camera's active visit (or the requested patient's visit on another
   camera), returns its current summary, and the browser immediately offers
-  **Go to visit** and **End it & start**. Clicking Go to visit refetches cloud
-  state before rendering so an already-ended visit cannot appear live.
+  **Open visit** for the same stable patient ID, preserving its photos and
+  metadata; a different patient retains explicit turnover. Opening refetches
+  cloud state and guards against ended or replaced visits (v0.20.2, `76fd261`).
 - A camera-active lock is not sufficient proof by itself. The cloud API reads
   the locked visit consistently; if that visit is missing or ended, it deletes
   only the exact stale lock and retries once. If another visit wins during the
@@ -31,7 +32,7 @@ Built on public `@medphoto/*` APIs. Governing constraints:
 - A live visit viewed on two signed-in computers closes on both when either
   computer ends it. The non-clicking computer detects the ended transition in
   its tenant-scoped three-second projection and leaves the stale live screen
-  (`1ab5602`; desktop source v0.19.8, release pending).
+  (`1ab5602`; shipped in v0.19.9 and retained in v0.20.2).
 - Notifications are contextual, not global residue. Ordinary notices have a
   close control, expire after seven seconds, and clear on navigation. A real
   active-visit conflict stays only on the screen where the action is relevant.
@@ -45,7 +46,7 @@ History groups by patient → visits. See [[2026-07-patient-records]].
 
 ## Patient workspace implementation — 2026-09-05
 
-The first slice is merged as 0.20.0 and locally packaged. It adds shared richer patient profiles, editable visit
+The first slice was published as 0.20.0 and remains in current 0.20.2. It adds shared richer patient profiles, editable visit
 metadata and authored append-only notes. Overview, Photos & visits and Details
 replace the sparse patient page. Drafts survive cloud polling and stale edits
 must reload before retry. Signed forms/consent remain future work; the first

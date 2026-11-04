@@ -6,6 +6,23 @@ Published desktop **v0.20.2** (2026-09-05, synthetic internal test; see
 [[log/2026-09-05-active-visit-recovery]]). Code integration branch:
 `main` (GitHub default since 2026-08-28).
 
+## 2026-11-04 current version audit
+- Published Apple Silicon desktop and clinic source on SDK `origin/main`
+  `76fd261` are **0.20.2**. The live public arm64 manifest still names 0.20.2,
+  issued 2026-09-05, with the same ZIP SHA-256 recorded in the release log.
+- The installed `/Applications/Med Photo.app` bundle now reports **0.20.2**,
+  superseding the older 0.20.0 installed-version observation below. This was
+  a read-only plist check, not an installation or a live clinical workflow test.
+- Separate pushed work exists on SDK `codex/iphone-cloud` at `dc1defb`:
+  SwiftUI iPhone companion, QR pairing, Canon USB discovery, foreground
+  memory-only cloud upload and receipt reconciliation. It is not merged into
+  `main` or included in the 0.20.2 release. No physical camera/iPhone proof or
+  new deployment was established by this audit.
+- Existing shared-library, patient-workspace, permissions, camera-setup and
+  update features remain built. Production clinical use, exact physical
+  two-Mac/current-camera proof and the roadmap's remaining work are still open.
+  See [[log/2026-11-04-current-app-status]]. (Verify after: 2026-11.)
+
 ## 2026-09-05 existing patient visit recovery
 SDK PR 17 merged as `76fd261`; Node 20/22 CI and every required local gate
 pass. Patient records and Home offer Open visit for the same stable patient

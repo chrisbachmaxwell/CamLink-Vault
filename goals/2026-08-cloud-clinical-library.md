@@ -54,7 +54,9 @@ Constraint: [[hipaa-local-first]] · Decision: [[cloud-authoritative-library]]
       Start a synthetic visit on Mac A; the same patient's record on Mac B
       should say Open visit and open the same visit with unchanged photos and
       details. End it explicitly and verify both Macs reconcile the state.
-      The latest read-only installed version check is 0.20.0; 0.20.2 was not installed by the agent.
+      The 2026-11-04 read-only installed bundle check reports 0.20.2 on this Mac.
+      No install was performed in that audit; the second Mac and shared workflow
+      remain unverified. See [[log/2026-11-04-current-app-status]].
 
 ## Stop clause
 Stop before any real patient record/photo, production cloud deployment, local

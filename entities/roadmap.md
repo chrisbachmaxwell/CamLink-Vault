@@ -4,6 +4,17 @@ Rewritten 2026-08-27 after the cloud-authoritative decision. Ordered by Chris's
 priorities. Governing boundaries: [[hipaa-local-first]] and
 [[cloud-authoritative-library]].
 
+## 2026-11-04 verification checkpoint
+The public arm64 release and this Mac's installed bundle both report 0.20.2.
+Installing on this Mac is no longer an outstanding step; the second Mac and
+the paired physical-camera/shared-patient workflow are not verified by this
+read-only check. Continue the field checks below without treating a version
+check as workflow proof. Separate iPhone companion source on SDK
+`codex/iphone-cloud` (`dc1defb`) still needs integration/release review, device
+signing, backend deployment and physical-camera/storage-residue verification
+before it can be called a released camera path. See
+[[log/2026-11-04-current-app-status]]. (Verify after: 2026-11.)
+
 ## Now (active)
 1. **Cloud clinical data plane** — [[2026-08-cloud-clinical-library]]:
    the synthetic Cognito/Lambda/DynamoDB/private-S3 path and two-computer app
@@ -38,7 +49,8 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    [[log/2026-09-05-active-visit-recovery]].
    The live AWS null-marker activation defect is fixed and failed empty drafts
    are retired. The short-credential Lambda is live. Immediate field steps:
-   install v0.20.2 on both Macs (affected v0.19.5/v0.19.6 installs need one
+   confirm v0.20.2 on both Macs (this Mac is verified at 0.20.2 on 2026-11-04;
+   affected v0.19.5/v0.19.6 installs need one
    direct-DMG recovery), confirm
    a stale camera lock no longer blocks a
    visit, Home shows a real visit started on the other Mac, and its contextual
@@ -70,7 +82,8 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
    metadata, patient tabs and visit preparation. Local gates/Node 20/22 CI and
    fresh-profile packaged startup pass. The exact synthetic API is deployed;
    signed latest 0.20.0, public ZIP and no-store DMG are verified. The packaged
-   updater reports 0.20.0 available. Chris's local installed app is now verified as 0.20.0; use 0.20.2 for the next field pass.
+   updater reported 0.20.0 available at that publication check. Chris's local
+   installed app is now verified as 0.20.2 (2026-11-04); use 0.20.2 for the next field pass.
    Verify authenticated patient edits, visit details, notes and conflict recovery
    against the live API on two downloaded Mac builds together. Signed consent
    and guided photo protocols remain future work. Evidence and exact artifacts:
@@ -127,7 +140,7 @@ priorities. Governing boundaries: [[hipaa-local-first]] and
 ## Later
 12. **Public Mac distribution** — the self-contained Electron app, offline
    Ed25519 publisher, Railway release service and verified native updater are
-   live for arm64 internal tests (current v0.19.9). Railway serves signed
+   live for arm64 internal tests (current v0.20.2). Railway serves signed
    manifests plus the no-store latest bootstrap pointer; immutable ZIP/DMG
    bytes also live in a separate private, versioned S3 release bucket behind
    read-only CloudFront, avoiding Railway's
