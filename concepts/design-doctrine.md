@@ -45,3 +45,12 @@ Different stable IDs remain different patients even when their names match.
 Explicit Open navigates to capture; background refresh preserves the page the
 user chose. Changed/ended stale links explain what happened and never open a
 replacement patient's visit. See [[log/2026-09-05-active-visit-recovery]].
+
+## Start visit without paperwork (2026-11-04)
+Start visit goes directly to capture when one camera is available; multiple
+cameras ask only Which camera. Optional purpose, provider, procedure, body area
+and photo phase belong under Visit details & notes during or after capture.
+Never silently carry prior visit documentation into a new visit. Failures say
+what to do next in plain language and never imply that blank optional fields
+are the user's mistake. SDK PR 19 merged as `b86d56e`; arm64 0.20.3 is
+published. See [[log/2026-11-04-visit-start-simplification]].

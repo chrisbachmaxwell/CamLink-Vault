@@ -2,9 +2,43 @@
 
 Rewritten 2026-08-22 after the 2026-08-21/22 field marathon (see
 [[log/2026-08-21-med-photo-field-day]]; July history in earlier logs).
-Published desktop **v0.20.2** (2026-09-05, synthetic internal test; see
-[[log/2026-09-05-active-visit-recovery]]). Code integration branch:
+Published desktop **v0.20.3** (2026-11-04, synthetic internal test; see
+[[log/2026-11-04-visit-start-simplification]]). Code integration branch:
 `main` (GitHub default since 2026-08-28).
+
+## 2026-11-04 start-visit fix released
+SDK feature `464c10b` / PR 19 merged to main `b86d56e` and released **0.20.3**: patient-page Start visit
+opens capture directly with one camera; multiple cameras ask only Which camera.
+Purpose/provider/procedure/body-area/phase remain optional under Visit details
+& notes during or after capture. Empty metadata is omitted on creation; typed
+metadata is never silently discarded, and edit-time null clearing is preserved.
+Start failures use actionable copy and meaningful HTTP statuses instead of raw
+service schema messages. All required local gates pass (477 tests passed, one
+existing skip), including existing-visit preservation and camera routing. The
+arm64 ZIP/DMG passes package validation and an isolated packaged runtime starts
+as 0.20.3 with the exact reviewed UI. Node 20/22 CI passed. Railway deployment
+`37e87537-3a70-4fe3-878a-05edee2e69ab` is SUCCESS; public Ed25519 manifest,
+complete ZIP and no-store DMG downloads match the tested artifacts. Chris
+authorized merge, publication and installation. Installation verification is
+pending; the last installed check was 0.20.2. See
+[[log/2026-11-04-visit-start-simplification]].
+
+## 2026-11-04 earlier version audit (superseded by the release above)
+- Published Apple Silicon desktop and clinic source on SDK `origin/main`
+  `76fd261` are **0.20.2**. The live public arm64 manifest still names 0.20.2,
+  issued 2026-09-05, with the same ZIP SHA-256 recorded in the release log.
+- The installed `/Applications/Med Photo.app` bundle now reports **0.20.2**,
+  superseding the older 0.20.0 installed-version observation below. This was
+  a read-only plist check, not an installation or a live clinical workflow test.
+- Separate pushed work exists on SDK `codex/iphone-cloud` at `dc1defb`:
+  SwiftUI iPhone companion, QR pairing, Canon USB discovery, foreground
+  memory-only cloud upload and receipt reconciliation. It is not merged into
+  `main` or included in the 0.20.2 release. No physical camera/iPhone proof or
+  new deployment was established by this audit.
+- Existing shared-library, patient-workspace, permissions, camera-setup and
+  update features remain built. Production clinical use, exact physical
+  two-Mac/current-camera proof and the roadmap's remaining work are still open.
+  See [[log/2026-11-04-current-app-status]]. (Verify after: 2026-11.)
 
 ## 2026-09-05 existing patient visit recovery
 SDK PR 17 merged as `76fd261`; Node 20/22 CI and every required local gate

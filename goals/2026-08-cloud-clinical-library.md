@@ -42,11 +42,11 @@ Constraint: [[hipaa-local-first]] · Decision: [[cloud-authoritative-library]]
       Chris supplied the signed-in in-app AWS Console on 2026-09-05; existing
       CloudShell access deployed the synthetic API and immutable ZIP without
       new credentials, IAM/Cognito identities, policies or provider settings.
-- [ ] Install 0.20.2 and prove the shared patient workspace on both Macs using
+- [ ] Install 0.20.3 and prove the shared patient workspace on both Macs using
       existing authorized clinical accounts and synthetic records only. Open:
       `open -a "Med Photo"`
-      Use Software Update and expect version 0.20.2; for direct recovery:
-      `open "https://med-photo-release-service-production.up.railway.app/v1/bootstrap/Med-Photo-0.20.2-darwin-arm64.dmg"`
+      Use Software Update and expect version 0.20.3; for direct recovery:
+      `open "https://med-photo-release-service-production.up.railway.app/v1/bootstrap/darwin-arm64/latest.dmg"`
       Edit one synthetic patient's details on Mac A and verify them on Mac B;
       check visit metadata, append an authored note, and verify the same note
       on the other Mac. Confirm the reviewer stays read-only and a concurrent
@@ -54,7 +54,9 @@ Constraint: [[hipaa-local-first]] · Decision: [[cloud-authoritative-library]]
       Start a synthetic visit on Mac A; the same patient's record on Mac B
       should say Open visit and open the same visit with unchanged photos and
       details. End it explicitly and verify both Macs reconcile the state.
-      The latest read-only installed version check is 0.20.0; 0.20.2 was not installed by the agent.
+      The 2026-11-04 read-only installed bundle check reports 0.20.2 on this Mac.
+      No install was performed in that audit; the second Mac and shared workflow
+      remain unverified. See [[log/2026-11-04-current-app-status]].
 
 ## Stop clause
 Stop before any real patient record/photo, production cloud deployment, local
@@ -62,6 +64,14 @@ library purge, or provider agreement change unless Chris explicitly authorizes
 that exact gate. Two no-progress cycles → record the blocker here.
 
 ## Iteration log
+- 2026-11-04 · Released 0.20.3 visit-start repair: SDK PR 19 (`464c10b`)
+  → main `b86d56e`, all required local gates and Node 20/22 CI pass. Patient-page
+  capture skips optional paperwork; multi-camera choice and existing visits
+  remain protected. Railway `37e87537-3a70-4fe3-878a-05edee2e69ab` is SUCCESS;
+  public manifest signature and complete ZIP/DMG bytes pass. Installation and
+  authenticated live start remain open. AWS inspection confirms the recorded
+  September Lambda code hash; the exact original error cause is unconfirmed. See
+  [[log/2026-11-04-visit-start-simplification]].
 - 2026-09-05 · Existing-patient visit recovery released as 0.20.2. SDK PR 17
   → main `76fd261`, full required local gates and Node 20/22 CI pass. Exact
   package startup, public signature/ZIP/DMG and native update offer pass;
