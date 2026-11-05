@@ -71,12 +71,12 @@ and two-camera/two-Mac proof remain open. See
 [[log/2026-11-04-serving-api-target-repair]].
 See [[log/2026-11-04-live-camera-status]]. (Verify after: 2026-12.)
 
-## Correction: normal idle must not look broken (2026-11-04, unreleased)
+## Correction: normal idle must not look broken (released 0.20.5, 2026-11-05)
 The field report above exposes a UX error: a truthful closed FTP socket does
 not imply failed photography. Canon documents intentional FTP/Wi-Fi power
 saving between photos; see [[canon-eos-r6-mark-ii]].
 
-The local candidate shows **Photo received** for 60 seconds after verified
+The 0.20.5 app shows **Photo received** for 60 seconds after verified
 completion, even if FTP closes. After that, a live sign-in shows **Camera
 online**; a closed connection shows neutral **Waiting for next photo** (or
 **Waiting for first photo**). Last receipt time stays separate. Unknown/expired
@@ -95,3 +95,7 @@ an awake/responding radio would be needed. A successful ping cannot verify the
 photo path (and macOS can allow ping while blocking app LAN traffic). Do not
 attempt a second Canon control session as a heartbeat for a working FTP path.
 Release/validation evidence: [[log/2026-11-04-camera-between-photos]].
+
+The correction is merged in SDK PR 21 (`5d2583f` → main `a78ec71`) and
+published as 0.20.5. Six local gates, Node 20/22 CI, package startup and full
+public artifact verification pass. Installed Mac is verified as 0.20.5; see [[log/2026-11-05-r6iii-live-setup]].

@@ -40,7 +40,7 @@ repo `docs/DESIGN.md` and [[log/2026-09-05-camera-setup-access-audit]].
 Recent photo receipt, current sign-in, neutral waiting and unavailable status
 are separate signals. Keep receipt time visible; never infer an unsent shot
 from idle time. A new exact-camera photo is the delivery check; a ping only
-tests reachability. The unreleased candidate adds delayed-check help and Canon
+tests reachability. The 0.20.5 walkthrough includes delayed-check help and Canon
 FTP power-saving guidance. See [[log/2026-11-04-camera-between-photos]].
 
 ## Existing patient visits — 2026-09-05
@@ -61,3 +61,14 @@ Never silently carry prior visit documentation into a new visit. Failures say
 what to do next in plain language and never imply that blank optional fields
 are the user's mistake. SDK PR 19 merged as `b86d56e`; arm64 0.20.3 is
 published. See [[log/2026-11-04-visit-start-simplification]].
+
+## Complete camera walkthrough — 2026-11-05
+Chris paused the live setup to prioritize the app teaching the process.
+One task per screen, values beside the action that needs them, Back and
+in-page resume, model-specific manufacturer wording, automatic sending and
+new-photo delivery proof are the standard. Provide “My camera looks different”
+and reported-error recovery during setup and testing; preserve the profile
+and credentials while reviewing a step. General family instructions must say
+so. SDK PR 21 implements the sequence with five exact Canon manual guides;
+remaining model audits and physical acceptance stay open. See
+[[log/2026-11-05-r6iii-live-setup]].

@@ -31,23 +31,37 @@ hardware page IN THE SAME SESSION — the catalog is what clinics see,
 the hardware page is why. One model = one entry; update the day the
 lesson lands (rule 2: update, don't duplicate).
 
-## Current entries (as of 2026-08-22)
-- Canon EOS R6 Mark III — ftp — FIELD-PROVEN ([[canon-eos-r6-mark-iii]])
-- Canon EOS R5 Mark II — ftp — warning: ships with Passive mode OFF,
-  transfers silently fail until ON (field lesson 2026-08-22,
-  [[canon-eos-r5-mark-ii]], [[2026-08-r5ii-ftp-dialect]])
-- Canon EOS R5 / R5 C — ftp — from manuals, not field-proven
-- Canon EOS R6 / R6 Mark II — ftp — not field-proven
-- Canon EOS R10 — ptp (no FTP on entry bodies) — FIELD-PROVEN
-  ([[canon-eos-r10]])
-- Canon EOS R50 / R100 — ptp — not field-proven
-- Canon — other model — ftp with generic steps
-- Sony Alpha (a7/a9/a1 with FTP) — ftp — not field-proven
-- Nikon Z (Z6 III / Z8 / Z9) — ftp — not field-proven
-- Fujifilm X / GFX (with FTP) — ftp — not field-proven
-- Not sure / another camera — choose (the old transport-tile wizard)
+2026-11-05 requirement: every model offered as supported needs complete,
+manufacturer-sourced instructions in the order its screens appear. Include
+network mode, server values, login/folder, automatic transfer, JPEG test and
+error recovery. Record the manual and verification date; validate combined
+families individually. Manual verification and successful hardware transfer
+are distinct evidence. The current broad brand/family entries have not all
+passed this audit. Do not claim that this catalog already meets the requirement.
 
+The 0.20.5 guide implementation is merged in SDK PR 21 (`5d2583f` →
+`a78ec71`); see [[log/2026-11-05-r6iii-live-setup]] for publication state.
+`camera-setup-guide.js` builds nine tasks: open FTP, Wi-Fi, protocol,
+server/port, passive/proxy, login, folder/save, automatic transfer and JPEG
+test preparation. `walkthrough`, `ftpMenu`, `manualUrl`,
+`autoTransferAdvice`, `jpegAdvice` and `powerSavingAdvice` carry model-specific
+knowledge. `legacy` hides a combined entry from new choices while preserving
+saved profile IDs. In-page progress never persists passwords in browser storage.
 
-2026-11-04: PR 20 adds optional R6 Mark II automatic-transfer menu help from
-Canon's C012 manual, not field proof. The combined R6/R6 II catalog entry's
-help explicitly names the Mark II. See [[canon-eos-r6-mark-ii]].
+## Current entries (2026-11-05; verify after: 2027-02)
+- Exact Canon FTP guides: R6 III (C022), R6 II (C012), R5 II (C017),
+  original R6 (C004), original R5 (C003). Their catalog entries link the
+  manufacturer's manual, checked 2026-11-05. Manual accuracy does not close
+  hardware acceptance. R5 II transfer failure remains open.
+- Legacy combined R6 / R6 II remains resolvable for saved records, hidden
+  from new selection; no migration or credential rotation is performed.
+- R5 / R5 C, Canon other, Sony Alpha, Nikon Z and Fujifilm X/GFX remain
+  explicitly general family guides. Exact menu/accessory and per-model
+  hardware audits remain open. Do not imply universal brand support.
+- R10 remains PTP with prior hardware proof; R50 / R100 remains an unproven
+  PTP family; Not sure / another camera opens transport choice.
+
+Reported Canon Err45 routes to login and Err41 to server settings. The user
+selects the observed error; the app does not infer it from quiet status.
+Only a new completed photo from the exact selected camera passes the test.
+Historical `fieldProven` flags do not prove the new guide's end-to-end usability.

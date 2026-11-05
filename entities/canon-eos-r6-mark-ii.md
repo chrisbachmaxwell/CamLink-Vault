@@ -19,8 +19,8 @@ FTP power saving can log off both FTP and Wi-Fi while idle, reconnecting for
 the next image. To retain Wi-Fi: **Transfer images to FTP server → FTP transfer
 settings → Power saving → Disable**. This is a plausible explanation of the
 5–7-second status, not confirmation of Chris's selected setting or that exact
-timeout. The app's setup disclosure now includes this path in an unreleased
-local change; see [[log/2026-11-04-camera-between-photos]].
+timeout. The app's setup disclosure includes this path in the 0.20.5 walkthrough
+merged in SDK PR 21; see [[log/2026-11-04-camera-between-photos]].
 
 A local network ping is technically possible as a reachability diagnostic,
 but this R6 II's ICMP replies in FTP mode/sleep have not been tested or verified
@@ -37,8 +37,14 @@ See [[log/2026-11-04-canon-ping-clarification]]. (Verify after: 2026-12.)
 
 Earlier SDK PR 20 (`d050ea6`) added automatic-transfer help and exposed current
 relay sign-in separately from photo receipt; see [[camera-presence]]. The
-combined catalog entry stays without `fieldProven`. After deployment, verify
+new exact R6 II catalog entry stays without `fieldProven`; the combined
+entry remains for saved records but is hidden from new selection. After deployment, verify
 with an object photo: a new photo arrives, power
 on resumes transfers without re-creating
 credentials. Firmware-specific failures require investigation rather than
 unverified menu or protocol guesses.
+
+2026-11-05: the complete C012-sourced setup sequence has an exact R6 II entry
+and nine guided tasks, plus reported-error recovery. Source checked 2026-11-05
+(verify after: 2027-02). The recent-receipt/online/waiting/unavailable fix from
+`2c40c15` is included in SDK PR 21. Release evidence: [[log/2026-11-05-r6iii-live-setup]].
