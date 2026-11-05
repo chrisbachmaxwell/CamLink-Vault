@@ -28,7 +28,12 @@ from Canon's manual. A reply would not prove FTP credentials, automatic transfer
 or cloud photo completion. No reply is ambiguous (sleep/off/filtering), and a
 hosted relay cannot directly ping a camera's private LAN address across ordinary
 NAT. See [[camera-presence]] and [[macos-networking-traps]]. No ping feature was
-added; do not claim Canon guarantees it. (Verify after: 2026-12.)
+added; do not claim Canon guarantees it. A targeted Canon-documentation search
+on 2026-11-04 still did not establish R6 II ping support. This is uncertainty,
+not evidence that Canon blocks ping. Chris was asked for the camera's own IP
+under Confirm Wi-Fi settings so a bounded hardware test can resolve it; do
+not substitute the FTP server address or assume a previous LAN address.
+See [[log/2026-11-04-canon-ping-clarification]]. (Verify after: 2026-12.)
 
 Earlier SDK PR 20 (`d050ea6`) added automatic-transfer help and exposed current
 relay sign-in separately from photo receipt; see [[camera-presence]]. The

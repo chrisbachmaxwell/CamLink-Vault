@@ -20,6 +20,10 @@ manual-sourced Power saving setting. All six gates pass (488 tests, one skip).
 SDK feature `2c40c15` is local: git/connector branch writes fail with commit_refs /
 Reference update failed. No SDK PR, merge or release. Published/installed remains 0.20.4.
 See [[log/2026-11-04-camera-between-photos]] for gates and delivery blockers.
+Follow-up: ping support on this exact R6 II remains unverified after a targeted
+Canon documentation search. Await the camera's current Wi-Fi IP for a bounded
+local test; no ping test or implementation is claimed. See
+[[log/2026-11-04-canon-ping-clarification]].
 
 ## 2026-11-04 serving API corrected; registration verified
 The installed Mac is **0.20.4** (plist and native UI). New-patient creation
