@@ -16,6 +16,28 @@ Published desktop **v0.20.7** (2026-11-05, synthetic internal test; installed
 Mac verified at 0.20.7; see [[log/2026-11-05-visit-comparison]]). Code integration branch:
 `main` (GitHub default since 2026-08-28).
 
+## 2026-11-05 desktop receiver feasibility (review only)
+The installed app could host the planned office receiver without separate
+hardware. The legacy plain-FTP adapter exists, but current cloud mode disables
+local capture and the desktop quits when its window closes. Automatic startup,
+background availability and the secured cloud-forwarding receiver remain work
+to implement and test. No application, camera, network or deployment changed.
+See [[log/2026-11-05-desktop-receiver-feasibility]] and [[ftp-push-transfer]].
+
+Follow-up: Chris's foreground patient-selection workflow makes a native iPad
+receiver technically plausible. It is not implemented/released or physically
+validated. iPadOS suspension, local-network access, capture-only awake behavior
+and safe delayed-photo association are explicit implementation concerns. A
+future iPad client could also select visits while cameras upload direct to the
+cloud. See [[log/2026-11-05-ipad-receiver-feasibility]].
+
+Network clarification: a local receiver changes the camera destination to a
+LAN device and may require scoped internal firewall/isolation allowances; no
+office WAN port forwarding is required. Direct cloud ingest remains outbound,
+though FTPS control/passive ports may require outbound approval. This is source
+and documentation review, not a current office firewall audit. See
+[[log/2026-11-05-receiver-network-ports]].
+
 ## 2026-11-05 priority: direct FTPS first, office box later
 Chris explicitly prioritizes direct FTPS now and defers the local receiver box
 for offices with other cameras. Raspberry Pi 5 is a plausible engineering
