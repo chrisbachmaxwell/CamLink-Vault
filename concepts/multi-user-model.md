@@ -7,9 +7,9 @@ logins and access control, without ever mis-filing a photo.
 ## The load-bearing rule (extends the multi-room decision)
 **A login never receives photos — a room does.** Photos file by CAMERA
 identity (FTP login = room) into that room's active visit. Reviewers
-bind to no camera. The mis-filing scenario Chris fears is structurally
-impossible under this rule; the only collision left is two people using
-the SAME room, which the turnover banner already mediates.
+bind to no camera. This routing rule reduces cross-camera mis-filing; it does not guarantee
+that patient selection, provisioning, concurrency or implementation cannot fail.
+The turnover banner mediates competing use of the same camera.
 UI enforcement: an un-pinned device asks ONE question when starting a
 visit — "In which room?" (remembered per device); pinned capture
 stations never see it.
@@ -76,6 +76,8 @@ a rebuild.
 - Home should not jump straight to patient-typing — it leads with the
   camera choice, then the patient.
 - Multi-OFFICE: company → locations; super user sees all; local users
-  see only what they're granted. v1: `locations: []` stored on users,
-  unenforced; real enforcement + cross-location visibility need the
-  BAA cloud ([[roadmap]] FTPS milestone) — local-first stays the rule.
+  see only what they're granted. Historical local v1 stored `locations: []` without enforcement. The current
+  synthetic cloud uses server-side organization/location membership checks;
+  multi-location UI and production practice onboarding remain open. The cloud
+  direction supersedes local-first. See [[hipaa-local-first]] for the
+  2026-11-05 practice isolation requirement and acceptance limits.

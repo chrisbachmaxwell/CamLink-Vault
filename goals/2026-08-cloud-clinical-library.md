@@ -49,10 +49,10 @@ Constraint: [[hipaa-local-first]] · Decision: [[cloud-authoritative-library]]
       Chris supplied the signed-in in-app AWS Console on 2026-09-05; existing
       CloudShell access deployed the synthetic API and immutable ZIP without
       new credentials, IAM/Cognito identities, policies or provider settings.
-- [ ] Use 0.20.6 after the active visit and prove the shared patient workspace on both Macs using
+- [ ] Use 0.20.7 and prove the shared patient workspace on both Macs using
       existing authorized clinical accounts and synthetic records only. Open:
       `open -a "Med Photo"`
-      Use Software Update and expect version 0.20.6; for direct recovery:
+      Use Software Update and expect version 0.20.7; for direct recovery:
       `open "https://med-photo-release-service-production.up.railway.app/v1/bootstrap/darwin-arm64/latest.dmg"`
       Edit one synthetic patient's details on Mac A and verify them on Mac B;
       check visit metadata, append an authored note, and verify the same note
@@ -61,7 +61,7 @@ Constraint: [[hipaa-local-first]] · Decision: [[cloud-authoritative-library]]
       Start a synthetic visit on Mac A; the same patient's record on Mac B
       should say Open visit and open the same visit with unchanged photos and
       details. End it explicitly and verify both Macs reconcile the state.
-      The installed bundle and native UI now report 0.20.5 on this Mac.
+      The installed bundle is now verified at 0.20.7 on this Mac.
       Actual synthetic registration passed after correcting the serving v2 API.
       The second Mac and shared workflow remain unverified. See
       [[log/2026-11-04-serving-api-target-repair]].
@@ -72,6 +72,9 @@ library purge, or provider agreement change unless Chris explicitly authorizes
 that exact gate. Two no-progress cycles → record the blocker here.
 
 ## Iteration log
+- 2026-11-05 — Security readiness review: Chris requires strict independent-practice
+  isolation. Source review and 70 API/domain tests passed; production acceptance
+  remains blocked by the gates in [[hipaa-local-first]]. No deployment or PHI use.
 - 2026-11-05 — Comparison transient false-empty report recovered in the field.
   0.20.7 error/retry, ordering and two-sided gallery passed six gates and CI;
   SDK PR 23 merged as `2e536da`. Published manifest/ZIP/DMG verified.
