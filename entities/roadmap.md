@@ -4,6 +4,16 @@ Rewritten 2026-08-27 after the cloud-authoritative decision. Ordered by Chris's
 priorities. Governing boundaries: [[hipaa-local-first]] and
 [[cloud-authoritative-library]].
 
+## 2026-11-05 desktop receiver alternative (feasibility, not a priority change)
+When the office-receiver route is resumed, consider an opt-in receiver bundled
+with the desktop app before requiring a hardware box. Plan explicit computer
+enrollment, stable camera destination, login/background lifecycle, awake-state
+availability, LAN checks, encrypted bounded queue and scoped HTTPS forwarding.
+One designated receiver can serve several cameras while other computers view
+the shared library. Automatic cross-computer failover is separate work.
+Direct FTPS remains the recorded first priority. See [[ftp-push-transfer]] and
+[[log/2026-11-05-desktop-receiver-feasibility]].
+
 ## 2026-11-05 priority: direct FTPS first, office box later
 Chris explicitly prioritizes direct FTPS now and defers the local receiver box
 for offices with other cameras. Raspberry Pi 5 is a plausible engineering

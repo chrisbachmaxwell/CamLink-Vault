@@ -44,10 +44,40 @@ third Med Photo adapter. (verify after: 2027-02)
   See [[hipaa-local-first]] and SDK docs/CAMERA-TRANSFER-SECURITY.md.
 - Same LAN realities: router client isolation blocks camera→server too.
 
-## Proposed shape (roadmap candidate: Phase D2, after USB tether or even
-## before it — discuss with Chris)
-`FtpPushAdapter` in packages/adapter-ftp-push: embedded FTPS server;
-authenticated upload → photoCaptured event → existing session pipeline
-untouched. discover() = "listening"; triggerCapture absent (degraded-mode
-UI already handles that). Wizard tile: "Pro camera (auto-send)". Cert
-suite must pass. Simulator: scripted FTP client pushing fixtures.
+## Implemented local component and desktop receiver feasibility — 2026-11-05
+
+`FtpPushAdapter` in packages/adapter-ftp-push already embeds a **plain FTP**
+server, not an implemented FTPS server. The legacy local clinic mode can start
+it from saved setup and serve multiple camera accounts. This component is not
+the proposed production receiver. SDK main `6eb0552`,
+apps/clinic/src/server.ts, explicitly disables legacy local capture startup
+and setup endpoints in the downloaded app's cloud mode. The desktop shell
+currently quits on window close and stops its clinic child; it has no login
+startup or sleep-management implementation in apps/desktop/src/main.mjs.
+
+Chris asked whether the installed app could itself supply an office receiver.
+Yes, as a future engineering option: enroll a designated computer, start a
+background receiving service, accept approved cameras on the permitted LAN,
+then forward through authenticated HTTPS into the cloud-authoritative library.
+A separate hardware box is not intrinsically required. Multiple computers may
+view the library; each camera still needs an explicit receiver destination.
+Starting another computer does not automatically retarget the camera or provide
+failover. Stable addressing and scoped camera/device credentials are required.
+
+Implementation needs a deliberate login/background-service lifecycle, clear
+receiver status, restart recovery, local-network/firewall checks, an encrypted
+bounded queue with confirmed-cloud-receipt handling, and server-enforced
+practice/location/camera routing. A locked screen can coexist with a background
+service; a sleeping/off computer cannot receive. Login startup is different
+from a system service available before login. Client isolation can prevent
+camera-to-computer traffic even when both use the same Wi-Fi.
+
+Electron documents login services and preventing app suspension while allowing
+the display to turn off. These are platform capabilities, not implemented Med
+Photo features or hardware proof. Sources checked 2026-11-05 (verify after:
+2026-12): https://www.electronjs.org/docs/latest/api/app#appsetloginitemsettingssettings-macos-windows
+and https://www.electronjs.org/docs/latest/api/power-save-blocker.
+Security acceptance stays in SDK docs/CAMERA-TRANSFER-SECURITY.md and
+[[hipaa-local-first]]. This feasibility discussion does not supersede the
+existing direct-FTPS-first priority or authorize installation/deployment.
+See [[log/2026-11-05-desktop-receiver-feasibility]].
