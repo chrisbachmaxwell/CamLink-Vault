@@ -4,6 +4,16 @@ Rewritten 2026-08-27 after the cloud-authoritative decision. Ordered by Chris's
 priorities. Governing boundaries: [[hipaa-local-first]] and
 [[cloud-authoritative-library]].
 
+## 2026-11-05 Canon FTPS foundation and local receiver direction
+Chris authorized starting security preparation without production AWS setup.
+Nine Canon still-camera models have source-backed FTPS capability records;
+actual Med Photo FTPS remains unvalidated. Local FTP is not automatically a
+HIPAA violation; a secure-network checkbox cannot establish safety. Design
+specifies encrypted direct transfer or a reviewed local receiver with HTTPS
+forwarding, enforced scope and revocation. Production routes remain disabled;
+no AWS/provider configuration or real PHI use authorized. Validation/integration
+status: [[log/2026-11-05-canon-ftps-foundation]].
+
 ## 2026-11-05 security readiness review
 Chris reaffirmed independent-practice isolation as a non-negotiable product
 requirement. Read-only source review and 70 passing API/domain tests confirm
