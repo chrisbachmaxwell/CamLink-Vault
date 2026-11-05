@@ -4,6 +4,16 @@ Rewritten 2026-08-27 after the cloud-authoritative decision. Ordered by Chris's
 priorities. Governing boundaries: [[hipaa-local-first]] and
 [[cloud-authoritative-library]].
 
+## 2026-11-05 security readiness review
+Chris reaffirmed independent-practice isolation as a non-negotiable product
+requirement. Read-only source review and 70 passing API/domain tests confirm
+implemented scope/role checks, not production security certification. Current
+camera ingress is synthetic-only plain FTP; AWS BAA/eligible-service evidence,
+production FTPS, stronger authentication, live two-practice adversarial proof,
+independent security review and recovery/audit/revocation drills remain gates.
+No real PHI is authorized. See [[hipaa-local-first]] and
+[[log/2026-11-05-security-readiness-review]].
+
 ## 2026-11-05 visit comparison recovery and gallery follow-up
 Chris reported comparison incorrectly said visits had no photos, then confirmed
 it was working again and requested a gallery view. The installed patient page
@@ -37,8 +47,8 @@ Package startup and exact merged-tree equivalence pass. Release-service
 deployment `8b26598f-3228-4140-b3e4-b234333364ca` is SUCCESS; public Ed25519
 signature and complete ZIP/no-store DMG bytes verify as **0.20.6**.
 
-The installed Mac remains **0.20.5**, verified by plist/native UI. Installation
-is deferred while its visit is active; no visit was ended, camera credentials
+At the 0.20.6 release checkpoint the Mac remained **0.20.5**. Installation
+was deferred while its visit was active (superseded by verified 0.20.7 above); no visit was ended, camera credentials
 changed, or bundle forcibly replaced. No clinical API or relay deployment.
 See [[log/2026-11-05-camera-login-recovery]].
 
