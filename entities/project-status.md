@@ -14,7 +14,8 @@ HIPAA violation; a secure-network checkbox cannot establish safety. Design
 specifies encrypted direct transfer or a reviewed local receiver with HTTPS
 forwarding, enforced scope and revocation. Production routes remain disabled;
 no AWS/provider configuration or real PHI use authorized. Validation/integration
-status: [[log/2026-11-05-canon-ftps-foundation]].
+status: SDK PR 24 merged as `6eb0552` after all six gates and Node 20/22 CI.
+Installed release remains 0.20.7; see [[log/2026-11-05-canon-ftps-foundation]].
 
 ## 2026-11-05 security readiness review
 Chris reaffirmed independent-practice isolation as a non-negotiable product

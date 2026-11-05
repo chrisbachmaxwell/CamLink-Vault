@@ -31,6 +31,7 @@ Validation: build, 497 workspace tests (one existing skip), PTP/FTP/multi-room
 smokes and UI gate pass. The first browser run caught the new module missing
 from both server static registrations; fixed and reran all six gates.
 SDK feature `b9dab2e570b428b01986a49b867262a0cd75bdbb` pushed; PR 24
-awaits Node 20/22 CI and integration. No release/deployment; installed 0.20.7
+passed Node 20/22 CI and merged to main
+`6eb0552b23a27d957cf5792741215a6d0c5e8d64`. No release/deployment; installed 0.20.7
 remains unchanged. This is an initial foundation,
 not completion of the security roadmap or a deployable production receiver.
