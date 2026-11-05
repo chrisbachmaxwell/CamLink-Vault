@@ -4,6 +4,12 @@ Rewritten 2026-08-27 after the cloud-authoritative decision. Ordered by Chris's
 priorities. Governing boundaries: [[hipaa-local-first]] and
 [[cloud-authoritative-library]].
 
+## 2026-11-05 receiver/performance clarification
+The office receiver remains planned; current synthetic ingress uses the hosted
+relay. FTPS performance on the actual Canon bodies is unmeasured. Add matched
+first-shot, steady, idle-reconnect and burst/time-to-display benchmarks before
+promising latency. See [[log/2026-11-05-canon-ftps-foundation]].
+
 ## 2026-11-05 Canon FTPS foundation and local receiver direction
 Chris authorized starting security preparation without production AWS setup.
 Nine Canon still-camera models have source-backed FTPS capability records;

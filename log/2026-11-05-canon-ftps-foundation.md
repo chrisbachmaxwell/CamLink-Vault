@@ -35,3 +35,16 @@ passed Node 20/22 CI and merged to main
 `6eb0552b23a27d957cf5792741215a6d0c5e8d64`. No release/deployment; installed 0.20.7
 remains unchanged. This is an initial foundation,
 not completion of the security roadmap or a deployable production receiver.
+
+## Receiver and performance clarification — 2026-11-05
+Current documented synthetic path is camera → office router → internet plain-FTP
+Railway relay → authenticated AWS ingest. A controlled office receiver is a
+planned local bridge, not the current route: camera → restricted LAN receiver
+→ HTTPS cloud upload; it must stay running, protect queued copies, and retain
+practice/camera scope. Direct FTPS-capable cameras need not use this local bridge.
+FTPS adds TLS connection negotiation and encryption work; no measured Canon
+FTP-versus-FTPS latency exists yet. Do not promise a percentage or imperceptible
+slowdown. Plan same-camera/network/JPEG comparisons for first shot, subsequent
+shots, idle reconnect, bursts and time-to-display. Source: AWS Transfer Family
+FTPS guide https://docs.aws.amazon.com/transfer/latest/userguide/create-server-ftps.html
+(checked 2026-11-05; verify after 2026-12). No code or deployment change.

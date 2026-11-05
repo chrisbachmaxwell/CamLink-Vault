@@ -6,6 +6,12 @@ Published desktop **v0.20.7** (2026-11-05, synthetic internal test; installed
 Mac verified at 0.20.7; see [[log/2026-11-05-visit-comparison]]). Code integration branch:
 `main` (GitHub default since 2026-08-28).
 
+## 2026-11-05 receiver/performance clarification
+The office receiver remains planned; current synthetic ingress uses the hosted
+relay. FTPS performance on the actual Canon bodies is unmeasured. Add matched
+first-shot, steady, idle-reconnect and burst/time-to-display benchmarks before
+promising latency. See [[log/2026-11-05-canon-ftps-foundation]].
+
 ## 2026-11-05 Canon FTPS foundation and local receiver direction
 Chris authorized starting security preparation without production AWS setup.
 Nine Canon still-camera models have source-backed FTPS capability records;
