@@ -52,9 +52,9 @@ complete immutable ZIP and no-store DMG match the tested package. SDK PR 23
 merged as `2e536da` after all six gates and Node 20/22 CI. The merged source
 tree matches the package receipt. Fresh-profile packaged startup is verified.
 
-The installed Mac remains **0.20.5**, verified by native UI. The remote version
-button did not activate; Chris was asked to open the updater. Installation is
-not yet verified. No forced replacement, ended visit or camera login change.
+Chris completed the update. Installed Mac plist verifies **0.20.7**; runtime
+app.js, index.html and styles.css match the tested release byte for byte.
+No forced replacement, ended visit or camera login change by the agent.
 See [[log/2026-11-05-visit-comparison]]. Prior 0.20.6 saved-login recovery is
 recorded in [[log/2026-11-05-camera-login-recovery]].
 

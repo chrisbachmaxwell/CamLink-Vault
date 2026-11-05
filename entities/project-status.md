@@ -3,7 +3,7 @@
 Rewritten 2026-08-22 after the 2026-08-21/22 field marathon (see
 [[log/2026-08-21-med-photo-field-day]]; July history in earlier logs).
 Published desktop **v0.20.7** (2026-11-05, synthetic internal test; installed
-Mac remains 0.20.5 pending updater interaction; see [[log/2026-11-05-visit-comparison]]). Code integration branch:
+Mac verified at 0.20.7; see [[log/2026-11-05-visit-comparison]]). Code integration branch:
 `main` (GitHub default since 2026-08-28).
 
 ## 2026-11-05 visit comparison recovery and gallery follow-up
@@ -19,7 +19,8 @@ by side. The expanded comparison retains independent visit/photo controls,
 keyboard focus and Back/Esc selection preservation. No live records/photos changed.
 All six gates and Node 20/22 CI passed; SDK PR 23 merged as `2e536da`.
 Release 0.20.7 is published and publicly verified (manifest signature, ZIP,
-DMG and health). Installed Mac remains 0.20.5; updater opening awaits Chris.
+DMG and health). Installed Mac verified at 0.20.7 after Chris updated; app.js, index.html and
+styles.css match the tested release byte for byte.
 See [[log/2026-11-05-visit-comparison]].
 
 ## 2026-11-05 saved-camera recovery 0.20.6 published; R6 III field success
