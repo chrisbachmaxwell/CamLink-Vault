@@ -46,24 +46,22 @@ before the no-developer-tools updater can take over.
 Operator procedure and exact gates: repo `docs/RELEASE-PUBLISHING.md`.
 
 ## Current published evidence — 2026-11-05
-Arm64 **0.20.6** is live through Railway deployment
-`8b26598f-3228-4140-b3e4-b234333364ca` (SUCCESS). Public Ed25519 manifest,
-complete immutable ZIP and no-store DMG match the tested package. SDK PR 22
-merged as `0b89555` after all six gates and Node 20/22 CI. The merged source
+Arm64 **0.20.7** is live through Railway deployment
+`59398372-2236-45b2-995d-06da46dee591` (SUCCESS). Public Ed25519 manifest,
+complete immutable ZIP and no-store DMG match the tested package. SDK PR 23
+merged as `2e536da` after all six gates and Node 20/22 CI. The merged source
 tree matches the package receipt. Fresh-profile packaged startup is verified.
 
-The installed Mac remains **0.20.5**, verified by plist and native UI. Chris
-redid R6 III setup successfully using that walkthrough, and the app shows four
-photos in the camera’s active visit. Installation is deferred while the visit
-is active: no forced replacement or ended visit. No camera login was rotated
-by the agent. The 0.20.6 follow-up improves saved-login recovery; no physical
-reconfiguration is needed for the working camera.
-See [[log/2026-11-05-camera-login-recovery]].
+The installed Mac remains **0.20.5**, verified by native UI. The remote version
+button did not activate; Chris was asked to open the updater. Installation is
+not yet verified. No forced replacement, ended visit or camera login change.
+See [[log/2026-11-05-visit-comparison]]. Prior 0.20.6 saved-login recovery is
+recorded in [[log/2026-11-05-camera-login-recovery]].
 
-Previous history: `/Users/chrismaxwell/MedPhoto-Package-Audit/0.20.5-release`.
-New history: `/Users/chrismaxwell/MedPhoto-Package-Audit/0.20.6-release`.
+Previous history: `/Users/chrismaxwell/MedPhoto-Package-Audit/0.20.6-release`.
+New history: `/Users/chrismaxwell/MedPhoto-Package-Audit/0.20.7-release`.
 These roots contain only `manifests/` and `packages/`. DMG and receipts belong
-in `/Users/chrismaxwell/MedPhoto-Clinical-Stage-0.20.6`. The Railway bundle
+in `/Users/chrismaxwell/MedPhoto-Clinical-Stage-0.20.7`. The Railway bundle
 carries only the current bootstrap DMG; signed ZIP history retains three
 previous releases. Only the release service was deployed; no clinical API,
 relay, credentials, policies or provider settings changed. (Verify after: 2026-12.)

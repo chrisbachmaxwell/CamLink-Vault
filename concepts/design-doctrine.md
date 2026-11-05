@@ -82,3 +82,11 @@ automatically observed evidence and explain that hiding a password does not
 expire it. Preserve the camera and its photos; only explicit confirmed login
 replacement invalidates its old login. Then guide editing the existing camera
 profile. See [[log/2026-11-05-camera-login-recovery]].
+
+## Comparison gallery — 2026-11-05
+Chris wants both visits large and side by side, not a single-photo gallery
+opened from comparison. Expand the existing pair while preserving independent
+selectors and photo positions; Back/Esc returns to the same comparison. Keep
+focus in the expanded view. Failed photo loads must never claim an empty visit:
+show loading, genuine empty and retryable failure separately. See
+[[log/2026-11-05-visit-comparison]].

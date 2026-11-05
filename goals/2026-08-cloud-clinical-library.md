@@ -72,6 +72,12 @@ library purge, or provider agreement change unless Chris explicitly authorizes
 that exact gate. Two no-progress cycles → record the blocker here.
 
 ## Iteration log
+- 2026-11-05 — Comparison transient false-empty report recovered in the field.
+  0.20.7 error/retry, ordering and two-sided gallery passed six gates and CI;
+  SDK PR 23 merged as `2e536da`. Published manifest/ZIP/DMG verified.
+  Installed Mac remains 0.20.5; user asked to open updater after remote click failed.
+  Exact live failure not traced; synthetic error-state reproduction confirmed.
+  See [[log/2026-11-05-visit-comparison]].
 - 2026-11-05 — Chris redid the R6 III setup in 0.20.5 and reports the walkthrough
   worked perfectly; native UI shows four photos in its active visit. Preserve
   that working setup. Saved-login recovery follow-up passes six local gates

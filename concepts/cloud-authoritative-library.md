@@ -69,3 +69,10 @@ installed shell can check and apply a verified update before sign-in, so
 Cognito or clinical-API availability cannot strand a computer on an old build.
 
 Repo specification: `docs/CLOUD-CLINICAL-DATA-PLANE.md`.
+
+## Visit comparison reliability — 2026-11-05
+Cloud visit enumeration is not guaranteed newest-first. The app sorts by
+startedAt and defaults comparison to the newest populated visits. A photo-list
+error is not an empty visit; preserve authorization failures and offer retry
+for unavailable lists/previews. Release and verification state:
+[[log/2026-11-05-visit-comparison]].
