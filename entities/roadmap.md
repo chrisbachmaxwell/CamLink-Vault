@@ -33,6 +33,12 @@ is feasibility research, not authorization for an iPad implementation or a
 change to the direct-FTPS-first priority. See
 [[log/2026-11-05-ipad-receiver-feasibility]].
 
+Receiver onboarding must distinguish local-network permission, host firewall,
+internal network isolation/ACLs, and outbound internet policy. Publish exact
+control/passive port requirements after receiver design; never ask clinics to
+enable WAN port forwarding. Direct FTPS also needs an outbound-path check rather
+than a zero-IT promise. See [[log/2026-11-05-receiver-network-ports]].
+
 ## 2026-11-05 priority: direct FTPS first, office box later
 Chris explicitly prioritizes direct FTPS now and defers the local receiver box
 for offices with other cameras. Raspberry Pi 5 is a plausible engineering

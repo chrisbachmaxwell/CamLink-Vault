@@ -125,3 +125,36 @@ Official sources checked 2026-11-05 (verify after: 2026-12):
 - https://developer.apple.com/documentation/technotes/tn3179-understanding-local-network-privacy
 See [[cloud-authoritative-library]] and
 [[log/2026-11-05-ipad-receiver-feasibility]].
+
+## Local receiver versus internet ports — 2026-11-05
+Current documented synthetic route: camera initiates an outbound internet
+connection to the hosted relay. An app used only to select visits/view photos
+does not change that route. A local receiving app changes the camera's server
+destination to the computer/iPad's LAN address; it then forwards through
+outbound HTTPS (normally TCP 443). Both routes already use network ports.
+Local receiving does not inherently require a different numeric port; the
+destination and permitted network path are what change. Final port assignments
+are receiver configuration, not yet selected for a production local app.
+
+On an ordinary permitted LAN, IT may need no network change. On a restricted
+office network, IT must allow the designated camera network to reach the
+receiver's control/data ports and resolve relevant device isolation or routing
+restrictions. The Mac application firewall and local-network privacy permission
+are separate from network-appliance rules. Same Wi-Fi does not prove local
+reachability. Do not disable security broadly or expose the receiver publicly.
+An on-LAN camera-to-receiver route does not call for WAN port forwarding.
+
+Passive FTP(S) has control and data connections, both initiated by the camera
+in passive mode. Today's synthetic relay multiplexes them onto one public
+endpoint; SDK main `8bdefe1` FTPS instead requires a control port plus a fixed
+passive range (docs/FTPS-SETUP.md). Direct cloud FTPS can therefore still need
+an outbound firewall allowance on restrictive networks. That is distinct from
+opening inbound internet access into the office. No zero-IT guarantee for
+either route. For least device-to-device dependency, keep camera-to-cloud
+FTPS and use the app for patient selection/viewing.
+
+Sources checked 2026-11-05 (verify after: 2026-12): SDK `8bdefe1`
+docs/FTPS-SETUP.md; [[med-photo-relay]]; Apple Mac firewall guidance;
+https://support.apple.com/guide/mac-help/block-connections-to-your-mac-with-a-firewall-mh34041/mac
+and https://documentation.meraki.com/Wireless/Operate_and_Maintain/How_Tos/Firewall_and_Traffic_Shaping/Wireless_Client_Isolation.
+See [[log/2026-11-05-receiver-network-ports]].

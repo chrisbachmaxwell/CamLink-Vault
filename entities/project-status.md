@@ -31,6 +31,13 @@ and safe delayed-photo association are explicit implementation concerns. A
 future iPad client could also select visits while cameras upload direct to the
 cloud. See [[log/2026-11-05-ipad-receiver-feasibility]].
 
+Network clarification: a local receiver changes the camera destination to a
+LAN device and may require scoped internal firewall/isolation allowances; no
+office WAN port forwarding is required. Direct cloud ingest remains outbound,
+though FTPS control/passive ports may require outbound approval. This is source
+and documentation review, not a current office firewall audit. See
+[[log/2026-11-05-receiver-network-ports]].
+
 ## 2026-11-05 priority: direct FTPS first, office box later
 Chris explicitly prioritizes direct FTPS now and defers the local receiver box
 for offices with other cameras. Raspberry Pi 5 is a plausible engineering
