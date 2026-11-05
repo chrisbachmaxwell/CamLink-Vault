@@ -60,3 +60,9 @@ remote click did not activate the updater. No forced replacement or ended visit.
 Human check: open Compare visits, choose Full screen or either photo, browse
 each side independently and return with Back/Esc. Updater opening was requested
 from Chris because remote version-button activation did not work.
+
+## Installed verification follow-up — 2026-11-05
+Chris reported completing the update. Read-only verification of /Applications/Med Photo.app
+confirms CFBundleShortVersionString 0.20.7. Installed runtime app.js, index.html
+and styles.css exactly match the tested SDK release source. No new code change
+or clinical data access; existing regression evidence remains applicable.
