@@ -32,7 +32,7 @@ dermatologists).
 ## The product
 - [[camlink-sdk]] — architecture, repo layout (repo rename pending)
 - [[clinic-app]] — the reference app clinics actually use
-- [[project-status]] — WHAT IS DONE (published and installed v0.20.5, 2026-11-05)
+- [[project-status]] — WHAT IS DONE (published v0.20.6; installed v0.20.5 during active visit, 2026-11-05)
 - [[roadmap]] — WHAT IS LEFT, in priority order
 - [[decisions]] — dated log of every decision that shaped the build
 - [[med-photo-relay]] — the live synthetic-only hosted relay (Railway)

@@ -52,7 +52,9 @@ saved profile IDs. In-page progress never persists passwords in browser storage.
 - Exact Canon FTP guides: R6 III (C022), R6 II (C012), R5 II (C017),
   original R6 (C004), original R5 (C003). Their catalog entries link the
   manufacturer's manual, checked 2026-11-05. Manual accuracy does not close
-  hardware acceptance. R5 II transfer failure remains open.
+  hardware acceptance. Chris confirmed the R6 III 0.20.5 walkthrough worked
+  on 2026-11-05, and the native app subsequently showed four photos in its
+  active visit. R5 II transfer failure remains open.
 - Legacy combined R6 / R6 II remains resolvable for saved records, hidden
   from new selection; no migration or credential rotation is performed.
 - R5 / R5 C, Canon other, Sony Alpha, Nikon Z and Fujifilm X/GFX remain
@@ -65,3 +67,8 @@ Reported Canon Err45 routes to login and Err41 to server settings. The user
 selects the observed error; the app does not infer it from quiet status.
 Only a new completed photo from the exact selected camera passes the test.
 Historical `fieldProven` flags do not prove the new guide's end-to-end usability.
+
+2026-11-05 follow-up: `savedConnectionAdvice` carries the manufacturer-sourced
+R6 III saved-profile edit route. Explicit login replacement uses that route
+and retains the camera ID; general families use their manual without invented
+menu labels. See [[log/2026-11-05-camera-login-recovery]].

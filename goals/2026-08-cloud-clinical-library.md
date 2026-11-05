@@ -49,10 +49,10 @@ Constraint: [[hipaa-local-first]] · Decision: [[cloud-authoritative-library]]
       Chris supplied the signed-in in-app AWS Console on 2026-09-05; existing
       CloudShell access deployed the synthetic API and immutable ZIP without
       new credentials, IAM/Cognito identities, policies or provider settings.
-- [ ] Use 0.20.5 and prove the shared patient workspace on both Macs using
+- [ ] Use 0.20.6 after the active visit and prove the shared patient workspace on both Macs using
       existing authorized clinical accounts and synthetic records only. Open:
       `open -a "Med Photo"`
-      Use Software Update and expect version 0.20.5; for direct recovery:
+      Use Software Update and expect version 0.20.6; for direct recovery:
       `open "https://med-photo-release-service-production.up.railway.app/v1/bootstrap/darwin-arm64/latest.dmg"`
       Edit one synthetic patient's details on Mac A and verify them on Mac B;
       check visit metadata, append an authored note, and verify the same note
@@ -72,6 +72,14 @@ library purge, or provider agreement change unless Chris explicitly authorizes
 that exact gate. Two no-progress cycles → record the blocker here.
 
 ## Iteration log
+- 2026-11-05 — Chris redid the R6 III setup in 0.20.5 and reports the walkthrough
+  worked perfectly; native UI shows four photos in its active visit. Preserve
+  that working setup. Saved-login recovery follow-up passes six local gates
+  (494 tests plus one skip), Node 20/22 CI and package/startup checks. SDK PR 22
+  (`3a8f535` → `0b89555`) is merged. Public 0.20.6 signature/ZIP/DMG verify;
+  release deployment is SUCCESS. Mac stays 0.20.5 during its active visit;
+  installation deferred, no credential rotation or forced restart.
+  See [[log/2026-11-05-camera-login-recovery]].
 - 2026-11-05 — Chris paused camera work to prioritize the app walkthrough.
   SDK PR 21 (`5d2583f` → main `a78ec71`) adds nine guided tasks, five exact
   Canon manual guides, reported-error recovery and the prior between-photo
