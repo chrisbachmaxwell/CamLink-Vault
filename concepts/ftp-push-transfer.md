@@ -1,5 +1,14 @@
 # FTP push transfer (the PhotoNodes approach) — researched 2026-08-21
 
+## 2026-11-05 opt-in FTPS implementation
+Implemented explicit AUTH TLS with encrypted login/data, per-control TLS session
+binding, credential revocation, and relay configuration. Canon FTPS profiles get
+certificate-import and trust-error guidance; existing FTP instructions remain.
+All physical Canon FTPS interoperability and endpoint/certificate provisioning
+remain pending. No live relay change, AWS production setup, or desktop release.
+See [[log/2026-11-05-canon-ftps-implementation]].
+
+
 Chris's lead: PhotoNodes (studio-management software by 40 North Labs)
 connects to cameras by running an FTP SERVER; cameras with built-in FTP
 upload push each shot to it as taken. Verified below. Candidate for a

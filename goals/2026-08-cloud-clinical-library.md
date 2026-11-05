@@ -72,6 +72,9 @@ library purge, or provider agreement change unless Chris explicitly authorizes
 that exact gate. Two no-progress cycles → record the blocker here.
 
 ## Iteration log
+- 2026-11-05 — Added opt-in explicit FTPS software and protocol-tied Canon
+  instructions while preserving FTP. Synthetic endpoint/certificate and actual
+  Canon session-resumption/trust/transfer proof remain open; no deployment.
 - 2026-11-05 — Chris prioritizes direct FTPS and defers the office receiver box.
   Raspberry Pi 5 is a candidate only, untested; no production AWS setup yet.
 - 2026-11-05 — Started Canon FTPS capability foundation and reviewed-LAN receiver
