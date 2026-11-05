@@ -4,6 +4,21 @@ Rewritten 2026-08-27 after the cloud-authoritative decision. Ordered by Chris's
 priorities. Governing boundaries: [[hipaa-local-first]] and
 [[cloud-authoritative-library]].
 
+## 2026-11-04 between-photo status tested; release blocked
+Chris reports that his R6 Mark II delivers photos, but 0.20.4 shows Connected
+for only 5–7 seconds after each shot. This confirms user-observed transfer,
+not continuous connectivity or power-cycle/two-Mac acceptance. Canon documents
+FTP power saving closing Wi-Fi between uploads; the selected setting on this
+body remains unverified. A local ping is possible in principle, but this body's
+reply behavior is untested and ping would not prove photo delivery.
+
+An unreleased local UI candidate separates Photo received, Camera online,
+neutral waiting and unavailable checks, adds delayed test guidance and the
+manual-sourced Power saving setting. All six gates pass (488 tests, one skip).
+SDK feature `2c40c15` is local: git/connector branch writes fail with commit_refs /
+Reference update failed. No SDK PR, merge or release. Published/installed remains 0.20.4.
+See [[log/2026-11-04-camera-between-photos]] for gates and delivery blockers.
+
 ## 2026-11-04 serving API corrected; registration verified
 The installed Mac is **0.20.4** (plist and native UI). New-patient creation
 reproduced `request contains an unknown field`. API Gateway inspection found
@@ -14,8 +29,8 @@ The already-tested 0.20.4 API artifact is now deployed to the correct v2 stack
 with a reviewed code-only change set, no replacements, and matching Lambda
 hash. Retrying the preserved synthetic form in the installed app succeeds.
 The camera screen now reports current Not connected plus the last received
-photo, matching the relay reading. Live physical connection/transfer after the
-correction remains to be verified. See [[log/2026-11-04-serving-api-target-repair]].
+photo, matching the relay reading. Chris later confirmed photo arrival and
+brief connections between shots; power-cycle/two-Mac acceptance remains open. See [[log/2026-11-04-serving-api-target-repair]].
 
 ## 2026-11-04 live camera status released
 SDK PR 20 (`d050ea6` → main `f13b35c`) released **0.20.4** with current per-camera cloud sign-in
@@ -27,7 +42,7 @@ The initial API update reached the sibling stack, not the app API; corrected
 in the serving-target repair above. Railway deployment
 `96cac965-0473-4fa1-a38a-82bf00858deb` is SUCCESS. Public manifest signature and
 complete ZIP/no-store DMG bytes match the tested artifacts. Installed Mac
-is now verified as 0.20.4. Physical camera behavior after correction is unverified.
+is now verified as 0.20.4. Chris subsequently reported photo arrival with 5–7-second connections; see the correction above.
 See [[log/2026-11-04-live-camera-status]].
 
 ## 2026-11-04 verification checkpoint

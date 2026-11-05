@@ -29,7 +29,11 @@ third Med Photo adapter. (verify after: 2027-02)
 ## Why it can't replace PTP/IP
 - Entry bodies (R10, R50…) have no FTP — budget clinic setups still need
   the EOS Utility path.
-- One-way: no remote shutter, no status, no thumbnails on demand.
+- One-way: no remote shutter, camera-side unsent-photo count, or thumbnails on
+  demand. The receiver can observe authenticated connections and received
+  transfers, but normal power-saving disconnects are not failures. Canon's
+  R6 II manual explicitly documents this; see [[canon-eos-r6-mark-ii]] and
+  [[camera-presence]] (2026-11-04 field correction).
 - Camera-side setup = typing server IP/user/password into camera menus
   (clunky for staff; mitigate with an in-app setup card showing exactly
   what to type; some bodies import saved comm profiles).

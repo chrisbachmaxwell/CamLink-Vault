@@ -7,15 +7,14 @@ on without evidence.**
 
 ## Evidence chain (shipped v0.9.0–v0.9.2)
 - `CameraFtpServer.stats.perUser[login]`: live authed control-connection
-  count (cameras hold one open between shots, NOOP keepalives), plus
+  count (some cameras keep it open; FTP power saving may close it), plus
   lastSeenAt (any authed command) and lastUploadAt.
 - Relay: `/v1/health` carries `camera:{connected,lastSeenAt}`; every
   `/v1/next` answer carries `X-Camera-Connected` / `X-Camera-Last-Seen`
   headers; `CloudRelayAdapter` records them into its stats.
 - Clinic `/api/state`: `cameraPresence` per room + top-level.
 
-## Pill states (per-room truth; also feeds room chips, camera-setup page,
-## home note)
+## Historical local/relay pill states (not the cloud status contract)
 - GREEN: live link, or activity <60 s ("Camera active 40s ago").
 - AMBER wait: never seen → "Waiting for the camera — take one photo to
   check in" (many bodies only dial when they SEND — field lesson
@@ -42,7 +41,7 @@ test photo, and accepts only newer evidence for the exact camera. It then shows
 the received image and changes the label to **Camera verified**. Existing
 profiles without evidence remain waiting until their next upload.
 
-## Current cloud connection (0.20.4 released, 2026-11-04)
+## Released cloud connection (0.20.4, 2026-11-04)
 Chris clarified that setup should yield a dependable Connected / Not connected
 indicator and automatic arrival when shooting, without repeated test steps.
 The old cloud projection hard-coded `cameraConnected`/`live` false while some
@@ -66,7 +65,33 @@ Required local gates pass, including multi-camera isolation, status expiry,
 outage/recovery and disconnect after receipt. The signed 0.20.4 desktop is published and installed. The initial backend
 update targeted the wrong sibling stack; the actual serving v2 API was
 corrected later on 2026-11-04. The native camera screen now shows Not connected
-and last receipt, matching relay evidence; physical R6 Mark II power-cycle/
-automatic-transfer proof after the correction remains open. See
+and last receipt, matching relay evidence. Chris then reported successful
+photos and connection lasting only 5–7 seconds per photo. Physical power-cycle
+and two-camera/two-Mac proof remain open. See
 [[log/2026-11-04-serving-api-target-repair]].
 See [[log/2026-11-04-live-camera-status]]. (Verify after: 2026-12.)
+
+## Correction: normal idle must not look broken (2026-11-04, unreleased)
+The field report above exposes a UX error: a truthful closed FTP socket does
+not imply failed photography. Canon documents intentional FTP/Wi-Fi power
+saving between photos; see [[canon-eos-r6-mark-ii]].
+
+The local candidate shows **Photo received** for 60 seconds after verified
+completion, even if FTP closes. After that, a live sign-in shows **Camera
+online**; a closed connection shows neutral **Waiting for next photo** (or
+**Waiting for first photo**). Last receipt time stays separate. Unknown/expired
+service evidence still shows amber **Status unavailable**, and incomplete setup
+stays explicit. Nothing claims that a camera with only old receipt evidence
+remains on. Camera online alone is not a successful photo test.
+
+**Check camera** still requires a newer completed photo from that exact camera.
+After 30 seconds without proof it explains where to check a camera-side error
+**if a photo was taken**, while continuing to watch. An unsent shutter event
+cannot be observed through FTP; elapsed idle time is not proof of a fault.
+
+Ping is a proposed local reachability diagnostic only, not implemented or
+R6 II hardware-verified. Same-network access, the camera's current address and
+an awake/responding radio would be needed. A successful ping cannot verify the
+photo path (and macOS can allow ping while blocking app LAN traffic). Do not
+attempt a second Canon control session as a heartbeat for a working FTP path.
+Release/validation evidence: [[log/2026-11-04-camera-between-photos]].

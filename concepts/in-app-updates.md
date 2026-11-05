@@ -51,12 +51,12 @@ Arm64 0.20.4 is live through Railway deployment
 complete immutable ZIP and no-store DMG match the prepared artifacts. SDK PR
 20 merged (`f13b35c`) after Node 20/22 CI and required local gates. Exact
 packaged startup with a fresh profile and strict signature verification pass.
-The camera-status API is also deployed, with matching digest and healthy
-synthetic endpoint. See [[log/2026-11-04-live-camera-status]]. The last installed
-plist check remains 0.20.2. Native computer control can read this running app
-but cannot activate its update button (AX actions have no effect; coordinate
-input reports no available windows). Chris has been asked to click the version
-badge and Update ready; do not equate published availability with installation.
+The actual serving v2 API was subsequently corrected with the matching digest;
+see [[log/2026-11-04-serving-api-target-repair]]. The installed bundle and native
+UI are verified as **0.20.4**, and synthetic patient creation succeeded there.
+Native AX controls sometimes need the window's Raise action before activation.
+The new between-photo status candidate remains unreleased; see
+[[log/2026-11-04-camera-between-photos]].
 
 For 0.20.4 preparation, prior history was
 `/Users/chrismaxwell/MedPhoto-Package-Audit/0.20.3-release`; the new history is

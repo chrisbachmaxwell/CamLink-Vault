@@ -65,6 +65,13 @@ library purge, or provider agreement change unless Chris explicitly authorizes
 that exact gate. Two no-progress cycles → record the blocker here.
 
 ## Iteration log
+- 2026-11-04 — Chris reports working R6 II photo transfer but a 5–7-second
+  Connected indicator per photo. Canon documents power-saving disconnects;
+  prepared a local delivery/idle status correction and delayed-check guidance.
+  Ping remains an unverified diagnostic proposal, not delivery proof. All six
+  local gates pass; SDK feature `2c40c15` cannot be pushed because git and the
+  connector reject branch creation (commit_refs / Reference update failed).
+  No PR/merge/release; installed app remains 0.20.4. Evidence: [[log/2026-11-04-camera-between-photos]].
 - 2026-11-04 — Reproduced native patient registration schema error, traced the
   installed API origin to the v2 function still running August code, and applied
   the exact tested 0.20.4 artifact to that serving stack. Retry succeeded in the
