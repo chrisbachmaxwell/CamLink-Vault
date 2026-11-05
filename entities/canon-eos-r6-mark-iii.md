@@ -27,12 +27,36 @@ is not successful connection proof. Canon's
 defines 45 as FTP login rejection and calls for checking the login and server
 permissions. This may be an existing saved profile; its actual server/login
 have not been compared. Do not conclude that Chris mistyped a password.
-The new app camera profile is created and its server screen is visible;
-physical setup is now paused by Chris while the app walkthrough ships.
-The new camera-side profile and completed test photo remain unverified.
+The initial profile screen was followed by a pause while the walkthrough
+shipped. Chris subsequently redid setup in 0.20.5 and reported it worked
+perfectly on 2026-11-05. The native app subsequently showed four photos in that camera’s active visit.
+This supports delivery; no packet trace or power-cycle test was performed.
+Preserve the working configuration.
 SDK PR 21 adds the full C022-sourced nine-step guide and Err45/Err41 recovery;
 see the linked log for release/installation evidence.
 See [[log/2026-11-05-r6iii-live-setup]].
+
+## Saved-profile login rejection — 2026-11-05
+Chris's next camera photo shows the full Err45 text: Cannot login to FTP
+server; error received from server. This supports server-response/login-
+rejection evidence, not successful previous authentication, password expiry,
+or proof that the selected server/login matches the new app profile.
+Canon C022's FTP guide documents **Transfer images to FTP server → Edit/delete
+device → select the saved connection → FTP server**. End the camera's current
+Wi-Fi connection before editing; keep the saved profile and edit it. This is
+camera-side FTP setup guidance, not a second PTP diagnostic session.
+Sources above rechecked 2026-11-05 (verify after: 2027-02). The new recovery UI
+is published as 0.20.6; see [[log/2026-11-05-camera-login-recovery]].
+
+
+## User-confirmed field success — 2026-11-05
+Chris subsequently reported: “I just added the camera re did the setup and the
+insturctions were incredible! worked perfectly”. This is user-confirmed success
+for the published 0.20.5 R6 III walkthrough after redoing setup. A subsequent read-only native app observation showed the R6 III active visit
+with four photos. The agent did not rotate the working login.
+The exact old-login failure remains unknown; do not label it expired. Preserve
+the now-working camera configuration. Saved-profile recovery remains a useful
+follow-up and does not require another physical setup test from Chris.
 
 ## Quirks (field-verified 2026-07-09)
 - **Emits object-added event 0xc1b6** ("ObjectAddedEx3") — a record absent

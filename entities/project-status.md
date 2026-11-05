@@ -2,9 +2,30 @@
 
 Rewritten 2026-08-22 after the 2026-08-21/22 field marathon (see
 [[log/2026-08-21-med-photo-field-day]]; July history in earlier logs).
-Published desktop **v0.20.5** (2026-11-05, synthetic internal test; installed
-Mac verified 0.20.5; see [[log/2026-11-05-r6iii-live-setup]]). Code integration branch:
+Published desktop **v0.20.6** (2026-11-05, synthetic internal test; installed
+Mac remains 0.20.5 during an active visit; see [[log/2026-11-05-camera-login-recovery]]). Code integration branch:
 `main` (GitHub default since 2026-08-28).
+
+## 2026-11-05 saved-camera recovery 0.20.6 published; R6 III field success
+Chris redid setup with the installed 0.20.5 R6 III walkthrough and reported
+that it worked perfectly. A subsequent native UI observation showed four
+photos in that camera’s active visit. Preserve this working configuration.
+The earlier Err45 established login rejection, not password expiry; its exact
+saved server/login mismatch was not diagnosed.
+
+SDK PR [22](https://github.com/chrisbachmaxwell/CamLink-SDK/pull/22), feature
+`3a8f535` → main `0b89555`, adds direct saved-profile troubleshooting, a
+no-expiry explanation, the Canon saved-connection edit route, and explicit
+same-camera login replacement. Selection/review never rotates credentials.
+All six local gates pass (494 tests plus one skip), as does Node 20/22 CI.
+Package startup and exact merged-tree equivalence pass. Release-service
+deployment `8b26598f-3228-4140-b3e4-b234333364ca` is SUCCESS; public Ed25519
+signature and complete ZIP/no-store DMG bytes verify as **0.20.6**.
+
+The installed Mac remains **0.20.5**, verified by plist/native UI. Installation
+is deferred while its visit is active; no visit was ended, camera credentials
+changed, or bundle forcibly replaced. No clinical API or relay deployment.
+See [[log/2026-11-05-camera-login-recovery]].
 
 ## 2026-11-05 camera walkthrough 0.20.5 published and installed
 Chris paused physical setup to prioritize an app that walks the user through

@@ -30,6 +30,16 @@ docs/CLOUD-RELAY-PLAN.md). (verify after: 2026-11)
   redacted event categories—never filenames, paths, account names, credentials,
   or IP addresses.
 
+## Camera-password lifetime (source checked 2026-11-05)
+Closing/updating the desktop discards the in-page setup response; it does not
+expire the FTP password. The API's CameraRelayProfileRecord holds hashes,
+created/activated/revoked markers and no expiry. CameraFtpServer authenticates
+against its configured account passwords, without a TTL. Rotation/revocation
+can invalidate a login; an app access-token refresh is a separate concern.
+This source behavior does not establish the currently entered camera values
+or prove a particular live profile is accepted. See
+[[log/2026-11-05-camera-login-recovery]]. (Verify after: 2027-02.)
+
 ## Operations
 - Deploy from the SDK checkout with the reviewed Railway service configuration;
   keep the `/data` volume attached. See repo `docs/DEPLOY-RAILWAY.md`.

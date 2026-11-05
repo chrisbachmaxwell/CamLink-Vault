@@ -70,5 +70,15 @@ new-photo delivery proof are the standard. Provide “My camera looks different�
 and reported-error recovery during setup and testing; preserve the profile
 and credentials while reviewing a step. General family instructions must say
 so. SDK PR 21 implements the sequence with five exact Canon manual guides;
-remaining model audits and physical acceptance stay open. See
+Chris subsequently confirmed the R6 III guide worked perfectly, with four
+photos visible in its active visit. Remaining model audits stay open. See
 [[log/2026-11-05-r6iii-live-setup]].
+
+## Recover the saved connection — 2026-11-05
+Saved-profile Review settings must lead to actionable troubleshooting, not
+back to an unchanged test prompt. A camera saved in Med Photo is not proof
+that its physical login succeeded. Distinguish user-reported Err45 from
+automatically observed evidence and explain that hiding a password does not
+expire it. Preserve the camera and its photos; only explicit confirmed login
+replacement invalidates its old login. Then guide editing the existing camera
+profile. See [[log/2026-11-05-camera-login-recovery]].

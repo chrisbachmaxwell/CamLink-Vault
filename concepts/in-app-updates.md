@@ -46,27 +46,24 @@ before the no-developer-tools updater can take over.
 Operator procedure and exact gates: repo `docs/RELEASE-PUBLISHING.md`.
 
 ## Current published evidence — 2026-11-05
-Arm64 **0.20.5** is live through Railway deployment
-`f3c1d3be-7d8b-4d63-8e83-df9b44e2e13a` (SUCCESS). Public Ed25519 manifest,
-complete immutable ZIP and no-store DMG match the tested package. SDK PR 21
-merged as `a78ec71` after all six gates and Node 20/22 CI. The merged source
+Arm64 **0.20.6** is live through Railway deployment
+`8b26598f-3228-4140-b3e4-b234333364ca` (SUCCESS). Public Ed25519 manifest,
+complete immutable ZIP and no-store DMG match the tested package. SDK PR 22
+merged as `0b89555` after all six gates and Node 20/22 CI. The merged source
 tree matches the package receipt. Fresh-profile packaged startup is verified.
 
-The installed Mac is **0.20.5**, verified by plist, native UI and exact bytes
-of all six reviewed UI modules. Remote activation initially failed; after
-Chris opened the update flow, the app restarted at 0.20.5 with the existing
-visit still showing 11 photos and the saved R6 III entry intact. The exact
-install/guard click sequence was not observed; do not claim guard validation
-from this outcome. No agent-ended visit or forced replacement occurred.
-Saved-camera review correctly explains that the prior password cannot be
-shown again after restart, and offers an explicit new camera password. No
-rotation was performed. Physical camera work stays paused. See
-[[log/2026-11-05-r6iii-live-setup]].
+The installed Mac remains **0.20.5**, verified by plist and native UI. Chris
+redid R6 III setup successfully using that walkthrough, and the app shows four
+photos in the camera’s active visit. Installation is deferred while the visit
+is active: no forced replacement or ended visit. No camera login was rotated
+by the agent. The 0.20.6 follow-up improves saved-login recovery; no physical
+reconfiguration is needed for the working camera.
+See [[log/2026-11-05-camera-login-recovery]].
 
-Previous history: `/Users/chrismaxwell/MedPhoto-Package-Audit/0.20.4-release`.
-New history: `/Users/chrismaxwell/MedPhoto-Package-Audit/0.20.5-release`.
+Previous history: `/Users/chrismaxwell/MedPhoto-Package-Audit/0.20.5-release`.
+New history: `/Users/chrismaxwell/MedPhoto-Package-Audit/0.20.6-release`.
 These roots contain only `manifests/` and `packages/`. DMG and receipts belong
-in `/Users/chrismaxwell/MedPhoto-Clinical-Stage-0.20.5`. The Railway bundle
+in `/Users/chrismaxwell/MedPhoto-Clinical-Stage-0.20.6`. The Railway bundle
 carries only the current bootstrap DMG; signed ZIP history retains three
 previous releases. Only the release service was deployed; no clinical API,
 relay, credentials, policies or provider settings changed. (Verify after: 2026-12.)
