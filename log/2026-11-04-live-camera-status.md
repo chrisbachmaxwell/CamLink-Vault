@@ -1,5 +1,13 @@
 # 2026-11-04 — Current camera connection, separate from photo receipt
 
+> Correction established 2026-11-04: the deployment/inspection below targeted
+> `medphoto-synthetic-clinical`, while the installed app's API routes to
+> `medphoto-synthetic-clinical-v2-api`. Health and unauthenticated checks did
+> not establish the serving code. That v2 API remained on August code until
+> the later correction documented in [[log/2026-11-04-serving-api-target-repair]].
+> The desktop package/publication evidence below remains valid. Installed
+> version is now verified as 0.20.4, superseding earlier checks below.
+
 ## Decision and findings
 Chris wants to turn on the networked camera and shoot, with a clear connected
 indicator. Adding instructions alone did not meet that request. Inspection

@@ -42,10 +42,10 @@ Constraint: [[hipaa-local-first]] · Decision: [[cloud-authoritative-library]]
       Chris supplied the signed-in in-app AWS Console on 2026-09-05; existing
       CloudShell access deployed the synthetic API and immutable ZIP without
       new credentials, IAM/Cognito identities, policies or provider settings.
-- [ ] Install 0.20.3 and prove the shared patient workspace on both Macs using
+- [ ] Use 0.20.4 and prove the shared patient workspace on both Macs using
       existing authorized clinical accounts and synthetic records only. Open:
       `open -a "Med Photo"`
-      Use Software Update and expect version 0.20.3; for direct recovery:
+      Use Software Update and expect version 0.20.4; for direct recovery:
       `open "https://med-photo-release-service-production.up.railway.app/v1/bootstrap/darwin-arm64/latest.dmg"`
       Edit one synthetic patient's details on Mac A and verify them on Mac B;
       check visit metadata, append an authored note, and verify the same note
@@ -54,9 +54,10 @@ Constraint: [[hipaa-local-first]] · Decision: [[cloud-authoritative-library]]
       Start a synthetic visit on Mac A; the same patient's record on Mac B
       should say Open visit and open the same visit with unchanged photos and
       details. End it explicitly and verify both Macs reconcile the state.
-      The 2026-11-04 read-only installed bundle check reports 0.20.2 on this Mac.
-      No install was performed in that audit; the second Mac and shared workflow
-      remain unverified. See [[log/2026-11-04-current-app-status]].
+      The installed bundle and native UI now report 0.20.4 on this Mac.
+      Actual synthetic registration passed after correcting the serving v2 API.
+      The second Mac and shared workflow remain unverified. See
+      [[log/2026-11-04-serving-api-target-repair]].
 
 ## Stop clause
 Stop before any real patient record/photo, production cloud deployment, local
@@ -64,6 +65,12 @@ library purge, or provider agreement change unless Chris explicitly authorizes
 that exact gate. Two no-progress cycles → record the blocker here.
 
 ## Iteration log
+- 2026-11-04 — Reproduced native patient registration schema error, traced the
+  installed API origin to the v2 function still running August code, and applied
+  the exact tested 0.20.4 artifact to that serving stack. Retry succeeded in the
+  installed app; camera status is now available. Added a read-only target/hash
+  verifier with four regression cases; all six required gates pass. See
+  [[log/2026-11-04-serving-api-target-repair]].
 - 2026-11-04 — SDK PR 20 (`d050ea6`) released 0.20.4 with a read-only scoped
   relay-presence projection. Required local gates and Mac packaging/startup
   pass, as does Node 20/22 CI; merged main `f13b35c`. Code-only synthetic API

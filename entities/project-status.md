@@ -6,16 +6,30 @@ Published desktop **v0.20.4** (2026-11-04, synthetic internal test; see
 [[log/2026-11-04-live-camera-status]]). Code integration branch:
 `main` (GitHub default since 2026-08-28).
 
+## 2026-11-04 serving API corrected; registration verified
+The installed Mac is **0.20.4** (plist and native UI). New-patient creation
+reproduced `request contains an unknown field`. API Gateway inspection found
+that the desktop origin routes to **medphoto-synthetic-clinical-v2-api**, still
+running August code; September and the earlier November update had targeted
+the separate stack without `-v2`. Public health checks did not catch this.
+The already-tested 0.20.4 API artifact is now deployed to the correct v2 stack
+with a reviewed code-only change set, no replacements, and matching Lambda
+hash. Retrying the preserved synthetic form in the installed app succeeds.
+The camera screen now reports current Not connected plus the last received
+photo, matching the relay reading. Live physical connection/transfer after the
+correction remains to be verified. See [[log/2026-11-04-serving-api-target-repair]].
+
 ## 2026-11-04 live camera status released
 SDK PR 20 (`d050ea6` → main `f13b35c`) released **0.20.4** with current per-camera cloud sign-in
 status, last photo received, automatic status refresh, stale/outage handling,
 and direct opening of saved camera checks. It retains the 0.20.3 visit-start
 repair. All required local gates pass: 481 tests plus one existing skip,
 PTP/FTP/multi-room smokes and browser gate. Mac packaging/startup and strict signature checks pass. Node 20/22 CI passed.
-The code-only synthetic API update is complete and healthy; Railway deployment
+The initial API update reached the sibling stack, not the app API; corrected
+in the serving-target repair above. Railway deployment
 `96cac965-0473-4fa1-a38a-82bf00858deb` is SUCCESS. Public manifest signature and
 complete ZIP/no-store DMG bytes match the tested artifacts. Installed Mac
-still read-only verified as 0.20.2. Physical camera behavior is unverified.
+is now verified as 0.20.4. Physical camera behavior after correction is unverified.
 See [[log/2026-11-04-live-camera-status]].
 
 ## 2026-11-04 start-visit fix released

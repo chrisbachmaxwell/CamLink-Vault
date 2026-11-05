@@ -1,12 +1,16 @@
 # Med Photo clinic app
 
 `apps/clinic` in [[camlink-sdk]] · packaged by `apps/desktop` · clinic runtime
-**v0.20.3** inside desktop source **v0.20.3** on main `b86d56e`.
-The published arm64 release is **v0.20.3**, verified 2026-11-04; installation
-verification is pending (last installed check 0.20.2). See
-[[log/2026-11-04-visit-start-simplification]]. The product is cloud-authoritative in packaged
-mode; the local capture paths below remain supported engineering/transport
-modes.
+**v0.20.4** inside desktop **v0.20.4**, published and installed on this Mac.
+Runtime code is SDK main `f13b35c`. The installed app origin is
+`https://7telztga3g.execute-api.us-east-1.amazonaws.com`, served by stack
+**medphoto-synthetic-clinical-v2** / function **medphoto-synthetic-clinical-v2-api**.
+The similarly named stack without `-v2` is a separate API and must not be used
+as proof of what the app runs. On 2026-11-04 the serving v2 API was corrected
+to the tested 0.20.4 artifact; actual native synthetic registration now succeeds
+and camera status is available. See [[log/2026-11-04-serving-api-target-repair]].
+Packaged mode is cloud-authoritative; local capture paths below are retained
+engineering/transport modes.
 
 Built on public `@medphoto/*` APIs. Governing constraints:
 [[hipaa-local-first]] and [[cloud-authoritative-library]].
@@ -55,7 +59,7 @@ History groups by patient → visits. See [[2026-07-patient-records]].
 
 ## Patient workspace implementation — 2026-09-05
 
-The first slice was published as 0.20.0 and remains in current 0.20.3. It adds shared richer patient profiles, editable visit
+The first slice was published as 0.20.0 and remains in current 0.20.4. It adds shared richer patient profiles, editable visit
 metadata and authored append-only notes. Overview, Photos & visits and Details
 replace the sparse patient page. Drafts survive cloud polling and stale edits
 must reload before retry. Signed forms/consent remain future work; the first

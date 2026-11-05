@@ -63,6 +63,10 @@ directly without changing credentials. A live FTP connection does not prove
 that automatic transfer is enabled or that the next photo completed.
 
 Required local gates pass, including multi-camera isolation, status expiry,
-outage/recovery and disconnect after receipt. The code-only backend and signed desktop release are deployed and verified;
-installation and physical R6 Mark II power-cycle/automatic-transfer proof remain open.
+outage/recovery and disconnect after receipt. The signed 0.20.4 desktop is published and installed. The initial backend
+update targeted the wrong sibling stack; the actual serving v2 API was
+corrected later on 2026-11-04. The native camera screen now shows Not connected
+and last receipt, matching relay evidence; physical R6 Mark II power-cycle/
+automatic-transfer proof after the correction remains open. See
+[[log/2026-11-04-serving-api-target-repair]].
 See [[log/2026-11-04-live-camera-status]]. (Verify after: 2026-12.)

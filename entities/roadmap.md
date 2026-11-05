@@ -4,21 +4,35 @@ Rewritten 2026-08-27 after the cloud-authoritative decision. Ordered by Chris's
 priorities. Governing boundaries: [[hipaa-local-first]] and
 [[cloud-authoritative-library]].
 
+## 2026-11-04 serving API corrected; registration verified
+The installed Mac is **0.20.4** (plist and native UI). New-patient creation
+reproduced `request contains an unknown field`. API Gateway inspection found
+that the desktop origin routes to **medphoto-synthetic-clinical-v2-api**, still
+running August code; September and the earlier November update had targeted
+the separate stack without `-v2`. Public health checks did not catch this.
+The already-tested 0.20.4 API artifact is now deployed to the correct v2 stack
+with a reviewed code-only change set, no replacements, and matching Lambda
+hash. Retrying the preserved synthetic form in the installed app succeeds.
+The camera screen now reports current Not connected plus the last received
+photo, matching the relay reading. Live physical connection/transfer after the
+correction remains to be verified. See [[log/2026-11-04-serving-api-target-repair]].
+
 ## 2026-11-04 live camera status released
 SDK PR 20 (`d050ea6` → main `f13b35c`) released **0.20.4** with current per-camera cloud sign-in
 status, last photo received, automatic status refresh, stale/outage handling,
 and direct opening of saved camera checks. It retains the 0.20.3 visit-start
 repair. All required local gates pass: 481 tests plus one existing skip,
 PTP/FTP/multi-room smokes and browser gate. Mac packaging/startup and strict signature checks pass. Node 20/22 CI passed.
-The code-only synthetic API update is complete and healthy; Railway deployment
+The initial API update reached the sibling stack, not the app API; corrected
+in the serving-target repair above. Railway deployment
 `96cac965-0473-4fa1-a38a-82bf00858deb` is SUCCESS. Public manifest signature and
 complete ZIP/no-store DMG bytes match the tested artifacts. Installed Mac
-still read-only verified as 0.20.2. Physical camera behavior is unverified.
+is now verified as 0.20.4. Physical camera behavior after correction is unverified.
 See [[log/2026-11-04-live-camera-status]].
 
 ## 2026-11-04 verification checkpoint
-The public arm64 release is 0.20.4. Installation verification is pending on
-this Mac (last installed check 0.20.2); the second Mac and
+The public and installed arm64 release is 0.20.4. Synthetic registration is
+verified on this Mac after the serving-target correction; the second Mac and
 the paired physical-camera/shared-patient workflow are not verified by this
 read-only check. Continue the field checks below without treating a version
 check as workflow proof. Separate iPhone companion source on SDK
@@ -32,12 +46,9 @@ SDK PR 19 (`464c10b` → main `b86d56e`, published 0.20.3) removes the optional-
 keeps explicit camera choice, omits blank metadata and replaces raw start
 errors with recovery instructions. Required local tests and package/startup
 checks and Node 20/22 CI pass. Publication is verified; next is installed-app
-verification and a synthetic live start on the exact service. AWS read-only
-inspection confirms the synthetic stack's Lambda hash matches the recorded
-September 0.20.0 artifact, which accepts visit metadata. The original request
-failure's exact cause remains unconfirmed; the legacy-service fixture proves
-that blank optional keys can produce the same error, not that this deployment
-is old. No clinical API change was made.
+verification and a synthetic live start on the exact service. The initial AWS inspection read the wrong sibling stack. The later serving-API
+audit confirms the app actually reached August code; that v2 API is now updated
+to the tested 0.20.4 artifact. No visit was ended or replaced during this repair.
 See [[log/2026-11-04-visit-start-simplification]].
 
 ## Now (active)
