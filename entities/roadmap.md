@@ -1,5 +1,15 @@
 # roadmap — WHAT IS LEFT
 
+## 2026-11-05 opt-in FTPS implementation
+SDK PR 25 merged as 8bdefe1 after all six local gates and Node 20/22 CI.
+Implemented explicit AUTH TLS with encrypted login/data, per-control TLS session
+binding, credential revocation, and relay configuration. Canon FTPS profiles get
+certificate-import and trust-error guidance; existing FTP instructions remain.
+All physical Canon FTPS interoperability and endpoint/certificate provisioning
+remain pending. No live relay change, AWS production setup, or desktop release.
+See [[log/2026-11-05-canon-ftps-implementation]].
+
+
 Rewritten 2026-08-27 after the cloud-authoritative decision. Ordered by Chris's
 priorities. Governing boundaries: [[hipaa-local-first]] and
 [[cloud-authoritative-library]].
