@@ -24,6 +24,13 @@ background availability and the secured cloud-forwarding receiver remain work
 to implement and test. No application, camera, network or deployment changed.
 See [[log/2026-11-05-desktop-receiver-feasibility]] and [[ftp-push-transfer]].
 
+Follow-up: Chris's foreground patient-selection workflow makes a native iPad
+receiver technically plausible. It is not implemented/released or physically
+validated. iPadOS suspension, local-network access, capture-only awake behavior
+and safe delayed-photo association are explicit implementation concerns. A
+future iPad client could also select visits while cameras upload direct to the
+cloud. See [[log/2026-11-05-ipad-receiver-feasibility]].
+
 ## 2026-11-05 priority: direct FTPS first, office box later
 Chris explicitly prioritizes direct FTPS now and defers the local receiver box
 for offices with other cameras. Raspberry Pi 5 is a plausible engineering

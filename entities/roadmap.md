@@ -24,6 +24,15 @@ the shared library. Automatic cross-computer failover is separate work.
 Direct FTPS remains the recorded first priority. See [[ftp-push-transfer]] and
 [[log/2026-11-05-desktop-receiver-feasibility]].
 
+Also evaluate a native iPad foreground receiver for Chris's stated workflow:
+staff have the app open to select the patient while shooting. Validate local
+network permission/reachability, foreground/lock interruption, session-only
+idle-sleep prevention, protected queue/retry and delayed-upload visit binding.
+Alternatively use the iPad for visit selection with direct cloud ingest. This
+is feasibility research, not authorization for an iPad implementation or a
+change to the direct-FTPS-first priority. See
+[[log/2026-11-05-ipad-receiver-feasibility]].
+
 ## 2026-11-05 priority: direct FTPS first, office box later
 Chris explicitly prioritizes direct FTPS now and defers the local receiver box
 for offices with other cameras. Raspberry Pi 5 is a plausible engineering

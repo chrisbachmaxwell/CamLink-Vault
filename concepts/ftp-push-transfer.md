@@ -55,10 +55,12 @@ third Med Photo adapter. (verify after: 2027-02)
 
 ## Implemented local component and desktop receiver feasibility — 2026-11-05
 
-`FtpPushAdapter` in packages/adapter-ftp-push already embeds a **plain FTP**
-server, not an implemented FTPS server. The legacy local clinic mode can start
-it from saved setup and serve multiple camera accounts. This component is not
-the proposed production receiver. SDK main `6eb0552`,
+At SDK main `6eb0552`, `FtpPushAdapter` in packages/adapter-ftp-push embedded
+a **plain FTP** server. Subsequent main `8bdefe1` adds opt-in explicit FTPS;
+it remains undeployed and unverified with physical Canon cameras. The legacy
+local clinic mode can start the adapter from saved setup and serve multiple
+camera accounts. This component is not the completed production office
+receiver. Source review at SDK main `6eb0552`,
 apps/clinic/src/server.ts, explicitly disables legacy local capture startup
 and setup endpoints in the downloaded app's cloud mode. The desktop shell
 currently quits on window close and stops its clinic child; it has no login
@@ -90,3 +92,36 @@ Security acceptance stays in SDK docs/CAMERA-TRANSFER-SECURITY.md and
 [[hipaa-local-first]]. This feasibility discussion does not supersede the
 existing direct-FTPS-first priority or authorize installation/deployment.
 See [[log/2026-11-05-desktop-receiver-feasibility]].
+
+## iPad foreground receiver feasibility — 2026-11-05
+Chris clarified that staff already need Med Photo open during shooting to
+choose the correct patient. A native iPad app could plausibly combine patient/
+visit selection, a foreground camera FTP(S) receiver and HTTPS cloud upload.
+Apple's Network framework supports incoming listeners on iPadOS; this is a
+platform capability, not a tested or released Med Photo iPad receiver. A Safari
+page alone does not supply that native FTP(S) receiving service. A future
+iPad client could also select the patient while a direct FTPS camera sends
+to the cloud, so the tablet need not carry the photo bytes.
+
+Foreground availability fits this workflow: keep the capture screen visible,
+prevent idle sleep only during active capture, obtain local-network permission
+and verify camera reachability. Switching apps or locking the device can
+suspend receiving. Background HTTPS upload support is distinct from running
+an indefinitely available incoming FTP server. Do not promise automatic
+desktop-style receiver startup or uninterrupted background service on iPad.
+
+Patient selection must explicitly start/confirm a visit for the chosen camera;
+merely browsing a patient page is not capture authorization. The cloud records
+that camera's active visit independently of the viewing screen. A proposed
+receiver must preserve queued-photo association across patient changes and
+interruptions and route ambiguous backlog to review, never silently to the
+next patient. This additional receiver behavior needs implementation and tests.
+No current iPad receiver, local FTPS hardware proof or performance is claimed.
+
+Official sources checked 2026-11-05 (verify after: 2026-12):
+- https://developer.apple.com/documentation/network/nwlistener
+- https://developer.apple.com/documentation/technotes/tn3151-choosing-the-right-networking-api
+- https://developer.apple.com/documentation/uikit/uiapplication/isidletimerdisabled
+- https://developer.apple.com/documentation/technotes/tn3179-understanding-local-network-privacy
+See [[cloud-authoritative-library]] and
+[[log/2026-11-05-ipad-receiver-feasibility]].
