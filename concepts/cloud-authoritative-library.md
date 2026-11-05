@@ -76,3 +76,16 @@ startedAt and defaults comparison to the newest populated visits. A photo-list
 error is not an empty visit; preserve authorization failures and offer retry
 for unavailable lists/previews. Release and verification state:
 [[log/2026-11-05-visit-comparison]].
+
+## Receiver and performance clarification — 2026-11-05
+Current documented synthetic path is camera → office router → internet plain-FTP
+Railway relay → authenticated AWS ingest. A controlled office receiver is a
+planned local bridge, not the current route: camera → restricted LAN receiver
+→ HTTPS cloud upload; it must stay running, protect queued copies, and retain
+practice/camera scope. Direct FTPS-capable cameras need not use this local bridge.
+FTPS adds TLS connection negotiation and encryption work; no measured Canon
+FTP-versus-FTPS latency exists yet. Do not promise a percentage or imperceptible
+slowdown. Plan same-camera/network/JPEG comparisons for first shot, subsequent
+shots, idle reconnect, bursts and time-to-display. Source: AWS Transfer Family
+FTPS guide https://docs.aws.amazon.com/transfer/latest/userguide/create-server-ftps.html
+(checked 2026-11-05; verify after 2026-12). No code or deployment change.
