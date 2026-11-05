@@ -36,6 +36,13 @@ explicit and confirmed. Back and Finish later preserve progress; only a new
 completed upload from the selected camera passes verification. See the code
 repo `docs/DESIGN.md` and [[log/2026-09-05-camera-setup-access-audit]].
 
+2026-11-04 correction: cloud FTP can intentionally disconnect between photos.
+Recent photo receipt, current sign-in, neutral waiting and unavailable status
+are separate signals. Keep receipt time visible; never infer an unsent shot
+from idle time. A new exact-camera photo is the delivery check; a ping only
+tests reachability. The unreleased candidate adds delayed-check help and Canon
+FTP power-saving guidance. See [[log/2026-11-04-camera-between-photos]].
+
 ## Existing patient visits — 2026-09-05
 An exact stable patient ID with an active visit offers **Open visit**, with
 camera and photo-count context. Refresh the current projection before opening

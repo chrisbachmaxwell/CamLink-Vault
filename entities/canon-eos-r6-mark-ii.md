@@ -1,8 +1,10 @@
 # Canon EOS R6 Mark II
 
 2026-11-04: Chris reports the camera is on the network and wants an obvious
-connection indicator and automatic photo arrival. No successful physical
-transfer or power-cycle reconnection was established in this session.
+connection indicator and automatic photo arrival. Later the same day he
+confirmed that photos arrive, but Connected lasts only about 5–7 seconds
+after each shot. This is user-reported physical transfer evidence, not a
+power-cycle or two-camera/two-Mac acceptance test.
 
 Canon's [R6 Mark II FTP manual](https://cam.start.canon/en/C012/manual/html/UG-07_Network_0070.html)
 describes automatic transfer under the FTP transfer settings reached from the
@@ -11,10 +13,27 @@ for the app's test preview. Joining Wi-Fi alone does not establish the saved
 FTP server/login or enable automatic sending. These are manual-sourced facts,
 not a confirmed diagnosis of Chris's settings. (Verify after: 2026-12.)
 
-SDK PR 20 (`d050ea6`) adds this help as optional disclosure and exposes current
+## Between shots and ping (2026-11-04)
+The same official manual's **Using the Power Saving Function** section says
+FTP power saving can log off both FTP and Wi-Fi while idle, reconnecting for
+the next image. To retain Wi-Fi: **Transfer images to FTP server → FTP transfer
+settings → Power saving → Disable**. This is a plausible explanation of the
+5–7-second status, not confirmation of Chris's selected setting or that exact
+timeout. The app's setup disclosure now includes this path in an unreleased
+local change; see [[log/2026-11-04-camera-between-photos]].
+
+A local network ping is technically possible as a reachability diagnostic,
+but this R6 II's ICMP replies in FTP mode/sleep have not been tested or verified
+from Canon's manual. A reply would not prove FTP credentials, automatic transfer
+or cloud photo completion. No reply is ambiguous (sleep/off/filtering), and a
+hosted relay cannot directly ping a camera's private LAN address across ordinary
+NAT. See [[camera-presence]] and [[macos-networking-traps]]. No ping feature was
+added; do not claim Canon guarantees it. (Verify after: 2026-12.)
+
+Earlier SDK PR 20 (`d050ea6`) added automatic-transfer help and exposed current
 relay sign-in separately from photo receipt; see [[camera-presence]]. The
 combined catalog entry stays without `fieldProven`. After deployment, verify
-with an object photo: connected evidence appears, a new photo arrives, power
-off clears the indicator, and power on resumes transfers without re-creating
+with an object photo: a new photo arrives, power
+on resumes transfers without re-creating
 credentials. Firmware-specific failures require investigation rather than
 unverified menu or protocol guesses.
