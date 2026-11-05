@@ -45,24 +45,28 @@ before the no-developer-tools updater can take over.
 
 Operator procedure and exact gates: repo `docs/RELEASE-PUBLISHING.md`.
 
-## Current published evidence — 2026-11-04
-Arm64 0.20.4 is live through Railway deployment
-`96cac965-0473-4fa1-a38a-82bf00858deb` (SUCCESS). The signed public manifest,
-complete immutable ZIP and no-store DMG match the prepared artifacts. SDK PR
-20 merged (`f13b35c`) after Node 20/22 CI and required local gates. Exact
-packaged startup with a fresh profile and strict signature verification pass.
-The actual serving v2 API was subsequently corrected with the matching digest;
-see [[log/2026-11-04-serving-api-target-repair]]. The installed bundle and native
-UI are verified as **0.20.4**, and synthetic patient creation succeeded there.
-Native AX controls sometimes need the window's Raise action before activation.
-The new between-photo status candidate remains unreleased; see
-[[log/2026-11-04-camera-between-photos]].
+## Current published evidence — 2026-11-05
+Arm64 **0.20.5** is live through Railway deployment
+`f3c1d3be-7d8b-4d63-8e83-df9b44e2e13a` (SUCCESS). Public Ed25519 manifest,
+complete immutable ZIP and no-store DMG match the tested package. SDK PR 21
+merged as `a78ec71` after all six gates and Node 20/22 CI. The merged source
+tree matches the package receipt. Fresh-profile packaged startup is verified.
 
-For 0.20.4 preparation, prior history was
-`/Users/chrismaxwell/MedPhoto-Package-Audit/0.20.3-release`; the new history is
-`/Users/chrismaxwell/MedPhoto-Package-Audit/0.20.4-release`. History roots must
-contain only `manifests/` and `packages/`, not deployment/DMG/receipt files.
-DMG and receipts belong in `/Users/chrismaxwell/MedPhoto-Clinical-Stage-0.20.4`.
-The Railway deploy bundle carries only the current bootstrap DMG to fit its
-upload limit; signed rollback ZIP history retains three previous versions.
-(Verify after: 2026-12.)
+The installed Mac is **0.20.5**, verified by plist, native UI and exact bytes
+of all six reviewed UI modules. Remote activation initially failed; after
+Chris opened the update flow, the app restarted at 0.20.5 with the existing
+visit still showing 11 photos and the saved R6 III entry intact. The exact
+install/guard click sequence was not observed; do not claim guard validation
+from this outcome. No agent-ended visit or forced replacement occurred.
+Saved-camera review correctly explains that the prior password cannot be
+shown again after restart, and offers an explicit new camera password. No
+rotation was performed. Physical camera work stays paused. See
+[[log/2026-11-05-r6iii-live-setup]].
+
+Previous history: `/Users/chrismaxwell/MedPhoto-Package-Audit/0.20.4-release`.
+New history: `/Users/chrismaxwell/MedPhoto-Package-Audit/0.20.5-release`.
+These roots contain only `manifests/` and `packages/`. DMG and receipts belong
+in `/Users/chrismaxwell/MedPhoto-Clinical-Stage-0.20.5`. The Railway bundle
+carries only the current bootstrap DMG; signed ZIP history retains three
+previous releases. Only the release service was deployed; no clinical API,
+relay, credentials, policies or provider settings changed. (Verify after: 2026-12.)

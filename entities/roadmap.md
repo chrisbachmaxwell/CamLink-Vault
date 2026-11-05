@@ -4,24 +4,27 @@ Rewritten 2026-08-27 after the cloud-authoritative decision. Ordered by Chris's
 priorities. Governing boundaries: [[hipaa-local-first]] and
 [[cloud-authoritative-library]].
 
-## 2026-11-04 between-photo status tested; release blocked
-Chris reports that his R6 Mark II delivers photos, but 0.20.4 shows Connected
-for only 5–7 seconds after each shot. This confirms user-observed transfer,
-not continuous connectivity or power-cycle/two-Mac acceptance. Canon documents
-FTP power saving closing Wi-Fi between uploads; the selected setting on this
-body remains unverified. A local ping is possible in principle, but this body's
-reply behavior is untested and ping would not prove photo delivery.
+## 2026-11-05 camera walkthrough 0.20.5 published and installed
+Chris paused physical setup to prioritize an app that walks the user through
+connecting. SDK PR [21](https://github.com/chrisbachmaxwell/CamLink-SDK/pull/21)
+(feature `5d2583f`, main merge `a78ec71`) adds nine small setup steps, Back and
+in-page resume, values at the relevant step, automatic transfer, and recovery
+for reported camera errors. Canon R6 III, R6 II, R5 II, original R6 and R5 use
+manufacturer-sourced menu instructions. Other families are explicitly general;
+the complete all-model manual audit and hardware proof remain open.
 
-An unreleased local UI candidate separates Photo received, Camera online,
-neutral waiting and unavailable checks, adds delayed test guidance and the
-manual-sourced Power saving setting. All six gates pass (488 tests, one skip).
-SDK feature `2c40c15` is local: git/connector branch writes fail with commit_refs /
-Reference update failed. No SDK PR, merge or release. Published/installed remains 0.20.4.
-See [[log/2026-11-04-camera-between-photos]] for gates and delivery blockers.
-Follow-up: ping support on this exact R6 II remains unverified after a targeted
-Canon documentation search. Await the camera's current Wi-Fi IP for a bounded
-local test; no ping test or implementation is claimed. See
-[[log/2026-11-04-canon-ping-clarification]].
+The earlier between-photo candidate (`2c40c15`) is included: recent receipt,
+current sign-in, neutral waiting and unavailable checks are separate. Normal
+FTP idle no longer claims a disconnection. No ping feature or hardware ping
+proof is claimed. All six local gates pass (492 tests plus one existing skip),
+as does Node 20/22 CI. The 0.20.5 arm64 ZIP/DMG and fresh-profile packaged
+startup are verified; merged tree matches the package source. Public 0.20.5 is verified through Railway deployment
+`f3c1d3be-7d8b-4d63-8e83-df9b44e2e13a` (SUCCESS): manifest signature and
+complete ZIP/no-store DMG bytes match. Installed Mac is verified as 0.20.5 by plist and native UI, and all six
+installed UI files match the reviewed source. The existing visit still shows
+11 photos and the saved R6 III entry remains. Physical setup is paused. Saved
+passwords cannot be redisplayed after restart; review offers an explicit new
+camera password, which was not invoked. See [[log/2026-11-05-r6iii-live-setup]].
 
 ## 2026-11-04 serving API corrected; registration verified
 The installed Mac is **0.20.4** (plist and native UI). New-patient creation
@@ -86,7 +89,7 @@ See [[log/2026-11-04-visit-start-simplification]].
    then replace synthetic plain FTP with the production FTPS/TLS endpoint under
    the BAA gate. Each credential maps to one location/camera and files only into
    that camera's active visit (otherwise Unassigned).
-3. **Downloaded app cloud mode** — v0.20.4 arm64 is live with clean-clinic
+3. **Downloaded app cloud mode** — v0.20.5 arm64 is live with clean-clinic
    onboarding, email/password sign-in and email-code recovery, single-location
    shared library, pre-sign-in updates and no permanent local photo write. Its
    camera setup is model-first and automatically provisions the per-camera

@@ -24,6 +24,13 @@ Constraint: [[hipaa-local-first]] · Decision: [[cloud-authoritative-library]]
 - [x] Guided physical-camera setup with truthful proof: enter the provisioned
       values, take a test photo, and claim verified only after that exact
       camera's checksum-verified completed cloud upload.
+- [ ] Audit the complete setup instructions for every offered camera against
+      its manufacturer manual, model by model; record sources/dates and make
+      automatic transfer and error recovery visible at the relevant steps.
+      R6 III field feedback on 2026-11-05 exposed the incorrect generic initial
+      Wi-Fi menu despite the existing software-flow gate passing. PR 21 now
+      provides a nine-step guide and five exact Canon manual paths; other
+      families are labeled general and remain to be audited.
 - [x] Desktop cloud mode for the single synthetic location: email/password
       sign-in, Owner-managed reviewer accounts, shared patient/visit/photo
       views and no permanent local photo write. Multi-location picker remains
@@ -42,10 +49,10 @@ Constraint: [[hipaa-local-first]] · Decision: [[cloud-authoritative-library]]
       Chris supplied the signed-in in-app AWS Console on 2026-09-05; existing
       CloudShell access deployed the synthetic API and immutable ZIP without
       new credentials, IAM/Cognito identities, policies or provider settings.
-- [ ] Use 0.20.4 and prove the shared patient workspace on both Macs using
+- [ ] Use 0.20.5 and prove the shared patient workspace on both Macs using
       existing authorized clinical accounts and synthetic records only. Open:
       `open -a "Med Photo"`
-      Use Software Update and expect version 0.20.4; for direct recovery:
+      Use Software Update and expect version 0.20.5; for direct recovery:
       `open "https://med-photo-release-service-production.up.railway.app/v1/bootstrap/darwin-arm64/latest.dmg"`
       Edit one synthetic patient's details on Mac A and verify them on Mac B;
       check visit metadata, append an authored note, and verify the same note
@@ -54,7 +61,7 @@ Constraint: [[hipaa-local-first]] · Decision: [[cloud-authoritative-library]]
       Start a synthetic visit on Mac A; the same patient's record on Mac B
       should say Open visit and open the same visit with unchanged photos and
       details. End it explicitly and verify both Macs reconcile the state.
-      The installed bundle and native UI now report 0.20.4 on this Mac.
+      The installed bundle and native UI now report 0.20.5 on this Mac.
       Actual synthetic registration passed after correcting the serving v2 API.
       The second Mac and shared workflow remain unverified. See
       [[log/2026-11-04-serving-api-target-repair]].
@@ -65,6 +72,21 @@ library purge, or provider agreement change unless Chris explicitly authorizes
 that exact gate. Two no-progress cycles → record the blocker here.
 
 ## Iteration log
+- 2026-11-05 — Chris paused camera work to prioritize the app walkthrough.
+  SDK PR 21 (`5d2583f` → main `a78ec71`) adds nine guided tasks, five exact
+  Canon manual guides, reported-error recovery and the prior between-photo
+  status fix. Six local gates (492 tests plus one skip), Node 20/22 CI and
+  Mac package/fresh-profile startup pass. Public 0.20.5 signature and complete
+  ZIP/DMG verify; Railway deployment is SUCCESS. Installed 0.20.5 is verified
+  by plist/native UI/exact source bytes; the active visit still shows 11 photos.
+  R6 III profile remains; its password cannot be redisplayed after restart.
+  No rotation occurred and physical work stays paused.
+  See [[log/2026-11-05-r6iii-live-setup]].
+- 2026-11-05 — Added a different R6 III in installed 0.20.4 while Chris handles
+  the camera. His photos prove the FTP menu entry and show Err45 before the
+  new app credentials were entered. New server screen is visible; delivery
+  remains unverified. Correcting model guide and recording all-model audit.
+  See [[log/2026-11-05-r6iii-live-setup]].
 - 2026-11-04 — Chris reports working R6 II photo transfer but a 5–7-second
   Connected indicator per photo. Canon documents power-saving disconnects;
   prepared a local delivery/idle status correction and delayed-check guidance.
