@@ -36,7 +36,8 @@ foreign-session rejection, plaintext refusal, trust/hostname failures, rotation
 and rejected/truncated acceptance. The raw-data rejection test needed to consume
 the TLS alert before waiting for socket close.
 SDK feature commit: c885348. PR: https://github.com/chrisbachmaxwell/CamLink-SDK/pull/25
-Source merge is pending Node 20/22 CI; not yet merged or released.
+Node 20/22 GitHub CI passed. PR 25 merged to main as
+8bdefe1f1e714bb6123e54a22fd19f6a925769d7. Source is integrated, not deployed.
 Installed/published desktop remains 0.20.7. No relay/API deployment or camera
 credential change; current synthetic FTP route stays operational.
 
