@@ -72,6 +72,8 @@ library purge, or provider agreement change unless Chris explicitly authorizes
 that exact gate. Two no-progress cycles → record the blocker here.
 
 ## Iteration log
+- 2026-11-05 — Chris prioritizes direct FTPS and defers the office receiver box.
+  Raspberry Pi 5 is a candidate only, untested; no production AWS setup yet.
 - 2026-11-05 — Started Canon FTPS capability foundation and reviewed-LAN receiver
   contract, without production AWS setup. FTPS hardware proof and enforced
   receiver approval/provisioning remain open; see [[log/2026-11-05-canon-ftps-foundation]].

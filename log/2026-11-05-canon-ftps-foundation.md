@@ -48,3 +48,16 @@ slowdown. Plan same-camera/network/JPEG comparisons for first shot, subsequent
 shots, idle reconnect, bursts and time-to-display. Source: AWS Transfer Family
 FTPS guide https://docs.aws.amazon.com/transfer/latest/userguide/create-server-ftps.html
 (checked 2026-11-05; verify after 2026-12). No code or deployment change.
+
+## Priority decision and Pi feasibility — 2026-11-05
+Chris asks whether Raspberry Pi could receive locally, then directs FTPS first
+and box later for offices without suitable cameras. Pi 5 has documented Gigabit
+Ethernet and USB 3; Raspberry Pi recommends its 27 W supply. Engineering
+inference: plausible local receiving/HTTPS forwarding appliance, not a tested
+throughput/security/reliability claim. Plan Ethernet, SSD, cooling, protected
+queue/keys, automatic updates, restart/power-loss/revocation tests when resumed.
+A Pi cannot add FTP support to a camera lacking it; those require a separately
+validated PTP/USB adapter. No purchase/deployment/code change in this decision.
+Official sources checked 2026-11-05 (verify after 2026-12):
+https://www.raspberrypi.com/products/raspberry-pi-5/
+https://www.raspberrypi.com/documentation/computers/getting-started.html

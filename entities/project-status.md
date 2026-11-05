@@ -6,6 +6,15 @@ Published desktop **v0.20.7** (2026-11-05, synthetic internal test; installed
 Mac verified at 0.20.7; see [[log/2026-11-05-visit-comparison]]). Code integration branch:
 `main` (GitHub default since 2026-08-28).
 
+## 2026-11-05 priority: direct FTPS first, office box later
+Chris explicitly prioritizes direct FTPS now and defers the local receiver box
+for offices with other cameras. Raspberry Pi 5 is a plausible engineering
+candidate based on Gigabit Ethernet/USB 3 and Linux, not validated Med Photo
+hardware. Future appliance review includes SSD/encrypted spool, key protection,
+automatic updates, scoped credentials, restart/power-loss and multi-camera load
+tests. No purchase, appliance build or production AWS setup authorized here.
+See [[log/2026-11-05-canon-ftps-foundation]].
+
 ## 2026-11-05 receiver/performance clarification
 The office receiver remains planned; current synthetic ingress uses the hosted
 relay. FTPS performance on the actual Canon bodies is unmeasured. Add matched
