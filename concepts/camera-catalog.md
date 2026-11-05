@@ -72,3 +72,14 @@ Historical `fieldProven` flags do not prove the new guide's end-to-end usability
 R6 III saved-profile edit route. Explicit login replacement uses that route
 and retains the camera ID; general families use their manual without invented
 menu labels. See [[log/2026-11-05-camera-login-recovery]].
+
+## FTPS evidence foundation — 2026-11-05
+SDK `camera-transfer-capabilities.js` records manufacturer-documented FTPS for
+nine exact models: R6, R6 II, R6 III, R5, R5 II, R3, R1, 5D IV and 1D X III.
+Every record has a Canon source URL, checked/review date and explicit
+`medPhotoFtps: not-validated`. Existing exact catalog entries expose the
+record; combined families, R5 C, unknown and unreviewed models return no claim.
+This does not change camera setup protocol, add advertised hardware support,
+activate an FTPS endpoint or prove firmware/TLS/server interoperability.
+Source URLs and reviewed local-vs-cloud policy are in SDK
+`docs/CAMERA-TRANSFER-SECURITY.md`. See [[log/2026-11-05-canon-ftps-foundation]].

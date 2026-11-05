@@ -84,3 +84,18 @@ Sources checked 2026-11-05 (verify after: 2026-12):
 - https://aws.amazon.com/compliance/hipaa-compliance/
 - https://www.hhs.gov/hipaa/for-professionals/special-topics/health-information-technology/cloud-computing/index.html
 See [[log/2026-11-05-security-readiness-review]].
+
+## Local FTP distinction — 2026-11-05
+Chris asked to start the security work without setting up production AWS yet,
+and to retain an option for cameras without FTPS. Plain FTP on a controlled
+LAN is not categorically a HIPAA violation: HHS's current guidance makes
+transmission encryption addressable through documented risk assessment and
+appropriate/equivalent safeguards. This is not a user-checkbox exemption.
+Office Wi-Fi does not make a transfer to an internet relay LAN-only. Proposed
+product policy: prohibit production internet plain FTP; prefer direct FTPS;
+allow a future reviewed local receiver route with scoped/expiring IT approval,
+network controls and encrypted HTTPS cloud forwarding. Neither route is
+production-enabled by capability metadata. Source/acceptance contract:
+SDK docs/CAMERA-TRANSFER-SECURITY.md, [[log/2026-11-05-canon-ftps-foundation]].
+Source: https://www.hhs.gov/hipaa/for-professionals/faq/is-the-use-of-encryption-mandatory-in-the-security-rule/index.html
+(checked 2026-11-05; verify after: 2026-12).
