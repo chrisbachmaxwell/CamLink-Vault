@@ -72,6 +72,9 @@ library purge, or provider agreement change unless Chris explicitly authorizes
 that exact gate. Two no-progress cycles → record the blocker here.
 
 ## Iteration log
+- 2026-11-06 — Chris confirms unchanged R6 II FTPS connection succeeds.
+  Protected listings/uploads observed; native photo ID matches cloud receipt.
+  First physical path proof complete; controlled latency/reliability tests open.
 - 2026-11-06 — R6 II retry proves TLS/login success then LIST failure.
   Reproduced session-ID compatibility gap, fixed per-control caching and TLS
   listing shutdown; all six gates and live ID/ticket listings pass. PR 28 open;

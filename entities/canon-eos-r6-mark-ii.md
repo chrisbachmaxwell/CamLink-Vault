@@ -61,3 +61,12 @@ the same trusted root should not itself require a new root, subject to physical
 validation. This trial uses a short-lived private CA, not production trust.
 Source: https://cam.start.canon/en/C012/manual/html/UG-07_Network_0070.html
 Checked 2026-11-06; verify after 2027-02.
+
+## Physical FTPS connection confirmed — 2026-11-06
+After the per-control TLS session-ID/listing fix (SDK feature 85f8b0d, PR28),
+Chris reports the unchanged connection succeeds. Receiver proves protected
+LIST/NLST and STOR with accepted bound data session and 226 upload completion.
+Native app photo identifier matches the selected camera's cloud receipt. This
+is first physical direct-cloud FTPS upload evidence, not a full reliability,
+latency-comparison or clinical-readiness sign-off. See
+[[log/2026-11-06-canon-ftps-first-transfer]].

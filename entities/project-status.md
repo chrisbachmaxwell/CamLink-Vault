@@ -1,18 +1,19 @@
 # project-status — WHAT IS DONE
 
-## 2026-11-06 FTPS data-channel compatibility fix awaiting camera retry
-The 19:44 UTC retry reached the receiver, negotiated TLS and authenticated
-successfully, then requested EPSV/TYPE/LIST and disconnected after reply 150.
-Settings/login therefore worked for that attempt; do not send Chris through
-those same checks again. Initial AUTH variant returned 504 before successful
-AUTH TLS fallback; not established as the cause.
-SDK PR 27 merged d4bc559. New feature 85f8b0d / SDK PR 28 (open, CI pending)
-adds bounded per-control TLS session-ID caching and graceful encrypted listing
-shutdown, preserving mandatory data-session binding. Ticket-disabled regression
-failed before fix; 15 focused FTPS tests and all six local gates pass. Applied
-to the synthetic receiver; live ticket and session-ID listings both pass.
-Waiting for Chris to retry unchanged connection; actual camera resolution and
-latency remain unproven. See [[log/2026-11-06-ftps-data-session-fix]].
+## 2026-11-06 physical Canon FTPS connection and upload confirmed
+Chris reports the unchanged R6 II connection now succeeds after the trial
+session-ID/listing fix. Server evidence shows protected LIST/NLST and STOR,
+bound data sessions accepted and 226 upload completions. Native app photo ID
+matches the selected camera cloud receipt at 19:56:08 UTC. This confirms an
+actual camera-to-cloud-to-app transfer; no patient metadata retained here.
+One observed STOR-to-226 interval was roughly 3 seconds; subsequent intervals
+vary (including about 5 and 9 seconds). These are coarse server transfer times,
+not shutter-to-visible latency, matched image-size trials or encryption overhead.
+Asked Chris for a fresh object JPEG and perceived time to appear. Controlled
+FTP comparison, burst/idle/power-cycle/revocation/trust-failure proof remain open.
+SDK feature 85f8b0d / PR 28 remains open (Node22 CI passed; Node20 UI gate still
+running at checkpoint). Trial deployment verified; desktop remains 0.20.7.
+See [[log/2026-11-06-canon-ftps-first-transfer]].
 
 ## 2026-11-06 direct-cloud FTPS trial live (synthetic only)
 Chris approved the temporary $2 trial and connected the card. SDK PR 26 merged
