@@ -1,5 +1,13 @@
 # project-status — WHAT IS DONE
 
+## 2026-11-06 launch in progress
+
+Chris requested launch; selected `medphoto.pictureline.com`. Prepared 0.20.8
+(PR31), all six local gates and template validation passed. New DNS zone,
+public release and dedicated stack deployment remain pending at this checkpoint.
+Old four-hour FTPS trial verified stopped. See [[log/2026-11-06-practice-launch]]
+for exact evidence, DNS delegation and rollout boundaries.
+
 ## 2026-11-06 secure practice platform build
 
 Built the synthetic implementation for dedicated-practice provisioning,
