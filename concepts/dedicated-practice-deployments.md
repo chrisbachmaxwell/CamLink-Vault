@@ -28,3 +28,6 @@ is deferred. Synthetic-only until the exact deployment passes all PHI gates.
 R6 II FTPS field transfer succeeded; Chris accepts perceived speed as fast enough.
 The temporary trial has automatic stop and short-lived trust; not permanent hosting.
 Next compatibility path: [[2026-11-secure-office-relay]].
+
+Source evidence: SDK feature fe94642, PR29 merged bc21c73 after six local gates
+and Node20/22 CI, 2026-11-06. No live deployment of these policy changes yet.

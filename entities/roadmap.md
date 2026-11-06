@@ -5,6 +5,8 @@ Chris requires separate practice servers/sites/storage and accepts FTPS speed.
 Implementation and acceptance: [[dedicated-practice-deployments]]. Next camera
 compatibility work: [[2026-11-secure-office-relay]]. AWS production/compliance
 setup remains deferred; no PHI or new permanent infrastructure deployed here.
+SDK PR29 merged bc21c73 (feature fe94642), six local gates and both CI jobs
+passed. This is source integration, not deployment or a desktop release.
 See [[log/2026-11-06-dedicated-practice-ftps]].
 
 ## 2026-11-06 physical Canon FTPS connection and upload confirmed

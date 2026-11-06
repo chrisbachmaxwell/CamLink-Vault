@@ -18,9 +18,8 @@ SDK PR28 feature 85f8b0d merged 132bb21 after both Node20/22 CI jobs passed.
 The tested receiver is already deployed to the temporary synthetic trial.
 SDK feature fe94642 / PR29 adds dedicated deployment membership/ingest checks,
 FTPS-only activation with failed-downgrade cleanup and explicit legacy FTP opt-in.
-Seven focused adversarial tests and all six required local gates pass. PR29
-Node20 CI passed; Node22 browser/dependency step is still running at this
-checkpoint. Do not merge until both pass. No secrets, patient records or images retained.
+Seven focused adversarial tests and all six required local gates pass. Both
+Node20/22 CI jobs passed; SDK PR29 merged as bc21c73. No secrets, patient records or images retained.
 
 ## Boundaries and remaining work
 No new AWS infrastructure, PHI authorization or desktop release. Installed app
@@ -31,3 +30,12 @@ Permanent receiver provisioning, stable hostname/certificate delivery/renewal,
 trusted practice enrollment, two-live-practice tests, MFA/key/audit/restore and
 production compliance acceptance remain open. Do not call this finished secure
 hosting. Implementation contract and next goal are linked from status/roadmap.
+
+## Integration follow-up
+Vault PR41 merged as 07f9d58. The initial Node22 CI run was canceled after
+slow Ubuntu font downloads delayed Chromium dependency setup; the browser
+test had not started. Re-ran only that job on a fresh runner. No app failure
+was hidden or waived; required checks still must pass before SDK merge.
+
+Final: the fresh Node22 job passed. SDK PR29 merged bc21c73 after a fresh-main
+fetch and pinned-head merge (feature fe94642). No new deployment/release.

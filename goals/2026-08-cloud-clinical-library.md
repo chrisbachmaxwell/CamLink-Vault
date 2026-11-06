@@ -74,7 +74,8 @@ that exact gate. Two no-progress cycles → record the blocker here.
 ## Iteration log
 - 2026-11-06 — Chris accepts FTPS speed and requires dedicated practice
   infrastructure. SDK fe94642 / PR29 passes six local gates and seven focused
-  isolation/downgrade tests; permanent provisioning and production acceptance
+  isolation/downgrade tests; both CI jobs passed and PR29 merged bc21c73.
+  Permanent provisioning and production acceptance
   remain open. Secure office-relay follow-on goal recorded.
 - 2026-11-06 — Chris confirms unchanged R6 II FTPS connection succeeds.
   Protected listings/uploads observed; native photo ID matches cloud receipt.
