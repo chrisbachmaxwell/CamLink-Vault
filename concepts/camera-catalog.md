@@ -83,3 +83,17 @@ This does not change camera setup protocol, add advertised hardware support,
 activate an FTPS endpoint or prove firmware/TLS/server interoperability.
 Source URLs and reviewed local-vs-cloud policy are in SDK
 `docs/CAMERA-TRANSFER-SECURITY.md`. See [[log/2026-11-05-canon-ftps-foundation]].
+
+## 2026-11-06 EOS R8 and R8 Mark II receiver route
+
+Canon's R8 manual documents Wireless settings → Connect to EOS Utility:
+https://cam.start.canon/en/C013/manual/html/UG-07_Network_0050.html
+Canon's R8 Mark II manual documents Communication functions → Connect to EOS Utility:
+https://cam.start.canon/en/C026/manual/html/UG-07_Network_0050.html
+Official model identity: https://www.usa.canon.com/support/p/eos-r8-mark-ii-camera-body
+
+The app now has separate exact-model entries linked to those manuals and the
+synthetic office-receiver pairing flow. INFO switches from camera access-point
+setup to office Wi-Fi where the camera offers it. Canon documentation is not
+proof that our receiver works with either physical body; keep fieldProven false.
+No blanket FTP/FTPS absence or hardware compatibility promise is inferred here.

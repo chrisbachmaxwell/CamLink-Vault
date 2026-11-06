@@ -19,10 +19,13 @@ The existing sandbox template creates separate clinical resources per stack;
 this is not evidence that two isolated live practices were deployed. See SDK
 `docs/DEDICATED-PRACTICE-DEPLOYMENTS.md` for configuration and acceptance.
 
-Permanent FTPS receiver provisioning, authenticated certificate distribution,
-trusted desktop practice enrollment, renewal, two-deployment isolation drills,
-MFA/recovery, key policy, audit, backups/restore, independent security review
-and incident response remain open. AWS production BAA/eligible-service setup
+Synthetic implementation now includes a per-practice infrastructure generator,
+authenticated public-root download, offline certificate issuance/renewal with
+root continuity, signed desktop enrollment, encrypted hosted spool and an
+office receiver pilot. See [[log/2026-11-06-secure-practice-platform-build]].
+Live two-deployment isolation drills, managed receiver installer/update delivery,
+hardware/OS key recovery proof, MFA/recovery policy, operational alarms,
+backups/restore, independent security review and incident response remain open. AWS production BAA/eligible-service setup
 is deferred. Synthetic-only until the exact deployment passes all PHI gates.
 
 R6 II FTPS field transfer succeeded; Chris accepts perceived speed as fast enough.
