@@ -72,6 +72,10 @@ library purge, or provider agreement change unless Chris explicitly authorizes
 that exact gate. Two no-progress cycles → record the blocker here.
 
 ## Iteration log
+- 2026-11-06 — R6 II retry proves TLS/login success then LIST failure.
+  Reproduced session-ID compatibility gap, fixed per-control caching and TLS
+  listing shutdown; all six gates and live ID/ticket listings pass. PR 28 open;
+  deployed only to synthetic trial. Waiting for unchanged camera retry.
 - 2026-11-06 — Physical R6 II trial reports Err 41. Mac TLS probe passes;
   sanitized trial diagnostics deployed (SDK PR 27 pending CI). Await camera
   settings confirmation and retry; do not infer failure cause or FTPS success.
