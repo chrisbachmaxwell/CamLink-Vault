@@ -99,3 +99,9 @@ production-enabled by capability metadata. Source/acceptance contract:
 SDK docs/CAMERA-TRANSFER-SECURITY.md, [[log/2026-11-05-canon-ftps-foundation]].
 Source: https://www.hhs.gov/hipaa/for-professionals/faq/is-the-use-of-encryption-mandatory-in-the-security-rule/index.html
 (checked 2026-11-05; verify after: 2026-12).
+
+## Dedicated infrastructure direction — 2026-11-06
+Chris now requires separate practice clinical servers/sites and storage, not
+only logical tenancy. See [[dedicated-practice-deployments]]. This strengthens
+the architecture boundary; it does not remove any production acceptance gate.
+R6 II FTPS camera-to-cloud-to-app transfer is field proven with synthetic photos.

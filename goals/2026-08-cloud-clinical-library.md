@@ -72,6 +72,10 @@ library purge, or provider agreement change unless Chris explicitly authorizes
 that exact gate. Two no-progress cycles → record the blocker here.
 
 ## Iteration log
+- 2026-11-06 — Chris accepts FTPS speed and requires dedicated practice
+  infrastructure. SDK fe94642 / PR29 passes six local gates and seven focused
+  isolation/downgrade tests; permanent provisioning and production acceptance
+  remain open. Secure office-relay follow-on goal recorded.
 - 2026-11-06 — Chris confirms unchanged R6 II FTPS connection succeeds.
   Protected listings/uploads observed; native photo ID matches cloud receipt.
   First physical path proof complete; controlled latency/reliability tests open.
@@ -312,3 +316,11 @@ that exact gate. Two no-progress cycles → record the blocker here.
   recorded in [[log/2026-08-28-clean-mac-updater-v0197]]. An affected
   v0.19.5/v0.19.6 Mac needs one direct-DMG recovery; future updates from
   v0.19.7 do not require developer tools.
+
+## 2026-11-06 loop: dedicated practice boundary
+Chris accepted R6 II FTPS delivery speed; no benchmark blocker. PR28 merged
+132bb21 after Node20/22 CI. Next slice pins deployment membership/ingest scope
+and enforces FTPS-only activation; dedicated clinical resources per practice
+replace shared-host plans. See [[dedicated-practice-deployments]]. Remaining
+rollout/production acceptance is explicit there. Follow-on camera relay goal:
+[[2026-11-secure-office-relay]]. No PHI/production AWS setup authorized.

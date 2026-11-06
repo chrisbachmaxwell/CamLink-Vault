@@ -8,7 +8,7 @@ clients BY DESIGN; the home network's mystery `10.128.128.128`
 "prohibited by filter" (July) was the same product family. Clinic
 networks will present this wall routinely.
 
-## The three tiers (all ship; local stays the default)
+## Historical August proposal (superseded)
 1. **Local** (default, HIPAA gold standard): same-Wi-Fi or camera
    access-point mode; photos never leave the building. SHIPPED.
 2. **Med Photo Box**: preconfigured travel router = instant private
@@ -40,3 +40,10 @@ those settings. Never WAN port-forwarding. The app now ships a printable
 - Passive-mode data connections use ephemeral ports → firewall rules
   must allow all TCP camera→computer, or we ship a fixed PASV port
   range (product fix queued).
+
+## Current direction — 2026-11-06
+Cloud-authoritative libraries and dedicated per-practice infrastructure supersede
+the original local-default/pipe-only architecture above. Direct FTPS is proven
+for the tested R6 II. A secure office upload bridge for cameras without FTP/FTPS
+is next: [[2026-11-secure-office-relay]]. Network changes require IT review; do
+not blindly weaken client isolation on an existing office/guest network.

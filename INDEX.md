@@ -56,6 +56,8 @@ dermatologists).
 - [[earlier-photo-guard]] — EXIF gate, clock learning, adoption
 - [[in-app-updates]] — the corner chip
 
+- [[dedicated-practice-deployments]] — separate clinical infrastructure per practice
+
 ## Product doctrine
 - [[design-doctrine]] — Apple-simple; screen map; the flow rules
 - [[hipaa-local-first]] — the BAA/PHI/migration red lines
@@ -67,6 +69,8 @@ dermatologists).
 - [[home-network-filter]] — Chris's router + the office **Meraki**
   (NAT-mode SSID isolation) block device-to-device traffic
 - [[test-environment]] — Chris's MacBook: macOS 26.5.1, Node, Terminal
+
+- Next compatibility work: [[2026-11-secure-office-relay]]
 
 ## Goals (active work loops — protocol in [[goals/README]])
 - CURRENT (active loop): [[2026-08-cloud-clinical-library]] — FTPS/S3/

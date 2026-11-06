@@ -23,7 +23,8 @@ opaque received-photo id may be used to show the synthetic proof image after
 the same authorization checks as every other cloud photo.
 
 ## Per-camera identity and theft response
-The server address may be shared, but every physical camera must have its own
+As of 2026-11-06, each practice requires its own server/clinical deployment
+(see [[dedicated-practice-deployments]]). Every physical camera must have its own
 random FTP/FTPS username and password plus a separate write-only cloud ingest
 credential. The credential, never the camera's display name, binds uploads to
 one organization/location/camera. A per-camera DNS alias is optional later; it
@@ -89,3 +90,11 @@ slowdown. Plan same-camera/network/JPEG comparisons for first shot, subsequent
 shots, idle reconnect, bursts and time-to-display. Source: AWS Transfer Family
 FTPS guide https://docs.aws.amazon.com/transfer/latest/userguide/create-server-ftps.html
 (checked 2026-11-05; verify after 2026-12). No code or deployment change.
+
+## 2026-11-06 field result and current direction
+
+R6 Mark II direct AWS FTPS transfer is physically proven; Chris reports photos
+appear almost immediately and accepts the speed. No further latency benchmark
+is required for this decision. Earlier unmeasured-performance text is historical.
+Dedicated practice infrastructure supersedes shared clinical host proposals.
+See [[dedicated-practice-deployments]] and [[2026-11-secure-office-relay]].
