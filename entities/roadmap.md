@@ -1,5 +1,13 @@
 # roadmap — WHAT IS LEFT
 
+## 2026-11-06 FTPS field test preflight
+Chris requested a real FTPS connection and lag comparison. No timing result yet:
+the installed 0.20.7 app is signed out, no camera card is mounted, and the
+separate FTPS endpoint/certificate remains unprovisioned. Await camera/card,
+clinic sign-in and local-versus-direct-cloud test route. Preserve saved FTP.
+See [[log/2026-11-06-ftps-field-preflight]].
+
+
 ## 2026-11-05 opt-in FTPS implementation
 SDK PR 25 merged as 8bdefe1 after all six local gates and Node 20/22 CI.
 Implemented explicit AUTH TLS with encrypted login/data, per-control TLS session
