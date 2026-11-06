@@ -27,3 +27,31 @@ practice stack or DNS zone created at this checkpoint. Public and installed
 release remain 0.20.7; 0.20.8 is not published merely because its package exists.
 Next: create approved DNS zone and supply NS values; review scoped stack change
 sets and budget; run live two-practice isolation and enroll synthetic owners.
+
+## Release integration and publication attempt
+
+SDK PR31 merged as `9341f62d9d3e0db0e5e6d105b786ebc54f9168da`; Node20 and
+Node22 CI both passed, and merge tree matches the packaged feature tree.
+Vault launch checkpoint PR44 merged as `2f60348` before this follow-up.
+Immutable 0.20.8 ZIP uploaded to existing private release bucket with
+If-None-Match and matching SHA256, version `sbXAFkmhlCApelPr0zG4NkVsNGBQRVGf`.
+CloudShell home quota caused first upload failure; moved the known 0.20.4 ZIP
+temporarily to /tmp, retried, restored the original and verified its checksum.
+No old release deleted. Signing preserved and reverified three prior versions.
+Railway connector required reauthentication; existing authenticated CLI used.
+Release-only deployment `e1caee32-297f-4fe7-a5cb-d1cc10fff7fe` submitted.
+Native Mac observed 0.20.7 on camera setup; remote update click did not activate.
+No forced app replacement, practice migration or ended visit.
+
+## Public release verified
+
+Railway deployment reached SUCCESS. Public 0.20.8 manifest Ed25519 signature,
+full ZIP (114124256 bytes), full DMG (124198397 bytes), latest-DMG no-store
+and service health verified at 2026-11-06T23:38:46.621Z. Receipt and public
+manifest screenshot are in `/Users/chrismaxwell/MedPhoto-Launch-0.20.8/`.
+Installed update awaits Chris because remote app controls did not activate.
+DNS-zone approval remains unanswered; no new DNS zone or dedicated stack was
+created. Chris needs exact four NS values after approved Route53 creation,
+then add NS records named medphoto in Nexcess-managed pictureline.com DNS.
+AWS delegation reference: https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingNewSubdomain.html
+AWS zone price: https://aws.amazon.com/route53/pricing/ ($0.50/month plus queries).
