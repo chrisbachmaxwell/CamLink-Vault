@@ -49,3 +49,7 @@ Current sequence (updated 2026-08-27 — supersedes every list above):
 4. Public distribution + USB and other transports after the cloud workflow
 Gates remain SIX, with package/service-specific adversarial tests added as each
 cloud slice lands.
+
+Current sequence (2026-11-06): dedicated practice FTPS under
+[[2026-08-cloud-clinical-library]], followed by [[2026-11-secure-office-relay]]
+for non-FTP cameras. Production BAA/compliance setup remains deferred.

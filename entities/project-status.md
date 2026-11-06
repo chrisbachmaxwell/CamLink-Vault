@@ -1,5 +1,12 @@
 # project-status — WHAT IS DONE
 
+## 2026-11-06 dedicated practice FTPS direction
+Chris requires separate practice servers/sites/storage and accepts FTPS speed.
+Implementation and acceptance: [[dedicated-practice-deployments]]. Next camera
+compatibility work: [[2026-11-secure-office-relay]]. AWS production/compliance
+setup remains deferred; no PHI or new permanent infrastructure deployed here.
+See [[log/2026-11-06-dedicated-practice-ftps]].
+
 ## 2026-11-06 physical Canon FTPS connection and upload confirmed
 Chris reports the unchanged R6 II connection now succeeds after the trial
 session-ID/listing fix. Server evidence shows protected LIST/NLST and STOR,
@@ -9,10 +16,11 @@ actual camera-to-cloud-to-app transfer; no patient metadata retained here.
 One observed STOR-to-226 interval was roughly 3 seconds; subsequent intervals
 vary (including about 5 and 9 seconds). These are coarse server transfer times,
 not shutter-to-visible latency, matched image-size trials or encryption overhead.
-Asked Chris for a fresh object JPEG and perceived time to appear. Controlled
-FTP comparison, burst/idle/power-cycle/revocation/trust-failure proof remain open.
-SDK feature 85f8b0d / PR 28 remains open (Node22 CI passed; Node20 UI gate still
-running at checkpoint). Trial deployment verified; desktop remains 0.20.7.
+Chris confirmed "photo received" and "Appears almost immediately", then accepted
+the speed as fast enough. A latency benchmark is not a blocker. Reliability,
+idle/power-cycle/revocation/trust-failure proof remain separate acceptance work.
+SDK PR 28 passed both CI jobs and merged as 132bb21. Trial deployment verified;
+desktop remains 0.20.7.
 See [[log/2026-11-06-canon-ftps-first-transfer]].
 
 ## 2026-11-06 direct-cloud FTPS trial live (synthetic only)
