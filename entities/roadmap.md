@@ -1,5 +1,16 @@
 # roadmap — WHAT IS LEFT
 
+## 2026-11-06 Canon FTPS Err 41 under investigation
+Chris reports Cannot connect to FTP server / Err 41 on the R6 II trial.
+Office public IP is unchanged; server banner and trusted TLS login work from
+Mac. Receiver and stop timer remain active. Cause is NOT established.
+SDK feature 277d121 / PR 27 (open, CI pending) adds sanitized connection-stage
+diagnostics to infra/ftps-test only; all six local gates and three privacy/infra
+checks pass. Deployed to the synthetic trial; operator probe logs show successful
+TLS, login and PROT, with no private arguments. Waiting for a fresh camera retry
+and confirmation of FTPS, server address, port 2121 and passive enabled.
+See [[log/2026-11-06-ftps-err41-diagnostics]].
+
 ## 2026-11-06 direct-cloud FTPS trial live (synthetic only)
 Chris approved the temporary $2 trial and connected the card. SDK PR 26 merged
 as `f651894` after six local gates and Node 20/22 CI. Separate AWS receiver is

@@ -72,6 +72,9 @@ library purge, or provider agreement change unless Chris explicitly authorizes
 that exact gate. Two no-progress cycles → record the blocker here.
 
 ## Iteration log
+- 2026-11-06 — Physical R6 II trial reports Err 41. Mac TLS probe passes;
+  sanitized trial diagnostics deployed (SDK PR 27 pending CI). Await camera
+  settings confirmation and retry; do not infer failure cause or FTPS success.
 - 2026-11-06 — Approved synthetic EC2 FTPS trial is live; certificate imported
   on R6 II. Trusted protected upload reached cloud receipt; downgrade and bad
   trust/hostname rejected. Stop timer 22:53 UTC verified. SDK PR 26 merged
