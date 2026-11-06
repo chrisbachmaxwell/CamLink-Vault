@@ -1,12 +1,17 @@
 # roadmap — WHAT IS LEFT
 
-## 2026-11-06 FTPS field test preflight
-Chris requested a real FTPS connection and lag comparison. No timing result yet:
-the installed 0.20.7 app is signed out, no camera card is mounted, and the
-separate FTPS endpoint/certificate remains unprovisioned. Await camera/card,
-clinic sign-in and local-versus-direct-cloud test route. Preserve saved FTP.
-See [[log/2026-11-06-ftps-field-preflight]].
-
+## 2026-11-06 direct-cloud FTPS trial preparation
+Chris selected direct-to-cloud testing with the saved R6 Mark II and confirmed
+both Med Photo and AWS sign-in. Verified installed app remains 0.20.7 and the
+saved camera is present. SDK feature `bf0a1d8`, PR 26 (open), adds a separate
+synthetic-only EC2 receiver template and runbook. All six local gates,
+infrastructure guards and wrapper startup/binding/shutdown passed. AWS template
+validation and uploaded hash passed; default subnet internet routing verified.
+No instance launched, no credentials copied, no certificate provisioned and no
+camera profile changed. Launch confirmation is pending for temporary billable
+resources and new scoped network/instance-control access; card availability is
+also pending. Physical FTPS compatibility and latency remain unmeasured.
+See [[log/2026-11-06-ftps-cloud-trial-preparation]].
 
 ## 2026-11-05 opt-in FTPS implementation
 SDK PR 25 merged as 8bdefe1 after all six local gates and Node 20/22 CI.
