@@ -72,6 +72,9 @@ library purge, or provider agreement change unless Chris explicitly authorizes
 that exact gate. Two no-progress cycles → record the blocker here.
 
 ## Iteration log
+- 2026-11-06 — FTPS physical/latency trial requested; preflight confirms no
+  endpoint yet, app signed out and no card mounted. Waiting for camera/card,
+  sign-in and test-route selection. No performance claim or deployment.
 - 2026-11-05 — Added opt-in explicit FTPS software and protocol-tied Canon
   instructions while preserving FTP. Synthetic endpoint/certificate and actual
   Canon session-resumption/trust/transfer proof remain open; no deployment.
