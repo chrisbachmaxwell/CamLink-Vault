@@ -2,9 +2,9 @@
 
 ## 2026-11-06 launch in progress
 
-Chris requested launch; selected `medphoto.pictureline.com`. Prepared 0.20.8
-(PR31), all six local gates and template validation passed. New DNS zone,
-public release and dedicated stack deployment remain pending at this checkpoint.
+Chris requested launch; selected `medphoto.pictureline.com`. Published and publicly verified 0.20.8
+(PR31 merged 9341f62), all six local gates, Node20/22 CI and template validation
+passed. New DNS zone, dedicated stacks and installed Mac update remain pending.
 Old four-hour FTPS trial verified stopped. See [[log/2026-11-06-practice-launch]]
 for exact evidence, DNS delegation and rollout boundaries.
 
