@@ -72,6 +72,13 @@ library purge, or provider agreement change unless Chris explicitly authorizes
 that exact gate. Two no-progress cycles → record the blocker here.
 
 ## Iteration log
+- 2026-11-06 — Approved synthetic EC2 FTPS trial is live; certificate imported
+  on R6 II. Trusted protected upload reached cloud receipt; downgrade and bad
+  trust/hostname rejected. Stop timer 22:53 UTC verified. SDK PR 26 merged
+  f651894. Waiting for actual Canon upload and matched timing; no PHI.
+- 2026-11-06 — Direct-cloud R6 II route selected; app/AWS sign-in verified.
+  Trial template validated and SDK PR 26 opened after six gates. Waiting for
+  launch confirmation and camera card; no cloud receiver or timing proof yet.
 - 2026-11-06 — FTPS physical/latency trial requested; preflight confirms no
   endpoint yet, app signed out and no card mounted. Waiting for camera/card,
   sign-in and test-route selection. No performance claim or deployment.

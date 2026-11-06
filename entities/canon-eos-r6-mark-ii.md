@@ -48,3 +48,16 @@ unverified menu or protocol guesses.
 and nine guided tasks, plus reported-error recovery. Source checked 2026-11-05
 (verify after: 2027-02). The recent-receipt/online/waiting/unavailable fix from
 `2c40c15` is included in SDK PR 21. Release evidence: [[log/2026-11-05-r6iii-live-setup]].
+
+## FTPS trust provisioning — 2026-11-06 clarification
+Canon C012 explicitly requires importing the FTPS server root certificate from
+a card (ROOT.CER/ROOT.CRT/ROOT.PEM); it supports one imported root. Do not
+promise that a publicly issued server certificate eliminates this step. Earlier
+conversation speculation to that effect was corrected against the manual.
+Product target: guided initial per-camera import, app-prepared card, exact menu
+steps and verified test-photo receipt; no certificate-validation bypass. Root
+replacement/deletion may require re-import. Routine server-leaf renewal under
+the same trusted root should not itself require a new root, subject to physical
+validation. This trial uses a short-lived private CA, not production trust.
+Source: https://cam.start.canon/en/C012/manual/html/UG-07_Network_0070.html
+Checked 2026-11-06; verify after 2027-02.
