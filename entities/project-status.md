@@ -1,5 +1,22 @@
 # project-status — WHAT IS DONE
 
+## 2026-11-06 secure practice platform build
+
+Built the synthetic implementation for dedicated-practice provisioning,
+certificate download/issuance/renewal, signed desktop enrollment, encrypted FTPS
+spooling and a runnable Canon office receiver. Pairing/renewal, OS key-provider
+support, receipt verification and separate receiver/camera/delivery UI states are
+implemented. R8 Mark II is a verified official Canon model; previous uncertainty
+is corrected, but receiver hardware acceptance is not inferred from its manual.
+
+SDK PR30 merged as 7767bad after all six local gates and Node20/22 CI passed.
+Vault delivery: PR43. Permanent AWS provisioning and clinical compliance remain deferred. Installed
+app stays 0.20.7; this source work is not a production or desktop release.
+Two live stacks' isolation, managed receiver installer/updates, hardware failure
+and OS key recovery drills, operational alarms and clinical security acceptance
+remain release gates. See [[log/2026-11-06-secure-practice-platform-build]].
+
+
 ## 2026-11-06 dedicated practice FTPS direction
 Chris requires separate practice servers/sites/storage and accepts FTPS speed.
 Implementation and acceptance: [[dedicated-practice-deployments]]. Next camera
