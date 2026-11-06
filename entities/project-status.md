@@ -1,17 +1,21 @@
 # project-status — WHAT IS DONE
 
-## 2026-11-06 direct-cloud FTPS trial preparation
-Chris selected direct-to-cloud testing with the saved R6 Mark II and confirmed
-both Med Photo and AWS sign-in. Verified installed app remains 0.20.7 and the
-saved camera is present. SDK feature `bf0a1d8`, PR 26 (open), adds a separate
-synthetic-only EC2 receiver template and runbook. All six local gates,
-infrastructure guards and wrapper startup/binding/shutdown passed. AWS template
-validation and uploaded hash passed; default subnet internet routing verified.
-No instance launched, no credentials copied, no certificate provisioned and no
-camera profile changed. Launch confirmation is pending for temporary billable
-resources and new scoped network/instance-control access; card availability is
-also pending. Physical FTPS compatibility and latency remain unmeasured.
-See [[log/2026-11-06-ftps-cloud-trial-preparation]].
+## 2026-11-06 direct-cloud FTPS trial live (synthetic only)
+Chris approved the temporary $2 trial and connected the card. SDK PR 26 merged
+as `f651894` after six local gates and Node 20/22 CI. Separate AWS receiver is
+running; live firewall allows only the office IPv4 /32 on 2121 and 50000–50009.
+SSM management is online; four-hour automatic stop verified for 22:53 UTC
+(3:53 PM Mountain) Nov 6. Encrypted disk persists and has ongoing storage cost.
+The selected saved R6 II binding alone was copied securely without rotating
+working FTP. Server key stays on EC2; CA key stays on Mac. Public root was copied
+to the card, verified and ejected; Chris confirmed camera import.
+Trusted login/session-bound protected upload passed; plaintext login, PROT C,
+untrusted root and wrong hostname were rejected. One small computer-generated
+JPEG completed FTP in 0.64s and Med Photo showed Photo received for the saved
+R6 II. This is NOT physical Canon or shutter-to-display latency proof.
+Waiting for Chris to add the separate FTPS connection using private local
+instructions and take an object photo. Desktop stays 0.20.7; no production
+HIPAA deployment or general office rollout. See [[log/2026-11-06-ftps-cloud-trial-live]].
 
 ## 2026-11-05 opt-in FTPS implementation
 SDK PR 25 merged as 8bdefe1 after all six local gates and Node 20/22 CI.
