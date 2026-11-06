@@ -18,8 +18,9 @@ SDK PR28 feature 85f8b0d merged 132bb21 after both Node20/22 CI jobs passed.
 The tested receiver is already deployed to the temporary synthetic trial.
 SDK feature fe94642 / PR29 adds dedicated deployment membership/ingest checks,
 FTPS-only activation with failed-downgrade cleanup and explicit legacy FTP opt-in.
-Seven focused adversarial tests and all six required local gates pass. PR29 CI
-and merge are tracked below. No secrets, patient records or images retained.
+Seven focused adversarial tests and all six required local gates pass. PR29
+Node20 CI passed; Node22 browser/dependency step is still running at this
+checkpoint. Do not merge until both pass. No secrets, patient records or images retained.
 
 ## Boundaries and remaining work
 No new AWS infrastructure, PHI authorization or desktop release. Installed app
