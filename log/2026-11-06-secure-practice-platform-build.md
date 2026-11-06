@@ -48,5 +48,6 @@ All six local gates passed on the final source: full build, every workspace
 test, PTP/FTP/multi-room smoke and full browser UI gate. Added browser proof
 covers the FTPS certificate download and R8 II receiver pairing steps.
 Generated template passed cfn-lint and structure tests. Offline certificate
-initialization and same-root renewal passed. GitHub Node20/22 CI and main merge
-are pending at this checkpoint; no deployment or desktop release.
+initialization and same-root renewal passed. GitHub Node20/22 CI both passed on 018b0fb. SDK PR30 merged to main as
+7767bad13de2e3195a023c7adda6313353532add. No deployment or desktop release.
+Vault evidence is delivered through PR43.

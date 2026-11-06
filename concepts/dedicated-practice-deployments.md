@@ -34,3 +34,6 @@ Next compatibility path: [[2026-11-secure-office-relay]].
 
 Source evidence: SDK feature fe94642, PR29 merged bc21c73 after six local gates
 and Node20/22 CI, 2026-11-06. No live deployment of these policy changes yet.
+
+Expanded implementation: SDK PR30 merged 7767bad after six local gates and both
+Node20/22 CI jobs passed. Vault PR43 records the remaining release gates.

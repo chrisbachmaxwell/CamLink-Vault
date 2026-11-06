@@ -9,7 +9,8 @@ support, receipt verification and separate receiver/camera/delivery UI states ar
 implemented. R8 Mark II is a verified official Canon model; previous uncertainty
 is corrected, but receiver hardware acceptance is not inferred from its manual.
 
-Permanent AWS provisioning and clinical compliance remain deferred. Installed
+SDK PR30 merged as 7767bad after all six local gates and Node20/22 CI passed.
+Vault delivery: PR43. Permanent AWS provisioning and clinical compliance remain deferred. Installed
 app stays 0.20.7; this source work is not a production or desktop release.
 Two live stacks' isolation, managed receiver installer/updates, hardware failure
 and OS key recovery drills, operational alarms and clinical security acceptance
