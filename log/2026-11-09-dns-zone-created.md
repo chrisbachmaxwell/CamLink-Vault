@@ -19,3 +19,6 @@ Parent DNS delegation remains pending; no public server address configured.
 No dedicated practice servers launched, clinical migration performed or PHI used.
 Current installed app remains 0.20.8 (independently verified earlier today).
 No SDK changes; SDK main release remains 9341f62 / PR31.
+
+Final AWS change readback: INSYNC. Screenshot evidence saved outside the vault
+at /Users/chrismaxwell/MedPhoto-Launch-0.20.8/dns-zone-created.png.
