@@ -3,7 +3,8 @@
 ## 2026-11-09 DNS approval and installed version
 
 Chris approved the medphoto.pictureline.com Route53 zone charge; approval
-persists. AWS signed out; zone creation awaits sign-in, then exact NS handoff.
+persists. Public DNS zone now created and nameservers verified; Nexcess parent
+NS delegation is pending. See [[log/2026-11-09-dns-zone-created]].
 Installed Mac version independently verified **0.20.8** from Info.plist.
 Dedicated stacks and DNS delegation remain pending. See
 [[log/2026-11-09-dns-zone-approval]].
