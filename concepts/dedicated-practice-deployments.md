@@ -37,3 +37,10 @@ and Node20/22 CI, 2026-11-06. No live deployment of these policy changes yet.
 
 Expanded implementation: SDK PR30 merged 7767bad after six local gates and both
 Node20/22 CI jobs passed. Vault PR43 records the remaining release gates.
+
+## DNS handoff, 2026-11-09
+
+Public Route53 zone medphoto.pictureline.com created (Z0004499HWAP61J9XKQS).
+Nameservers and parent-zone instructions: [[log/2026-11-09-dns-zone-created]].
+Nexcess parent delegation and dedicated practice stacks remain pending.
+DNS zone creation alone does not deploy a clinical endpoint.
